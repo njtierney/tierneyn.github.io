@@ -7,9 +7,9 @@ relative_permalinks: true
 # Setup
 title:               Poole
 tagline:             The Jekyll Butler
-url:                 http://www.tierneyn.github.io/poole/
+url:                 http://www.tierneyn.github.io
 paginate:            1
-baseurl:             ""
+baseurl:             "http://www.tierneyn.github.io/poole/"
 
 # Assets
 #
