@@ -10,7 +10,7 @@ relative_permalinks: true
 title:            Nicholas Tierney
 tagline:          'Original witty remark'
 description:      'This is my website'
-url:              tierneyn/github.io
+url:              tierneyn.github.io
 baseurl:          /
 
 author:
