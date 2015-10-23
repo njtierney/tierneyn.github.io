@@ -9,13 +9,13 @@ relative_permalinks: true
 # Setup
 title:            Nicholas Tierney
 tagline:          'Original witty remark'
-description:      'This is my website'
+description:      'Original witty remark'
 url:              tierneyn.github.io
 baseurl:          /
 
 author:
   name:           'Nicholas Tierney'
-  url:            https://www.njtierney.com
+  url:            tierneyn.github.io
 
 paginate:         5
 
@@ -23,3 +23,6 @@ paginate:         5
 version:          2.1.0
 
 github:           https://github.com/tierneyn
+
+kramdown:
+ input: GFM
