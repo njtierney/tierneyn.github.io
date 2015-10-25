@@ -4,7 +4,7 @@
  <title>Nicholas Tierney</title>
  <link href="tierneyn.github.io/atom.xml" rel="self"/>
  <link href="tierneyn.github.io/"/>
- <updated>2015-10-23T17:25:55+10:00</updated>
+ <updated>2015-10-26T01:19:44+10:00</updated>
  <id>tierneyn.github.io</id>
  <author>
    <name>Nicholas Tierney</name>
@@ -13,29 +13,95 @@
 
  
  <entry>
-   <title>Teaching</title>
-   <link href="tierneyn.github.io/2015/10/23/teaching/"/>
-   <updated>2015-10-23T00:00:00+10:00</updated>
-   <id>tierneyn.github.io/2015/10/23/teaching</id>
-   <content type="html">&lt;p&gt;This is a page that has all my teaching material.&lt;/p&gt;
+   <title>2015-10-24-naming-cars-dataset</title>
+   <link href="tierneyn.github.io/2015/10/26/naming-cars-dataset/"/>
+   <updated>2015-10-26T00:00:00+10:00</updated>
+   <id>tierneyn.github.io/2015/10/26/naming-cars-dataset</id>
+   <content type="html">&lt;h2&gt;R Markdown&lt;/h2&gt;
+
+&lt;p&gt;This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see &lt;a href=&quot;http://rmarkdown.rstudio.com&quot;&gt;http://rmarkdown.rstudio.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;When you click the &lt;strong&gt;Knit&lt;/strong&gt; button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kp&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;cars&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Including Plots&lt;/h2&gt;
+
+&lt;p&gt;You can also embed plots, for example:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/exploring-the-cars-dataset-pressure-1.png&quot; alt=&quot;plot of chunk pressure&quot;&gt; &lt;/p&gt;
+
+&lt;p&gt;Note that the &lt;code&gt;echo = FALSE&lt;/code&gt; parameter was added to the code chunk to prevent printing of the R code that generated the plot.&lt;/p&gt;
 </content>
  </entry>
  
  <entry>
    <title>My First Post</title>
-   <link href="tierneyn.github.io/2015/10/23/first/"/>
+   <link href="tierneyn.github.io/2015/10/23/test/"/>
    <updated>2015-10-23T00:00:00+10:00</updated>
-   <id>tierneyn.github.io/2015/10/23/first</id>
-   <content type="html">&lt;p&gt;Ta-da!&lt;/p&gt;
+   <id>tierneyn.github.io/2015/10/23/test</id>
+   <content type="html">&lt;p&gt;I changed the markdown engine in tha YAML from redcarpet to kramdown so that I could get these &amp;quot;piped&amp;quot; tables to work.&lt;/p&gt;
 
-&lt;p&gt;| Sepal.Length| Sepal.Width| Petal.Length| Petal.Width|Species |
-|------------:|-----------:|------------:|-----------:|:-------|
-|          5.1|         3.5|          1.4|         0.2|setosa  |
-|          4.9|         3.0|          1.4|         0.2|setosa  |
-|          4.7|         3.2|          1.3|         0.2|setosa  |
-|          4.6|         3.1|          1.5|         0.2|setosa  |
-|          5.0|         3.6|          1.4|         0.2|setosa  |
-|          5.4|         3.9|          1.7|         0.4|setosa  |&lt;/p&gt;
+&lt;p&gt;Check it!&lt;/p&gt;
+
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align: right&quot;&gt;Sepal.Length&lt;/th&gt;
+&lt;th style=&quot;text-align: right&quot;&gt;Sepal.Width&lt;/th&gt;
+&lt;th style=&quot;text-align: right&quot;&gt;Petal.Length&lt;/th&gt;
+&lt;th style=&quot;text-align: right&quot;&gt;Petal.Width&lt;/th&gt;
+&lt;th style=&quot;text-align: left&quot;&gt;Species&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;5.1&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;3.5&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;1.4&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;0.2&lt;/td&gt;
+&lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;4.9&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;3.0&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;1.4&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;0.2&lt;/td&gt;
+&lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;4.7&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;3.2&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;1.3&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;0.2&lt;/td&gt;
+&lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;4.6&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;3.1&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;1.5&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;0.2&lt;/td&gt;
+&lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;5.0&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;3.6&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;1.4&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;0.2&lt;/td&gt;
+&lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;5.4&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;3.9&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;1.7&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;0.4&lt;/td&gt;
+&lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
 </content>
  </entry>
  

@@ -1,5 +1,8 @@
 # Dependencies
-markdown:         redcarpet
+markdown:         redcarpet	
+redcarpet:
+  extensions: ["tables"]
+
 highlighter:      pygments
 
 # Permalinks
@@ -19,10 +22,6 @@ author:
 
 paginate:         5
 
-# Custom vars
-version:          2.1.0
-
-github:           https://github.com/tierneyn
-
-kramdown:
- input: GFM
+# exclude the R Project
+exclude:          [_rmd, _rmd.Rproj]
+exclude: ["*.Rmd"]

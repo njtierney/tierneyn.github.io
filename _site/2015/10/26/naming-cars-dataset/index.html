@@ -11,7 +11,7 @@
 
   <title>
     
-      Teaching &middot; Nicholas Tierney
+      2015-10-24-naming-cars-dataset &middot; Nicholas Tierney
     
   </title>
 
@@ -30,10 +30,10 @@
 </head>
 
 
-  <body>
+  <body class="theme-base-08">
 
     <div class="sidebar">
-  <div class="container sidebar-sticky">
+  <div class="container">
     <div class="sidebar-about">
       <h1>
         <a href="/">
@@ -78,10 +78,7 @@
           
         
       
-
-      <a class="sidebar-nav-item" href="/archive/v2.1.0.zip">Download</a>
-      <a class="sidebar-nav-item" href="">GitHub project</a>
-      <span class="sidebar-nav-item">Currently v2.1.0</span>
+    
     </nav>
 
     <p>&copy; 2015. All rights reserved.</p>
@@ -90,13 +87,28 @@
 
 
     <div class="content container">
-      <div class="page">
-  <h1 class="page-title">Teaching</h1>
-  <p>This is a page that has all my teaching material.</p>
+      <h2>R Markdown</h2>
 
-</div>
+<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com">http://rmarkdown.rstudio.com</a>.</p>
+
+<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kp">summary</span><span class="p">(</span>cars<span class="p">)</span>
+</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00
+</code></pre></div>
+<h2>Including Plots</h2>
+
+<p>You can also embed plots, for example:</p>
+
+<p><img src="/images/exploring-the-cars-dataset-pressure-1.png" alt="plot of chunk pressure"> </p>
+
+<p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
 
     </div>
-
   </body>
 </html>
