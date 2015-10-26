@@ -2,13 +2,13 @@
 title: "2015-10-24-naming-cars-dataset"
 author: "Nicholas Tierney"
 date: "October 26, 2015"
-layout: default
+layout: post
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
-knitr::opts_chunk$set(fig.path='{{ tierneyn.github.io }}/images/exploring-the-cars-dataset-')
+knitr::opts_chunk$set(fig.path='{{ site.url }}/images/exploring-the-cars-dataset-')
 ```
 
 ## R Markdown

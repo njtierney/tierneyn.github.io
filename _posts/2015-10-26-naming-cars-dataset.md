@@ -2,7 +2,7 @@
 title: "2015-10-24-naming-cars-dataset"
 author: "Nicholas Tierney"
 date: "October 26, 2015"
-layout: default
+layout: post
 ---
 
 
@@ -32,6 +32,6 @@ summary(cars)
 
 You can also embed plots, for example:
 
-![plot of chunk pressure]({{ tierneyn.github.io }}/images/exploring-the-cars-dataset-pressure-1.png) 
+![plot of chunk pressure]({{ site.url }}/images/exploring-the-cars-dataset-pressure-1.png) 
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

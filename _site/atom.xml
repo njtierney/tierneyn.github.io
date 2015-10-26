@@ -4,7 +4,7 @@
  <title>Nicholas Tierney</title>
  <link href="tierneyn.github.io/atom.xml" rel="self"/>
  <link href="tierneyn.github.io/"/>
- <updated>2015-10-26T01:19:44+10:00</updated>
+ <updated>2015-10-26T17:08:49+10:00</updated>
  <id>tierneyn.github.io</id>
  <author>
    <name>Nicholas Tierney</name>
@@ -35,7 +35,7 @@
 
 &lt;p&gt;You can also embed plots, for example:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/images/exploring-the-cars-dataset-pressure-1.png&quot; alt=&quot;plot of chunk pressure&quot;&gt; &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;tierneyn.github.io/images/exploring-the-cars-dataset-pressure-1.png&quot; alt=&quot;plot of chunk pressure&quot;&gt; &lt;/p&gt;
 
 &lt;p&gt;Note that the &lt;code&gt;echo = FALSE&lt;/code&gt; parameter was added to the code chunk to prevent printing of the R code that generated the plot.&lt;/p&gt;
 </content>
@@ -46,9 +46,16 @@
    <link href="tierneyn.github.io/2015/10/23/test/"/>
    <updated>2015-10-23T00:00:00+10:00</updated>
    <id>tierneyn.github.io/2015/10/23/test</id>
-   <content type="html">&lt;p&gt;I changed the markdown engine in tha YAML from redcarpet to kramdown so that I could get these &amp;quot;piped&amp;quot; tables to work.&lt;/p&gt;
+   <content type="html">&lt;p&gt;After looking at &lt;a href=&quot;https://github.com/nicolewhite/nicolewhite.github.io&quot;&gt;Nicole White&amp;#39;s&lt;/a&gt; &lt;code&gt;_config.yml&lt;/code&gt; I saw that she had written &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;markdown: redcarpet
+redcarpet:
+  extensions: [&amp;quot;tables&amp;quot;] 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I was initially using &lt;code&gt;kramdown&lt;/code&gt; to render the markdown, but that messed up my RMarkdown formatting, so I switched back.&lt;/p&gt;
 
-&lt;p&gt;Check it!&lt;/p&gt;
+&lt;p&gt;So here is my pasted table using &lt;code&gt;knitr::kable(head(iris))&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Check it out:&lt;/p&gt;
 
 &lt;table&gt;&lt;thead&gt;
 &lt;tr&gt;
