@@ -2,11 +2,16 @@
 title: "again"
 author: "Nicholas Tierney"
 date: "October 27, 2015"
-output: html_document
+output: 
+  html_document: 
+    highlight: null
+    self_contained: no
+    smart: no
+    theme: null
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(dev='svg')
 ```
 
 ## R Markdown

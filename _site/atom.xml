@@ -4,7 +4,7 @@
  <title>Nicholas Tierney</title>
  <link href="tierneyn.github.io/atom.xml" rel="self"/>
  <link href="tierneyn.github.io/"/>
- <updated>2015-10-28T00:01:50+10:00</updated>
+ <updated>2015-10-28T00:15:51+10:00</updated>
  <id>tierneyn.github.io</id>
  <author>
    <name>Nicholas Tierney</name>
@@ -35,7 +35,7 @@
 
 &lt;p&gt;You can also embed plots, for example:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/figure/source/2015-10-27-again/pressure-1.png&quot; alt=&quot;plot of chunk pressure&quot;&gt; &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/figure/source/2015-10-27-again/pressure-1.svg&quot; alt=&quot;plot of chunk pressure&quot;&gt; &lt;/p&gt;
 
 &lt;p&gt;Note that the &lt;code&gt;echo = FALSE&lt;/code&gt; parameter was added to the code chunk to prevent printing of the R code that generated the plot.&lt;/p&gt;
 </content>

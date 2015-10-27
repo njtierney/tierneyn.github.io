@@ -24,5 +24,6 @@ paginate:         5
 paginate_path:    "blog/index.html"
 
 # exclude the R Project
-exclude:          [_rmd, _rmd.Rproj]
+exclude: [_source]
 exclude: ["*.Rmd"]
+exclude: ["*.Rproj"]
