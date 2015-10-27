@@ -1,7 +1,6 @@
 #!/usr/bin/env Rscript
-
-# thanks to http://nicolewhite.github.io/2015/02/07/r-blogging-with-rmarkdown-knitr-jekyll.html
-# 
+# ref: http://nicolewhite.github.io/2015/02/07/r-blogging-with-rmarkdown-knitr-jekyll.html
+#
 library(knitr)
 
 # Get the filename given as an argument in the shell.
@@ -25,5 +24,3 @@ todir = "../images"
 pics = list.files(fromdir, ".png")
 pics = sapply(pics, function(x) paste(fromdir, x, sep="/"))
 file.copy(pics, todir)
-
-unlink("{{ site.url }}", recursive=T)

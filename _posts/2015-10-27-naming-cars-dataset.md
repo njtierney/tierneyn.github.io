@@ -1,5 +1,5 @@
 ---
-title: "2015-10-24-naming-cars-dataset"
+title: "naming-cars-dataset"
 author: "Nicholas Tierney"
 date: "October 26, 2015"
 layout: post
