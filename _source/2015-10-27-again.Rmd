@@ -1,14 +1,12 @@
 ---
-title: "naming-cars-dataset"
+title: "again"
 author: "Nicholas Tierney"
-date: "October 26, 2015"
-layout: post
+date: "October 27, 2015"
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
-
-knitr::opts_chunk$set(fig.path='{{ site.url }}/images/exploring-the-cars-dataset-')
-
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## R Markdown

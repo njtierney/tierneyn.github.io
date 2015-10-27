@@ -4,7 +4,7 @@
  <title>Nicholas Tierney</title>
  <link href="tierneyn.github.io/atom.xml" rel="self"/>
  <link href="tierneyn.github.io/"/>
- <updated>2015-10-27T17:48:07+10:00</updated>
+ <updated>2015-10-28T00:01:50+10:00</updated>
  <id>tierneyn.github.io</id>
  <author>
    <name>Nicholas Tierney</name>
@@ -13,10 +13,10 @@
 
  
  <entry>
-   <title>naming-cars-dataset</title>
-   <link href="tierneyn.github.io/2015/10/26/naming-cars-dataset/"/>
-   <updated>2015-10-26T00:00:00+10:00</updated>
-   <id>tierneyn.github.io/2015/10/26/naming-cars-dataset</id>
+   <title>again</title>
+   <link href="tierneyn.github.io/2015/10/27/again/"/>
+   <updated>2015-10-27T00:00:00+10:00</updated>
+   <id>tierneyn.github.io/2015/10/27/again</id>
    <content type="html">&lt;h2&gt;R Markdown&lt;/h2&gt;
 
 &lt;p&gt;This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see &lt;a href=&quot;http://rmarkdown.rstudio.com&quot;&gt;http://rmarkdown.rstudio.com&lt;/a&gt;.&lt;/p&gt;
@@ -35,7 +35,7 @@
 
 &lt;p&gt;You can also embed plots, for example:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;tierneyn.github.io/images/exploring-the-cars-dataset-pressure-1.png&quot; alt=&quot;plot of chunk pressure&quot;&gt; &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/figure/source/2015-10-27-again/pressure-1.png&quot; alt=&quot;plot of chunk pressure&quot;&gt; &lt;/p&gt;
 
 &lt;p&gt;Note that the &lt;code&gt;echo = FALSE&lt;/code&gt; parameter was added to the code chunk to prevent printing of the R code that generated the plot.&lt;/p&gt;
 </content>
