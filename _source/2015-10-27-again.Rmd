@@ -2,12 +2,7 @@
 title: "again"
 author: "Nicholas Tierney"
 date: "October 27, 2015"
-output: 
-  html_document: 
-    highlight: null
-    self_contained: no
-    smart: no
-    theme: null
+layout: post
 ---
 
 ```{r setup, include=FALSE}
