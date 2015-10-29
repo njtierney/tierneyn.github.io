@@ -3,6 +3,10 @@ layout: page
 title: Resources
 ---
 
+![My helpful screenshot](/assets/nick_lead_comp_headshot_2015.jpeg)
+
+
+
 There are a lot of questions and answers on the internet.  This page lists sites that have been useful to me in my research, and sites that will hopefully help others!
 
 # 'R' Related Resources
