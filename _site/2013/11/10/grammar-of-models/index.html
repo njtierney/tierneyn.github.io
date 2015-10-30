@@ -10,7 +10,7 @@
 
   <title>
     
-      My First Post &middot; Nicholas Tierney
+      A Grammar of Models? &middot; Nicholas Tierney
     
   </title>
 
@@ -127,72 +127,23 @@
 
       <div class="container content">
         <div class="post">
-  <h1 class="post-title">My First Post</h1>
-  <span class="post-date">23 Oct 2015</span>
-  <p>After looking at <a href="https://github.com/nicolewhite/nicolewhite.github.io">Nicole White&#39;s</a> <code>_config.yml</code> I saw that she had written </p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">markdown: redcarpet
-redcarpet:
-  extensions: [&quot;tables&quot;] 
+  <h1 class="post-title">A Grammar of Models?</h1>
+  <span class="post-date">10 Nov 2013</span>
+  <p>I came across <a href="http://statr.me/2013/09/a-conversation-with-hadley-wickham/">this interview</a> with Hadley Wickham, the creator of one of the most widely used R packages, ggplot 2. I thought that this quote was interesting:</p>
+
+<blockquote>
+<p>I’m also really interested in statistical learning as a family of modeling techniques, a kind of fitting them together very well and forming a grammer of models. You can make a new model by joing things together, just like the grammer of graphics by which you can come up with a new graphic that is just a new arrangment of existing components. I think that’s something that makes it easier to learn modeling. For example, you can learn a linear model in this way, a random forest in that way, and you can learn them in a unified framework.</p>
+
+<p>Another thing I’d like to think is the Lasso-type method. In one of my classes, I want to show that now you should always try stablized regression, you should always try to do Lasso and the similar. I think there are 13 packages that would do Lasso, and I tried them all. But every single one of them broke for a different reason. For example, it didn’t support missing values, it didn’t support categorical variables, it didn’t do predictions and standard errors, or it didn’t automatically find the lambda parameter. Maybe that’s because the authors are more interested in the theoretical papers, not in providing a tool that you can use in data analysis. So I want to integrate them together to form a tool that is fast and works well.</p>
+</blockquote>
+
+<p>And it got me thinking, would it be possible for statistical models to be written like ggplot, with a grammar of models?  It seems impossible, and maybe I&#39;m totally not reading the interview correctly, but it got me thinking.   What would it look like?</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">ggmodel(data = my.data,
+        fun [Y ~ V1 + V2 + V3 + e])
+        model_nest(V1 = V1 ~ Y1 + Y2 + e)
+        m.impute(m = 4)
+        time_period(type = unequal)
 </code></pre></div>
-<p>I was initially using <code>kramdown</code> to render the markdown, but that messed up my RMarkdown formatting, so I switched back.</p>
-
-<p>So here is my pasted table using <code>knitr::kable(head(iris))</code></p>
-
-<p>Check it out:</p>
-
-<table><thead>
-<tr>
-<th style="text-align: right">Sepal.Length</th>
-<th style="text-align: right">Sepal.Width</th>
-<th style="text-align: right">Petal.Length</th>
-<th style="text-align: right">Petal.Width</th>
-<th style="text-align: left">Species</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: right">5.1</td>
-<td style="text-align: right">3.5</td>
-<td style="text-align: right">1.4</td>
-<td style="text-align: right">0.2</td>
-<td style="text-align: left">setosa</td>
-</tr>
-<tr>
-<td style="text-align: right">4.9</td>
-<td style="text-align: right">3.0</td>
-<td style="text-align: right">1.4</td>
-<td style="text-align: right">0.2</td>
-<td style="text-align: left">setosa</td>
-</tr>
-<tr>
-<td style="text-align: right">4.7</td>
-<td style="text-align: right">3.2</td>
-<td style="text-align: right">1.3</td>
-<td style="text-align: right">0.2</td>
-<td style="text-align: left">setosa</td>
-</tr>
-<tr>
-<td style="text-align: right">4.6</td>
-<td style="text-align: right">3.1</td>
-<td style="text-align: right">1.5</td>
-<td style="text-align: right">0.2</td>
-<td style="text-align: left">setosa</td>
-</tr>
-<tr>
-<td style="text-align: right">5.0</td>
-<td style="text-align: right">3.6</td>
-<td style="text-align: right">1.4</td>
-<td style="text-align: right">0.2</td>
-<td style="text-align: left">setosa</td>
-</tr>
-<tr>
-<td style="text-align: right">5.4</td>
-<td style="text-align: right">3.9</td>
-<td style="text-align: right">1.7</td>
-<td style="text-align: right">0.4</td>
-<td style="text-align: left">setosa</td>
-</tr>
-</tbody></table>
-
 </div>
 
 <div class="related">
@@ -210,9 +161,9 @@ redcarpet:
     
       <li>
         <h3>
-          <a href="/2013/11/10/grammar-of-models/">
-            A Grammar of Models?
-            <small>10 Nov 2013</small>
+          <a href="/2015/10/23/test/">
+            My First Post
+            <small>23 Oct 2015</small>
           </a>
         </h3>
       </li>

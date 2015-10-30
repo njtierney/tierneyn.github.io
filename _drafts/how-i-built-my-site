@@ -100,3 +100,28 @@ I had a look around at a bunch of different blogs about how to build stuff
 As Joshua Lande points out, this : "By setting up the code this way, I can enable commenting on a page-by-page basis. All I have to do is set "comments: True" in the YAML header of the post."
 
 I then decided that I couldn't understand what disqus wanted me to do...so I copies Joshua Lande's text from his github repo, changed his name for mine, and continued on. Isn't that cool? Isn't that why GitHub is so awesome?
+
+And then continues folowing Joshua's advice over disqus.
+
+**adding google analytics**
+
+I didn't really know what google analytics was. so I went to their homepage. http://www.google.com/analytics/
+
+I found the link "sign up for analytics". Sounds good. follow the prompts. 
+
+I left all the boxes ticked. Google has my soul...accepted the ts and cs. 
+
+google then gives me a tracking code, with a nice box, saying: "this is your tracking code".
+
+**changing the page header format**
+
+I went to poole.css and changed:
+
+```
+
+```
+
+into
+
+```
+```

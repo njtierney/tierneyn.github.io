@@ -1,0 +1,243 @@
+---
+title: "A Quick and Dirty Guide to S3 Methods in R"
+author: "Nicholas Tierney"
+date: "29 May 2015"
+layout: post
+comments: true
+output: 
+  html_document: 
+    highlight: null
+    theme: null
+---
+
+S3 methods are a way of writing functions in R that do different things for objects with different classes. For example, the function `summary()` used on a dataframe shows descriptive statistics (Mean, SD, etc.) for each variable. Let's look at the `iris` dataset to illustrate this.
+
+```{r }
+
+summary(iris)
+
+```
+
+Gives a nice description of iris. But `summary` is different when applied to a linear model.
+
+```{r}
+
+lm_iris <- lm(Sepal.Length ~ Sepal.Width, data = iris)
+
+summary(lm_iris)
+
+```
+
+Here, summary produces really useful information - showing what the linear model was (`call`), as well as the `residuals`, `coefficients`, `t-values`, `p-values`, and $R^2$.  
+
+This output is also **completely** different to the `summary` information we got for the `iris` dataframe.
+
+**So what's the deal with that?**
+
+R is _hiding_ information from us. There are different functions for `summary`:
+
+- `summary.lm`, for linear models
+- `summary.data.frame`, for data frames
+- and many more!  (`methods(summary)` will give you all the different S3 methods for `summary`.)
+
+Importantly, you only see the first part: `summary`. So it acts differently on different classes. You can find the class of an object using the command, `class()`, on the object. 
+
+For example:
+
+```{r}
+
+x <- c(1, 2, 3, 4, 5)
+
+x
+
+class(x)
+
+```
+
+Here, showing that the object `x` is of class `numeric`. 
+
+`str()` can also provide more information:
+
+```{r}
+
+str(x)
+
+```
+
+Which tells us that x is `numeric` and then shows its contents.
+
+Getting back on topic, when using `summary` on the `iris` data, R actually calls the function `summary.data.frame`, because `iris` is of class `data.frame`.
+
+```{r}
+
+class(iris)
+
+```
+
+And S3 methods basically hide all the words after the `.` on `summary`. For example:
+
+```{r}
+
+summary.data.frame(iris)
+
+```
+
+And 
+
+```{r}
+
+summary.lm(lm_iris)
+
+```
+
+Using the wrong class method can give you some output that can be a bit confusing.
+
+```{r}
+
+summary.data.frame(lm_iris)
+
+```
+
+R hides the important stuff after the `.` to avoid you needing to use a different `summary` function for each different class. And that makes sense if you think about how annoying it would be to use `summary.lm` for linear models, or `summary.data.frame` for data frames, or `summary.myownridiculousclassname`. S3 methods reduce cognitive load - you don't have to think as much to remember what class an object is, you can just **do** what you want - want to get a summary of an object - type `summary`. Want to plot something `plot` it. 
+
+## How do I make my own S3 method?
+
+It is actually really easy to make your own S3 methods. But first let's  talk through an example (read, story) of why you might want to write your own S3 method.
+
+I'm a big fan of decision trees. One day, I found that I was calculating the Residual Sums of Squares (RSS), $\sum(Y_i - \hat{Y})^2$ for 3 different kinds of decision tree methods: CART, Boosted Regression Trees, and Random Forests. It was easy to calculate the RSS, but it was annoying, because each decision tree method stored it's observed values and predicted values in slightly different places. 
+
+So I wrote a function for each decision tree method: "rss_rpart", "rss_brt", and "rss_random_forest". But I thought that there must be a better way, so I didn't have three functions, but just one. So I decided to put all three of these functions inside of one function. I wrote a single function that checks the class of the object being inputted and then applied different methods dependent upon the class. This is what I call a "Poor man's S3 method".
+
+```{r}
+
+# poor man's S3 method
+
+dt_rss <- function (x){
+
+#CART
+if ("rpart" %in% class(x)) {
+  
+  result <- sum((residuals(x)^2))
+  
+  return(result)
+  
+}
+
+# BRT
+else if ("gbm" %in% class(x)) {
+  
+  result <- sum(x$residuals^2)
+  
+  return(result)
+
+}
+
+# Random Forest
+
+else if ("randomForest" %in% class(x)) {
+
+  temp <- x$finalModel$y - x$finalModel$predicted  
+  
+  result <- sum(temp^2)  
+  
+  return(result)
+
+}
+  
+else warning(paste(class(x), "is not of an rpart, gbm.step, or randomForest object"))
+}
+##
+
+```
+
+
+Here's it in action:
+
+```{r}
+
+library(rpart)
+
+fit.rpart <- rpart(Kyphosis ~ Age + Number + Start, data = kyphosis)
+
+dt_rss(fit.rpart)
+
+```
+
+We can see that when we specify a class it doesn't know we have to spit out a special message, since it doesn't fit into the classes we have specified.
+
+```{r}
+
+# not an rpart object
+
+fit.lm <- lm(Sepal.Width ~ Species, data = iris)
+
+dt_rss(fit.lm)
+
+```
+
+And sure, it works, but it doesn't make you feel good inside, like good programming does, and isn't as modular - you have this one cluster of ifelses, and that could unnessarily slow down analyses, which makes me nervous. It is also a little more finnicky to edit. Let's apply a quick and dirty approach to S3 methods.
+
+```{r}
+
+# RSS: A Cheap and Nasty Way.
+
+rss <- function(x) UseMethod("rss")
+
+rss.default <- function(x, ...){
+  
+  print("You screwed up. I do not know how to handle this object.")
+
+  }
+
+
+# CART
+
+rss.rpart <- function(x){
+  
+  sum((residuals(x)^2))
+  
+}
+
+# BRT
+
+rss.gbm <- function(x){
+  
+  sum(x$residuals^2)
+ 
+}
+
+# Random Forest
+
+rss.randomForest <- function(x){
+
+  res <- x$y - x$predicted  
+  
+  sum(res^2)  
+    
+}
+
+
+```
+
+So here we define a method with `UseMethod()`, where you write the building block of your S3 method, the "root", if you will. Then, we create these other R functions that include the root and add the class we want it to act on, so:  `rss.rpart`, `rss.gbm`, and `rss.randomForest`
+
+```{r}
+
+rss(fit.rpart)
+
+rss(lm.fit)
+
+```
+
+
+The `.default` is also really cool as it is what tries to work when you have a class that you haven't specified. In this case, this one here is a little insulting, instead of something that might work.
+
+Now, why are they called S3 Methods? From what I've read, S3 methods are so named because they came along with the third version of the S Programming Language - the language that R was based upon, and so were S Version 3 Methods - S3.
+
+This guide is by no means complete, and heck it could even be inaccurate or dead wrong. It might even be possible that I've offended some programmers out there by writing it this way, but hey - it's the internet, if you think I'm wrong, or I could do this better, leave a comment below, or better yet, **check it out on GitHub** (in the `neato` package), fork it, change it, and send a pull request.
+
+And hey, just putting it out there, if anyone wants to help me make some sort of infographic about writing functions in R, and then making s3 methods, I'm all ears. Something along the lines of this: <link to crappy sketch Nick did>, which describes "the anatomy of a function", and then goes on to explain how to write an S3 method. Yeah, that'd be great.
+
+Cheers for now,
+
+Nick.

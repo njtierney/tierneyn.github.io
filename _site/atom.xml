@@ -4,7 +4,7 @@
  <title>Nicholas Tierney</title>
  <link href="tierneyn.github.io/atom.xml" rel="self"/>
  <link href="tierneyn.github.io/"/>
- <updated>2015-10-29T13:42:03+10:00</updated>
+ <updated>2015-10-30T12:58:12+10:00</updated>
  <id>tierneyn.github.io</id>
  <author>
    <name>Nicholas Tierney</name>
@@ -109,6 +109,96 @@ redcarpet:
 &lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;&lt;/table&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>A Grammar of Models?</title>
+   <link href="tierneyn.github.io/2013/11/10/grammar-of-models/"/>
+   <updated>2013-11-10T00:00:00+10:00</updated>
+   <id>tierneyn.github.io/2013/11/10/grammar-of-models</id>
+   <content type="html">&lt;p&gt;I came across &lt;a href=&quot;http://statr.me/2013/09/a-conversation-with-hadley-wickham/&quot;&gt;this interview&lt;/a&gt; with Hadley Wickham, the creator of one of the most widely used R packages, ggplot 2. I thought that this quote was interesting:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;I’m also really interested in statistical learning as a family of modeling techniques, a kind of fitting them together very well and forming a grammer of models. You can make a new model by joing things together, just like the grammer of graphics by which you can come up with a new graphic that is just a new arrangment of existing components. I think that’s something that makes it easier to learn modeling. For example, you can learn a linear model in this way, a random forest in that way, and you can learn them in a unified framework.&lt;/p&gt;
+
+&lt;p&gt;Another thing I’d like to think is the Lasso-type method. In one of my classes, I want to show that now you should always try stablized regression, you should always try to do Lasso and the similar. I think there are 13 packages that would do Lasso, and I tried them all. But every single one of them broke for a different reason. For example, it didn’t support missing values, it didn’t support categorical variables, it didn’t do predictions and standard errors, or it didn’t automatically find the lambda parameter. Maybe that’s because the authors are more interested in the theoretical papers, not in providing a tool that you can use in data analysis. So I want to integrate them together to form a tool that is fast and works well.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;And it got me thinking, would it be possible for statistical models to be written like ggplot, with a grammar of models?  It seems impossible, and maybe I&amp;#39;m totally not reading the interview correctly, but it got me thinking.   What would it look like?&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;ggmodel(data = my.data,
+        fun [Y ~ V1 + V2 + V3 + e])
+        model_nest(V1 = V1 ~ Y1 + Y2 + e)
+        m.impute(m = 4)
+        time_period(type = unequal)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Statistics for Journalists</title>
+   <link href="tierneyn.github.io/2013/11/01/statistics-for-journalists/"/>
+   <updated>2013-11-01T00:00:00+10:00</updated>
+   <id>tierneyn.github.io/2013/11/01/statistics-for-journalists</id>
+   <content type="html">&lt;p&gt;In November 2013 I had the opportunity to work with the Australian Science Media Centre (AusSMC) and produce a talk explaining numbers and statistics.  The deal was that it was 11 concepts on numbers and stats in 20 minutes.  The concepts being:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;General Number Hygiene&lt;/li&gt;
+&lt;li&gt;Big and Little Numbers&lt;/li&gt;
+&lt;li&gt;Surveys&lt;/li&gt;
+&lt;li&gt;Averages&lt;/li&gt;
+&lt;li&gt;Understanding Uncertainty&lt;/li&gt;
+&lt;li&gt;P-Values&lt;/li&gt;
+&lt;li&gt;Trends&lt;/li&gt;
+&lt;li&gt;Correlation and Causation&lt;/li&gt;
+&lt;li&gt;Rare Events&lt;/li&gt;
+&lt;li&gt;Risk&lt;/li&gt;
+&lt;li&gt;Infographics&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This was my first time ever really seriously teaching anything to anyone.  And I&amp;#39;ll admit, cramming 11 concepts into 20 minutes was a touch more work than I anticipated.  It DID end up being a lot of fun, however.  And I managed to learn a lot.  So thanks, AusSMC!&lt;/p&gt;
+
+&lt;p&gt;This video is aimed at journalists to try and give them a bit more information on how to interpret the 11 topics mentioned earlier.   It should help you.  You should learn something.  But everyone is different, so maybe it won&amp;#39;t.  But I hope that it helps you on your journey through statistics.  Please let me know if you have any questions.  Seriously!&lt;/p&gt;
+
+&lt;p&gt;You can watch the presentation below:&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&quot;https://player.vimeo.com/video/78231257?color=ffffff&amp;title=0&amp;byline=0&amp;portrait=0&quot; width=&quot;500&quot; height=&quot;375&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt; &lt;p&gt;&lt;a href=&quot;https://vimeo.com/78231257&quot;&gt;EVENT FOR JOURNALISTS: Getting your head around numbers and stats&lt;/a&gt; from &lt;a href=&quot;https://vimeo.com/user4609742&quot;&gt;AusSMC&lt;/a&gt; on &lt;a href=&quot;https://vimeo.com&quot;&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;Again - let me know if you have any questions!&lt;/p&gt;
+
+&lt;p&gt;Cheers,&lt;/p&gt;
+
+&lt;p&gt;Nick.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>analytically</title>
+   <link href="tierneyn.github.io/2013/08/20/analytically/"/>
+   <updated>2013-08-20T00:00:00+10:00</updated>
+   <id>tierneyn.github.io/2013/08/20/analytically</id>
+   <content type="html">&lt;p&gt;What does the word &lt;em&gt;analytical&lt;/em&gt;, mean?  &lt;/p&gt;
+
+&lt;p&gt;Wikipedia says:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;quot;Analytic Solution&amp;quot;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A solution to a problem that can be written in &amp;quot;closed form&amp;quot; in terms of known functions, constants, etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I find that such a definition relies on the reader knowing what the words &amp;#39;closed form&amp;#39;, &amp;#39;known functions&amp;#39; and &amp;#39;constants&amp;#39; are.&lt;/p&gt;
+
+&lt;p&gt;So here&amp;#39;s my definition:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;quot;Analytic Solution&amp;quot;&lt;/p&gt;
+
+&lt;p&gt;A solution where everything needed to solve a particular question is presented clearly and logically, with all assumptions defined.  &lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Waddaya reckon?&lt;/p&gt;
 </content>
  </entry>
  

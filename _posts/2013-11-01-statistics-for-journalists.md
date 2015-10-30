@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Statistics for Journalists
+comments: true
 ---
 
 In November 2013 I had the opportunity to work with the Australian Science Media Centre (AusSMC) and produce a talk explaining numbers and statistics.  The deal was that it was 11 concepts on numbers and stats in 20 minutes.  The concepts being:
@@ -23,7 +24,7 @@ This video is aimed at journalists to try and give them a bit more information o
 
 You can watch the presentation below:
 
-[vimeo http://vimeo.com/78231257]
+<iframe src="https://player.vimeo.com/video/78231257?color=ffffff&title=0&byline=0&portrait=0" width="500" height="375" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="https://vimeo.com/78231257">EVENT FOR JOURNALISTS: Getting your head around numbers and stats</a> from <a href="https://vimeo.com/user4609742">AusSMC</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
 
 Again - let me know if you have any questions!
 
