@@ -1,7 +1,5 @@
 ---
-title: "A Quick and Dirty Guide to S3 Methods in R"
-author: "Nicholas Tierney"
-date: "29 May 2015"
+title: A Quick and Dirty Guide to S3 Methods in R
 layout: post
 comments: true
 output: 
