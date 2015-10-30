@@ -4,7 +4,7 @@
  <title>Nicholas Tierney</title>
  <link href="tierneyn.github.io/atom.xml" rel="self"/>
  <link href="tierneyn.github.io/"/>
- <updated>2015-10-30T13:40:42+10:00</updated>
+ <updated>2015-10-30T16:01:48+10:00</updated>
  <id>tierneyn.github.io</id>
  <author>
    <name>Nicholas Tierney</name>
@@ -13,111 +13,11 @@
 
  
  <entry>
-   <title>again</title>
-   <link href="tierneyn.github.io/2015/10/27/again/"/>
-   <updated>2015-10-27T00:00:00+10:00</updated>
-   <id>tierneyn.github.io/2015/10/27/again</id>
-   <content type="html">&lt;h2&gt;R Markdown&lt;/h2&gt;
-
-&lt;p&gt;This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see &lt;a href=&quot;http://rmarkdown.rstudio.com&quot;&gt;http://rmarkdown.rstudio.com&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;When you click the &lt;strong&gt;Knit&lt;/strong&gt; button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kp&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;cars&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;Including Plots&lt;/h2&gt;
-
-&lt;p&gt;You can also embed plots, for example:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/figure/source/2015-10-27-again/pressure-1.svg&quot; alt=&quot;plot of chunk pressure&quot;&gt; &lt;/p&gt;
-
-&lt;p&gt;Note that the &lt;code&gt;echo = FALSE&lt;/code&gt; parameter was added to the code chunk to prevent printing of the R code that generated the plot.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>My First Post</title>
-   <link href="tierneyn.github.io/2015/10/23/test/"/>
-   <updated>2015-10-23T00:00:00+10:00</updated>
-   <id>tierneyn.github.io/2015/10/23/test</id>
-   <content type="html">&lt;p&gt;After looking at &lt;a href=&quot;https://github.com/nicolewhite/nicolewhite.github.io&quot;&gt;Nicole White&amp;#39;s&lt;/a&gt; &lt;code&gt;_config.yml&lt;/code&gt; I saw that she had written &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;markdown: redcarpet
-redcarpet:
-  extensions: [&amp;quot;tables&amp;quot;] 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;I was initially using &lt;code&gt;kramdown&lt;/code&gt; to render the markdown, but that messed up my RMarkdown formatting, so I switched back.&lt;/p&gt;
-
-&lt;p&gt;So here is my pasted table using &lt;code&gt;knitr::kable(head(iris))&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Check it out:&lt;/p&gt;
-
-&lt;table&gt;&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&quot;text-align: right&quot;&gt;Sepal.Length&lt;/th&gt;
-&lt;th style=&quot;text-align: right&quot;&gt;Sepal.Width&lt;/th&gt;
-&lt;th style=&quot;text-align: right&quot;&gt;Petal.Length&lt;/th&gt;
-&lt;th style=&quot;text-align: right&quot;&gt;Petal.Width&lt;/th&gt;
-&lt;th style=&quot;text-align: left&quot;&gt;Species&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;5.1&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;3.5&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;1.4&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;0.2&lt;/td&gt;
-&lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;4.9&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;3.0&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;1.4&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;0.2&lt;/td&gt;
-&lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;4.7&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;3.2&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;1.3&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;0.2&lt;/td&gt;
-&lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;4.6&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;3.1&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;1.5&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;0.2&lt;/td&gt;
-&lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;5.0&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;3.6&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;1.4&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;0.2&lt;/td&gt;
-&lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;5.4&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;3.9&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;1.7&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;0.4&lt;/td&gt;
-&lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
-</content>
- </entry>
- 
- <entry>
    <title>A Grammar of Models?</title>
    <link href="tierneyn.github.io/2013/11/10/grammar-of-models/"/>
    <updated>2013-11-10T00:00:00+10:00</updated>
    <id>tierneyn.github.io/2013/11/10/grammar-of-models</id>
-   <content type="html">&lt;p&gt;I came across &lt;a href=&quot;http://statr.me/2013/09/a-conversation-with-hadley-wickham/&quot;&gt;this interview&lt;/a&gt; with Hadley Wickham, the creator of one of the most widely used R packages, ggplot 2. I thought that this quote was interesting:&lt;/p&gt;
+   <content type="html">&lt;p&gt;I came across &lt;a href=&quot;http://statr.me/2013/09/a-conversation-with-hadley-wickham/&quot;&gt;this interview&lt;/a&gt; with Hadley Wickham, the creator of one of the most widely used R packages, &lt;code&gt;ggplot 2&lt;/code&gt;. I thought that this quote was interesting:&lt;/p&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;I’m also really interested in statistical learning as a family of modeling techniques, a kind of fitting them together very well and forming a grammer of models. You can make a new model by joing things together, just like the grammer of graphics by which you can come up with a new graphic that is just a new arrangment of existing components. I think that’s something that makes it easier to learn modeling. For example, you can learn a linear model in this way, a random forest in that way, and you can learn them in a unified framework.&lt;/p&gt;
@@ -125,7 +25,7 @@ redcarpet:
 &lt;p&gt;Another thing I’d like to think is the Lasso-type method. In one of my classes, I want to show that now you should always try stablized regression, you should always try to do Lasso and the similar. I think there are 13 packages that would do Lasso, and I tried them all. But every single one of them broke for a different reason. For example, it didn’t support missing values, it didn’t support categorical variables, it didn’t do predictions and standard errors, or it didn’t automatically find the lambda parameter. Maybe that’s because the authors are more interested in the theoretical papers, not in providing a tool that you can use in data analysis. So I want to integrate them together to form a tool that is fast and works well.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;And it got me thinking, would it be possible for statistical models to be written like ggplot, with a grammar of models?  It seems impossible, and maybe I&amp;#39;m totally not reading the interview correctly, but it got me thinking.   What would it look like?&lt;/p&gt;
+&lt;p&gt;And it got me thinking, would it be possible for statistical models to be written like ggplot, with a grammar of models?  It seems impossible, and maybe I&amp;#39;m totally not reading the interview correctly, but it got me thinking. What would it look like? Something like this?&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;ggmodel(data = my.data,
         fun [Y ~ V1 + V2 + V3 + e])
         model_nest(V1 = V1 ~ Y1 + Y2 + e)
@@ -172,7 +72,7 @@ redcarpet:
  </entry>
  
  <entry>
-   <title>analytically</title>
+   <title>Analytically</title>
    <link href="tierneyn.github.io/2013/08/20/analytically/"/>
    <updated>2013-08-20T00:00:00+10:00</updated>
    <id>tierneyn.github.io/2013/08/20/analytically</id>

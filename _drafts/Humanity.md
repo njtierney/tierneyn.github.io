@@ -1,3 +1,9 @@
+---
+title: Humanity
+layout: post
+comments: true
+---
+
 A friend of mine posted an interesting article on facebook today - <a href="http://theconversation.com/honing-the-mind-and-nurturing-the-soul-why-the-humanities-are-underrated-15027">"Honing the mind and nurturing the soul: why the humanities are underrated"</a>.  The piece is written by Professor Steven Schwartz, a distinguished academic currently residing at Oxford University after holding Vice Chancellor positions in Australia and the UK.
 
 The article tells of Schwartz seeing the return of mature age students to university, not to study a doctorate in accounting or business, but the arts and humanities.  As he put it, these students were returning to "fulfil a life-long desire to immerse themselves in the arts or humanities" after years in another profession.  Schwartz makes the point that you do not need to make money to then spend it later in life - doing the 'degree they have always wanted to do' -  you can study the humanities <em>and</em> make money.
@@ -23,4 +29,4 @@ I guess this article just really resonated with me - I have an honours degree in
 So this is for all of the kids out there who are studying and then having the mandatory <a href="http://www.phdcomics.com/comics.php?f=1488">existential crisis</a> (totally normal, by the way) - Stimulate your mind and study what you love - passion breeds success.<em>
 </em>
 
-<a href="http://njtierneydotcom.files.wordpress.com/2013/06/humanity.png"><img class="alignnone size-large wp-image-52" src="http://njtierneydotcom.files.wordpress.com/2013/06/humanity.png?w=500" alt="Humanity" width="500" height="333" /></a>
+![]()

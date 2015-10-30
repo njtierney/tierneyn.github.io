@@ -8,6 +8,12 @@ output:
     theme: null
 ---
 
+I've somewhat recently learnt how to use S3 methods in R. Whilst I found [Hadley's Advanced R Book]() really useful, I also found that I didn't have a clear picture in my head of how to just go and start creating my own S3 methods. I pieced together my current knowledge from [Advaced R Programming](), [R Packages](), [this blog](), [this resource](), and probably most helpfully, from looking at people's code on GitHub, specifically the [broom package]().
+
+So what I present now 
+
+# What are S3 Methods?
+
 S3 methods are a way of writing functions in R that do different things for objects with different classes. For example, the function `summary()` used on a dataframe shows descriptive statistics (Mean, SD, etc.) for each variable. Let's look at the `iris` dataset to illustrate this.
 
 ```{r }
@@ -98,7 +104,7 @@ summary.data.frame(lm_iris)
 
 R hides the important stuff after the `.` to avoid you needing to use a different `summary` function for each different class. And that makes sense if you think about how annoying it would be to use `summary.lm` for linear models, or `summary.data.frame` for data frames, or `summary.myownridiculousclassname`. S3 methods reduce cognitive load - you don't have to think as much to remember what class an object is, you can just **do** what you want - want to get a summary of an object - type `summary`. Want to plot something `plot` it. 
 
-## How do I make my own S3 method?
+# How do I make my own S3 method?
 
 It is actually really easy to make your own S3 methods. But first let's  talk through an example (read, story) of why you might want to write your own S3 method.
 
@@ -232,10 +238,6 @@ The `.default` is also really cool as it is what tries to work when you have a c
 
 Now, why are they called S3 Methods? From what I've read, S3 methods are so named because they came along with the third version of the S Programming Language - the language that R was based upon, and so were S Version 3 Methods - S3.
 
-This guide is by no means complete, and heck it could even be inaccurate or dead wrong. It might even be possible that I've offended some programmers out there by writing it this way, but hey - it's the internet, if you think I'm wrong, or I could do this better, leave a comment below, or better yet, **check it out on GitHub** (in the `neato` package), fork it, change it, and send a pull request.
+This guide is by no means complete, and heck, it could be inaccurate or dead wrong. It might even be possible that I've offended some programmers out there by writing it this way, but hey - it's the internet: if you think I'm wrong, or I could do this better, leave a comment below, or [check out the post on GitHub](https://github.com/tierneyn/tierneyn.github.io/_posts/2015-10-30-Quick-and-Dirty-S3-Methods.md), and send a pull request.
 
-And hey, just putting it out there, if anyone wants to help me make some sort of infographic about writing functions in R, and then making s3 methods, I'm all ears. Something along the lines of this: <link to crappy sketch Nick did>, which describes "the anatomy of a function", and then goes on to explain how to write an S3 method. Yeah, that'd be great.
-
-Cheers for now,
-
-Nick.
+And hey, just putting it out there, if anyone wants to help me make some sort of infographic about writing functions in R, and then making s3 methods, I'm all ears. Something along the lines of this [insert picture], which describes "the anatomy of a function", and then goes on to explain how to write an S3 method. Yeah, that'd be great.

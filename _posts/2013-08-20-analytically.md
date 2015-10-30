@@ -1,5 +1,5 @@
 ---
-title: analytically
+title: Analytically
 layout: post
 comments: true
 ---
