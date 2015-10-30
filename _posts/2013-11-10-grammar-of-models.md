@@ -14,10 +14,13 @@ I came across [this interview](http://statr.me/2013/09/a-conversation-with-hadle
 
 And it got me thinking, would it be possible for statistical models to be written like ggplot, with a grammar of models?  It seems impossible, and maybe I'm totally not reading the interview correctly, but it got me thinking. What would it look like? Something like this?
 
-```
+```r
 ggmodel(data = my.data,
-        fun [Y ~ V1 + V2 + V3 + e])
-        model_nest(V1 = V1 ~ Y1 + Y2 + e)
-        m.impute(m = 4)
+        fun = Y ~ V1 + V2 + V3) %>%
+        model_nest(V1 ~ Y1 + Y2 + e,
+                   e ~ norm(0,1)) %>%
+        m.impute(m = 4) %>%
         time_period(type = unequal)
 ```
+
+What do you think?

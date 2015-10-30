@@ -4,7 +4,7 @@
  <title>Nicholas Tierney</title>
  <link href="tierneyn.github.io/atom.xml" rel="self"/>
  <link href="tierneyn.github.io/"/>
- <updated>2015-10-30T16:01:48+10:00</updated>
+ <updated>2015-10-30T16:10:25+10:00</updated>
  <id>tierneyn.github.io</id>
  <author>
    <name>Nicholas Tierney</name>
@@ -26,12 +26,15 @@
 &lt;/blockquote&gt;
 
 &lt;p&gt;And it got me thinking, would it be possible for statistical models to be written like ggplot, with a grammar of models?  It seems impossible, and maybe I&amp;#39;m totally not reading the interview correctly, but it got me thinking. What would it look like? Something like this?&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;ggmodel(data = my.data,
-        fun [Y ~ V1 + V2 + V3 + e])
-        model_nest(V1 = V1 ~ Y1 + Y2 + e)
-        m.impute(m = 4)
-        time_period(type = unequal)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;ggmodel&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;data &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; my.data&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        fun &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Y &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt; V1 &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; V2 &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; V3&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;
+        model_nest&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;V1 &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt; Y1 &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; Y2 &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; e&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                   e &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;norm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;
+        m.impute&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;m &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;
+        time_period&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;type &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; unequal&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;What do you think?&lt;/p&gt;
+</content>
  </entry>
  
  <entry>

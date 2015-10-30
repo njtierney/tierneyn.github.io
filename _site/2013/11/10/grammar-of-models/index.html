@@ -144,12 +144,15 @@
 </blockquote>
 
 <p>And it got me thinking, would it be possible for statistical models to be written like ggplot, with a grammar of models?  It seems impossible, and maybe I&#39;m totally not reading the interview correctly, but it got me thinking. What would it look like? Something like this?</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">ggmodel(data = my.data,
-        fun [Y ~ V1 + V2 + V3 + e])
-        model_nest(V1 = V1 ~ Y1 + Y2 + e)
-        m.impute(m = 4)
-        time_period(type = unequal)
+<div class="highlight"><pre><code class="language-r" data-lang="r">ggmodel<span class="p">(</span>data <span class="o">=</span> my.data<span class="p">,</span>
+        fun <span class="o">=</span> Y <span class="o">~</span> V1 <span class="o">+</span> V2 <span class="o">+</span> V3<span class="p">)</span> <span class="o">%&gt;%</span>
+        model_nest<span class="p">(</span>V1 <span class="o">~</span> Y1 <span class="o">+</span> Y2 <span class="o">+</span> e<span class="p">,</span>
+                   e <span class="o">~</span> <span class="kp">norm</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">))</span> <span class="o">%&gt;%</span>
+        m.impute<span class="p">(</span>m <span class="o">=</span> <span class="m">4</span><span class="p">)</span> <span class="o">%&gt;%</span>
+        time_period<span class="p">(</span>type <span class="o">=</span> unequal<span class="p">)</span>
 </code></pre></div>
+<p>What do you think?</p>
+
 </div>
 
 <div class="related">
