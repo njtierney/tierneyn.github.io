@@ -10,7 +10,7 @@
 
   <title>
     
-      A Grammar of Models? &middot; Nicholas Tierney
+      Fix for `gbm.plot` &middot; Nicholas Tierney
     
   </title>
 
@@ -133,25 +133,19 @@
 
       <div class="container content">
         <div class="post">
-  <h1 class="post-title">A Grammar of Models?</h1>
-  <span class="post-date">10 Nov 2013</span>
-  <p>I came across <a href="http://statr.me/2013/09/a-conversation-with-hadley-wickham/">this interview</a> with Hadley Wickham, the creator of one of the most widely used R packages, <code>ggplot 2</code>. I thought that this quote was interesting:</p>
+  <h1 class="post-title">Fix for `gbm.plot`</h1>
+  <span class="post-date">22 Apr 2014</span>
+  <p>I&#39;m currently in the process of writing a report using boosted regression trees.  I&#39;m currently using guidelines provided by Elith et al <a href="http://avesbiodiv.mncn.csic.es/estadistica/bt1.pdf">here</a>, and <a href="http://cran.r-project.org/web/packages/dismo/vignettes/brt.pdf">here</a></p>
+
+<p>They provide the function <code>gbm.step</code>, which performs 10-fold cross validation on the boosted regression tree. It also has a nifty <code>gbm.plot</code> function, producing partial dependence plots. Unforunately, it kept giving me this error:</p>
 
 <blockquote>
-<p>I’m also really interested in statistical learning as a family of modeling techniques, a kind of fitting them together very well and forming a grammer of models. You can make a new model by joing things together, just like the grammer of graphics by which you can come up with a new graphic that is just a new arrangment of existing components. I think that’s something that makes it easier to learn modeling. For example, you can learn a linear model in this way, a random forest in that way, and you can learn them in a unified framework.</p>
-
-<p>Another thing I’d like to think is the Lasso-type method. In one of my classes, I want to show that now you should always try stablized regression, you should always try to do Lasso and the similar. I think there are 13 packages that would do Lasso, and I tried them all. But every single one of them broke for a different reason. For example, it didn’t support missing values, it didn’t support categorical variables, it didn’t do predictions and standard errors, or it didn’t automatically find the lambda parameter. Maybe that’s because the authors are more interested in the theoretical papers, not in providing a tool that you can use in data analysis. So I want to integrate them together to form a tool that is fast and works well.</p>
+<p><code>Error: could not find function &quot;windows&quot;</code></p>
 </blockquote>
 
-<p>And it got me thinking, would it be possible for statistical models to be written like ggplot, with a grammar of models?  It seems impossible, and maybe I&#39;m totally not reading the interview correctly, but it got me thinking. What would it look like? Something like this?</p>
-<div class="highlight"><pre><code class="language-r" data-lang="r">ggmodel<span class="p">(</span>data <span class="o">=</span> my.data<span class="p">,</span>
-        fun <span class="o">=</span> Y <span class="o">~</span> V1 <span class="o">+</span> V2 <span class="o">+</span> V3<span class="p">)</span> <span class="o">%&gt;%</span>
-        model_nest<span class="p">(</span>V1 <span class="o">~</span> Y1 <span class="o">+</span> Y2 <span class="o">+</span> e<span class="p">,</span>
-                   e <span class="o">~</span> <span class="kp">norm</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">))</span> <span class="o">%&gt;%</span>
-        m.impute<span class="p">(</span>m <span class="o">=</span> <span class="m">4</span><span class="p">)</span> <span class="o">%&gt;%</span>
-        time_period<span class="p">(</span>type <span class="o">=</span> unequal<span class="p">)</span>
-</code></pre></div>
-<p>What do you think?</p>
+<p>This means that the function <code>windows</code> is being called inside <code>gbm.plot</code>. So I looked into what the heck <code>windows</code> is and it turns out it opens a graphics device, but is the command reserved for windows machines - I use a mac, and the equivalent command is <code>X11()</code>. I found this out thanks to this website here: http://doingbayesiandataanalysis.blogspot.com.au/2011/09/for-linux-macos-users-easy-fix-for.html</p>
+
+<p>So I simply found the source code for gbm.plot, and replaced windows(...) with X11(...) Hopefully this will prove helpful to someone.</p>
 
 </div>
 
@@ -179,9 +173,9 @@
     
       <li>
         <h3>
-          <a href="/2014/04/22/gbm-plot-fix/">
-            Fix for `gbm.plot`
-            <small>22 Apr 2014</small>
+          <a href="/2013/11/10/grammar-of-models/">
+            A Grammar of Models?
+            <small>10 Nov 2013</small>
           </a>
         </h3>
       </li>

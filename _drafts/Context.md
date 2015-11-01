@@ -1,4 +1,7 @@
-Context
+---
+title: Context
+layout: post
+---
 
 I regret not studying more History.  But I regret a lot of things.
 
@@ -14,20 +17,19 @@ Modern History would have likely improved my writing and communication and criti
 
 All very useful, really.
 
-But I don't know that for sure - this is just me thinking now with 20:20 Hindsight; what I <em>imagine</em> I would have learnt.
+But I don't know that for sure - this is just me thinking now with 20:20 Hindsight; what I _imagine_ I would have learnt.
 
-What I <em>do</em> know is that IPT ended up being a whole lot of things that I was not expecting.
+What I _do_ know is that IPT ended up being a whole lot of things that I was not expecting.
 
-1.  It was hard.
+1. It was hard.
 
 2. It was...weird and abstract.
 
 3. It make me...think...differently.
 
-Writing programs in <em>Delphi7</em> meant that I was able to apply logical statements, and then see the fruit of what would otherwise be rather useless premises/propositions in an argument:
+Writing programs in _Delphi7_ meant that I was able to apply logical statements, and then see the fruit of what would otherwise be rather useless premises/propositions in an argument, for example:
 
-&lt;example...&gt;
-
+```
 "Select ARTIST in ALBUM
 
 where ARTIST == "Queen"
@@ -35,6 +37,7 @@ where ARTIST == "Queen"
 and
 
 YEAR == 1989"
+```
 
 It ended up being a lot of fun.  It was hard, but enjoyable, and rewarding and frustrating.  I had a good teacher to thank for this - Thanks, Peter Whitehouse.
 
@@ -42,7 +45,7 @@ I finished my senior year with a Sudoku generator game.  My brute force plan di
 
 I didn't touch programming at all after I finished high school.
 
-But a few years later while travelling in the USA rock climbing, I learnt that history had the interesting effect of <em>making things meaningful</em>.
+But a few years later while travelling in the USA, I learnt that history had the interesting effect of <em>making things meaningful</em>.
 
 In the USA. Houses weren't just houses - they were some famous person's house.  Apparently he was important.  I wish I knew who he was.
 

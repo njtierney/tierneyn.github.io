@@ -41,52 +41,6 @@ Step 4. followed directions from this blog: http://www.sitepoint.com/set-jekyll-
 
 Step 5. 
 
-# Getting jekyll to work with RMarkdown
-
-This turned out to be a hellova mission.
-
-I tried following steps on :
-
-http://www.jonzelner.net/jekyll/knitr/r/2014/07/02/autogen-knitr/
-http://joshualande.com/jekyll-github-pages-poole/
-But when I ran the code
-
-```
-_knitr/render_post.R _knitr/2015-10-25-first.Rmd
-```
-
-I got the error
-
-```
-Error in file(con, "w") : cannot open the connection
-Calls: KnitPost -> knit -> writeLines -> file
-In addition: Warning message:
-In file(con, "w") :
-  cannot open file '../_posts/2015-10-25-first.md': No such file or directory
-Execution halted
-
-```
-
-Looking around, a lot of solutions involved a lot of code that I didn't understand, because my programming knowledge is limited to R.
-
-I kept coming across this function `knitr::render_jekyll()` in the blog posts I was reading. To me, a function like  
-
-http://yihui.name/knitr-jekyll/2014/09/jekyll-with-knitr.html
-
-
-Here's a list of other blogs I've been reading to try and approach my problem:
-
-http://jfisher-usgs.github.io/r/2012/07/03/knitr-jekyll/
-
-http://www.carlboettiger.info/2015/01/07/automated-knitr-in-jekyll.html
-http://yihui.name/knitr-jekyll/2014/09/jekyll-with-knitr.html
-http://chepec.se/2014/07/16/knitr-jekyll.html
-http://jason.bryer.org/posts/2012-12-10/Markdown_Jekyll_R_for_Blogging.html
-http://www.uni-kiel.de/psychologie/rexrepos/posts/rerWorkflowJN.html
-
-
-
-
 **customizations**
 
 I had a look around at a bunch of different blogs about how to build stuff
@@ -159,3 +113,8 @@ Check it out:
 |          5.4|         3.9|          1.7|         0.4|setosa  |
 
 
+
+
+# Getting jekyll to work with RMarkdown
+
+This turned out to be a bit of a journey, so I figured it would be better as a separate post - you can it here: ... link

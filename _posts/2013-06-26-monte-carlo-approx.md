@@ -1,6 +1,7 @@
 ---
-title: monte-carlo-approximiation
+title: Monte Carlo Approximiation
 layout: post
+comments: true
 ---
 
 There are a lot of explanations of Monte Carlo approximation out there.

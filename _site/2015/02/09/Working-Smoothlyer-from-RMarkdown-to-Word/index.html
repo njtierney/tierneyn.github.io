@@ -10,7 +10,7 @@
 
   <title>
     
-      A Grammar of Models? &middot; Nicholas Tierney
+      Working Smoothly(er) from RMarkdown to Word. &middot; Nicholas Tierney
     
   </title>
 
@@ -133,25 +133,51 @@
 
       <div class="container content">
         <div class="post">
-  <h1 class="post-title">A Grammar of Models?</h1>
-  <span class="post-date">10 Nov 2013</span>
-  <p>I came across <a href="http://statr.me/2013/09/a-conversation-with-hadley-wickham/">this interview</a> with Hadley Wickham, the creator of one of the most widely used R packages, <code>ggplot 2</code>. I thought that this quote was interesting:</p>
+  <h1 class="post-title">Working Smoothly(er) from RMarkdown to Word.</h1>
+  <span class="post-date">09 Feb 2015</span>
+  <p>I&#39;m a pretty huge fan of RMarkdown, as it is a great way for me to write my code and my text together. It seems really a rather a natural thing to do. You write about your analyses, and the code is there. You update some function or some data, and your figures and tables update with it.</p>
+
+<p>In my head I feel as though I am working more efficiently. However there is some research to suggest that LaTeX users actually work slower than Word users. However, LaTeX users <em>feel better</em> about using LaTeX. I would like to dub this the <strong>brown corduroy trousers effect</strong>, quoting Robin Williams, who said something like:</p>
 
 <blockquote>
-<p>I’m also really interested in statistical learning as a family of modeling techniques, a kind of fitting them together very well and forming a grammer of models. You can make a new model by joing things together, just like the grammer of graphics by which you can come up with a new graphic that is just a new arrangment of existing components. I think that’s something that makes it easier to learn modeling. For example, you can learn a linear model in this way, a random forest in that way, and you can learn them in a unified framework.</p>
-
-<p>Another thing I’d like to think is the Lasso-type method. In one of my classes, I want to show that now you should always try stablized regression, you should always try to do Lasso and the similar. I think there are 13 packages that would do Lasso, and I tried them all. But every single one of them broke for a different reason. For example, it didn’t support missing values, it didn’t support categorical variables, it didn’t do predictions and standard errors, or it didn’t automatically find the lambda parameter. Maybe that’s because the authors are more interested in the theoretical papers, not in providing a tool that you can use in data analysis. So I want to integrate them together to form a tool that is fast and works well.</p>
+<p>Method Acting is like peeing whilst wearing brown corduroy trousers. Nobody knows the difference but it sure as hell feels nice.</p>
 </blockquote>
 
-<p>And it got me thinking, would it be possible for statistical models to be written like ggplot, with a grammar of models?  It seems impossible, and maybe I&#39;m totally not reading the interview correctly, but it got me thinking. What would it look like? Something like this?</p>
-<div class="highlight"><pre><code class="language-r" data-lang="r">ggmodel<span class="p">(</span>data <span class="o">=</span> my.data<span class="p">,</span>
-        fun <span class="o">=</span> Y <span class="o">~</span> V1 <span class="o">+</span> V2 <span class="o">+</span> V3<span class="p">)</span> <span class="o">%&gt;%</span>
-        model_nest<span class="p">(</span>V1 <span class="o">~</span> Y1 <span class="o">+</span> Y2 <span class="o">+</span> e<span class="p">,</span>
-                   e <span class="o">~</span> <span class="kp">norm</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">))</span> <span class="o">%&gt;%</span>
-        m.impute<span class="p">(</span>m <span class="o">=</span> <span class="m">4</span><span class="p">)</span> <span class="o">%&gt;%</span>
-        time_period<span class="p">(</span>type <span class="o">=</span> unequal<span class="p">)</span>
-</code></pre></div>
-<p>What do you think?</p>
+<p>Anyway. I started to use knitr to process my work documents at the end of 2013, specifically using the LaTeX formatting. Which made me feel good.</p>
+
+<p>Then I switched to Rmarkdown after a conversation with Hadley Wickham at a Young Statisticians Dinner at the Australian Statisticians Conference in Sydney, in 2014. Amongst other things &quot;Have you seen <a href="http://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html">dplyr?</a> and <a href="http://www.amazon.com/Style-Clarity-Chicago-Writing-Publishing/dp/0226899152">&quot;read this book!&quot;</a>. Hadley told me that he uses RMarkdown almost exclusively now, not really going back to the .Rnw knitr LaTeX files. He also said that there&#39;s a button that will convert it to LaTeX style and also ... get this... to microsoft word.</p>
+
+<p>Converting to word documents is really awesome, because my supervisors often prefer to read and edit my papers in word. Knitr does a really good job of putting everything from RMarkdown into Word, but it doesn&#39;t do everything that I&#39;d like. I usually spend 1 or 2 minutes changing the font and line spacing and inserting page numbers. Then I spend anywhere from 2 to 15 minutes manually resizing images. Painful. But every time I did it, I would always think:</p>
+
+<blockquote>
+<p>It&#39;s just this once...</p>
+</blockquote>
+
+<p>And then I would think:</p>
+
+<blockquote>
+<p>Maybe there&#39;s  a way to get R to do all this for me?</p>
+</blockquote>
+
+<p>But I assumed that would be more effort than it was worth.</p>
+
+<p>Well, tonight I cracked, and went googling for how to fix this problem. It turns out that this was a royal pain the arse.</p>
+
+<p><a href="http://stackoverflow.com/questions/18884778/poor-resolution-in-knitr-using-rmd">I tried this solution.</a></p>
+
+<p>Both didn&#39;t really work.</p>
+
+<p>So then I then tried to solve this problem using a macro in word.</p>
+
+<p>I&#39;ve never <em>touched</em> macros in Word. They always seemed weird and odd to me. Regardless, in I went to the macro editor. I hit the record button, and did all of the font changes, colour changes, and spacing changes I always do. Then I saved this macro.</p>
+
+<p>Then I went on to find a way to change the image sizes. I took a wrong turn into a <a href="https://cybertext.wordpress.com/2014/02/07/word-resize-all-images-in-a-document-to-the-same-width/">blog that had me developing a GUI</a>...which didn&#39;t end up working for me. There&#39;s 30 minutes I won&#39;t be getting back. But then I found this <a href="http://yuriy-okhmat.blogspot.co.uk/2011/07/how-to-resize-all-images-in-word.html">snippet of code</a> snippet of code, which resizes everything to 16 cm, maintaining the aspect ratio.</p>
+
+<p>I created a new macro from scratch and pasted this code in. Boom! Another Macro is born. Then I finished this up by creating a macro that recorded me running those two macros. Not elegant, but effective.</p>
+
+<p>So, total time expended screwing around and making this macro?  2 Hours.</p>
+
+<p>Total time saved?  15 minutes per Word doc that I compile. I think that is worth it.</p>
 
 </div>
 
@@ -170,18 +196,18 @@
     
       <li>
         <h3>
-          <a href="/2015/02/09/Working-Smoothlyer-from-RMarkdown-to-Word/">
-            Working Smoothly(er) from RMarkdown to Word.
-            <small>09 Feb 2015</small>
+          <a href="/2014/04/22/gbm-plot-fix/">
+            Fix for `gbm.plot`
+            <small>22 Apr 2014</small>
           </a>
         </h3>
       </li>
     
       <li>
         <h3>
-          <a href="/2014/04/22/gbm-plot-fix/">
-            Fix for `gbm.plot`
-            <small>22 Apr 2014</small>
+          <a href="/2013/11/10/grammar-of-models/">
+            A Grammar of Models?
+            <small>10 Nov 2013</small>
           </a>
         </h3>
       </li>

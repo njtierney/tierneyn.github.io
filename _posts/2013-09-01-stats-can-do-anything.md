@@ -1,6 +1,7 @@
 ---
-title: statistics-can-do-anything
+title: Statistics Can Do Anything?
 layout: post
+comments: true
 ---
 
 Sometimes people are fond of saying:

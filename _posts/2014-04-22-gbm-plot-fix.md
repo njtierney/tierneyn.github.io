@@ -1,6 +1,7 @@
 ---
-title: fix for gbm.plot
+title: Fix for `gbm.plot`
 layout: post
+comments: true
 ---
 
 I'm currently in the process of writing a report using boosted regression trees.  I'm currently using guidelines provided by Elith et al [here](http://avesbiodiv.mncn.csic.es/estadistica/bt1.pdf), and [here](http://cran.r-project.org/web/packages/dismo/vignettes/brt.pdf)

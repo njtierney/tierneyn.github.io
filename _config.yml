@@ -20,10 +20,11 @@ author:
   name:           'Nicholas Tierney'
   url:            tierneyn.github.io
 
-paginate:         5
-paginate_path:    "blog/index.html"
+paginate:         100
+paginate_path:    "blog/page:num/"
 
 # exclude the R Project
-exclude: [_source]
 exclude: ["*.Rmd"]
 exclude: ["*.Rproj"]
+exclude: [".RData"]
+exclude: [".Rhistory"]

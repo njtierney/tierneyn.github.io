@@ -10,7 +10,7 @@
 
   <title>
     
-      A Grammar of Models? &middot; Nicholas Tierney
+      R Package `neato` &middot; Nicholas Tierney
     
   </title>
 
@@ -133,40 +133,23 @@
 
       <div class="container content">
         <div class="post">
-  <h1 class="post-title">A Grammar of Models?</h1>
-  <span class="post-date">10 Nov 2013</span>
-  <p>I came across <a href="http://statr.me/2013/09/a-conversation-with-hadley-wickham/">this interview</a> with Hadley Wickham, the creator of one of the most widely used R packages, <code>ggplot 2</code>. I thought that this quote was interesting:</p>
+  <h1 class="post-title">R Package `neato`</h1>
+  <span class="post-date">09 Mar 2015</span>
+  <p>My workflow in R now is to make a function after I copy and paste some code more than once. Sometimes I find myself using these functions more than once, across different projects.</p>
 
-<blockquote>
-<p>I’m also really interested in statistical learning as a family of modeling techniques, a kind of fitting them together very well and forming a grammer of models. You can make a new model by joing things together, just like the grammer of graphics by which you can come up with a new graphic that is just a new arrangment of existing components. I think that’s something that makes it easier to learn modeling. For example, you can learn a linear model in this way, a random forest in that way, and you can learn them in a unified framework.</p>
+<p>So I decided to make an R package with a few of these functions in it. I call it &quot;neato&quot;, in the vain hope that one day someone will find one of these functions and say: &quot;neato!&quot;, because hey, it&#39;s pretty neat!</p>
 
-<p>Another thing I’d like to think is the Lasso-type method. In one of my classes, I want to show that now you should always try stablized regression, you should always try to do Lasso and the similar. I think there are 13 packages that would do Lasso, and I tried them all. But every single one of them broke for a different reason. For example, it didn’t support missing values, it didn’t support categorical variables, it didn’t do predictions and standard errors, or it didn’t automatically find the lambda parameter. Maybe that’s because the authors are more interested in the theoretical papers, not in providing a tool that you can use in data analysis. So I want to integrate them together to form a tool that is fast and works well.</p>
-</blockquote>
+<p>You can check neato out <a href="https://github.com/tierneyn/neato">here</a>.</p>
 
-<p>And it got me thinking, would it be possible for statistical models to be written like ggplot, with a grammar of models?  It seems impossible, and maybe I&#39;m totally not reading the interview correctly, but it got me thinking. What would it look like? Something like this?</p>
-<div class="highlight"><pre><code class="language-r" data-lang="r">ggmodel<span class="p">(</span>data <span class="o">=</span> my.data<span class="p">,</span>
-        fun <span class="o">=</span> Y <span class="o">~</span> V1 <span class="o">+</span> V2 <span class="o">+</span> V3<span class="p">)</span> <span class="o">%&gt;%</span>
-        model_nest<span class="p">(</span>V1 <span class="o">~</span> Y1 <span class="o">+</span> Y2 <span class="o">+</span> e<span class="p">,</span>
-                   e <span class="o">~</span> <span class="kp">norm</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">))</span> <span class="o">%&gt;%</span>
-        m.impute<span class="p">(</span>m <span class="o">=</span> <span class="m">4</span><span class="p">)</span> <span class="o">%&gt;%</span>
-        time_period<span class="p">(</span>type <span class="o">=</span> unequal<span class="p">)</span>
-</code></pre></div>
-<p>What do you think?</p>
+<p>I hope that the more I write into this package, the better I&#39;ll get at writing R packages and the more I can contribute to the R community. I&#39;d also like to thank people like <a href="http://r-pkgs.had.co.nz/">Hadley Wickham</a> and <a href="http://hilaryparker.com/2014/04/29/writing-an-r-package-from-scratch/">Hilary Parker</a> for writing materials to inspire me to contribute to R.</p>
+
+<p>Let me know if you have any thoughts about it below with a comment, or even <a href="https://github.com/tierneyn/neato">on github</a></p>
 
 </div>
 
 <div class="related">
   <h2>Related Posts</h2>
   <ul class="related-posts">
-    
-      <li>
-        <h3>
-          <a href="/2015/03/09/r-package-neato/">
-            R Package `neato`
-            <small>09 Mar 2015</small>
-          </a>
-        </h3>
-      </li>
     
       <li>
         <h3>
@@ -182,6 +165,15 @@
           <a href="/2014/04/22/gbm-plot-fix/">
             Fix for `gbm.plot`
             <small>22 Apr 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2013/11/10/grammar-of-models/">
+            A Grammar of Models?
+            <small>10 Nov 2013</small>
           </a>
         </h3>
       </li>

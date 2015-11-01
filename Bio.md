@@ -26,5 +26,8 @@ Hope you are having a swell day,
 Nick.
 
 <p>
-<img src="/assets/nick_lead_comp_headshot_2015.jpg" alt="Me.">
+<div style="height: auto">
+<img src="/assets/nick_lead_comp_headshot_2015.jpg" alt="Me." style="width: 100%;max-height: 100%" />
+</div>
 </p>
+<!-- above code nabbed from http://stackoverflow.com/questions/7177881/how-can-i-put-css-and-html-code-in-the-same-file -->

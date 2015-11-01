@@ -10,7 +10,7 @@
 
   <title>
     
-      A Grammar of Models? &middot; Nicholas Tierney
+      Monte Carlo Approximiation &middot; Nicholas Tierney
     
   </title>
 
@@ -133,25 +133,71 @@
 
       <div class="container content">
         <div class="post">
-  <h1 class="post-title">A Grammar of Models?</h1>
-  <span class="post-date">10 Nov 2013</span>
-  <p>I came across <a href="http://statr.me/2013/09/a-conversation-with-hadley-wickham/">this interview</a> with Hadley Wickham, the creator of one of the most widely used R packages, <code>ggplot 2</code>. I thought that this quote was interesting:</p>
+  <h1 class="post-title">Monte Carlo Approximiation</h1>
+  <span class="post-date">26 Jun 2013</span>
+  <p>There are a lot of explanations of Monte Carlo approximation out there.</p>
 
-<blockquote>
-<p>I’m also really interested in statistical learning as a family of modeling techniques, a kind of fitting them together very well and forming a grammer of models. You can make a new model by joing things together, just like the grammer of graphics by which you can come up with a new graphic that is just a new arrangment of existing components. I think that’s something that makes it easier to learn modeling. For example, you can learn a linear model in this way, a random forest in that way, and you can learn them in a unified framework.</p>
+<p>Here is one that worked for me.</p>
 
-<p>Another thing I’d like to think is the Lasso-type method. In one of my classes, I want to show that now you should always try stablized regression, you should always try to do Lasso and the similar. I think there are 13 packages that would do Lasso, and I tried them all. But every single one of them broke for a different reason. For example, it didn’t support missing values, it didn’t support categorical variables, it didn’t do predictions and standard errors, or it didn’t automatically find the lambda parameter. Maybe that’s because the authors are more interested in the theoretical papers, not in providing a tool that you can use in data analysis. So I want to integrate them together to form a tool that is fast and works well.</p>
-</blockquote>
+<p>A famous mathematician named Stan Ulam liked solitaire.</p>
 
-<p>And it got me thinking, would it be possible for statistical models to be written like ggplot, with a grammar of models?  It seems impossible, and maybe I&#39;m totally not reading the interview correctly, but it got me thinking. What would it look like? Something like this?</p>
-<div class="highlight"><pre><code class="language-r" data-lang="r">ggmodel<span class="p">(</span>data <span class="o">=</span> my.data<span class="p">,</span>
-        fun <span class="o">=</span> Y <span class="o">~</span> V1 <span class="o">+</span> V2 <span class="o">+</span> V3<span class="p">)</span> <span class="o">%&gt;%</span>
-        model_nest<span class="p">(</span>V1 <span class="o">~</span> Y1 <span class="o">+</span> Y2 <span class="o">+</span> e<span class="p">,</span>
-                   e <span class="o">~</span> <span class="kp">norm</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">))</span> <span class="o">%&gt;%</span>
-        m.impute<span class="p">(</span>m <span class="o">=</span> <span class="m">4</span><span class="p">)</span> <span class="o">%&gt;%</span>
-        time_period<span class="p">(</span>type <span class="o">=</span> unequal<span class="p">)</span>
-</code></pre></div>
-<p>What do you think?</p>
+<p>He wanted to work out the probability of getting a perfect solitaire hand.</p>
+
+<p>Being a mathematician, he also wanted to work this out analytically.</p>
+
+<p>What does analytical mean?  It&#39;s a fair question, as it&#39;s <a href="http://en.wikipedia.org/wiki/Analytic">wikipedia page shows that there are many definitions</a>
+<p style="text-align: center;"><strong>Wikipedia definition:</strong></p>
+<p style="text-align: center;"><em>&quot;Analytic Solution&quot; </em></p>
+<p style="text-align: center;"><em>- A solution to a problem that can be written in &quot;closed form&quot; in terms of known functions, constants, etc.</em></p>
+<p style="text-align: left;">I find that such a definition relies on the reader knowing what the words &#39;closed form&#39;, &#39;known functions&#39; and &#39;constants&#39; are.</p>
+<p style="text-align: center;">So here&#39;s <strong>my definition:</strong></p>
+<p style="text-align: center;"><em>&quot;Analytic Solution&quot;</em></p>
+<p style="text-align: center;"><em>A solution where everything needed to solve a particular question is presented clearly and logically, with all assumptions defined.
+</em></p>
+So, getting back on track...</p>
+
+<p>When Stan Ulam said that he wanted to find the probability of getting a perfect solitaire hand, he was going to do some really complex probability equations using:
+<ul>
+    <li>The information about a deck of cards
+<ul>
+    <li>52 cards</li>
+    <li>Number of red cards</li>
+    <li>Number of black cards</li>
+    <li>Number of different numbers...etc.</li>
+</ul>
+</li>
+    <li>And a pen and paper</li>
+    <li>(and maybe a calculator, but this was the 1940s so it is less likely.  But then, he <em>was</em> a famous mathematician - it is more likely he would have had access to a computer)  to arrive at a &#39;perfect solution&#39;.</li>
+</ul>
+The analytic solution ends up looking really complicated, and is<em> quite</em> complex.</p>
+
+<p>So instead of finding an analytical solution, he wanted to <em>approximate </em>a solution.</p>
+
+<p>Basically you follow these steps,
+<ol>
+    <li>Shuffle and deal a hand of solitaire</li>
+    <li>Is it a perfect hand?</li>
+    <li>If no, add one to the total number of hands dealt, go back to step 1.</li>
+    <li>If yes, add one to the number of successful hands AND total number of hands dealt, go back step 1</li>
+    <li>Repeat steps 1-4 1000s of times.</li>
+    <li>Divide the # successful hands / total # hands.</li>
+    <li>You have now arrived at an approximate probability of getting a perfect hand in solitaire.</li>
+</ol>
+Crazy as it sounds, this probability gets closer to the &#39;true&#39; probability you would have found, had you worked it out analytically.</p>
+
+<p>The more trial simulations (iterations) you run, the better the answer.</p>
+
+<p>Now imagine that instead of wanting to know the probability of getting a perfect hand, but
+<ul>
+    <li>Getting a red card first draw</li>
+    <li>The ace of spades first draw</li>
+    <li>TWO black cards...</li>
+</ul>
+Monte Carlo provides a simpler solution than the analytic method.I shall write another post extending on this one soon.</p>
+
+<p>Let me know if what I wrote makes sense for you!</p>
+
+<p>Reference: - <a href="http://www.youtube.com/watch?v=7TybpwBlcMk">MathematicalMonk&#39;s Youtube Channel</a></p>
 
 </div>
 

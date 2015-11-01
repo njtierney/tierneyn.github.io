@@ -4,13 +4,100 @@
  <title>Nicholas Tierney</title>
  <link href="tierneyn.github.io/atom.xml" rel="self"/>
  <link href="tierneyn.github.io/"/>
- <updated>2015-10-30T16:10:25+10:00</updated>
+ <updated>2015-11-02T00:27:06+10:00</updated>
  <id>tierneyn.github.io</id>
  <author>
    <name>Nicholas Tierney</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>R Package `neato`</title>
+   <link href="tierneyn.github.io/2015/03/09/r-package-neato/"/>
+   <updated>2015-03-09T00:00:00+10:00</updated>
+   <id>tierneyn.github.io/2015/03/09/r-package-neato</id>
+   <content type="html">&lt;p&gt;My workflow in R now is to make a function after I copy and paste some code more than once. Sometimes I find myself using these functions more than once, across different projects.&lt;/p&gt;
+
+&lt;p&gt;So I decided to make an R package with a few of these functions in it. I call it &amp;quot;neato&amp;quot;, in the vain hope that one day someone will find one of these functions and say: &amp;quot;neato!&amp;quot;, because hey, it&amp;#39;s pretty neat!&lt;/p&gt;
+
+&lt;p&gt;You can check neato out &lt;a href=&quot;https://github.com/tierneyn/neato&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I hope that the more I write into this package, the better I&amp;#39;ll get at writing R packages and the more I can contribute to the R community. I&amp;#39;d also like to thank people like &lt;a href=&quot;http://r-pkgs.had.co.nz/&quot;&gt;Hadley Wickham&lt;/a&gt; and &lt;a href=&quot;http://hilaryparker.com/2014/04/29/writing-an-r-package-from-scratch/&quot;&gt;Hilary Parker&lt;/a&gt; for writing materials to inspire me to contribute to R.&lt;/p&gt;
+
+&lt;p&gt;Let me know if you have any thoughts about it below with a comment, or even &lt;a href=&quot;https://github.com/tierneyn/neato&quot;&gt;on github&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Working Smoothly(er) from RMarkdown to Word.</title>
+   <link href="tierneyn.github.io/2015/02/09/Working-Smoothlyer-from-RMarkdown-to-Word/"/>
+   <updated>2015-02-09T00:00:00+10:00</updated>
+   <id>tierneyn.github.io/2015/02/09/Working-Smoothlyer-from-RMarkdown-to-Word</id>
+   <content type="html">&lt;p&gt;I&amp;#39;m a pretty huge fan of RMarkdown, as it is a great way for me to write my code and my text together. It seems really a rather a natural thing to do. You write about your analyses, and the code is there. You update some function or some data, and your figures and tables update with it.&lt;/p&gt;
+
+&lt;p&gt;In my head I feel as though I am working more efficiently. However there is some research to suggest that LaTeX users actually work slower than Word users. However, LaTeX users &lt;em&gt;feel better&lt;/em&gt; about using LaTeX. I would like to dub this the &lt;strong&gt;brown corduroy trousers effect&lt;/strong&gt;, quoting Robin Williams, who said something like:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Method Acting is like peeing whilst wearing brown corduroy trousers. Nobody knows the difference but it sure as hell feels nice.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Anyway. I started to use knitr to process my work documents at the end of 2013, specifically using the LaTeX formatting. Which made me feel good.&lt;/p&gt;
+
+&lt;p&gt;Then I switched to Rmarkdown after a conversation with Hadley Wickham at a Young Statisticians Dinner at the Australian Statisticians Conference in Sydney, in 2014. Amongst other things &amp;quot;Have you seen &lt;a href=&quot;http://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html&quot;&gt;dplyr?&lt;/a&gt; and &lt;a href=&quot;http://www.amazon.com/Style-Clarity-Chicago-Writing-Publishing/dp/0226899152&quot;&gt;&amp;quot;read this book!&amp;quot;&lt;/a&gt;. Hadley told me that he uses RMarkdown almost exclusively now, not really going back to the .Rnw knitr LaTeX files. He also said that there&amp;#39;s a button that will convert it to LaTeX style and also ... get this... to microsoft word.&lt;/p&gt;
+
+&lt;p&gt;Converting to word documents is really awesome, because my supervisors often prefer to read and edit my papers in word. Knitr does a really good job of putting everything from RMarkdown into Word, but it doesn&amp;#39;t do everything that I&amp;#39;d like. I usually spend 1 or 2 minutes changing the font and line spacing and inserting page numbers. Then I spend anywhere from 2 to 15 minutes manually resizing images. Painful. But every time I did it, I would always think:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;It&amp;#39;s just this once...&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;And then I would think:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Maybe there&amp;#39;s  a way to get R to do all this for me?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;But I assumed that would be more effort than it was worth.&lt;/p&gt;
+
+&lt;p&gt;Well, tonight I cracked, and went googling for how to fix this problem. It turns out that this was a royal pain the arse.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/18884778/poor-resolution-in-knitr-using-rmd&quot;&gt;I tried this solution.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Both didn&amp;#39;t really work.&lt;/p&gt;
+
+&lt;p&gt;So then I then tried to solve this problem using a macro in word.&lt;/p&gt;
+
+&lt;p&gt;I&amp;#39;ve never &lt;em&gt;touched&lt;/em&gt; macros in Word. They always seemed weird and odd to me. Regardless, in I went to the macro editor. I hit the record button, and did all of the font changes, colour changes, and spacing changes I always do. Then I saved this macro.&lt;/p&gt;
+
+&lt;p&gt;Then I went on to find a way to change the image sizes. I took a wrong turn into a &lt;a href=&quot;https://cybertext.wordpress.com/2014/02/07/word-resize-all-images-in-a-document-to-the-same-width/&quot;&gt;blog that had me developing a GUI&lt;/a&gt;...which didn&amp;#39;t end up working for me. There&amp;#39;s 30 minutes I won&amp;#39;t be getting back. But then I found this &lt;a href=&quot;http://yuriy-okhmat.blogspot.co.uk/2011/07/how-to-resize-all-images-in-word.html&quot;&gt;snippet of code&lt;/a&gt; snippet of code, which resizes everything to 16 cm, maintaining the aspect ratio.&lt;/p&gt;
+
+&lt;p&gt;I created a new macro from scratch and pasted this code in. Boom! Another Macro is born. Then I finished this up by creating a macro that recorded me running those two macros. Not elegant, but effective.&lt;/p&gt;
+
+&lt;p&gt;So, total time expended screwing around and making this macro?  2 Hours.&lt;/p&gt;
+
+&lt;p&gt;Total time saved?  15 minutes per Word doc that I compile. I think that is worth it.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Fix for `gbm.plot`</title>
+   <link href="tierneyn.github.io/2014/04/22/gbm-plot-fix/"/>
+   <updated>2014-04-22T00:00:00+10:00</updated>
+   <id>tierneyn.github.io/2014/04/22/gbm-plot-fix</id>
+   <content type="html">&lt;p&gt;I&amp;#39;m currently in the process of writing a report using boosted regression trees.  I&amp;#39;m currently using guidelines provided by Elith et al &lt;a href=&quot;http://avesbiodiv.mncn.csic.es/estadistica/bt1.pdf&quot;&gt;here&lt;/a&gt;, and &lt;a href=&quot;http://cran.r-project.org/web/packages/dismo/vignettes/brt.pdf&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;They provide the function &lt;code&gt;gbm.step&lt;/code&gt;, which performs 10-fold cross validation on the boosted regression tree. It also has a nifty &lt;code&gt;gbm.plot&lt;/code&gt; function, producing partial dependence plots. Unforunately, it kept giving me this error:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;code&gt;Error: could not find function &amp;quot;windows&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This means that the function &lt;code&gt;windows&lt;/code&gt; is being called inside &lt;code&gt;gbm.plot&lt;/code&gt;. So I looked into what the heck &lt;code&gt;windows&lt;/code&gt; is and it turns out it opens a graphics device, but is the command reserved for windows machines - I use a mac, and the equivalent command is &lt;code&gt;X11()&lt;/code&gt;. I found this out thanks to this website here: http://doingbayesiandataanalysis.blogspot.com.au/2011/09/for-linux-macos-users-easy-fix-for.html&lt;/p&gt;
+
+&lt;p&gt;So I simply found the source code for gbm.plot, and replaced windows(...) with X11(...) Hopefully this will prove helpful to someone.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>A Grammar of Models?</title>
@@ -75,6 +162,59 @@
  </entry>
  
  <entry>
+   <title>Statistics Can Do Anything?</title>
+   <link href="tierneyn.github.io/2013/09/01/stats-can-do-anything/"/>
+   <updated>2013-09-01T00:00:00+10:00</updated>
+   <id>tierneyn.github.io/2013/09/01/stats-can-do-anything</id>
+   <content type="html">&lt;p&gt;Sometimes people are fond of saying:
+&lt;blockquote&gt;&amp;quot;Well, &lt;em&gt;you know&lt;/em&gt;, the thing with statistics is that you can get the statistics to say whatever you want.&amp;quot;&lt;/blockquote&gt;
+I think that this is the equivalent of saying:
+&lt;blockquote&gt;&amp;quot;...What I am saying is true because of my argument.&amp;quot;&lt;/blockquote&gt;
+You can &lt;em&gt;say&lt;/em&gt; that anything is true, but what really matters is the &lt;strong&gt;strength of your argument.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;And statistics...&lt;/p&gt;
+
+&lt;p&gt;The same goes for statistics, you could perform a variety of tests to support a particular point.&lt;/p&gt;
+
+&lt;p&gt;However, your argument depends  on the suitability of your statistical test for what you are &lt;strong&gt;trying to prove or demonstrate&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Statistics are used to articulate a particular point. The author has the responsibility of ensuring they are &lt;strong&gt;correctly&lt;/strong&gt; using a statistic to prove this point.&lt;/p&gt;
+
+&lt;p&gt;The reader also has a responsibility to evaluate their use of tools to construct and support their argument.&lt;/p&gt;
+
+&lt;p&gt;So yes, statistics could be used to support the argument
+&lt;blockquote&gt;Johnny steals tim tams from Nick, as he has done this a statistically significant number of times.&lt;/blockquote&gt;
+Upon reading this, one should be very keen to investigate the ways in which the statistics were used, and ask questions like:
+&lt;blockquote&gt;What data was it?&lt;/p&gt;
+
+&lt;p&gt;Observation?&lt;/p&gt;
+
+&lt;p&gt;Who observed it?&lt;/p&gt;
+
+&lt;p&gt;How did they observe it?&lt;/p&gt;
+
+&lt;p&gt;Did they code observations?&lt;/p&gt;
+
+&lt;p&gt;Did they aggregate observations?&lt;/p&gt;
+
+&lt;p&gt;What sort of anaysis was used?&lt;/p&gt;
+
+&lt;p&gt;Why?&lt;/p&gt;
+
+&lt;p&gt;Were there any data transformations used?&lt;/p&gt;
+
+&lt;p&gt;Why?&lt;/blockquote&gt;
+So when someone says that statistics can be used to prove anything, I like to replace this with:
+&lt;blockquote&gt;&amp;quot;You can argue any point, and sometimes the people who don&amp;#39;t know any better will nod their head quietly and whisper &lt;em&gt;&amp;quot;&lt;/em&gt;&lt;em&gt;statistics said it was so&amp;quot; &amp;quot;&lt;/em&gt;&lt;/blockquote&gt;
+Others will nod their heads too.&lt;/p&gt;
+
+&lt;p&gt;But it is your job as a good researcher / reader to ask the all important:
+&lt;blockquote&gt;Why?&lt;/blockquote&gt;
+Thanks for reading, I&amp;#39;d be very interested to hear what you think in a comment below.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>Analytically</title>
    <link href="tierneyn.github.io/2013/08/20/analytically/"/>
    <updated>2013-08-20T00:00:00+10:00</updated>
@@ -102,6 +242,117 @@
 &lt;/blockquote&gt;
 
 &lt;p&gt;Waddaya reckon?&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Monte Carlo Approximiation</title>
+   <link href="tierneyn.github.io/2013/06/26/monte-carlo-approx/"/>
+   <updated>2013-06-26T00:00:00+10:00</updated>
+   <id>tierneyn.github.io/2013/06/26/monte-carlo-approx</id>
+   <content type="html">&lt;p&gt;There are a lot of explanations of Monte Carlo approximation out there.&lt;/p&gt;
+
+&lt;p&gt;Here is one that worked for me.&lt;/p&gt;
+
+&lt;p&gt;A famous mathematician named Stan Ulam liked solitaire.&lt;/p&gt;
+
+&lt;p&gt;He wanted to work out the probability of getting a perfect solitaire hand.&lt;/p&gt;
+
+&lt;p&gt;Being a mathematician, he also wanted to work this out analytically.&lt;/p&gt;
+
+&lt;p&gt;What does analytical mean?  It&amp;#39;s a fair question, as it&amp;#39;s &lt;a href=&quot;http://en.wikipedia.org/wiki/Analytic&quot;&gt;wikipedia page shows that there are many definitions&lt;/a&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong&gt;Wikipedia definition:&lt;/strong&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;em&gt;&amp;quot;Analytic Solution&amp;quot; &lt;/em&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;em&gt;- A solution to a problem that can be written in &amp;quot;closed form&amp;quot; in terms of known functions, constants, etc.&lt;/em&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: left;&quot;&gt;I find that such a definition relies on the reader knowing what the words &amp;#39;closed form&amp;#39;, &amp;#39;known functions&amp;#39; and &amp;#39;constants&amp;#39; are.&lt;/p&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;So here&amp;#39;s &lt;strong&gt;my definition:&lt;/strong&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;em&gt;&amp;quot;Analytic Solution&amp;quot;&lt;/em&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;em&gt;A solution where everything needed to solve a particular question is presented clearly and logically, with all assumptions defined.
+&lt;/em&gt;&lt;/p&gt;
+So, getting back on track...&lt;/p&gt;
+
+&lt;p&gt;When Stan Ulam said that he wanted to find the probability of getting a perfect solitaire hand, he was going to do some really complex probability equations using:
+&lt;ul&gt;
+    &lt;li&gt;The information about a deck of cards
+&lt;ul&gt;
+    &lt;li&gt;52 cards&lt;/li&gt;
+    &lt;li&gt;Number of red cards&lt;/li&gt;
+    &lt;li&gt;Number of black cards&lt;/li&gt;
+    &lt;li&gt;Number of different numbers...etc.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+    &lt;li&gt;And a pen and paper&lt;/li&gt;
+    &lt;li&gt;(and maybe a calculator, but this was the 1940s so it is less likely.  But then, he &lt;em&gt;was&lt;/em&gt; a famous mathematician - it is more likely he would have had access to a computer)  to arrive at a &amp;#39;perfect solution&amp;#39;.&lt;/li&gt;
+&lt;/ul&gt;
+The analytic solution ends up looking really complicated, and is&lt;em&gt; quite&lt;/em&gt; complex.&lt;/p&gt;
+
+&lt;p&gt;So instead of finding an analytical solution, he wanted to &lt;em&gt;approximate &lt;/em&gt;a solution.&lt;/p&gt;
+
+&lt;p&gt;Basically you follow these steps,
+&lt;ol&gt;
+    &lt;li&gt;Shuffle and deal a hand of solitaire&lt;/li&gt;
+    &lt;li&gt;Is it a perfect hand?&lt;/li&gt;
+    &lt;li&gt;If no, add one to the total number of hands dealt, go back to step 1.&lt;/li&gt;
+    &lt;li&gt;If yes, add one to the number of successful hands AND total number of hands dealt, go back step 1&lt;/li&gt;
+    &lt;li&gt;Repeat steps 1-4 1000s of times.&lt;/li&gt;
+    &lt;li&gt;Divide the # successful hands / total # hands.&lt;/li&gt;
+    &lt;li&gt;You have now arrived at an approximate probability of getting a perfect hand in solitaire.&lt;/li&gt;
+&lt;/ol&gt;
+Crazy as it sounds, this probability gets closer to the &amp;#39;true&amp;#39; probability you would have found, had you worked it out analytically.&lt;/p&gt;
+
+&lt;p&gt;The more trial simulations (iterations) you run, the better the answer.&lt;/p&gt;
+
+&lt;p&gt;Now imagine that instead of wanting to know the probability of getting a perfect hand, but
+&lt;ul&gt;
+    &lt;li&gt;Getting a red card first draw&lt;/li&gt;
+    &lt;li&gt;The ace of spades first draw&lt;/li&gt;
+    &lt;li&gt;TWO black cards...&lt;/li&gt;
+&lt;/ul&gt;
+Monte Carlo provides a simpler solution than the analytic method.I shall write another post extending on this one soon.&lt;/p&gt;
+
+&lt;p&gt;Let me know if what I wrote makes sense for you!&lt;/p&gt;
+
+&lt;p&gt;Reference: - &lt;a href=&quot;http://www.youtube.com/watch?v=7TybpwBlcMk&quot;&gt;MathematicalMonk&amp;#39;s Youtube Channel&lt;/a&gt;&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Humanity</title>
+   <link href="tierneyn.github.io/2013/06/12/humanity/"/>
+   <updated>2013-06-12T00:00:00+10:00</updated>
+   <id>tierneyn.github.io/2013/06/12/humanity</id>
+   <content type="html">&lt;p&gt;A friend of mine posted an interesting article on facebook today - &lt;a href=&quot;http://theconversation.com/honing-the-mind-and-nurturing-the-soul-why-the-humanities-are-underrated-15027&quot;&gt;&amp;quot;Honing the mind and nurturing the soul: why the humanities are underrated&amp;quot;&lt;/a&gt;.  The piece is written by Professor Steven Schwartz, a distinguished academic currently residing at Oxford University after holding Vice Chancellor positions in Australia and the UK.&lt;/p&gt;
+
+&lt;p&gt;The article tells of Schwartz seeing the return of mature age students to university, not to study a doctorate in accounting or business, but the arts and humanities.  As he put it, these students were returning to &amp;quot;fulfil a life-long desire to immerse themselves in the arts or humanities&amp;quot; after years in another profession.  Schwartz makes the point that you do not need to make money to then spend it later in life - doing the &amp;#39;degree they have always wanted to do&amp;#39; -  you can study the humanities &lt;em&gt;and&lt;/em&gt; make money.&lt;/p&gt;
+
+&lt;p&gt;It seems a strange thought at first.  How do the humanities help you make money?  You know, getting you a job.  We&amp;#39;ve all got that annoying uncle or in-law or friend who plays devil&amp;#39;s advocate (or douchebag) when you reveal that you are studying French and Philosophy.  They lean back and these words like this slide out of their mouth:
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;em&gt;&amp;quot;Ah, what are the prospects for you after you finish your degree?  I mean, latin is a dead language, what&amp;#39;s the point in studying that?  Why study how to speak a language if you don&amp;#39;t want to be a translator?  And Philosophy?  What are you going to do, Philosophise?  Is that even a word?  Har har har har&amp;quot;.&lt;/em&gt;&lt;/p&gt;
+Schwartz demonstrates the benefits of having a degree in humanities by listing a executives of companies like Yahoo and Google.  Clearly they are doing well, and guess what? They have degrees or PhDs in Arts or Humanities.
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;em&gt;&amp;quot;You go into the humanities to pursue your intellectual passion; and it just so happens, as a by-product, that you emerge as a desired commodity for industry. Such is the halo of human flourishing&amp;quot; &lt;/em&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;says Damon Horowitz, a Google Executive with a humanities PhD&lt;/p&gt;
+We start to see that maybe these degrees teach you something other than how to conjugate &amp;#39;dead&amp;#39; verbs back to life.  They teach you how to write, how to communicate, how to argue.  They teach you how to empathize, how to make ethical decisions, how to consider the needs of others.  They teach you about decisions that have been made in the past and how they still affect the present.&lt;/p&gt;
+
+&lt;p&gt;Sure, you might not be able to directly apply all of that content that you have learnt, but what degree allows for that?&lt;/p&gt;
+
+&lt;p&gt;These skills allow you to retort to your uncle:
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;em&gt;&amp;quot;I&amp;#39;d love to come up with something suitable witty and hilarious to shame you appropriately, but I&amp;#39;m fresh out right now.  In answer to your question - is anyone ever  FULLY certain about their prospects after their degree? Just because I&amp;#39;m not certain, this does not mean that it makes me less useful or employable...&amp;quot;&lt;/em&gt;&lt;/p&gt;
+and then if you really want to you can cap it off with a Victor E. Frankl Quote:
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;em&gt;&amp;quot;...Everything can be taken from a man but one thing: the last of the human freedoms—to choose one’s attitude in any given set of circumstances, to choose one’s own way...&amp;quot;&lt;/em&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: left;&quot;&gt;Which might have appeared inappropriate now that you think about it, but it has probably confused your antagonist into introspection.&lt;/p&gt;
+It isn&amp;#39;t about the &lt;strong&gt;content&lt;/strong&gt; that you learn, but the &lt;strong&gt;process;&lt;/strong&gt; it&amp;#39;s the skills you obtain from a degree that make you an asset.&lt;/p&gt;
+
+&lt;p&gt;I guess this article just really resonated with me - I have an honours degree in Psychology, and I&amp;#39;m pursuing a PhD in Statistics.  I have a general understanding of lots of statistics, but not the fine mathematical knowledge that elegantly underpins all of it.  People are sometimes confused when I tell them that I&amp;#39;m doing a PhD in stats but don&amp;#39;t have the strong math background.  But the reason I can do a PhD in an unfamiliar topic is because of the skills I obtained from my Psychology degree - establishing rapport and interpersonal communication, critical reasoning, and experimental design. My degree has taught me to teach myself, to solve problems, to stay organised, handle stress, and write well.&lt;/p&gt;
+
+&lt;p&gt;So this is for all of the kids out there who are studying and then having the mandatory &lt;a href=&quot;http://www.phdcomics.com/comics.php?f=1488&quot;&gt;existential crisis&lt;/a&gt; (totally normal, by the way) - Stimulate your mind and study what you love - passion breeds success.&lt;em&gt;
+&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;
+&lt;div style=&quot;height: auto&quot;&gt;
+     &lt;img src=&quot;/assets/dan_humanity.jpg&quot; alt=&quot;test&quot; style=&quot;width: 100%;max-height: 100%&quot; /&gt;
+&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;!-- above code nabbed from http://stackoverflow.com/questions/7177881/how-can-i-put-css-and-html-code-in-the-same-file --&gt;
 </content>
  </entry>
  
