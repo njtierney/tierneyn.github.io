@@ -2,6 +2,8 @@
 title: R Package `neato`
 layout: post
 comments: true
+categories:
+- R
 ---
 
 My workflow in R now is to make a function after I copy and paste some code more than once. Sometimes I find myself using these functions more than once, across different projects.

@@ -1,5 +1,5 @@
 ---
-title: Analytically
+title: "Define: Analytically"
 layout: post
 comments: true
 ---

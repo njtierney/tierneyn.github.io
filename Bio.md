@@ -21,10 +21,6 @@ My research involves creating statistical models describing th health of employe
 
 I enjoy explaining the joys of statistics, especially to those who might despise the topic (I was once one of those people!). Outside of stats I enjoy rock climbing, running, reading, riding my bike places, playing guitar, making coffee, taking photos, and travelling.
 
-Hope you are having a swell day,
-
-Nick.
-
 <p>
 <div style="height: auto">
 <img src="/assets/nick_lead_comp_headshot_2015.jpg" alt="Me." style="width: 100%;max-height: 100%" />

@@ -23,29 +23,18 @@ The reader also has a responsibility to evaluate their use of tools to construct
 So yes, statistics could be used to support the argument
 <blockquote>Johnny steals tim tams from Nick, as he has done this a statistically significant number of times.</blockquote>
 Upon reading this, one should be very keen to investigate the ways in which the statistics were used, and ask questions like:
-<blockquote>What data was it?
 
-Observation?
+> What data was it? Observation? _Who_ observed it? _How_ did they observe it?
 
-Who observed it?
+> What sort of anaysis was used? Why?
 
-How did they observe it?
+> Were any data transformations used? Why?
 
-Did they code observations?
+And so on. 
 
-Did they aggregate observations?
-
-What sort of anaysis was used?
-
-Why?
-
-Were there any data transformations used?
-
-Why?</blockquote>
 So when someone says that statistics can be used to prove anything, I like to replace this with:
 <blockquote>"You can argue any point, and sometimes the people who don't know any better will nod their head quietly and whisper <em>"</em><em>statistics said it was so" "</em></blockquote>
 Others will nod their heads too.
 
 But it is your job as a good researcher / reader to ask the all important:
 <blockquote>Why?</blockquote>
-Thanks for reading, I'd be very interested to hear what you think in a comment below.
