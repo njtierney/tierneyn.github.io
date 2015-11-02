@@ -83,14 +83,13 @@ shiny is a really awesome way to enhance your R plotting, and turn them into 'ap
 
 ## Data Manipulation
 
-[dplyr](https://github.com/hadley/dplyr):
-- [helpful lesson](http://www.dataschool.io/dplyr-tutorial-for-faster-data-manipulation-in-r)
-- [tidyr](https://github.com/hadley/tidyr)
-- [broom](https://github.com/dgrtwo/broom#broom-lets-tidy-up-a-bit) [helpful lessons](http://127.0.0.1:22465/session/Rvig.15c681ac18b1d.html)
+- Use [dplyr](https://github.com/hadley/dplyr) to manipulate data in R. [Here is a helpful lesson](http://www.dataschool.io/dplyr-tutorial-for-faster-data-manipulation-in-r)
+- Use [tidyr](https://github.com/hadley/tidyr) to melt data (new version of `reshape2`)
+- Use [broom](https://github.com/dgrtwo/broom#broom-lets-tidy-up-a-bit) to create **tidy dataframes** of statistical models. [Here is a helpful lesson](http://127.0.0.1:22465/session/Rvig.15c681ac18b1d.html)
 
 # Decision Trees
 
-I use decision trees a lot in R, and I even [wrote a little pacakge](https://github.com/tierneyn/neato) that helps take care of some common tasks in interrogating decision trees. Here are a list of resources that I recommend using to learn about them:
+I use decision trees a lot in R, and I even [wrote a little package](https://github.com/tierneyn/neato) that helps take care of some common tasks in interrogating decision trees. Here are a list of resources that I recommend using to learn about them:
 
 - [This bookd from James et al](http://www-bcf.usc.edu/~gareth/ISL/ISLR%20First%20Printing.pdf) - chapter 8 specifically refers to decision trees. They've also made the book free! Also [their videos](https://www.youtube.com/playlist?list=PL5-da3qGB5IB23TLuA8ZgVGC8hV8ZAdGh) on decision trees are very useful. You can find a comprehensive list of all their videos and material at [this website](http://www.dataschool.io/15-hours-of-expert-machine-learning-videos)
 
