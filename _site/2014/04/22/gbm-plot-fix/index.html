@@ -149,9 +149,11 @@
 <p><code>Error: could not find function &quot;windows&quot;</code></p>
 </blockquote>
 
-<p>This means that the function <code>windows</code> is being called inside <code>gbm.plot</code>. So I looked into what the heck <code>windows</code> is and it turns out it opens a graphics device, but is the command reserved for windows machines - I use a mac, and the equivalent command is <code>X11()</code>. I found this out thanks to this website here: http://doingbayesiandataanalysis.blogspot.com.au/2011/09/for-linux-macos-users-easy-fix-for.html</p>
+<p>This means that the function <code>windows()</code> is being called inside <code>gbm.plot()</code>. So I looked into what the heck <code>windows()</code> is and it turns out it opens a graphics device, but is the command reserved for windows machines - I use a mac, and the equivalent command is <code>X11()</code>. I found this out thanks to <a href="http://doingbayesiandataanalysis.blogspot.com.au/2011/09/for-linux-macos-users-easy-fix-for.html">this website</a>.</p>
 
-<p>So I simply found the source code for gbm.plot, and replaced windows(...) with X11(...) Hopefully this will prove helpful to someone.</p>
+<p>So I simply found the source code for <code>gbm.plot</code>, and replaced <code>windows()</code> with <code>X11()</code></p>
+
+<p>Hopefully this will prove helpful to someone.</p>
 
         <!-- using liquid formatting to define a variable page.comments -->
 

@@ -10,6 +10,8 @@ They provide the function `gbm.step`, which performs 10-fold cross validation on
 
 > `Error: could not find function "windows"`
 
-This means that the function `windows` is being called inside `gbm.plot`. So I looked into what the heck `windows` is and it turns out it opens a graphics device, but is the command reserved for windows machines - I use a mac, and the equivalent command is `X11()`. I found this out thanks to this website here: http://doingbayesiandataanalysis.blogspot.com.au/2011/09/for-linux-macos-users-easy-fix-for.html
+This means that the function `windows()` is being called inside `gbm.plot()`. So I looked into what the heck `windows()` is and it turns out it opens a graphics device, but is the command reserved for windows machines - I use a mac, and the equivalent command is `X11()`. I found this out thanks to [this website](http://doingbayesiandataanalysis.blogspot.com.au/2011/09/for-linux-macos-users-easy-fix-for.html).
 
-So I simply found the source code for gbm.plot, and replaced windows(...) with X11(...) Hopefully this will prove helpful to someone.
+So I simply found the source code for `gbm.plot`, and replaced `windows()` with `X11()`
+
+Hopefully this will prove helpful to someone.
