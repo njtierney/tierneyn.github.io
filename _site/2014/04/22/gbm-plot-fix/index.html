@@ -136,7 +136,11 @@
       <div class="container content">
         <div class="post">
   <h1 class="post-title">Fix for `gbm.plot`</h1>
-  <span class="post-date">22 Apr 2014</span>
+  <span class="post-date">
+  <!-- add in images -->
+   <img class="img-icon" src="/assets/iconmonstr-calendar-8-icon.svg"></img>22 Apr 2014
+    <img class="img-icon" src="/assets/iconmonstr-tags-4-icon.svg"></img></span>
+
   <p>I&#39;m currently in the process of writing a report using boosted regression trees.  I&#39;m currently using guidelines provided by Elith et al <a href="http://avesbiodiv.mncn.csic.es/estadistica/bt1.pdf">here</a>, and <a href="http://cran.r-project.org/web/packages/dismo/vignettes/brt.pdf">here</a></p>
 
 <p>They provide the function <code>gbm.step</code>, which performs 10-fold cross validation on the boosted regression tree. It also has a nifty <code>gbm.plot</code> function, producing partial dependence plots. Unforunately, it kept giving me this error:</p>
@@ -148,42 +152,6 @@
 <p>This means that the function <code>windows</code> is being called inside <code>gbm.plot</code>. So I looked into what the heck <code>windows</code> is and it turns out it opens a graphics device, but is the command reserved for windows machines - I use a mac, and the equivalent command is <code>X11()</code>. I found this out thanks to this website here: http://doingbayesiandataanalysis.blogspot.com.au/2011/09/for-linux-macos-users-easy-fix-for.html</p>
 
 <p>So I simply found the source code for gbm.plot, and replaced windows(...) with X11(...) Hopefully this will prove helpful to someone.</p>
-
-</div>
-
-<div class="related">
-  <h2>Related Posts</h2>
-  <ul class="related-posts">
-    
-      <li>
-        <h3>
-          <a href="/r/rbloggers/2015/03/09/r-package-neato/">
-            R Package `neato`
-            <small>09 Mar 2015</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2015/02/09/Working-Smoothlyer-from-RMarkdown-to-Word/">
-            Working Smoothly(er) from RMarkdown to Word.
-            <small>09 Feb 2015</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2013/11/10/grammar-of-models/">
-            A Grammar of Models?
-            <small>10 Nov 2013</small>
-          </a>
-        </h3>
-      </li>
-    
-  </ul>
-</div>
 
         <!-- using liquid formatting to define a variable page.comments -->
 

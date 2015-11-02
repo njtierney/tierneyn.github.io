@@ -29,6 +29,11 @@
 
 
 /*
+ * Add fonts
+ */
+@import url(https://fonts.googleapis.com/css?family=Hind);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+/*
  * Global resets
  *
  * Update the foundational and global aspects of the page.
@@ -41,11 +46,11 @@ body {
 }
 
 html {
-  font-family: "PT Sans", Georgia, "Times New Roman", serif;
+  font-family: 'Open Sans', Georgia, "Times New Roman", serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-family: 'Hind', Helvetica, Arial, sans-serif;
   font-weight: 400;
   color: #313131;
   letter-spacing: -.025rem;
@@ -552,4 +557,17 @@ a.pagination-item:hover {
 /* Only one tweak for a reverse layout */
 .layout-reverse.sidebar-overlay #sidebar-checkbox:checked ~ .sidebar {
   box-shadow: -.25rem 0 .5rem rgba(0,0,0,.1);
+}
+
+/*
+ * icon images - from https://github.com/alexsingleton/alexsingleton.github.io/blob/master/public/css/hyde.css
+ *
+ */
+
+.img-icon {
+  display: inline;
+  margin: 4px 6px 4px 4px;
+  width:16px; /* you can use % */
+  height: auto;
+  vertical-align:text-bottom;
 }

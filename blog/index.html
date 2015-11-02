@@ -12,7 +12,11 @@ title: Blog
       </a>
     </h1>
 
-    <span class="post-date">{{ post.date | date_to_string }}</span>
+    <span class="post-date">  
+    <!-- add in images -->
+     <img class="img-icon" src="/assets/iconmonstr-calendar-8-icon.svg"></img>{{ post.date | date_to_string }}
+     <img class="img-icon" src="/assets/iconmonstr-tags-4-icon.svg"></img>{% for categories in post.categories %}{{ categories }} {% if forloop.last != true %} {% endif %} {% endfor %}
+     </span>
 
     {{ post.content }}
   </div>
