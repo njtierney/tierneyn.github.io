@@ -5,7 +5,8 @@ title: Publications
 
 # Journal Publications
 
-[**Tierney, N. J.**, Harden, F., Harden, M., Mengersen, K. L. Understanding Structure in Missing Data Using Decision Trees, _BMJ Open_](http://bmjopen.bmj.com/content/5/6/e007450.full)
+[**Tierney, Nicholas J.**, Fiona A. Harden, Maurice J. Harden, and Kerrie L. Mengersen. 2015. “Using Decision Trees to Understand Structure in Missing Data.” _BMJ Open_ 5 (6). bmjopen.bmj.com: e007450.](http://bmjopen.bmj.com/content/5/6/e007450.full)
+
 
 # Under Review or in Preparation
 

@@ -27,3 +27,5 @@ I enjoy explaining the joys of statistics, especially to those who might despise
 </div>
 </p>
 <!-- above code nabbed from http://stackoverflow.com/questions/7177881/how-can-i-put-css-and-html-code-in-the-same-file -->
+
+

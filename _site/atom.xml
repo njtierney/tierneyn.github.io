@@ -4,7 +4,7 @@
  <title>Nicholas Tierney</title>
  <link href="tierneyn.github.io/atom.xml" rel="self"/>
  <link href="tierneyn.github.io/"/>
- <updated>2015-11-02T11:24:07+10:00</updated>
+ <updated>2015-11-02T15:04:18+10:00</updated>
  <id>tierneyn.github.io</id>
  <author>
    <name>Nicholas Tierney</name>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>R Package `neato`</title>
-   <link href="tierneyn.github.io/r/2015/03/09/r-package-neato/"/>
+   <link href="tierneyn.github.io/r/rbloggers/2015/03/09/r-package-neato/"/>
    <updated>2015-03-09T00:00:00+10:00</updated>
-   <id>tierneyn.github.io/r/2015/03/09/r-package-neato</id>
+   <id>tierneyn.github.io/r/rbloggers/2015/03/09/r-package-neato</id>
    <content type="html">&lt;p&gt;My workflow in R now is to make a function after I copy and paste some code more than once. Sometimes I find myself using these functions more than once, across different projects.&lt;/p&gt;
 
 &lt;p&gt;So I decided to make an R package with a few of these functions in it. I call it &amp;quot;neato&amp;quot;, in the vain hope that one day someone will find one of these functions and say: &amp;quot;neato!&amp;quot;, because hey, it&amp;#39;s pretty neat!&lt;/p&gt;

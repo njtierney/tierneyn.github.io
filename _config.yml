@@ -10,6 +10,7 @@ permalink:        pretty
 relative_permalinks: true
 
 # Setup
+name:             njtierney
 title:            Nicholas Tierney
 tagline:          'Original witty remark'
 description:      'Statistics, Coffee, Photography, and Me'
@@ -28,3 +29,4 @@ exclude: ["*.Rmd"]
 exclude: ["*.Rproj"]
 exclude: [".RData"]
 exclude: [".Rhistory"]
+
