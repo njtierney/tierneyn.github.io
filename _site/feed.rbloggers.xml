@@ -3,8 +3,8 @@
 	<channel>
 		<title>njtierney - rbloggers</title>
 		<description>Posts categorized as 'rbloggers'</description>
-		<link>tierneyn.github.io</link>
-		<atom:link href="tierneyn.github.io/feed.rbloggers.xml" rel="self" type="application/rss+xml" />
+		<link>http://tierneyn.github.io/</link>
+		<atom:link href="http://tierneyn.github.io//feed.rbloggers.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
 				<title>R Package `neato`</title>
@@ -13,8 +13,8 @@
 </description>
 				
 				<pubDate>Mon, 09 Mar 2015 00:00:00 +1000</pubDate>
-				<link>tierneyn.github.io/r/rbloggers/2015/03/09/r-package-neato/</link>
-				<guid isPermaLink="true">tierneyn.github.io/r/rbloggers/2015/03/09/r-package-neato/</guid>
+				<link>http://tierneyn.github.io//r/rbloggers/2015/03/09/r-package-neato/</link>
+				<guid isPermaLink="true">http://tierneyn.github.io//r/rbloggers/2015/03/09/r-package-neato/</guid>
 			</item>
 		
 	</channel>

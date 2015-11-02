@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Nicholas Tierney</title>
- <link href="tierneyn.github.io/atom.xml" rel="self"/>
- <link href="tierneyn.github.io/"/>
- <updated>2015-11-02T15:04:18+10:00</updated>
- <id>tierneyn.github.io</id>
+ <link href="http://tierneyn.github.io//atom.xml" rel="self"/>
+ <link href="http://tierneyn.github.io//"/>
+ <updated>2015-11-02T15:08:04+10:00</updated>
+ <id>http://tierneyn.github.io/</id>
  <author>
    <name>Nicholas Tierney</name>
    <email></email>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>R Package `neato`</title>
-   <link href="tierneyn.github.io/r/rbloggers/2015/03/09/r-package-neato/"/>
+   <link href="http://tierneyn.github.io//r/rbloggers/2015/03/09/r-package-neato/"/>
    <updated>2015-03-09T00:00:00+10:00</updated>
-   <id>tierneyn.github.io/r/rbloggers/2015/03/09/r-package-neato</id>
+   <id>http://tierneyn.github.io//r/rbloggers/2015/03/09/r-package-neato</id>
    <content type="html">&lt;p&gt;My workflow in R now is to make a function after I copy and paste some code more than once. Sometimes I find myself using these functions more than once, across different projects.&lt;/p&gt;
 
 &lt;p&gt;So I decided to make an R package with a few of these functions in it. I call it &amp;quot;neato&amp;quot;, in the vain hope that one day someone will find one of these functions and say: &amp;quot;neato!&amp;quot;, because hey, it&amp;#39;s pretty neat!&lt;/p&gt;
@@ -31,9 +31,9 @@
  
  <entry>
    <title>Working Smoothly(er) from RMarkdown to Word.</title>
-   <link href="tierneyn.github.io/2015/02/09/Working-Smoothlyer-from-RMarkdown-to-Word/"/>
+   <link href="http://tierneyn.github.io//2015/02/09/Working-Smoothlyer-from-RMarkdown-to-Word/"/>
    <updated>2015-02-09T00:00:00+10:00</updated>
-   <id>tierneyn.github.io/2015/02/09/Working-Smoothlyer-from-RMarkdown-to-Word</id>
+   <id>http://tierneyn.github.io//2015/02/09/Working-Smoothlyer-from-RMarkdown-to-Word</id>
    <content type="html">&lt;p&gt;I&amp;#39;m a pretty huge fan of RMarkdown, as it is a great way for me to write my code and my text together. It seems really a rather a natural thing to do. You write about your analyses, and the code is there. You update some function or some data, and your figures and tables update with it.&lt;/p&gt;
 
 &lt;p&gt;In my head I feel as though I am working more efficiently. However there is some research to suggest that LaTeX users actually work slower than Word users. However, LaTeX users &lt;em&gt;feel better&lt;/em&gt; about using LaTeX. I would like to dub this the &lt;strong&gt;brown corduroy trousers effect&lt;/strong&gt;, quoting Robin Williams, who said something like:&lt;/p&gt;
@@ -82,9 +82,9 @@
  
  <entry>
    <title>Fix for `gbm.plot`</title>
-   <link href="tierneyn.github.io/2014/04/22/gbm-plot-fix/"/>
+   <link href="http://tierneyn.github.io//2014/04/22/gbm-plot-fix/"/>
    <updated>2014-04-22T00:00:00+10:00</updated>
-   <id>tierneyn.github.io/2014/04/22/gbm-plot-fix</id>
+   <id>http://tierneyn.github.io//2014/04/22/gbm-plot-fix</id>
    <content type="html">&lt;p&gt;I&amp;#39;m currently in the process of writing a report using boosted regression trees.  I&amp;#39;m currently using guidelines provided by Elith et al &lt;a href=&quot;http://avesbiodiv.mncn.csic.es/estadistica/bt1.pdf&quot;&gt;here&lt;/a&gt;, and &lt;a href=&quot;http://cran.r-project.org/web/packages/dismo/vignettes/brt.pdf&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;They provide the function &lt;code&gt;gbm.step&lt;/code&gt;, which performs 10-fold cross validation on the boosted regression tree. It also has a nifty &lt;code&gt;gbm.plot&lt;/code&gt; function, producing partial dependence plots. Unforunately, it kept giving me this error:&lt;/p&gt;
@@ -101,9 +101,9 @@
  
  <entry>
    <title>A Grammar of Models?</title>
-   <link href="tierneyn.github.io/2013/11/10/grammar-of-models/"/>
+   <link href="http://tierneyn.github.io//2013/11/10/grammar-of-models/"/>
    <updated>2013-11-10T00:00:00+10:00</updated>
-   <id>tierneyn.github.io/2013/11/10/grammar-of-models</id>
+   <id>http://tierneyn.github.io//2013/11/10/grammar-of-models</id>
    <content type="html">&lt;p&gt;I came across &lt;a href=&quot;http://statr.me/2013/09/a-conversation-with-hadley-wickham/&quot;&gt;this interview&lt;/a&gt; with Hadley Wickham, the creator of one of the most widely used R packages, &lt;code&gt;ggplot 2&lt;/code&gt;. I thought that this quote was interesting:&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -126,9 +126,9 @@
  
  <entry>
    <title>Statistics for Journalists</title>
-   <link href="tierneyn.github.io/2013/11/01/statistics-for-journalists/"/>
+   <link href="http://tierneyn.github.io//2013/11/01/statistics-for-journalists/"/>
    <updated>2013-11-01T00:00:00+10:00</updated>
-   <id>tierneyn.github.io/2013/11/01/statistics-for-journalists</id>
+   <id>http://tierneyn.github.io//2013/11/01/statistics-for-journalists</id>
    <content type="html">&lt;p&gt;In November 2013 I had the opportunity to work with the Australian Science Media Centre (AusSMC) and produce a talk explaining numbers and statistics.  The deal was that it was 11 concepts on numbers and stats in 20 minutes.  The concepts being:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -163,9 +163,9 @@
  
  <entry>
    <title>Statistics Can Do Anything?</title>
-   <link href="tierneyn.github.io/2013/09/01/stats-can-do-anything/"/>
+   <link href="http://tierneyn.github.io//2013/09/01/stats-can-do-anything/"/>
    <updated>2013-09-01T00:00:00+10:00</updated>
-   <id>tierneyn.github.io/2013/09/01/stats-can-do-anything</id>
+   <id>http://tierneyn.github.io//2013/09/01/stats-can-do-anything</id>
    <content type="html">&lt;p&gt;Sometimes people are fond of saying:
 &lt;blockquote&gt;&amp;quot;Well, &lt;em&gt;you know&lt;/em&gt;, the thing with statistics is that you can get the statistics to say whatever you want.&amp;quot;&lt;/blockquote&gt;
 I think that this is the equivalent of saying:
@@ -207,9 +207,9 @@ Others will nod their heads too.&lt;/p&gt;
  
  <entry>
    <title>Define: Analytically</title>
-   <link href="tierneyn.github.io/2013/08/20/analytically/"/>
+   <link href="http://tierneyn.github.io//2013/08/20/analytically/"/>
    <updated>2013-08-20T00:00:00+10:00</updated>
-   <id>tierneyn.github.io/2013/08/20/analytically</id>
+   <id>http://tierneyn.github.io//2013/08/20/analytically</id>
    <content type="html">&lt;p&gt;What does the word &lt;em&gt;analytical&lt;/em&gt;, mean?  &lt;/p&gt;
 
 &lt;p&gt;Wikipedia says:&lt;/p&gt;
@@ -238,9 +238,9 @@ Others will nod their heads too.&lt;/p&gt;
  
  <entry>
    <title>Monte Carlo Approximiation</title>
-   <link href="tierneyn.github.io/2013/06/26/monte-carlo-approx/"/>
+   <link href="http://tierneyn.github.io//2013/06/26/monte-carlo-approx/"/>
    <updated>2013-06-26T00:00:00+10:00</updated>
-   <id>tierneyn.github.io/2013/06/26/monte-carlo-approx</id>
+   <id>http://tierneyn.github.io//2013/06/26/monte-carlo-approx</id>
    <content type="html">&lt;p&gt;There are a lot of explanations of Monte Carlo approximation out there.&lt;/p&gt;
 
 &lt;p&gt;Here is one that worked for me.&lt;/p&gt;
@@ -309,9 +309,9 @@ Monte Carlo provides a simpler solution than the analytic method.I shall write a
  
  <entry>
    <title>Humanity</title>
-   <link href="tierneyn.github.io/2013/06/12/humanity/"/>
+   <link href="http://tierneyn.github.io//2013/06/12/humanity/"/>
    <updated>2013-06-12T00:00:00+10:00</updated>
-   <id>tierneyn.github.io/2013/06/12/humanity</id>
+   <id>http://tierneyn.github.io//2013/06/12/humanity</id>
    <content type="html">&lt;p&gt;A friend of mine posted an interesting article on facebook today - &lt;a href=&quot;http://theconversation.com/honing-the-mind-and-nurturing-the-soul-why-the-humanities-are-underrated-15027&quot;&gt;&amp;quot;Honing the mind and nurturing the soul: why the humanities are underrated&amp;quot;&lt;/a&gt;.  The piece is written by Professor Steven Schwartz, a distinguished academic currently residing at Oxford University after holding Vice Chancellor positions in Australia and the UK.&lt;/p&gt;
 
 &lt;p&gt;The article tells of Schwartz seeing the return of mature age students to university, not to study a doctorate in accounting or business, but the arts and humanities.  As he put it, these students were returning to &amp;quot;fulfil a life-long desire to immerse themselves in the arts or humanities&amp;quot; after years in another profession.  Schwartz makes the point that you do not need to make money to then spend it later in life - doing the &amp;#39;degree they have always wanted to do&amp;#39; -  you can study the humanities &lt;em&gt;and&lt;/em&gt; make money.&lt;/p&gt;
