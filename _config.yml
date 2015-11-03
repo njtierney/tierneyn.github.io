@@ -15,7 +15,7 @@ title:            Nicholas Tierney
 tagline:          'Original witty remark'
 description:      'Statistics, Coffee, Photography, and Me'
 url:              http://tierneyn.github.io
-baseurl:          /
+baseurl:          
 
 author:
   name:           'Nicholas Tierney'

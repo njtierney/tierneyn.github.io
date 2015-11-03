@@ -4,13 +4,86 @@
  <title>Nicholas Tierney</title>
  <link href="http://tierneyn.github.io/atom.xml" rel="self"/>
  <link href="http://tierneyn.github.io/"/>
- <updated>2015-11-03T00:55:28+10:00</updated>
+ <updated>2015-11-03T17:06:03+10:00</updated>
  <id>http://tierneyn.github.io</id>
  <author>
    <name>Nicholas Tierney</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>Using `table` the dplyr way</title>
+   <link href="http://tierneyn.github.io/r/2015/11/03/tally-the-dplyr-table/"/>
+   <updated>2015-11-03T00:00:00+10:00</updated>
+   <id>http://tierneyn.github.io/r/2015/11/03/tally-the-dplyr-table</id>
+   <content type="html">&lt;p&gt;In this post I describe how to use &lt;code&gt;tally&lt;/code&gt;, the &lt;code&gt;dplyr&lt;/code&gt; equivalent of &lt;code&gt;table&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;table&lt;/code&gt; gives you the frequencies of something in a category. Let&amp;#39;s use the &lt;code&gt;iris&lt;/code&gt; dataset to illustrate. Let&amp;#39;s say we want to know how many are in each species in &lt;code&gt;iris&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kp&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;iris&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;Species&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## 
+##     setosa versicolor  virginica 
+##         50         50         50
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So there happen to be 50 in each of the species. &lt;/p&gt;
+
+&lt;p&gt;But if you want to present this in a tidy dataframe, where each column is a variable, and each row is an observation, you&amp;#39;d have to do some annoying reformating. But need not dispair, &lt;code&gt;dplyr&lt;/code&gt; has us covered.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;dplyr&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## 
+## Attaching package: &amp;#39;dplyr&amp;#39;
+## 
+## The following objects are masked from &amp;#39;package:stats&amp;#39;:
+## 
+##     filter, lag
+## 
+## The following objects are masked from &amp;#39;package:base&amp;#39;:
+## 
+##     intersect, setdiff, setequal, union
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;iris.tally &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; iris &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;
+  group_by&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Species&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt; 
+  tally
+
+iris.tally
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Source: local data frame [3 x 2]
+## 
+##      Species     n
+##       (fctr) (int)
+## 1     setosa    50
+## 2 versicolor    50
+## 3  virginica    50
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This gives us a neat dataframe, where we get Species as a column, and the number of observations in each Species.&lt;/p&gt;
+
+&lt;p&gt;One of the reasons I like this is because it means I can do something like create a table using &lt;code&gt;knitr::kable&lt;/code&gt; if I need to for a report.&lt;/p&gt;
+
+&lt;p&gt;So I could now do this:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;knitr&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+kable&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;iris.tally&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align: left&quot;&gt;Species&lt;/th&gt;
+&lt;th style=&quot;text-align: right&quot;&gt;n&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;50&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: left&quot;&gt;versicolor&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;50&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: left&quot;&gt;virginica&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;50&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+
+&lt;p&gt;Thanks to &lt;a href=&quot;http://stackoverflow.com/questions/24409376/dplyr-how-can-i-write-equivalent-to-table-base-function-and-preserve-column-n&quot;&gt;this SO post&lt;/a&gt; for providing me with knowledge of &lt;code&gt;tally&lt;/code&gt; and providing inspiration for this post.&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>R Package `neato`</title>
@@ -93,7 +166,7 @@
 &lt;p&gt;&lt;code&gt;Error: could not find function &amp;quot;windows&amp;quot;&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;This means that the function &lt;code&gt;windows()&lt;/code&gt; is being called inside &lt;code&gt;gbm.plot()&lt;/code&gt;. So I looked into what the heck &lt;code&gt;windows()&lt;/code&gt; is and it turns out it opens a graphics device, but is the command reserved for windows machines - I use a mac, and the equivalent command is &lt;code&gt;X11()&lt;/code&gt;. I found this out thanks to &lt;a href=&quot;http://doingbayesiandataanalysis.blogspot.com.au/2011/09/for-linux-macos-users-easy-fix-for.html&quot;&gt;this website&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This means that the function &lt;code&gt;windows()&lt;/code&gt; is being called inside &lt;code&gt;gbm.plot()&lt;/code&gt;. So I looked into what the heck &lt;code&gt;windows&lt;/code&gt; is and it turns out it opens a graphics device, but is the command reserved for windows machines - I use a mac, and the equivalent command is &lt;code&gt;X11()&lt;/code&gt;. I found this out thanks to &lt;a href=&quot;http://doingbayesiandataanalysis.blogspot.com.au/2011/09/for-linux-macos-users-easy-fix-for.html&quot;&gt;this website&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;So I simply found the source code for &lt;code&gt;gbm.plot&lt;/code&gt;, and replaced &lt;code&gt;windows()&lt;/code&gt; with &lt;code&gt;X11()&lt;/code&gt;&lt;/p&gt;
 

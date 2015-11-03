@@ -140,6 +140,87 @@
   
   <div class="post">
     <h1 class="post-title">
+      <a href="/r/2015/11/03/tally-the-dplyr-table/">
+        Using `table` the dplyr way
+      </a>
+    </h1>
+
+    <span class="post-date">  
+    <!-- add in images -->
+     <img class="img-icon" src="/assets/iconmonstr-calendar-8-icon.svg"></img>03 Nov 2015
+     <img class="img-icon" src="/assets/iconmonstr-tags-4-icon.svg"></img>r  
+     </span>
+
+    <p>In this post I describe how to use <code>tally</code>, the <code>dplyr</code> equivalent of <code>table</code>.</p>
+
+<p><code>table</code> gives you the frequencies of something in a category. Let&#39;s use the <code>iris</code> dataset to illustrate. Let&#39;s say we want to know how many are in each species in <code>iris</code>.</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kp">table</span><span class="p">(</span>iris<span class="o">$</span>Species<span class="p">)</span>
+</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">## 
+##     setosa versicolor  virginica 
+##         50         50         50
+</code></pre></div>
+<p>So there happen to be 50 in each of the species. </p>
+
+<p>But if you want to present this in a tidy dataframe, where each column is a variable, and each row is an observation, you&#39;d have to do some annoying reformating. But need not dispair, <code>dplyr</code> has us covered.</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>dplyr<span class="p">)</span>
+</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">## 
+## Attaching package: &#39;dplyr&#39;
+## 
+## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag
+## 
+## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union
+</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r">iris.tally <span class="o">&lt;-</span> iris <span class="o">%&gt;%</span>
+  group_by<span class="p">(</span>Species<span class="p">)</span> <span class="o">%&gt;%</span> 
+  tally
+
+iris.tally
+</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">## Source: local data frame [3 x 2]
+## 
+##      Species     n
+##       (fctr) (int)
+## 1     setosa    50
+## 2 versicolor    50
+## 3  virginica    50
+</code></pre></div>
+<p>This gives us a neat dataframe, where we get Species as a column, and the number of observations in each Species.</p>
+
+<p>One of the reasons I like this is because it means I can do something like create a table using <code>knitr::kable</code> if I need to for a report.</p>
+
+<p>So I could now do this:</p>
+<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>knitr<span class="p">)</span>
+
+kable<span class="p">(</span>iris.tally<span class="p">)</span>
+</code></pre></div>
+<table><thead>
+<tr>
+<th style="text-align: left">Species</th>
+<th style="text-align: right">n</th>
+</tr>
+</thead><tbody>
+<tr>
+<td style="text-align: left">setosa</td>
+<td style="text-align: right">50</td>
+</tr>
+<tr>
+<td style="text-align: left">versicolor</td>
+<td style="text-align: right">50</td>
+</tr>
+<tr>
+<td style="text-align: left">virginica</td>
+<td style="text-align: right">50</td>
+</tr>
+</tbody></table>
+
+<p>Thanks to <a href="http://stackoverflow.com/questions/24409376/dplyr-how-can-i-write-equivalent-to-table-base-function-and-preserve-column-n">this SO post</a> for providing me with knowledge of <code>tally</code> and providing inspiration for this post.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
       <a href="/r/rbloggers/2015/03/09/r-package-neato/">
         R Package `neato`
       </a>
@@ -243,7 +324,7 @@
 <p><code>Error: could not find function &quot;windows&quot;</code></p>
 </blockquote>
 
-<p>This means that the function <code>windows()</code> is being called inside <code>gbm.plot()</code>. So I looked into what the heck <code>windows()</code> is and it turns out it opens a graphics device, but is the command reserved for windows machines - I use a mac, and the equivalent command is <code>X11()</code>. I found this out thanks to <a href="http://doingbayesiandataanalysis.blogspot.com.au/2011/09/for-linux-macos-users-easy-fix-for.html">this website</a>.</p>
+<p>This means that the function <code>windows()</code> is being called inside <code>gbm.plot()</code>. So I looked into what the heck <code>windows</code> is and it turns out it opens a graphics device, but is the command reserved for windows machines - I use a mac, and the equivalent command is <code>X11()</code>. I found this out thanks to <a href="http://doingbayesiandataanalysis.blogspot.com.au/2011/09/for-linux-macos-users-easy-fix-for.html">this website</a>.</p>
 
 <p>So I simply found the source code for <code>gbm.plot</code>, and replaced <code>windows()</code> with <code>X11()</code></p>
 

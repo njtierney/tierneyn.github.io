@@ -2,10 +2,8 @@
 title: A Quick and Dirty Guide to S3 Methods in R
 layout: post
 comments: true
-output: 
-  html_document: 
-    highlight: null
-    theme: null
+categories:
+- R
 ---
 
 I've somewhat recently learnt how to use S3 methods in R. Whilst I found [Hadley's Advanced R Book]() really useful, I also found that I didn't have a clear picture in my head of how to just go and start creating my own S3 methods. I pieced together my current knowledge from [Advaced R Programming](), [R Packages](), [this blog](), [this resource](), and probably most helpfully, from looking at people's code on GitHub, specifically the [broom package]().
