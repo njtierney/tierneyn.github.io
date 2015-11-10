@@ -4,9 +4,13 @@ layout: post
 comments: true
 ---
 
-So I recently changed from Wordpress to Jeykll. Here is a post that describes how I built this website.
+I've recently changed from Wordpress to Jekyll. In this post I try and succinctly describe how I did it.
 
-My colleagues and I started using a [Slack]() - a work-chat platform. It has a really nifty feature where you can post chunks of code and share them. So I started sharing a lot of R code that I use, and I thought it might be start posting them up as little RMarkdown chunks onto my website njtierney.com, hosted on wordpress. This is a little tale of my success/woes on this.
+But first - why change from wordpress to jekyll?
+
+Basically, I found that after using a [Slack]() - a work-chat platform, I was posting chunks of R code that I use, and I thought it might be start posting them up as little RMarkdown chunks onto my website, hosted on wordpress.
+
+
 
 I had seen some posts about using RMarkdown with wordpress, and Yihui (creator of knitr)[has a guide for it](http://yihui.name/knitr/demo/wordpress/) so I figured it couldn't be so bad. And it isn't too bad, really - the only short coming is that you need to post your images/figures onto imgur or dropbox...But it can be done [as seen nicely here](https://yihui.wordpress.com/). So I was going to do that...
 

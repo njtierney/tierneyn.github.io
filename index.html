@@ -19,7 +19,7 @@ title: Blog
      <img class="img-icon" src="/assets/iconmonstr-tags-4-icon.svg"></img>{% for categories in post.categories %}{{ categories }} {% if forloop.last != true %} {% endif %} {% endfor %}
      </span>
 
-    {{ post.content }}
+    {{ post.excerpt }}
   </div>
   {% endfor %}
 </div>

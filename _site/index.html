@@ -151,70 +151,6 @@
 
     <p>In this post I describe how to use <code>tally</code>, the <code>dplyr</code> equivalent of <code>table</code>.</p>
 
-<p><code>table</code> gives you the frequencies of something in a category. Let&#39;s use the <code>iris</code> dataset to illustrate. Let&#39;s say we want to know how many are in each species in <code>iris</code>.</p>
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kp">table</span><span class="p">(</span>iris<span class="o">$</span>Species<span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">## 
-##     setosa versicolor  virginica 
-##         50         50         50
-</code></pre></div>
-<p>So there happen to be 50 in each of the species. </p>
-
-<p>But if you want to present this in a tidy dataframe, where each column is a variable, and each row is an observation, you&#39;d have to do some annoying reformating. But need not dispair, <code>dplyr</code> has us covered.</p>
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>dplyr<span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">## 
-## Attaching package: &#39;dplyr&#39;
-## 
-## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag
-## 
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union
-</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r">iris.tally <span class="o">&lt;-</span> iris <span class="o">%&gt;%</span>
-  group_by<span class="p">(</span>Species<span class="p">)</span> <span class="o">%&gt;%</span> 
-  tally
-
-iris.tally
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">## Source: local data frame [3 x 2]
-## 
-##      Species     n
-##       (fctr) (int)
-## 1     setosa    50
-## 2 versicolor    50
-## 3  virginica    50
-</code></pre></div>
-<p>This gives us a neat dataframe, where we get Species as a column, and the number of observations in each Species.</p>
-
-<p>One of the reasons I like this is because it means I can do something like create a table using <code>knitr::kable</code> if I need to for a report.</p>
-
-<p>So I could now do this:</p>
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>knitr<span class="p">)</span>
-
-kable<span class="p">(</span>iris.tally<span class="p">)</span>
-</code></pre></div>
-<table><thead>
-<tr>
-<th style="text-align: left">Species</th>
-<th style="text-align: right">n</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">setosa</td>
-<td style="text-align: right">50</td>
-</tr>
-<tr>
-<td style="text-align: left">versicolor</td>
-<td style="text-align: right">50</td>
-</tr>
-<tr>
-<td style="text-align: left">virginica</td>
-<td style="text-align: right">50</td>
-</tr>
-</tbody></table>
-
-<p>Thanks to <a href="http://stackoverflow.com/questions/24409376/dplyr-how-can-i-write-equivalent-to-table-base-function-and-preserve-column-n">this SO post</a> for providing me with knowledge of <code>tally</code> and providing inspiration for this post.</p>
-
   </div>
   
   <div class="post">
@@ -231,14 +167,6 @@ kable<span class="p">(</span>iris.tally<span class="p">)</span>
      </span>
 
     <p>My workflow in R now is to make a function after I copy and paste some code more than once. Sometimes I find myself using these functions more than once, across different projects.</p>
-
-<p>So I decided to make an R package with a few of these functions in it. I call it &quot;neato&quot;, in the vain hope that one day someone will find one of these functions and say: &quot;neato!&quot;, because hey, it&#39;s pretty neat!</p>
-
-<p>You can check neato out <a href="https://github.com/tierneyn/neato">here</a>.</p>
-
-<p>I hope that the more I write into this package, the better I&#39;ll get at writing R packages and the more I can contribute to the R community. I&#39;d also like to thank people like <a href="http://r-pkgs.had.co.nz/">Hadley Wickham</a> and <a href="http://hilaryparker.com/2014/04/29/writing-an-r-package-from-scratch/">Hilary Parker</a> for writing materials to inspire me to contribute to R.</p>
-
-<p>Let me know if you have any thoughts about it below with a comment, or even <a href="https://github.com/tierneyn/neato">on github</a></p>
 
   </div>
   
@@ -257,48 +185,6 @@ kable<span class="p">(</span>iris.tally<span class="p">)</span>
 
     <p>I&#39;m a pretty huge fan of RMarkdown, as it is a great way for me to write my code and my text together. It seems really a rather a natural thing to do. You write about your analyses, and the code is there. You update some function or some data, and your figures and tables update with it.</p>
 
-<p>In my head I feel as though I am working more efficiently. However there is some research to suggest that LaTeX users actually work slower than Word users. However, LaTeX users <em>feel better</em> about using LaTeX. I would like to dub this the <strong>brown corduroy trousers effect</strong>, quoting Robin Williams, who said something like:</p>
-
-<blockquote>
-<p>Method Acting is like peeing whilst wearing brown corduroy trousers. Nobody knows the difference but it sure as hell feels nice.</p>
-</blockquote>
-
-<p>Anyway. I started to use knitr to process my work documents at the end of 2013, specifically using the LaTeX formatting. Which made me feel good.</p>
-
-<p>Then I switched to Rmarkdown after a conversation with Hadley Wickham at a Young Statisticians Dinner at the Australian Statisticians Conference in Sydney, in 2014. Amongst other things &quot;Have you seen <a href="http://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html">dplyr?</a> and <a href="http://www.amazon.com/Style-Clarity-Chicago-Writing-Publishing/dp/0226899152">&quot;read this book!&quot;</a>. Hadley told me that he uses RMarkdown almost exclusively now, not really going back to the .Rnw knitr LaTeX files. He also said that there&#39;s a button that will convert it to LaTeX style and also ... get this... to microsoft word.</p>
-
-<p>Converting to word documents is really awesome, because my supervisors often prefer to read and edit my papers in word. Knitr does a really good job of putting everything from RMarkdown into Word, but it doesn&#39;t do everything that I&#39;d like. I usually spend 1 or 2 minutes changing the font and line spacing and inserting page numbers. Then I spend anywhere from 2 to 15 minutes manually resizing images. Painful. But every time I did it, I would always think:</p>
-
-<blockquote>
-<p>It&#39;s just this once...</p>
-</blockquote>
-
-<p>And then I would think:</p>
-
-<blockquote>
-<p>Maybe there&#39;s  a way to get R to do all this for me?</p>
-</blockquote>
-
-<p>But I assumed that would be more effort than it was worth.</p>
-
-<p>Well, tonight I cracked, and went googling for how to fix this problem. It turns out that this was a royal pain the arse.</p>
-
-<p><a href="http://stackoverflow.com/questions/18884778/poor-resolution-in-knitr-using-rmd">I tried this solution.</a></p>
-
-<p>Both didn&#39;t really work.</p>
-
-<p>So then I then tried to solve this problem using a macro in word.</p>
-
-<p>I&#39;ve never <em>touched</em> macros in Word. They always seemed weird and odd to me. Regardless, in I went to the macro editor. I hit the record button, and did all of the font changes, colour changes, and spacing changes I always do. Then I saved this macro.</p>
-
-<p>Then I went on to find a way to change the image sizes. I took a wrong turn into a <a href="https://cybertext.wordpress.com/2014/02/07/word-resize-all-images-in-a-document-to-the-same-width/">blog that had me developing a GUI</a>...which didn&#39;t end up working for me. There&#39;s 30 minutes I won&#39;t be getting back. But then I found this <a href="http://yuriy-okhmat.blogspot.co.uk/2011/07/how-to-resize-all-images-in-word.html">snippet of code</a> snippet of code, which resizes everything to 16 cm, maintaining the aspect ratio.</p>
-
-<p>I created a new macro from scratch and pasted this code in. Boom! Another Macro is born. Then I finished this up by creating a macro that recorded me running those two macros. Not elegant, but effective.</p>
-
-<p>So, total time expended screwing around and making this macro?  2 Hours.</p>
-
-<p>Total time saved?  15 minutes per Word doc that I compile. I think that is worth it.</p>
-
   </div>
   
   <div class="post">
@@ -315,18 +201,6 @@ kable<span class="p">(</span>iris.tally<span class="p">)</span>
      </span>
 
     <p>I&#39;m currently in the process of writing a report using boosted regression trees.  I&#39;m currently using guidelines provided by Elith et al <a href="http://avesbiodiv.mncn.csic.es/estadistica/bt1.pdf">here</a>, and <a href="http://cran.r-project.org/web/packages/dismo/vignettes/brt.pdf">here</a></p>
-
-<p>They provide the function <code>gbm.step</code>, which performs 10-fold cross validation on the boosted regression tree. It also has a nifty <code>gbm.plot</code> function, producing partial dependence plots. Unforunately, it kept giving me this error:</p>
-
-<blockquote>
-<p><code>Error: could not find function &quot;windows&quot;</code></p>
-</blockquote>
-
-<p>This means that the function <code>windows()</code> is being called inside <code>gbm.plot()</code>. So I looked into what the heck <code>windows</code> is and it turns out it opens a graphics device, but is the command reserved for windows machines - I use a mac, and the equivalent command is <code>X11()</code>. I found this out thanks to <a href="http://doingbayesiandataanalysis.blogspot.com.au/2011/09/for-linux-macos-users-easy-fix-for.html">this website</a>.</p>
-
-<p>So I simply found the source code for <code>gbm.plot</code>, and replaced <code>windows()</code> with <code>X11()</code></p>
-
-<p>Hopefully this will prove helpful to someone.</p>
 
   </div>
   
@@ -345,22 +219,6 @@ kable<span class="p">(</span>iris.tally<span class="p">)</span>
 
     <p>I came across <a href="http://statr.me/2013/09/a-conversation-with-hadley-wickham/">this interview</a> with Hadley Wickham, the creator of one of the most widely used R packages, <code>ggplot 2</code>. I thought that this quote was interesting:</p>
 
-<blockquote>
-<p>I’m also really interested in statistical learning as a family of modeling techniques, a kind of fitting them together very well and forming a grammer of models. You can make a new model by joing things together, just like the grammer of graphics by which you can come up with a new graphic that is just a new arrangment of existing components. I think that’s something that makes it easier to learn modeling. For example, you can learn a linear model in this way, a random forest in that way, and you can learn them in a unified framework.</p>
-
-<p>Another thing I’d like to think is the Lasso-type method. In one of my classes, I want to show that now you should always try stablized regression, you should always try to do Lasso and the similar. I think there are 13 packages that would do Lasso, and I tried them all. But every single one of them broke for a different reason. For example, it didn’t support missing values, it didn’t support categorical variables, it didn’t do predictions and standard errors, or it didn’t automatically find the lambda parameter. Maybe that’s because the authors are more interested in the theoretical papers, not in providing a tool that you can use in data analysis. So I want to integrate them together to form a tool that is fast and works well.</p>
-</blockquote>
-
-<p>And it got me thinking, would it be possible for statistical models to be written like ggplot, with a grammar of models?  It seems impossible, and maybe I&#39;m totally not reading the interview correctly, but it got me thinking. What would it look like? Something like this?</p>
-<div class="highlight"><pre><code class="language-r" data-lang="r">ggmodel<span class="p">(</span>data <span class="o">=</span> my.data<span class="p">,</span>
-        fun <span class="o">=</span> Y <span class="o">~</span> V1 <span class="o">+</span> V2 <span class="o">+</span> V3<span class="p">)</span> <span class="o">%&gt;%</span>
-        model_nest<span class="p">(</span>V1 <span class="o">~</span> Y1 <span class="o">+</span> Y2 <span class="o">+</span> e<span class="p">,</span>
-                   e <span class="o">~</span> <span class="kp">norm</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">1</span><span class="p">))</span> <span class="o">%&gt;%</span>
-        m.impute<span class="p">(</span>m <span class="o">=</span> <span class="m">4</span><span class="p">)</span> <span class="o">%&gt;%</span>
-        time_period<span class="p">(</span>type <span class="o">=</span> unequal<span class="p">)</span>
-</code></pre></div>
-<p>What do you think?</p>
-
   </div>
   
   <div class="post">
@@ -377,34 +235,6 @@ kable<span class="p">(</span>iris.tally<span class="p">)</span>
      </span>
 
     <p>In November 2013 I had the opportunity to work with the Australian Science Media Centre (AusSMC) and produce a talk explaining numbers and statistics.  The deal was that it was 11 concepts on numbers and stats in 20 minutes.  The concepts being:</p>
-
-<ul>
-<li>General Number Hygiene</li>
-<li>Big and Little Numbers</li>
-<li>Surveys</li>
-<li>Averages</li>
-<li>Understanding Uncertainty</li>
-<li>P-Values</li>
-<li>Trends</li>
-<li>Correlation and Causation</li>
-<li>Rare Events</li>
-<li>Risk</li>
-<li>Infographics</li>
-</ul>
-
-<p>This was my first time ever really seriously teaching anything to anyone.  And I&#39;ll admit, cramming 11 concepts into 20 minutes was a touch more work than I anticipated.  It DID end up being a lot of fun, however.  And I managed to learn a lot.  So thanks, AusSMC!</p>
-
-<p>This video is aimed at journalists to try and give them a bit more information on how to interpret the 11 topics mentioned earlier.   It should help you.  You should learn something.  But everyone is different, so maybe it won&#39;t.  But I hope that it helps you on your journey through statistics.  Please let me know if you have any questions.  Seriously!</p>
-
-<p>You can watch the presentation below:</p>
-
-<p><iframe src="https://player.vimeo.com/video/78231257?color=ffffff&title=0&byline=0&portrait=0" width="500" height="375" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe> <p><a href="https://vimeo.com/78231257">EVENT FOR JOURNALISTS: Getting your head around numbers and stats</a> from <a href="https://vimeo.com/user4609742">AusSMC</a> on <a href="https://vimeo.com">Vimeo</a>.</p></p>
-
-<p>Again - let me know if you have any questions!</p>
-
-<p>Cheers,</p>
-
-<p>Nick.</p>
 
   </div>
   
@@ -427,37 +257,6 @@ I think that this is the equivalent of saying:
 <blockquote>&quot;...What I am saying is true because of my argument.&quot;</blockquote>
 You can <em>say</em> that anything is true, but what really matters is the <strong>strength of your argument.</strong></p>
 
-<p>And statistics...</p>
-
-<p>The same goes for statistics, you could perform a variety of tests to support a particular point.</p>
-
-<p>However, your argument depends  on the suitability of your statistical test for what you are <strong>trying to prove or demonstrate</strong>.</p>
-
-<p>Statistics are used to articulate a particular point. The author has the responsibility of ensuring they are <strong>correctly</strong> using a statistic to prove this point.</p>
-
-<p>The reader also has a responsibility to evaluate their use of tools to construct and support their argument.</p>
-
-<p>So yes, statistics could be used to support the argument
-<blockquote>Johnny steals tim tams from Nick, as he has done this a statistically significant number of times.</blockquote>
-Upon reading this, one should be very keen to investigate the ways in which the statistics were used, and ask questions like:</p>
-
-<blockquote>
-<p>What data was it? Observation? <em>Who</em> observed it? <em>How</em> did they observe it?</p>
-
-<p>What sort of anaysis was used? Why?</p>
-
-<p>Were any data transformations used? Why?</p>
-</blockquote>
-
-<p>And so on. </p>
-
-<p>So when someone says that statistics can be used to prove anything, I like to replace this with:
-<blockquote>&quot;You can argue any point, and sometimes the people who don&#39;t know any better will nod their head quietly and whisper <em>&quot;</em><em>statistics said it was so&quot; &quot;</em></blockquote>
-Others will nod their heads too.</p>
-
-<p>But it is your job as a good researcher / reader to ask the all important:
-<blockquote>Why?</blockquote></p>
-
   </div>
   
   <div class="post">
@@ -474,68 +273,6 @@ Others will nod their heads too.</p>
      </span>
 
     <p>There are a lot of explanations of Monte Carlo approximation out there.</p>
-
-<p>Here is one that worked for me.</p>
-
-<p>A famous mathematician named Stan Ulam liked solitaire.</p>
-
-<p>He wanted to work out the probability of getting a perfect solitaire hand.</p>
-
-<p>Being a mathematician, he also wanted to work this out analytically.</p>
-
-<p>What does analytical mean?  It&#39;s a fair question, as it&#39;s <a href="http://en.wikipedia.org/wiki/Analytic">wikipedia page shows that there are many definitions</a>
-<p style="text-align: center;"><strong>Wikipedia definition:</strong></p>
-<p style="text-align: center;"><em>&quot;Analytic Solution&quot; </em></p>
-<p style="text-align: center;"><em>- A solution to a problem that can be written in &quot;closed form&quot; in terms of known functions, constants, etc.</em></p>
-<p style="text-align: left;">I find that such a definition relies on the reader knowing what the words &#39;closed form&#39;, &#39;known functions&#39; and &#39;constants&#39; are.</p>
-<p style="text-align: center;">So here&#39;s <strong>my definition:</strong></p>
-<p style="text-align: center;"><em>&quot;Analytic Solution&quot;</em></p>
-<p style="text-align: center;"><em>A solution where everything needed to solve a particular question is presented clearly and logically, with all assumptions defined.
-</em></p>
-So, getting back on track...</p>
-
-<p>When Stan Ulam said that he wanted to find the probability of getting a perfect solitaire hand, he was going to do some really complex probability equations using:
-<ul>
-    <li>The information about a deck of cards
-<ul>
-    <li>52 cards</li>
-    <li>Number of red cards</li>
-    <li>Number of black cards</li>
-    <li>Number of different numbers...etc.</li>
-</ul>
-</li>
-    <li>And a pen and paper</li>
-    <li>(and maybe a calculator, but this was the 1940s so it is less likely.  But then, he <em>was</em> a famous mathematician - it is more likely he would have had access to a computer)  to arrive at a &#39;perfect solution&#39;.</li>
-</ul>
-The analytic solution ends up looking really complicated, and is<em> quite</em> complex.</p>
-
-<p>So instead of finding an analytical solution, he wanted to <em>approximate </em>a solution.</p>
-
-<p>Basically you follow these steps,
-<ol>
-    <li>Shuffle and deal a hand of solitaire</li>
-    <li>Is it a perfect hand?</li>
-    <li>If no, add one to the total number of hands dealt, go back to step 1.</li>
-    <li>If yes, add one to the number of successful hands AND total number of hands dealt, go back step 1</li>
-    <li>Repeat steps 1-4 1000s of times.</li>
-    <li>Divide the # successful hands / total # hands.</li>
-    <li>You have now arrived at an approximate probability of getting a perfect hand in solitaire.</li>
-</ol>
-Crazy as it sounds, this probability gets closer to the &#39;true&#39; probability you would have found, had you worked it out analytically.</p>
-
-<p>The more trial simulations (iterations) you run, the better the answer.</p>
-
-<p>Now imagine that instead of wanting to know the probability of getting a perfect hand, but
-<ul>
-    <li>Getting a red card first draw</li>
-    <li>The ace of spades first draw</li>
-    <li>TWO black cards...</li>
-</ul>
-Monte Carlo provides a simpler solution than the analytic method.I shall write another post extending on this one soon.</p>
-
-<p>Let me know if what I wrote makes sense for you!</p>
-
-<p>Reference: - <a href="http://www.youtube.com/watch?v=7TybpwBlcMk">MathematicalMonk&#39;s Youtube Channel</a></p>
 
   </div>
   
@@ -554,28 +291,6 @@ Monte Carlo provides a simpler solution than the analytic method.I shall write a
 
     <p>What does the word <em>analytical</em>, mean?  </p>
 
-<p>Wikipedia says:</p>
-
-<blockquote>
-<p>&quot;Analytic Solution&quot;</p>
-
-<ul>
-<li>A solution to a problem that can be written in &quot;closed form&quot; in terms of known functions, constants, etc.</li>
-</ul>
-</blockquote>
-
-<p>I find that such a definition relies on the reader knowing what the words &#39;closed form&#39;, &#39;known functions&#39; and &#39;constants&#39; are.</p>
-
-<p>So here&#39;s my definition:</p>
-
-<blockquote>
-<p>&quot;Analytic Solution&quot;</p>
-
-<p>A solution where everything needed to solve a particular question is presented clearly and logically, with all assumptions defined.  </p>
-</blockquote>
-
-<p>Waddaya reckon?</p>
-
   </div>
   
   <div class="post">
@@ -592,54 +307,6 @@ Monte Carlo provides a simpler solution than the analytic method.I shall write a
      </span>
 
     <p>A friend of mine posted an interesting article on facebook today - <a href="http://theconversation.com/honing-the-mind-and-nurturing-the-soul-why-the-humanities-are-underrated-15027">&quot;Honing the mind and nurturing the soul: why the humanities are underrated&quot;</a>.  The piece is written by Professor Steven Schwartz, a distinguished academic currently residing at Oxford University after holding Vice Chancellor positions in Australia and the UK.</p>
-
-<p>The article tells of Schwartz seeing the return of mature age students to university, not to study a doctorate in accounting or business, but the arts and humanities.  As he put it, these students were returning to &quot;fulfil a life-long desire to immerse themselves in the arts or humanities&quot; after years in another profession.  Schwartz makes the point that you do not need to make money to then spend it later in life - doing the &#39;degree they have always wanted to do&#39; -  you can study the humanities <em>and</em> make money.</p>
-
-<p>It seems a strange thought at first.  How do the humanities help you make money?  You know, getting you a job.  We&#39;ve all got that annoying uncle or in-law or friend who plays devil&#39;s advocate (or douchebag) when you reveal that you are studying French and Philosophy.  They lean back and these words like this slide out of their mouth:</p>
-
-<blockquote>
-<p>&quot;Ah, what are the prospects for you after you finish your degree?  I mean, latin is a dead language, what&#39;s the point in studying that?  Why study how to speak a language if you don&#39;t want to be a translator?  And Philosophy?  What are you going to do, Philosophise?  Is that even a word?  Har har har har&quot;.</p>
-</blockquote>
-
-<p>Schwartz demonstrates the benefits of having a degree in humanities by listing a executives of companies like Yahoo and Google.  Clearly they are doing well, and guess what? They have degrees or PhDs in Arts or Humanities.</p>
-
-<blockquote>
-<p>&quot;You go into the humanities to pursue your intellectual passion; and it just so happens, as a by-product, that you emerge as a desired commodity for industry. Such is the halo of human flourishing&quot; </p>
-</blockquote>
-
-<p>says Damon Horowitz, a Google Executive with a humanities PhD.</p>
-
-<p>We start to see that maybe these degrees teach you something other than how to conjugate &#39;dead&#39; verbs back to life.  They teach you how to write, how to communicate, how to argue.  They teach you how to empathize, how to make ethical decisions, how to consider the needs of others.  They teach you about decisions that have been made in the past and how they still affect the present.</p>
-
-<p>Sure, you might not be able to directly apply all of that content that you have learnt, but what degree allows for that?</p>
-
-<p>These skills allow you to retort to your uncle:</p>
-
-<blockquote>
-<p>&quot;I&#39;d love to come up with something suitable witty and hilarious to shame you appropriately, but I&#39;m fresh out right now.  In answer to your question - is anyone ever  FULLY certain about their prospects after their degree? Just because I&#39;m not certain, this does not mean that it makes me less useful or employable...&quot;</p>
-</blockquote>
-
-<p>and then if you really want to you can cap it off with a Victor E. Frankl Quote:</p>
-
-<blockquote>
-<p>&quot;...Everything can be taken from a man but one thing: the last of the human freedoms—to choose one’s attitude in any given set of circumstances, to choose one’s own way...&quot;</p>
-</blockquote>
-
-<p>Which might have appeared inappropriate now that you think about it, but it has probably confused your antagonist into introspection.
-It isn&#39;t about the <strong>content</strong> that you learn, but the <strong>process;</strong> it&#39;s the skills you obtain from a degree that make you an asset.</p>
-
-<p>I guess this article just really resonated with me - I have an honours degree in Psychology, and I&#39;m pursuing a PhD in Statistics.  I have a general understanding of lots of statistics, but not the fine mathematical knowledge that elegantly underpins all of it.  People are sometimes confused when I tell them that I&#39;m doing a PhD in stats but don&#39;t have the strong math background.  But the reason I can do a PhD in an unfamiliar topic is because of the skills I obtained from my Psychology degree - establishing rapport and interpersonal communication, critical reasoning, and experimental design. My degree has taught me to teach myself, to solve problems, to stay organised, handle stress, and write well.</p>
-
-<p>So this is for all of the kids out there who are studying and then having the mandatory <a href="http://www.phdcomics.com/comics.php?f=1488">existential crisis</a> (totally normal, by the way). Stimulate your mind and study what you love - passion breeds success.<em>
-</em></p>
-
-<p>
-<div style="height: auto">
-<img src="/assets/humanity_post.jpg" alt="test" style="width: 100%;max-height: 100%" />
-</div>
-</p>
-
-<!-- above code nabbed from http://stackoverflow.com/questions/7177881/how-can-i-put-css-and-html-code-in-the-same-file -->
 
   </div>
   
