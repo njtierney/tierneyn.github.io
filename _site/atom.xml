@@ -4,13 +4,197 @@
  <title>Nicholas Tierney</title>
  <link href="http://tierneyn.github.io/atom.xml" rel="self"/>
  <link href="http://tierneyn.github.io/"/>
- <updated>2015-11-09T18:02:55+10:00</updated>
+ <updated>2015-11-12T11:15:23+10:00</updated>
  <id>http://tierneyn.github.io</id>
  <author>
    <name>Nicholas Tierney</name>
    <email></email>
  </author>
 
+ 
+ <entry>
+   <title>How I built my website</title>
+   <link href="http://tierneyn.github.io/2015/11/12/how-i-built-my-site/"/>
+   <updated>2015-11-12T00:00:00+10:00</updated>
+   <id>http://tierneyn.github.io/2015/11/12/how-i-built-my-site</id>
+   <content type="html">&lt;p&gt;I&amp;#39;ve recently changed my website from Wordpress to Jekyll. In this post I try and succinctly describe how it happened.&lt;/p&gt;
+
+&lt;h1&gt;Why change?&lt;/h1&gt;
+
+&lt;p&gt;Basically, for the following reasons:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Wordpress doesn&amp;#39;t handle &lt;a href=&quot;http://rmarkdown.rstudio.com&quot;&gt;RMarkdown&lt;/a&gt; very well. &lt;/li&gt;
+&lt;li&gt;I wanted more control without having to result to (read: pay for) Wordpress&amp;#39;s plugin system. &lt;/li&gt;
+&lt;li&gt;I wanted to understand more about web development.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;These reasons started coalesced together into something relevant and coherent when I was using &lt;a href=&quot;https://slack.com/&quot;&gt;Slack&lt;/a&gt;, a work-chat platform. I had started to share my &amp;quot;cheatsheets&amp;quot; of R code with colleagues, and I thought it would be cool to post them up as little RMarkdown chunks onto my website, which was hosted on wordpress. How hard could it be? I figured I could just post the HTML from the RMarkdown document into wordpress, and boom, should have it all sorted. But for some reason or another, or maybe for no reason, wordpress didn&amp;#39;t like that.&lt;/p&gt;
+
+&lt;p&gt;Of course, there&amp;#39;s an R package for the problem. Yihui (creator of knitr) even has a guide &lt;a href=&quot;http://yihui.name/knitr/demo/wordpress/&quot;&gt;here&lt;/a&gt; about using the package &lt;code&gt;RWordpress&lt;/code&gt; to publish blog posts from R to WordPress. So, I figured, hey, maybe this is the way. I was going to follow the instructions on the website...&lt;/p&gt;
+
+&lt;p&gt;...But reading it, Yihui says:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;...Once it is published, it is not straightforward to modify it (although you can), and that is why you, as a cool hacker, &lt;strong&gt;should blog with Jekyll instead of WordPress&lt;/strong&gt;. It is always easy to deal with plain text files...&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;And I thought...I&amp;#39;ve always wanted to be a &lt;em&gt;cool hacker&lt;/em&gt;... and I &lt;em&gt;had&lt;/em&gt; heard of Jekyll, but wasn&amp;#39;t really sure what it was. I &lt;em&gt;did&lt;/em&gt; know that &lt;a href=&quot;http://adv-r-had.co.nz&quot;&gt;Hadley Wickham&amp;#39;s books&lt;/a&gt; have been built using it. So chances are if Hadley and Yihui recommend it, I should probably look into it.&lt;/p&gt;
+
+&lt;h2&gt;So what is Jekyll?&lt;/h2&gt;
+
+&lt;p&gt;Basically, you write posts in a syntax called &lt;a href=&quot;https://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt;, and then jekyll does the heavy lifting to turn that into a website - automagically turning your text into HTML and CSS, and building the file structure needed for a website to run. This means you can just focus on writing material. Jekyll also allows you to preview the website on your computer before pushing it online. And what I love so much about it is that it is as customizable as you want - you can &lt;a href=&quot;github.com/poole/poole&quot;&gt;download a stock theme&lt;/a&gt;, and keep it simple, or you can customize all the code to create very different websites. For example, &lt;a href=&quot;http://joshualande.com/&quot;&gt;here&lt;/a&gt;, &lt;a href=&quot;https://developmentseed.org/blog/2011/09/09/jekyll-github-pages/&quot;&gt;here&lt;/a&gt; and &lt;a href=&quot;http://andreicek.eu/index.html&quot;&gt;here&lt;/a&gt;. All of those guys have made their website code publicly available on GitHub. This means if you like something from someone&amp;#39;s site, you can check out their &lt;a href=&quot;https://github.com/joshualande/joshualande.github.io&quot;&gt;GitHub repository&lt;/a&gt; and see how it works and steal/borrow their code.&lt;/p&gt;
+
+&lt;h2&gt;So how do I build a site using jekyll?&lt;/h2&gt;
+
+&lt;p&gt;It is really easy.&lt;/p&gt;
+
+&lt;p&gt;Step 1. Create a &lt;a href=&quot;https://github.com&quot;&gt;GitHub Account&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Step 2. Create a github page, as per instructions &lt;a href=&quot;https://pages.github.com/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Step 3. &lt;a href=&quot;http://jekyllrb.com/docs/quickstart/&quot;&gt;Download requirements for jekyll&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Step 4. Follow directions from &lt;a href=&quot;http://www.sitepoint.com/set-jekyll-blog-5-minutes-poole/&quot;&gt;this blog&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;And that&amp;#39;s about it.&lt;/p&gt;
+
+&lt;h2&gt;Migrating material from wordpress to jekyll&lt;/h2&gt;
+
+&lt;p&gt;There are &lt;a href=&quot;http://import.jekyllrb.com/docs/home/&quot;&gt;tools for migrating to jekyll&lt;/a&gt;, but I found them a little hard to follow, probably because I only really understand how to program in R. So, I ended up doing something that I hate doing...and copied and pasted (copypasta&amp;#39;d) each post individually. Then I tinkered with them. Then I put them into the &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io/tree/master/_posts&quot;&gt;_posts&lt;/a&gt; directory. I allowed myself to do this as I didn&amp;#39;t have that many posts on my original website, so I figured it wasn&amp;#39;t that bad. Aaand, I didn&amp;#39;t feel like diving into another rabbit hole of xml.&lt;/p&gt;
+
+&lt;h2&gt;Customizations&lt;/h2&gt;
+
+&lt;p&gt;I had a look around at a bunch of different blogs about how to build stuff, and added a few things.&lt;/p&gt;
+
+&lt;h3&gt;Enabling commenting using disqus.&lt;/h3&gt;
+
+&lt;p&gt;To add commenting using disqus, I followed advice from &lt;a href=&quot;http://joshualande.com/jekyll-github-pages-poole/&quot;&gt;Joshua Lande&amp;#39;s blog&lt;/a&gt;. In this post, he points out:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;quot;By setting up the code this way, I can enable commenting on a page-by-page basis. All I have to do is set &amp;quot;comments: True&amp;quot; in the YAML header of the post.&amp;quot;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;He gives a great guide of how to do it, so I would head there if I were you. But here is what I did:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Go to &lt;a href=&quot;https://disqus.com/&quot;&gt;disqus&lt;/a&gt;, create account (if you haven&amp;#39;t already)&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Go to settings (gear icon in the top right), and click &amp;quot;add disqus to site&amp;quot;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Go to &amp;quot;engage&amp;quot;, and fill in your site name, etc.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Choose your platform - choose &amp;quot;universal code&amp;quot;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Copy the code from disqus, being sure to &lt;a href=&quot;https://help.disqus.com/customer/en/portal/articles/2158629&quot;&gt;follow their instructions&lt;/a&gt;, to &amp;quot;Recommended: Edit the RECOMMENDED CONFIGURATION VARIABLES section using your CMS or platform&amp;#39;s dynamic values. See our documentation to learn why defining identifier and url is important for preventing duplicate threads.&amp;quot;&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I then decided that I couldn&amp;#39;t understand what disqus wanted me to do...so I copied Joshua Lande&amp;#39;s text from &lt;a href=&quot;&quot;&gt;his github repo&lt;/a&gt;, changed his name for mine, and continued on. Isn&amp;#39;t that cool? Isn&amp;#39;t that why GitHub is so awesome?&lt;/p&gt;
+
+&lt;h3&gt;Adding google analytics&lt;/h3&gt;
+
+&lt;p&gt;Again, following advice from &lt;a href=&quot;http://joshualande.com/jekyll-github-pages-poole/&quot;&gt;Joshua lande&amp;#39;s blog post&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Using Google Analytics allows you to see who is visiting your site, from where, and all that stuff that WordPress has built into it. &lt;/p&gt;
+
+&lt;p&gt;When I started, I didn&amp;#39;t really know what google analytics was, so I went to their &lt;a href=&quot;http://www.google.com/analytics/&quot;&gt;homepage&lt;/a&gt;...found the link &amp;quot;sign up for analytics&amp;quot;, and followed the prompts - left all the boxes ticked (Google has my soul anyway), and accepted the Ts and Cs. Google then gives me a tracking code, with a nice friendly helpful box, stating: &amp;quot;this is your tracking code&amp;quot;. I then inserted this into a new file, &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io/blob/master/_includes/google_analytics.html&quot;&gt;google_analytics.html&lt;/a&gt;, added the appropriate coce to my &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io/blob/master/_layouts/default.html&quot;&gt;default.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;Other little customizations:&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Markdown tables&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;You can allow simple tables by changing your &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io/blob/master/_config.yml&quot;&gt;_yaml&lt;/a&gt; code to select the extension you want. Credit to &lt;a href=&quot;https://github.com/nicolewhite/nicolewhite.github.io&quot;&gt;Nicole White&amp;#39;s blog&lt;/a&gt;, where I saw this first.&lt;/p&gt;
+
+&lt;p&gt;This means that the output from the R command &lt;code&gt;knitr::kable(head(iris))&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;| Sepal.Length| Sepal.Width| Petal.Length| Petal.Width|Species |
+|------------:|-----------:|------------:|-----------:|:-------|
+|          5.1|         3.5|          1.4|         0.2|setosa  |
+|          4.9|         3.0|          1.4|         0.2|setosa  |
+|          4.7|         3.2|          1.3|         0.2|setosa  |
+|          4.6|         3.1|          1.5|         0.2|setosa  |
+|          5.0|         3.6|          1.4|         0.2|setosa  |
+|          5.4|         3.9|          1.7|         0.4|setosa  |
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;turns into&lt;/p&gt;
+
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&quot;text-align: right&quot;&gt;Sepal.Length&lt;/th&gt;
+&lt;th style=&quot;text-align: right&quot;&gt;Sepal.Width&lt;/th&gt;
+&lt;th style=&quot;text-align: right&quot;&gt;Petal.Length&lt;/th&gt;
+&lt;th style=&quot;text-align: right&quot;&gt;Petal.Width&lt;/th&gt;
+&lt;th style=&quot;text-align: left&quot;&gt;Species&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;5.1&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;3.5&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;1.4&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;0.2&lt;/td&gt;
+&lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;4.9&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;3.0&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;1.4&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;0.2&lt;/td&gt;
+&lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;4.7&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;3.2&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;1.3&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;0.2&lt;/td&gt;
+&lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;4.6&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;3.1&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;1.5&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;0.2&lt;/td&gt;
+&lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;5.0&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;3.6&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;1.4&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;0.2&lt;/td&gt;
+&lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;5.4&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;3.9&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;1.7&lt;/td&gt;
+&lt;td style=&quot;text-align: right&quot;&gt;0.4&lt;/td&gt;
+&lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+
+&lt;p&gt;There are also all heaps of other extensions you can add to redcarpet. You can read about them all &lt;a href=&quot;https://github.com/vmg/redcarpet#redcarpet-is-written-with-sugar-spice-and-everything-nice&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Changing font&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I looked up some awesome &lt;a href=&quot;fontpair.co&quot;&gt;font pairings&lt;/a&gt;, and chose Hind for the header Open Sans for the text. I then inserted some code &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io/public/css/lanyon.css&quot;&gt;into the top lines of the css&lt;/a&gt; to import them, and then added them to the appropriate parts of the css. I also changed the monospace font that is used for code to &lt;code&gt;Monaco&lt;/code&gt;, in &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io/public/css/poole.css&quot;&gt;poole.css&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Adding in excerpts&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I wanted the main blog page to just have excerpts from the blog. This is really easy - you just change &lt;code&gt;to&lt;/code&gt; in &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io/_layouts/default.html&quot;&gt;default.html&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;There a few other little things that I did, if you want to see how it all works, just check out my &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io&quot;&gt;GitHub repo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1&gt;Getting jekyll to work with RMarkdown&lt;/h1&gt;
+
+&lt;p&gt;Alright, so this was the reason I wanted to use jekyll in the first place...but I actually ended up having a bit of an epic journey trying to do it. So, I figured it would be better as a separate post, which I will write soon.&lt;/p&gt;
+
+&lt;h1&gt;Conclusion&lt;/h1&gt;
+
+&lt;p&gt;GitHub hosts the website for you, and you use Jekyll to build the website content. You can make the whole website public on GitHub, so people can see exactly how everything works, and the website file structure is stored locally on your computer. This means if you want, you can see exactly how everything works. Using Jekyll gives you control, but makes the load easier to bare. I really like the control you get -  if I don&amp;#39;t like some font - I can change it, if I want header text centered - I can do that. For me, it has been a nice compromise between learning how to code a website from absolute scratch, and using a content management system like wordpress.&lt;/p&gt;
+
+&lt;p&gt;Along the way through this journey I found some fantastic guides from other folk on the internet. These guys saved me a lot of time, so I would recommend reading their posts about this:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://joshualande.com/jekyll-github-pages-poole/&quot;&gt;Joshua Lande&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://nicolewhite.github.io/2015/02/07/r-blogging-with-rmarkdown-knitr-jekyll.html&quot;&gt;Nicole White&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.sitepoint.com/set-jekyll-blog-5-minutes-poole/&quot;&gt;Jekyll website in 5 minutes&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+ </entry>
  
  <entry>
    <title>Using `table` the dplyr way</title>
