@@ -4,7 +4,7 @@
  <title>Nicholas Tierney</title>
  <link href="http://tierneyn.github.io/atom.xml" rel="self"/>
  <link href="http://tierneyn.github.io/"/>
- <updated>2015-11-13T00:29:51+10:00</updated>
+ <updated>2015-11-13T02:26:54+10:00</updated>
  <id>http://tierneyn.github.io</id>
  <author>
    <name>Nicholas Tierney</name>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>ggplot your missing data</title>
-   <link href="http://tierneyn.github.io/r/missing%20data/2015/11/12/ggplot-missing-data/"/>
+   <link href="http://tierneyn.github.io/r/missing%20data/rbloggers/2015/11/12/ggplot-missing-data/"/>
    <updated>2015-11-12T00:00:00+10:00</updated>
-   <id>http://tierneyn.github.io/r/missing%20data/2015/11/12/ggplot-missing-data</id>
+   <id>http://tierneyn.github.io/r/missing%20data/rbloggers/2015/11/12/ggplot-missing-data</id>
    <content type="html">&lt;p&gt;Visualising missing data is important when analysing a dataset. I wanted to make a plot of the presence/absence in a dataset. One package, &lt;a href=&quot;https://cran.r-project.org/web/packages/Amelia/index.html&quot;&gt;&lt;code&gt;Amelia&lt;/code&gt;&lt;/a&gt; provides a function to do this, but I don&amp;#39;t like the way it looks. So I made a ggplot version of what it did.&lt;/p&gt;
 
 &lt;p&gt;Let&amp;#39;s make a dataset using the awesome &lt;a href=&quot;https://github.com/trinker/wakefield&quot;&gt;wakefield package&lt;/a&gt;, and add random missingness.&lt;/p&gt;
@@ -369,9 +369,9 @@ kable&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;iris.tally&lt;span class=&quo
  
  <entry>
    <title>R Package `neato`</title>
-   <link href="http://tierneyn.github.io/r/rbloggers/2015/03/09/r-package-neato/"/>
+   <link href="http://tierneyn.github.io/r/2015/03/09/r-package-neato/"/>
    <updated>2015-03-09T00:00:00+10:00</updated>
-   <id>http://tierneyn.github.io/r/rbloggers/2015/03/09/r-package-neato</id>
+   <id>http://tierneyn.github.io/r/2015/03/09/r-package-neato</id>
    <content type="html">&lt;p&gt;My workflow in R now is to make a function after I copy and paste some code more than once. Sometimes I find myself using these functions more than once, across different projects.&lt;/p&gt;
 
 &lt;p&gt;So I decided to make an R package with a few of these functions in it. I call it &amp;quot;neato&amp;quot;, in the vain hope that one day someone will find one of these functions and say: &amp;quot;neato!&amp;quot;, because hey, it&amp;#39;s pretty neat!&lt;/p&gt;

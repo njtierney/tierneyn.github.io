@@ -5,6 +5,7 @@ comments: true
 categories:
 - R
 - Missing Data
+- rbloggers
 ---
 
 Visualising missing data is important when analysing a dataset. I wanted to make a plot of the presence/absence in a dataset. One package, [`Amelia`](https://cran.r-project.org/web/packages/Amelia/index.html) provides a function to do this, but I don't like the way it looks. So I made a ggplot version of what it did.

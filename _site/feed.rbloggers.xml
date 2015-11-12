@@ -7,14 +7,14 @@
 		<atom:link href="http://tierneyn.github.io/feed.rbloggers.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
-				<title>R Package `neato`</title>
+				<title>ggplot your missing data</title>
 				
-					<description>&lt;p&gt;My workflow in R now is to make a function after I copy and paste some code more than once. Sometimes I find myself using these functions more than once, across different projects.&lt;/p&gt;
+					<description>&lt;p&gt;Visualising missing data is important when analysing a dataset. I wanted to make a plot of the presence/absence in a dataset. One package, &lt;a href=&quot;https://cran.r-project.org/web/packages/Amelia/index.html&quot;&gt;&lt;code&gt;Amelia&lt;/code&gt;&lt;/a&gt; provides a function to do this, but I don&amp;#39;t like the way it looks. So I made a ggplot version of what it did.&lt;/p&gt;
 </description>
 				
-				<pubDate>Mon, 09 Mar 2015 00:00:00 +1000</pubDate>
-				<link>http://tierneyn.github.io/r/rbloggers/2015/03/09/r-package-neato/</link>
-				<guid isPermaLink="true">http://tierneyn.github.io/r/rbloggers/2015/03/09/r-package-neato/</guid>
+				<pubDate>Thu, 12 Nov 2015 00:00:00 +1000</pubDate>
+				<link>http://tierneyn.github.io/r/missing%20data/rbloggers/2015/11/12/ggplot-missing-data/</link>
+				<guid isPermaLink="true">http://tierneyn.github.io/r/missing%20data/rbloggers/2015/11/12/ggplot-missing-data/</guid>
 			</item>
 		
 	</channel>
