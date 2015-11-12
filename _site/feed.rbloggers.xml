@@ -8,10 +8,97 @@
 		
 			<item>
 				<title>ggplot your missing data</title>
-				
 					<description>&lt;p&gt;Visualising missing data is important when analysing a dataset. I wanted to make a plot of the presence/absence in a dataset. One package, &lt;a href=&quot;https://cran.r-project.org/web/packages/Amelia/index.html&quot;&gt;&lt;code&gt;Amelia&lt;/code&gt;&lt;/a&gt; provides a function to do this, but I don&amp;#39;t like the way it looks. So I made a ggplot version of what it did.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;#39;s make a dataset using the awesome &lt;a href=&quot;https://github.com/trinker/wakefield&quot;&gt;wakefield package&lt;/a&gt;, and add random missingness.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;dplyr&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## 
+## Attaching package: &amp;#39;dplyr&amp;#39;
+## 
+## The following objects are masked from &amp;#39;package:stats&amp;#39;:
+## 
+##     filter, lag
+## 
+## The following objects are masked from &amp;#39;package:base&amp;#39;:
+## 
+##     intersect, setdiff, setequal, union
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;wakefield&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## 
+## Attaching package: &amp;#39;wakefield&amp;#39;
+## 
+## The following object is masked from &amp;#39;package:dplyr&amp;#39;:
+## 
+##     id
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;df &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; 
+  r_data_frame&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  n &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  id&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  race&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  age&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  sex&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  hour&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  iq&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  height&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  died&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  Scoring &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; rnorm&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  Smoker &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; valid
+  &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;
+  r_na&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;prob&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This is what the Amelia package produces by default:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Amelia&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Loading required package: Rcpp
+## ## 
+## ## Amelia II: Multiple Imputation
+## ## (Version 1.7.3, built: 2014-11-14)
+## ## Copyright (C) 2005-2015 James Honaker, Gary King and Matthew Blackwell
+## ## Refer to http://gking.harvard.edu/amelia/ for more information
+## ##
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;missmap&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;df&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Warning in if (class(obj) == &amp;quot;amelia&amp;quot;) {: the condition has length &amp;gt; 1 and
+## only the first element will be used
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-2-1.png&quot; alt=&quot;plot of chunk unnamed-chunk-2&quot;&gt; &lt;/p&gt;
+
+&lt;p&gt;And let&amp;#39;s explore the missing data using my own ggplot function:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# A function that plots missingness&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# requires `reshape2`&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;reshape2&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;ggplot2&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Loading required package: methods
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;ggplot_missing &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+
+  x &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt; 
+    is.na &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;
+    melt &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;
+    ggplot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;data &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+           aes&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Var2&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+               y &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Var1&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+    geom_raster&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;aes&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;fill &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; value&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+    scale_fill_grey&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;name &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                    labels &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Present&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Missing&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+    theme_minimal&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; 
+    theme&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;axis.text.x  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; element_text&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;angle&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;45&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; vjust&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; 
+    labs&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Variables in Dataset&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+         y &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Rows / observations&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Let&amp;#39;s test it out &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;ggplot_missing&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;df&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-4-1.png&quot; alt=&quot;plot of chunk unnamed-chunk-4&quot;&gt; &lt;/p&gt;
+
+&lt;p&gt;It&amp;#39;s much cleaner, and easier to interpret.&lt;/p&gt;
+
+&lt;p&gt;This function, and others, is available in the &lt;a href=&quot;https://github.com/tierneyn/neato&quot;&gt;neato package&lt;/a&gt;, where I store a bunch of functions I think are neat.&lt;/p&gt;
+
+&lt;p&gt;Quick note - there used to be a function, &lt;code&gt;missing.pattern.plot&lt;/code&gt; in the package &lt;code&gt;mi&lt;/code&gt; http://www.inside-r.org/packages/cran/mi/docs/missing.pattern.plot. However, it doesn&amp;#39;t appear to exist anymore. This is a shame, as it was a really nifty plot, that clustered the groups of missingness. In the future, maybe I can rebuild what &lt;code&gt;missing.pattern.plot&lt;/code&gt; once did. Perhaps in the future I can include this sort of thing in the &lt;a href=&quot;https://github.com/tierneyn/mex&quot;&gt;&lt;code&gt;mex&lt;/code&gt; package&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As another aside - if anyone knows how I can improve the image quality of the plots, I&amp;#39;m all ears. I&amp;#39;ve tried changing the dpi, changing it to pdf, png, svg, and even svglite but they all haven&amp;#39;t really solved the problem.&lt;/p&gt;
+
+&lt;p&gt;Thoughts? Write them below.&lt;/p&gt;
 </description>
-				
 				<pubDate>Thu, 12 Nov 2015 00:00:00 +1000</pubDate>
 				<link>http://tierneyn.github.io/r/missing%20data/rbloggers/2015/11/12/ggplot-missing-data/</link>
 				<guid isPermaLink="true">http://tierneyn.github.io/r/missing%20data/rbloggers/2015/11/12/ggplot-missing-data/</guid>
