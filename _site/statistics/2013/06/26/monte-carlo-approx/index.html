@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Monte Carlo Approximiation &middot; Nicholas Tierney
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700|PT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/favicon-114.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    ga('create', 'UA-146052-15', 'getpoole.com');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-69408097-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>Statistics, Coffee, Photography, and Me</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Blog</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Bio/">Bio</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Publications/">Publications</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Resources/">Resources</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about/">About</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/archive/">Archive</a>
+        
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+    <li class="sidebar-nav-item"><a href="https://github.com/tierneyn/tierneyn.github.io">GitHub</a></li>
+
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2015. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Nicholas Tierney</a>
+            <small>Original witty remark</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Monte Carlo Approximiation</h1>
+  <span class="post-date">
+  <!-- add in images -->
+   <img class="img-icon" src="/assets/iconmonstr-calendar-8-icon.svg"></img>26 Jun 2013
+    <img class="img-icon" src="/assets/iconmonstr-tags-4-icon.svg"></img> statistics  </span>
+
+  <p>There are a lot of explanations of Monte Carlo approximation out there.</p>
+
+<p>Here is one that worked for me.</p>
+
+<p>A famous mathematician named Stan Ulam liked solitaire.</p>
+
+<p>He wanted to work out the probability of getting a perfect solitaire hand.</p>
+
+<p>Being a mathematician, he also wanted to work this out analytically.</p>
+
+<p>What does analytical mean?  It&#39;s a fair question, as it&#39;s <a href="http://en.wikipedia.org/wiki/Analytic">wikipedia page shows that there are many definitions</a>
+<p style="text-align: center;"><strong>Wikipedia definition:</strong></p>
+<p style="text-align: center;"><em>&quot;Analytic Solution&quot; </em></p>
+<p style="text-align: center;"><em>- A solution to a problem that can be written in &quot;closed form&quot; in terms of known functions, constants, etc.</em></p>
+<p style="text-align: left;">I find that such a definition relies on the reader knowing what the words &#39;closed form&#39;, &#39;known functions&#39; and &#39;constants&#39; are.</p>
+<p style="text-align: center;">So here&#39;s <strong>my definition:</strong></p>
+<p style="text-align: center;"><em>&quot;Analytic Solution&quot;</em></p>
+<p style="text-align: center;"><em>A solution where everything needed to solve a particular question is presented clearly and logically, with all assumptions defined.
+</em></p>
+So, getting back on track...</p>
+
+<p>When Stan Ulam said that he wanted to find the probability of getting a perfect solitaire hand, he was going to do some really complex probability equations using:
+<ul>
+    <li>The information about a deck of cards
+<ul>
+    <li>52 cards</li>
+    <li>Number of red cards</li>
+    <li>Number of black cards</li>
+    <li>Number of different numbers...etc.</li>
+</ul>
+</li>
+    <li>And a pen and paper</li>
+    <li>(and maybe a calculator, but this was the 1940s so it is less likely.  But then, he <em>was</em> a famous mathematician - it is more likely he would have had access to a computer)  to arrive at a &#39;perfect solution&#39;.</li>
+</ul>
+The analytic solution ends up looking really complicated, and is<em> quite</em> complex.</p>
+
+<p>So instead of finding an analytical solution, he wanted to <em>approximate </em>a solution.</p>
+
+<p>Basically you follow these steps,
+<ol>
+    <li>Shuffle and deal a hand of solitaire</li>
+    <li>Is it a perfect hand?</li>
+    <li>If no, add one to the total number of hands dealt, go back to step 1.</li>
+    <li>If yes, add one to the number of successful hands AND total number of hands dealt, go back step 1</li>
+    <li>Repeat steps 1-4 1000s of times.</li>
+    <li>Divide the # successful hands / total # hands.</li>
+    <li>You have now arrived at an approximate probability of getting a perfect hand in solitaire.</li>
+</ol>
+Crazy as it sounds, this probability gets closer to the &#39;true&#39; probability you would have found, had you worked it out analytically.</p>
+
+<p>The more trial simulations (iterations) you run, the better the answer.</p>
+
+<p>Now imagine that instead of wanting to know the probability of getting a perfect hand, but
+<ul>
+    <li>Getting a red card first draw</li>
+    <li>The ace of spades first draw</li>
+    <li>TWO black cards...</li>
+</ul>
+Monte Carlo provides a simpler solution than the analytic method.I shall write another post extending on this one soon.</p>
+
+<p>Let me know if what I wrote makes sense for you!</p>
+
+<p>Reference: - <a href="http://www.youtube.com/watch?v=7TybpwBlcMk">MathematicalMonk&#39;s Youtube Channel</a></p>
+
+        <!-- using liquid formatting to define a variable page.comments -->
+
+<!-- Add Disqus comments. -->
+<div id="disqus_thread"></div>
+  <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'njtierney'; // required: replace example with your forum shortname
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+  </body>
+</html>

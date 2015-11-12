@@ -2,6 +2,9 @@
 layout: post
 title: A Grammar of Models?
 comments: true
+categories:
+- R
+- Statistics
 ---
 
 

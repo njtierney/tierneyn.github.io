@@ -2,6 +2,8 @@
 title: "Define: Analytically"
 layout: post
 comments: true
+categories:
+- Statistics
 ---
 
 What does the word _analytical_, mean?  

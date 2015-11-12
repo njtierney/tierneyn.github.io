@@ -2,6 +2,9 @@
 title: Working Smoothly(er) from RMarkdown to Word.
 layout: post
 comments: true
+categories:
+- rmarkdown
+- R
 ---
 
 I'm a pretty huge fan of RMarkdown, as it is a great way for me to write my code and my text together. It seems really a rather a natural thing to do. You write about your analyses, and the code is there. You update some function or some data, and your figures and tables update with it.

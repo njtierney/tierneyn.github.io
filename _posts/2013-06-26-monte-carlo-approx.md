@@ -2,6 +2,8 @@
 title: Monte Carlo Approximiation
 layout: post
 comments: true
+categories:
+- Statistics
 ---
 
 There are a lot of explanations of Monte Carlo approximation out there.

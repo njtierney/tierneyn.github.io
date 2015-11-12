@@ -4,7 +4,7 @@
  <title>Nicholas Tierney</title>
  <link href="http://tierneyn.github.io/atom.xml" rel="self"/>
  <link href="http://tierneyn.github.io/"/>
- <updated>2015-11-12T16:46:16+10:00</updated>
+ <updated>2015-11-13T00:29:51+10:00</updated>
  <id>http://tierneyn.github.io</id>
  <author>
    <name>Nicholas Tierney</name>
@@ -13,10 +13,108 @@
 
  
  <entry>
-   <title>How I built my website</title>
-   <link href="http://tierneyn.github.io/jekyll/2015/11/12/how-i-built-my-site/"/>
+   <title>ggplot your missing data</title>
+   <link href="http://tierneyn.github.io/r/missing%20data/2015/11/12/ggplot-missing-data/"/>
    <updated>2015-11-12T00:00:00+10:00</updated>
-   <id>http://tierneyn.github.io/jekyll/2015/11/12/how-i-built-my-site</id>
+   <id>http://tierneyn.github.io/r/missing%20data/2015/11/12/ggplot-missing-data</id>
+   <content type="html">&lt;p&gt;Visualising missing data is important when analysing a dataset. I wanted to make a plot of the presence/absence in a dataset. One package, &lt;a href=&quot;https://cran.r-project.org/web/packages/Amelia/index.html&quot;&gt;&lt;code&gt;Amelia&lt;/code&gt;&lt;/a&gt; provides a function to do this, but I don&amp;#39;t like the way it looks. So I made a ggplot version of what it did.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;#39;s make a dataset using the awesome &lt;a href=&quot;https://github.com/trinker/wakefield&quot;&gt;wakefield package&lt;/a&gt;, and add random missingness.&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;dplyr&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## 
+## Attaching package: &amp;#39;dplyr&amp;#39;
+## 
+## The following objects are masked from &amp;#39;package:stats&amp;#39;:
+## 
+##     filter, lag
+## 
+## The following objects are masked from &amp;#39;package:base&amp;#39;:
+## 
+##     intersect, setdiff, setequal, union
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;wakefield&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## 
+## Attaching package: &amp;#39;wakefield&amp;#39;
+## 
+## The following object is masked from &amp;#39;package:dplyr&amp;#39;:
+## 
+##     id
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;df &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; 
+  r_data_frame&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  n &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  id&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  race&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  age&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  sex&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  hour&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  iq&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  height&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  died&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  Scoring &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; rnorm&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  Smoker &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; valid
+  &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;
+  r_na&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;prob&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This is what the Amelia package produces by default:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Amelia&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Loading required package: Rcpp
+## ## 
+## ## Amelia II: Multiple Imputation
+## ## (Version 1.7.3, built: 2014-11-14)
+## ## Copyright (C) 2005-2015 James Honaker, Gary King and Matthew Blackwell
+## ## Refer to http://gking.harvard.edu/amelia/ for more information
+## ##
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;missmap&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;df&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Warning in if (class(obj) == &amp;quot;amelia&amp;quot;) {: the condition has length &amp;gt; 1 and
+## only the first element will be used
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-2-1.png&quot; alt=&quot;plot of chunk unnamed-chunk-2&quot;&gt; &lt;/p&gt;
+
+&lt;p&gt;And let&amp;#39;s explore the missing data using my own ggplot function:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# A function that plots missingness&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# requires `reshape2`&lt;/span&gt;
+
+&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;reshape2&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;ggplot2&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Loading required package: methods
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;ggplot_missing &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+
+  x &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt; 
+    is.na &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;
+    melt &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;
+    ggplot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;data &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+           aes&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Var2&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+               y &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Var1&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+    geom_raster&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;aes&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;fill &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; value&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+    scale_fill_grey&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;name &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+                    labels &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Present&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Missing&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
+    theme_minimal&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; 
+    theme&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;axis.text.x  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; element_text&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;angle&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;45&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; vjust&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; 
+    labs&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Variables in Dataset&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+         y &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Rows / observations&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Let&amp;#39;s test it out &lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;ggplot_missing&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;df&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-4-1.png&quot; alt=&quot;plot of chunk unnamed-chunk-4&quot;&gt; &lt;/p&gt;
+
+&lt;p&gt;It&amp;#39;s much cleaner, and easier to interpret.&lt;/p&gt;
+
+&lt;p&gt;This function, and others, is available in the &lt;a href=&quot;https://github.com/tierneyn/neato&quot;&gt;neato package&lt;/a&gt;, where I store a bunch of functions I think are neat.&lt;/p&gt;
+
+&lt;p&gt;Quick note - there used to be a function, &lt;code&gt;missing.pattern.plot&lt;/code&gt; in the package &lt;code&gt;mi&lt;/code&gt; http://www.inside-r.org/packages/cran/mi/docs/missing.pattern.plot. However, it doesn&amp;#39;t appear to exist anymore. This is a shame, as it was a really nifty plot, that clustered the groups of missingness. In the future, maybe I can rebuild what &lt;code&gt;missing.pattern.plot&lt;/code&gt; once did. Perhaps in the future I can include this sort of thing in the &lt;a href=&quot;https://github.com/tierneyn/mex&quot;&gt;&lt;code&gt;mex&lt;/code&gt; package&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As another aside - if anyone knows how I can improve the image quality of the plots, I&amp;#39;m all ears. I&amp;#39;ve tried changing the dpi, changing it to pdf, png, svg, and even svglite but they all haven&amp;#39;t really solved the problem.&lt;/p&gt;
+
+&lt;p&gt;Thoughts? Write them below.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>How I built my website</title>
+   <link href="http://tierneyn.github.io/jekyll/2015/11/11/how-i-built-my-site/"/>
+   <updated>2015-11-11T00:00:00+10:00</updated>
+   <id>http://tierneyn.github.io/jekyll/2015/11/11/how-i-built-my-site</id>
    <content type="html">&lt;p&gt;I&amp;#39;ve recently changed my website from Wordpress to Jekyll. In this post I try and succinctly describe how it happened.&lt;/p&gt;
 
 &lt;h1&gt;Why change?&lt;/h1&gt;
@@ -197,104 +295,6 @@
  </entry>
  
  <entry>
-   <title>ggplot your missing data</title>
-   <link href="http://tierneyn.github.io/r/missing%20data/2015/11/12/ggplot-missing-data/"/>
-   <updated>2015-11-12T00:00:00+10:00</updated>
-   <id>http://tierneyn.github.io/r/missing%20data/2015/11/12/ggplot-missing-data</id>
-   <content type="html">&lt;p&gt;Visualising missing data is important when analysing a dataset. I wanted to make a plot of the presence/absence in a dataset. One package, &lt;a href=&quot;https://cran.r-project.org/web/packages/Amelia/index.html&quot;&gt;&lt;code&gt;Amelia&lt;/code&gt;&lt;/a&gt; provides a function to do this, but I don&amp;#39;t like the way it looks. So I made a ggplot version of what it did.&lt;/p&gt;
-
-&lt;p&gt;Let&amp;#39;s make a dataset using the awesome &lt;a href=&quot;https://github.com/trinker/wakefield&quot;&gt;wakefield package&lt;/a&gt;, and add random missingness.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;dplyr&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## 
-## Attaching package: &amp;#39;dplyr&amp;#39;
-## 
-## The following objects are masked from &amp;#39;package:stats&amp;#39;:
-## 
-##     filter, lag
-## 
-## The following objects are masked from &amp;#39;package:base&amp;#39;:
-## 
-##     intersect, setdiff, setequal, union
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;wakefield&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## 
-## Attaching package: &amp;#39;wakefield&amp;#39;
-## 
-## The following object is masked from &amp;#39;package:dplyr&amp;#39;:
-## 
-##     id
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;df &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; 
-  r_data_frame&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-  n &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  id&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  race&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  age&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  sex&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  hour&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  iq&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  height&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  died&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  Scoring &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; rnorm&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  Smoker &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; valid
-  &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;
-  r_na&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;prob&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This is what the Amelia package produces by default:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Amelia&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Loading required package: Rcpp
-## ## 
-## ## Amelia II: Multiple Imputation
-## ## (Version 1.7.3, built: 2014-11-14)
-## ## Copyright (C) 2005-2015 James Honaker, Gary King and Matthew Blackwell
-## ## Refer to http://gking.harvard.edu/amelia/ for more information
-## ##
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;missmap&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;df&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Warning in if (class(obj) == &amp;quot;amelia&amp;quot;) {: the condition has length &amp;gt; 1 and
-## only the first element will be used
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-2-1.png&quot; alt=&quot;plot of chunk unnamed-chunk-2&quot;&gt; &lt;/p&gt;
-
-&lt;p&gt;And let&amp;#39;s explore the missing data using my own ggplot function:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# A function that plots missingness&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# requires `reshape2`&lt;/span&gt;
-
-&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;reshape2&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;ggplot2&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Loading required package: methods
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;ggplot_missing &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
-
-  x &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt; 
-    is.na &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;
-    melt &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;
-    ggplot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;data &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-           aes&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Var2&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-               y &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Var1&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
-    geom_raster&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;aes&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;fill &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; value&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
-    scale_fill_grey&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;name &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                    labels &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Present&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Missing&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
-    theme_minimal&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; 
-    theme&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;axis.text.x  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; element_text&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;angle&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;45&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; vjust&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; 
-    labs&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Variables in Dataset&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-         y &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Rows / observations&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Let&amp;#39;s test it out &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;ggplot_missing&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;df&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-4-1.png&quot; alt=&quot;plot of chunk unnamed-chunk-4&quot;&gt; &lt;/p&gt;
-
-&lt;p&gt;It&amp;#39;s much cleaner, and easier to interpret.&lt;/p&gt;
-
-&lt;p&gt;This function, and others, is available in the &lt;a href=&quot;https://github.com/tierneyn/neato&quot;&gt;neato package&lt;/a&gt;, where I store a bunch of functions I think are neat.&lt;/p&gt;
-
-&lt;p&gt;Quick note - there used to be a function, &lt;code&gt;missing.pattern.plot&lt;/code&gt; in the package &lt;code&gt;mi&lt;/code&gt; http://www.inside-r.org/packages/cran/mi/docs/missing.pattern.plot. However, it doesn&amp;#39;t appear to exist anymore. This is a shame, as it was a really nifty plot, that clustered the groups of missingness. In the future, maybe I can rebuild what &lt;code&gt;missing.pattern.plot&lt;/code&gt; once did. Perhaps in the future I can include this sort of thing in the &lt;a href=&quot;https://github.com/tierneyn/mex&quot;&gt;&lt;code&gt;mex&lt;/code&gt; package&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;As another aside - if anyone knows how I can improve the image quality of the plots, I&amp;#39;m all ears. I&amp;#39;ve tried changing the dpi, changing it to pdf, png, svg, and even svglite but they all haven&amp;#39;t really solved the problem.&lt;/p&gt;
-
-&lt;p&gt;Thoughts? Write them below.&lt;/p&gt;
-</content>
- </entry>
- 
- <entry>
    <title>Using `table` the dplyr way</title>
    <link href="http://tierneyn.github.io/r/2015/11/03/tally-the-dplyr-table/"/>
    <updated>2015-11-03T00:00:00+10:00</updated>
@@ -386,9 +386,9 @@ kable&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;iris.tally&lt;span class=&quo
  
  <entry>
    <title>Working Smoothly(er) from RMarkdown to Word.</title>
-   <link href="http://tierneyn.github.io/2015/02/09/Working-Smoothlyer-from-RMarkdown-to-Word/"/>
+   <link href="http://tierneyn.github.io/rmarkdown/r/2015/02/09/Working-Smoothlyer-from-RMarkdown-to-Word/"/>
    <updated>2015-02-09T00:00:00+10:00</updated>
-   <id>http://tierneyn.github.io/2015/02/09/Working-Smoothlyer-from-RMarkdown-to-Word</id>
+   <id>http://tierneyn.github.io/rmarkdown/r/2015/02/09/Working-Smoothlyer-from-RMarkdown-to-Word</id>
    <content type="html">&lt;p&gt;I&amp;#39;m a pretty huge fan of RMarkdown, as it is a great way for me to write my code and my text together. It seems really a rather a natural thing to do. You write about your analyses, and the code is there. You update some function or some data, and your figures and tables update with it.&lt;/p&gt;
 
 &lt;p&gt;In my head I feel as though I am working more efficiently. However there is some research to suggest that LaTeX users actually work slower than Word users. However, LaTeX users &lt;em&gt;feel better&lt;/em&gt; about using LaTeX. I would like to dub this the &lt;strong&gt;brown corduroy trousers effect&lt;/strong&gt;, quoting Robin Williams, who said something like:&lt;/p&gt;
@@ -437,9 +437,9 @@ kable&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;iris.tally&lt;span class=&quo
  
  <entry>
    <title>Fix for `gbm.plot`</title>
-   <link href="http://tierneyn.github.io/2014/04/22/gbm-plot-fix/"/>
+   <link href="http://tierneyn.github.io/r/2014/04/22/gbm-plot-fix/"/>
    <updated>2014-04-22T00:00:00+10:00</updated>
-   <id>http://tierneyn.github.io/2014/04/22/gbm-plot-fix</id>
+   <id>http://tierneyn.github.io/r/2014/04/22/gbm-plot-fix</id>
    <content type="html">&lt;p&gt;I&amp;#39;m currently in the process of writing a report using boosted regression trees.  I&amp;#39;m currently using guidelines provided by Elith et al &lt;a href=&quot;http://avesbiodiv.mncn.csic.es/estadistica/bt1.pdf&quot;&gt;here&lt;/a&gt;, and &lt;a href=&quot;http://cran.r-project.org/web/packages/dismo/vignettes/brt.pdf&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;They provide the function &lt;code&gt;gbm.step&lt;/code&gt;, which performs 10-fold cross validation on the boosted regression tree. It also has a nifty &lt;code&gt;gbm.plot&lt;/code&gt; function, producing partial dependence plots. Unforunately, it kept giving me this error:&lt;/p&gt;
@@ -458,9 +458,9 @@ kable&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;iris.tally&lt;span class=&quo
  
  <entry>
    <title>A Grammar of Models?</title>
-   <link href="http://tierneyn.github.io/2013/11/10/grammar-of-models/"/>
+   <link href="http://tierneyn.github.io/r/statistics/2013/11/10/grammar-of-models/"/>
    <updated>2013-11-10T00:00:00+10:00</updated>
-   <id>http://tierneyn.github.io/2013/11/10/grammar-of-models</id>
+   <id>http://tierneyn.github.io/r/statistics/2013/11/10/grammar-of-models</id>
    <content type="html">&lt;p&gt;I came across &lt;a href=&quot;http://statr.me/2013/09/a-conversation-with-hadley-wickham/&quot;&gt;this interview&lt;/a&gt; with Hadley Wickham, the creator of one of the most widely used R packages, &lt;code&gt;ggplot 2&lt;/code&gt;. I thought that this quote was interesting:&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -483,9 +483,9 @@ kable&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;iris.tally&lt;span class=&quo
  
  <entry>
    <title>Statistics for Journalists</title>
-   <link href="http://tierneyn.github.io/2013/11/01/statistics-for-journalists/"/>
+   <link href="http://tierneyn.github.io/statistics/teaching/2013/11/01/statistics-for-journalists/"/>
    <updated>2013-11-01T00:00:00+10:00</updated>
-   <id>http://tierneyn.github.io/2013/11/01/statistics-for-journalists</id>
+   <id>http://tierneyn.github.io/statistics/teaching/2013/11/01/statistics-for-journalists</id>
    <content type="html">&lt;p&gt;In November 2013 I had the opportunity to work with the Australian Science Media Centre (AusSMC) and produce a talk explaining numbers and statistics.  The deal was that it was 11 concepts on numbers and stats in 20 minutes.  The concepts being:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -520,9 +520,9 @@ kable&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;iris.tally&lt;span class=&quo
  
  <entry>
    <title>Statistics Can Do Anything?</title>
-   <link href="http://tierneyn.github.io/2013/09/01/stats-can-do-anything/"/>
+   <link href="http://tierneyn.github.io/statistics/blag/2013/09/01/stats-can-do-anything/"/>
    <updated>2013-09-01T00:00:00+10:00</updated>
-   <id>http://tierneyn.github.io/2013/09/01/stats-can-do-anything</id>
+   <id>http://tierneyn.github.io/statistics/blag/2013/09/01/stats-can-do-anything</id>
    <content type="html">&lt;p&gt;Sometimes people are fond of saying:
 &lt;blockquote&gt;&amp;quot;Well, &lt;em&gt;you know&lt;/em&gt;, the thing with statistics is that you can get the statistics to say whatever you want.&amp;quot;&lt;/blockquote&gt;
 I think that this is the equivalent of saying:
@@ -564,9 +564,9 @@ Others will nod their heads too.&lt;/p&gt;
  
  <entry>
    <title>Monte Carlo Approximiation</title>
-   <link href="http://tierneyn.github.io/2013/06/26/monte-carlo-approx/"/>
+   <link href="http://tierneyn.github.io/statistics/2013/06/26/monte-carlo-approx/"/>
    <updated>2013-06-26T00:00:00+10:00</updated>
-   <id>http://tierneyn.github.io/2013/06/26/monte-carlo-approx</id>
+   <id>http://tierneyn.github.io/statistics/2013/06/26/monte-carlo-approx</id>
    <content type="html">&lt;p&gt;There are a lot of explanations of Monte Carlo approximation out there.&lt;/p&gt;
 
 &lt;p&gt;Here is one that worked for me.&lt;/p&gt;
@@ -635,9 +635,9 @@ Monte Carlo provides a simpler solution than the analytic method.I shall write a
  
  <entry>
    <title>Define: Analytically</title>
-   <link href="http://tierneyn.github.io/2013/06/20/analytically/"/>
+   <link href="http://tierneyn.github.io/statistics/2013/06/20/analytically/"/>
    <updated>2013-06-20T00:00:00+10:00</updated>
-   <id>http://tierneyn.github.io/2013/06/20/analytically</id>
+   <id>http://tierneyn.github.io/statistics/2013/06/20/analytically</id>
    <content type="html">&lt;p&gt;What does the word &lt;em&gt;analytical&lt;/em&gt;, mean?  &lt;/p&gt;
 
 &lt;p&gt;Wikipedia says:&lt;/p&gt;
@@ -666,9 +666,9 @@ Monte Carlo provides a simpler solution than the analytic method.I shall write a
  
  <entry>
    <title>Humanity</title>
-   <link href="http://tierneyn.github.io/2013/06/12/humanity/"/>
+   <link href="http://tierneyn.github.io/blag/2013/06/12/humanity/"/>
    <updated>2013-06-12T00:00:00+10:00</updated>
-   <id>http://tierneyn.github.io/2013/06/12/humanity</id>
+   <id>http://tierneyn.github.io/blag/2013/06/12/humanity</id>
    <content type="html">&lt;p&gt;A friend of mine posted an interesting article on facebook today - &lt;a href=&quot;http://theconversation.com/honing-the-mind-and-nurturing-the-soul-why-the-humanities-are-underrated-15027&quot;&gt;&amp;quot;Honing the mind and nurturing the soul: why the humanities are underrated&amp;quot;&lt;/a&gt;.  The piece is written by Professor Steven Schwartz, a distinguished academic currently residing at Oxford University after holding Vice Chancellor positions in Australia and the UK.&lt;/p&gt;
 
 &lt;p&gt;The article tells of Schwartz seeing the return of mature age students to university, not to study a doctorate in accounting or business, but the arts and humanities.  As he put it, these students were returning to &amp;quot;fulfil a life-long desire to immerse themselves in the arts or humanities&amp;quot; after years in another profession.  Schwartz makes the point that you do not need to make money to then spend it later in life - doing the &amp;#39;degree they have always wanted to do&amp;#39; -  you can study the humanities &lt;em&gt;and&lt;/em&gt; make money.&lt;/p&gt;

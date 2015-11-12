@@ -2,6 +2,9 @@
 title: Statistics Can Do Anything?
 layout: post
 comments: true
+categories:
+- Statistics
+- Blag
 ---
 
 Sometimes people are fond of saying:

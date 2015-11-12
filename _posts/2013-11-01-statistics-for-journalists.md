@@ -2,6 +2,9 @@
 layout: post
 title: Statistics for Journalists
 comments: true
+categories:
+- Statistics
+- Teaching
 ---
 
 In November 2013 I had the opportunity to work with the Australian Science Media Centre (AusSMC) and produce a talk explaining numbers and statistics.  The deal was that it was 11 concepts on numbers and stats in 20 minutes.  The concepts being:
