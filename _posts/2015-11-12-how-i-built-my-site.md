@@ -2,6 +2,8 @@
 title: How I built my website
 layout: post
 comments: true
+categories:
+- Jekyll
 ---
 
 I've recently changed my website from Wordpress to Jekyll. In this post I try and succinctly describe how it happened.

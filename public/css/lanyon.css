@@ -316,6 +316,11 @@ a.sidebar-nav-item:focus {
 .post-title {
   margin-top: 0;
 }
+ 
+.post-title{
+  font-size: 2.5rem;
+  text-align: centre;
+}
 
 .page-title{
   font-size: 2.5rem;
