@@ -14,8 +14,7 @@ knitr::opts_chunk$set(
     warning = FALSE,
     error   = FALSE,
     message = FALSE,
-    device  = 'svglite',
-    fig.ext = "svg",
+    device  = 'png',
     fig.width = 6,
     fig.height = 6,
     dpi = 300)
