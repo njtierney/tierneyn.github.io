@@ -4,7 +4,7 @@
  <title>Nicholas Tierney</title>
  <link href="http://tierneyn.github.io/atom.xml" rel="self"/>
  <link href="http://tierneyn.github.io/"/>
- <updated>2015-11-13T11:11:20+10:00</updated>
+ <updated>2015-11-13T11:26:39+10:00</updated>
  <id>http://tierneyn.github.io</id>
  <author>
    <name>Nicholas Tierney</name>
@@ -43,7 +43,7 @@ df &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt;
 
 missmap&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;df&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-2-1.png&quot; title=&quot;plot of chunk unnamed-chunk-2&quot; alt=&quot;plot of chunk unnamed-chunk-2&quot; width=&quot;\maxwidth&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-2-1.png&quot; alt=&quot;plot of chunk unnamed-chunk-2&quot;&gt; &lt;/p&gt;
 
 &lt;p&gt;And let&amp;#39;s explore the missing data using my own ggplot function:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# A function that plots missingness&lt;/span&gt;
@@ -72,7 +72,7 @@ ggplot_missing &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span c
 &lt;p&gt;Let&amp;#39;s test it out &lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;ggplot_missing&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;df&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-4-1.png&quot; title=&quot;plot of chunk unnamed-chunk-4&quot; alt=&quot;plot of chunk unnamed-chunk-4&quot; width=&quot;\maxwidth&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-4-1.png&quot; alt=&quot;plot of chunk unnamed-chunk-4&quot;&gt; &lt;/p&gt;
 
 &lt;p&gt;It&amp;#39;s much cleaner, and easier to interpret.&lt;/p&gt;
 

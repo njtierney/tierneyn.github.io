@@ -44,7 +44,7 @@ library(Amelia)
 missmap(df)
 ```
 
-<img src="/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" width="\maxwidth" />
+![plot of chunk unnamed-chunk-2](/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-2-1.png) 
 
 And let's explore the missing data using my own ggplot function:
 
@@ -81,7 +81,7 @@ Let's test it out
 ggplot_missing(df)
 ```
 
-<img src="/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" width="\maxwidth" />
+![plot of chunk unnamed-chunk-4](/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-4-1.png) 
 
 It's much cleaner, and easier to interpret.
 
