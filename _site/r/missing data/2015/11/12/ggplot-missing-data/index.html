@@ -140,30 +140,14 @@
   <span class="post-date">
   <!-- add in images -->
    <img class="img-icon" src="/assets/iconmonstr-calendar-8-icon.svg"></img>12 Nov 2015
-    <img class="img-icon" src="/assets/iconmonstr-tags-4-icon.svg"></img> r    missing data    rbloggers  </span>
+    <img class="img-icon" src="/assets/iconmonstr-tags-4-icon.svg"></img> r    missing data  </span>
 
   <p>Visualising missing data is important when analysing a dataset. I wanted to make a plot of the presence/absence in a dataset. One package, <a href="https://cran.r-project.org/web/packages/Amelia/index.html"><code>Amelia</code></a> provides a function to do this, but I don&#39;t like the way it looks. So I made a ggplot version of what it did.</p>
 
 <p>Let&#39;s make a dataset using the awesome <a href="https://github.com/trinker/wakefield">wakefield package</a>, and add random missingness.</p>
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>dplyr<span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">## 
-## Attaching package: &#39;dplyr&#39;
-## 
-## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag
-## 
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union
-</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>wakefield<span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">## 
-## Attaching package: &#39;wakefield&#39;
-## 
-## The following object is masked from &#39;package:dplyr&#39;:
-## 
-##     id
-</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r">df <span class="o">&lt;-</span> 
+<span class="kn">library</span><span class="p">(</span>wakefield<span class="p">)</span>
+df <span class="o">&lt;-</span> 
   r_data_frame<span class="p">(</span>
   n <span class="o">=</span> <span class="m">30</span><span class="p">,</span>
   id<span class="p">,</span>
@@ -181,18 +165,10 @@
 </code></pre></div>
 <p>This is what the Amelia package produces by default:</p>
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>Amelia<span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">## Loading required package: Rcpp
-## ## 
-## ## Amelia II: Multiple Imputation
-## ## (Version 1.7.3, built: 2014-11-14)
-## ## Copyright (C) 2005-2015 James Honaker, Gary King and Matthew Blackwell
-## ## Refer to http://gking.harvard.edu/amelia/ for more information
-## ##
-</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r">missmap<span class="p">(</span>df<span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">## Warning in if (class(obj) == &quot;amelia&quot;) {: the condition has length &gt; 1 and
-## only the first element will be used
+
+missmap<span class="p">(</span>df<span class="p">)</span>
 </code></pre></div>
-<p><img src="/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"> </p>
+<p><img src="/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" width="\maxwidth" /></p>
 
 <p>And let&#39;s explore the missing data using my own ggplot function:</p>
 <div class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># A function that plots missingness</span>
@@ -200,8 +176,8 @@
 
 <span class="kn">library</span><span class="p">(</span>reshape2<span class="p">)</span>
 <span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">## Loading required package: methods
-</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r">ggplot_missing <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">){</span>
+
+ggplot_missing <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">){</span>
 
   x <span class="o">%&gt;%</span> 
     is.na <span class="o">%&gt;%</span>
@@ -221,7 +197,7 @@
 <p>Let&#39;s test it out </p>
 <div class="highlight"><pre><code class="language-r" data-lang="r">ggplot_missing<span class="p">(</span>df<span class="p">)</span>
 </code></pre></div>
-<p><img src="/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-4-1.png" alt="plot of chunk unnamed-chunk-4"> </p>
+<p><img src="/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" width="\maxwidth" /></p>
 
 <p>It&#39;s much cleaner, and easier to interpret.</p>
 

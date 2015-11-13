@@ -5,8 +5,10 @@ comments: true
 categories:
 - R
 - Missing Data
-- rbloggers
 ---
+
+
+
 
 Visualising missing data is important when analysing a dataset. I wanted to make a plot of the presence/absence in a dataset. One package, [`Amelia`](https://cran.r-project.org/web/packages/Amelia/index.html) provides a function to do this, but I don't like the way it looks. So I made a ggplot version of what it did.
 
@@ -15,35 +17,7 @@ Let's make a dataset using the awesome [wakefield package](https://github.com/tr
 
 ```r
 library(dplyr)
-```
-
-```
-## 
-## Attaching package: 'dplyr'
-## 
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-## 
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
-
-```r
 library(wakefield)
-```
-
-```
-## 
-## Attaching package: 'wakefield'
-## 
-## The following object is masked from 'package:dplyr':
-## 
-##     id
-```
-
-```r
 df <- 
   r_data_frame(
   n = 30,
@@ -66,28 +40,11 @@ This is what the Amelia package produces by default:
 
 ```r
 library(Amelia)
-```
 
-```
-## Loading required package: Rcpp
-## ## 
-## ## Amelia II: Multiple Imputation
-## ## (Version 1.7.3, built: 2014-11-14)
-## ## Copyright (C) 2005-2015 James Honaker, Gary King and Matthew Blackwell
-## ## Refer to http://gking.harvard.edu/amelia/ for more information
-## ##
-```
-
-```r
 missmap(df)
 ```
 
-```
-## Warning in if (class(obj) == "amelia") {: the condition has length > 1 and
-## only the first element will be used
-```
-
-![plot of chunk unnamed-chunk-2](/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-2-1.png) 
+<img src="/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-2-1.png" title="plot of chunk unnamed-chunk-2" alt="plot of chunk unnamed-chunk-2" width="\maxwidth" />
 
 And let's explore the missing data using my own ggplot function:
 
@@ -98,13 +55,7 @@ And let's explore the missing data using my own ggplot function:
 
 library(reshape2)
 library(ggplot2)
-```
 
-```
-## Loading required package: methods
-```
-
-```r
 ggplot_missing <- function(x){
   
   x %>% 
@@ -130,7 +81,7 @@ Let's test it out
 ggplot_missing(df)
 ```
 
-![plot of chunk unnamed-chunk-4](/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-4-1.png) 
+<img src="/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-4-1.png" title="plot of chunk unnamed-chunk-4" alt="plot of chunk unnamed-chunk-4" width="\maxwidth" />
 
 It's much cleaner, and easier to interpret.
 

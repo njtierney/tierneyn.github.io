@@ -131,8 +131,11 @@ Alright, so this was the reason I wanted to use jekyll in the first place...but 
 
 GitHub hosts the website for you, and you use Jekyll to build the website content. You can make the whole website public on GitHub, so people can see exactly how everything works, and the website file structure is stored locally on your computer. This means if you want, you can see exactly how everything works. Using Jekyll gives you control, but makes the load easier to bare. I really like the control you get -  if I don't like some font - I can change it, if I want header text centered - I can do that. For me, it has been a nice compromise between learning how to code a website from absolute scratch, and using a content management system like wordpress.
 
+# Further Reading
+
 Along the way through this journey I found some fantastic guides from other folk on the internet. These guys saved me a lot of time, so I would recommend reading their posts about this:
 
+- [Brendan Rocks](http://brendanrocks.com/blogging-with-rmarkdown-knitr-jekyll/) - this one is particularly awesome.
 - [Joshua Lande](http://joshualande.com/jekyll-github-pages-poole/)
 - [Nicole White](https://nicolewhite.github.io/2015/02/07/r-blogging-with-rmarkdown-knitr-jekyll.html)
 - [Jekyll website in 5 minutes](http://www.sitepoint.com/set-jekyll-blog-5-minutes-poole/)

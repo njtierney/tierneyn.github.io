@@ -7,6 +7,20 @@ categories:
 - Missing Data
 ---
 
+```{r setup, include = F}
+
+knitr::opts_chunk$set(
+    echo    = TRUE,
+    warning = FALSE,
+    error   = FALSE,
+    message = FALSE,
+    device  = 'png',
+    out.width = '\\maxwidth',
+    dpi = 300)
+
+```
+
+
 Visualising missing data is important when analysing a dataset. I wanted to make a plot of the presence/absence in a dataset. One package, [`Amelia`](https://cran.r-project.org/web/packages/Amelia/index.html) provides a function to do this, but I don't like the way it looks. So I made a ggplot version of what it did.
 
 Let's make a dataset using the awesome [wakefield package](https://github.com/trinker/wakefield), and add random missingness.
