@@ -8,13 +8,14 @@ categories:
 ---
 
 ```{r setup, include = F}
-
+library(svglite)
 knitr::opts_chunk$set(
     echo    = TRUE,
     warning = FALSE,
     error   = FALSE,
     message = FALSE,
-    device  = 'png',
+    device  = 'svglite',
+    fig.ext = "svg",
     fig.width = 6,
     fig.height = 6,
     dpi = 300)
