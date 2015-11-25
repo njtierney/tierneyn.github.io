@@ -56,6 +56,22 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -.025rem;
 }
 
+/* Add the anchor.js CSS so that it fades in */
+.anchorjs-link {
+  transition: all .25s linear;
+}
+
+/* Add the CSS for the accordian*/
+
+.accordion-toggle {
+  cursor: pointer;
+}
+.accordion-content {
+  display: none;
+}
+.accordion-content.default {
+  display: block;
+}
 
 /*
  * Wrapper
