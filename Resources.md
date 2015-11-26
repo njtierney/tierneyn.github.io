@@ -126,3 +126,12 @@ STATA do a great job of explaining multilevel and hierarchical models on their b
 - [Blog part 2](http://blog.stata.com/tag/multilevel-models/)
 
 -  [Video](https://www.youtube.com/watch?v=rUWT_EWV6QI)
+
+# Typography
+
+Just as it is important to have strong data visualisation skills, it is important to understand what makes a good looking document, poster, business card, and whatnot. To this end, you should read [typography in ten minutes](http://practicaltypography.com/typography-in-ten-minutes.html), and the [summary of key rules of typography](http://practicaltypography.com/summary-of-key-rules.html). One day I will purchase some fonts to pay him back.
+
+<!-- # Blogs I like 
+
+Of course, there is [r-bloggers]()
+ -->
