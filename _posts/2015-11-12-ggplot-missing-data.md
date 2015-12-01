@@ -86,8 +86,6 @@ It's much cleaner, and easier to interpret.
 
 This function, and others, is available in the [neato package](https://github.com/tierneyn/neato), where I store a bunch of functions I think are neat.
 
-Quick note - there used to be a function, `missing.pattern.plot` in the package `mi` http://www.inside-r.org/packages/cran/mi/docs/missing.pattern.plot. However, it doesn't appear to exist anymore. This is a shame, as it was a really nifty plot, that clustered the groups of missingness. In the future, maybe I can rebuild what `missing.pattern.plot` once did. Perhaps in the future I can include this sort of thing in the [`mex` package](https://github.com/tierneyn/mex).
-
-As another aside - if anyone knows how I can improve the image quality of the plots, I'm all ears. I've tried changing the dpi, changing it to pdf, png, svg, and even svglite but they all haven't really solved the problem.
+Quick note - there used to be a function, `missing.pattern.plot` [that you can see here](http://www.inside-r.org/packages/cran/mi/docs/missing.pattern.plot) in the package `mi`. However, it doesn't appear to exist anymore. This is a shame, as it was a really nifty plot that clustered the groups of missingness. My friend and colleague, [Sam Clifford](http://samclifford.info/) heard me complaining about this and wrote some code that does just that - I shall share this soon, it will likely be added to the [`neato` repository](https://github.com/tierneyn/neato).
 
 Thoughts? Write them below.

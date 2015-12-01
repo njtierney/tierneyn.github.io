@@ -4,7 +4,7 @@
  <title>Nicholas Tierney</title>
  <link href="http://tierneyn.github.io/atom.xml" rel="self"/>
  <link href="http://tierneyn.github.io/"/>
- <updated>2015-12-01T18:37:17+10:00</updated>
+ <updated>2015-12-01T18:41:58+10:00</updated>
  <id>http://tierneyn.github.io</id>
  <author>
    <name>Nicholas Tierney</name>
@@ -78,9 +78,7 @@ ggplot_missing &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span c
 
 &lt;p&gt;This function, and others, is available in the &lt;a href=&quot;https://github.com/tierneyn/neato&quot;&gt;neato package&lt;/a&gt;, where I store a bunch of functions I think are neat.&lt;/p&gt;
 
-&lt;p&gt;Quick note - there used to be a function, &lt;code&gt;missing.pattern.plot&lt;/code&gt; in the package &lt;code&gt;mi&lt;/code&gt; http://www.inside-r.org/packages/cran/mi/docs/missing.pattern.plot. However, it doesn&amp;#39;t appear to exist anymore. This is a shame, as it was a really nifty plot, that clustered the groups of missingness. In the future, maybe I can rebuild what &lt;code&gt;missing.pattern.plot&lt;/code&gt; once did. Perhaps in the future I can include this sort of thing in the &lt;a href=&quot;https://github.com/tierneyn/mex&quot;&gt;&lt;code&gt;mex&lt;/code&gt; package&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;As another aside - if anyone knows how I can improve the image quality of the plots, I&amp;#39;m all ears. I&amp;#39;ve tried changing the dpi, changing it to pdf, png, svg, and even svglite but they all haven&amp;#39;t really solved the problem.&lt;/p&gt;
+&lt;p&gt;Quick note - there used to be a function, &lt;code&gt;missing.pattern.plot&lt;/code&gt; &lt;a href=&quot;http://www.inside-r.org/packages/cran/mi/docs/missing.pattern.plot&quot;&gt;that you can see here&lt;/a&gt; in the package &lt;code&gt;mi&lt;/code&gt;. However, it doesn&amp;#39;t appear to exist anymore. This is a shame, as it was a really nifty plot that clustered the groups of missingness. My friend and colleague, &lt;a href=&quot;http://samclifford.info/&quot;&gt;Sam Clifford&lt;/a&gt; heard me complaining about this and wrote some code that does just that - I shall share this soon, it will likely be added to the &lt;a href=&quot;https://github.com/tierneyn/neato&quot;&gt;&lt;code&gt;neato&lt;/code&gt; repository&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Thoughts? Write them below.&lt;/p&gt;
 </content>
