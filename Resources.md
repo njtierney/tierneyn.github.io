@@ -31,9 +31,9 @@ I would also recommend checking out:
 
 - <a href="http://www3.nd.edu/~mclark19/projects.html">This blog post</a>, which describes learning R from a social sciences background
 
-And also, [RSeek](http://rseek.org/) is basically a google search that filters by R related content.
+[RSeek](http://rseek.org/) is basically a google search that filters by R related content.
 
-
+To stay up to date with what other people around the world are doing with R, I recommend checking up on [r-bloggers]() every other day. It is also a great resource for finding 
 
 # Learning Advanced R
 
