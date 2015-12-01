@@ -4,7 +4,7 @@
  <title>Nicholas Tierney</title>
  <link href="http://tierneyn.github.io/atom.xml" rel="self"/>
  <link href="http://tierneyn.github.io/"/>
- <updated>2015-12-01T18:41:58+10:00</updated>
+ <updated>2015-12-01T18:44:04+10:00</updated>
  <id>http://tierneyn.github.io</id>
  <author>
    <name>Nicholas Tierney</name>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>ggplot your missing data</title>
-   <link href="http://tierneyn.github.io/r/missing%20data/rbloggers/2015/11/12/ggplot-missing-data/"/>
-   <updated>2015-11-12T00:00:00+10:00</updated>
-   <id>http://tierneyn.github.io/r/missing%20data/rbloggers/2015/11/12/ggplot-missing-data</id>
+   <link href="http://tierneyn.github.io/r/missing%20data/rbloggers/2015/12/01/ggplot-missing-data/"/>
+   <updated>2015-12-01T00:00:00+10:00</updated>
+   <id>http://tierneyn.github.io/r/missing%20data/rbloggers/2015/12/01/ggplot-missing-data</id>
    <content type="html">&lt;p&gt;Visualising missing data is important when analysing a dataset. I wanted to make a plot of the presence/absence in a dataset. One package, &lt;a href=&quot;https://cran.r-project.org/web/packages/Amelia/index.html&quot;&gt;&lt;code&gt;Amelia&lt;/code&gt;&lt;/a&gt; provides a function to do this, but I don&amp;#39;t like the way it looks. So I made a ggplot version of what it did.&lt;/p&gt;
 
 &lt;p&gt;Let&amp;#39;s make a dataset using the awesome &lt;a href=&quot;https://github.com/trinker/wakefield&quot;&gt;wakefield package&lt;/a&gt;, and add random missingness.&lt;/p&gt;
