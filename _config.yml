@@ -1,9 +1,7 @@
 # Dependencies
-markdown:         redcarpet	
-redcarpet:
-  extensions: ["tables"]
+markdown:         kramdown	
 
-highlighter:      pygments
+highlighter:      rouge
 
 # Permalinks
 permalink:        pretty
