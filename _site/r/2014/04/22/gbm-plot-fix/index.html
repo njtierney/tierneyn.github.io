@@ -58,7 +58,7 @@
 <!-- Toggleable sidebar -->
 <div class="sidebar" id="sidebar">
   <div class="sidebar-item">
-    <p>Statistics, Coffee, Photography, and Me</p>
+    <p>Statistics and R Enthusiast</p>
   </div>
 
   <nav class="sidebar-nav">
@@ -105,6 +105,12 @@
       
     
       
+        
+          <a class="sidebar-nav-item" href="/cv/">CV</a>
+        
+      
+    
+      
     
       
         
@@ -116,7 +122,7 @@
 
   <div class="sidebar-item">
     <p>
-      &copy; Nicholas Tierney, 2015. All rights reserved.
+      &copy; Nicholas Tierney, 2016. All rights reserved.
     </p>
   </div>
 </div>
@@ -143,19 +149,19 @@
   <span class="post-date">
   <!-- add in images -->
    <img class="img-icon" src="/assets/iconmonstr-calendar-8-icon.svg"></img>22 Apr 2014
-    <img class="img-icon" src="/assets/iconmonstr-tags-4-icon.svg"></img> r  </span>
+    <img class="img-icon" src="/assets/iconmonstr-tags-4-icon.svg"></img> R  </span>
 
-  <p>I&#39;m currently in the process of writing a report using boosted regression trees.  I&#39;m currently using guidelines provided by Elith et al <a href="http://avesbiodiv.mncn.csic.es/estadistica/bt1.pdf">here</a>, and <a href="http://cran.r-project.org/web/packages/dismo/vignettes/brt.pdf">here</a></p>
+  <p>I’m currently in the process of writing a report using boosted regression trees.  I’m currently using guidelines provided by Elith et al <a href="http://avesbiodiv.mncn.csic.es/estadistica/bt1.pdf">here</a>, and <a href="http://cran.r-project.org/web/packages/dismo/vignettes/brt.pdf">here</a></p>
 
-<p>They provide the function <code>gbm.step</code>, which performs 10-fold cross validation on the boosted regression tree. It also has a nifty <code>gbm.plot</code> function, producing partial dependence plots. Unforunately, it kept giving me this error:</p>
+<p>They provide the function <code class="highlighter-rouge">gbm.step</code>, which performs 10-fold cross validation on the boosted regression tree. It also has a nifty <code class="highlighter-rouge">gbm.plot</code> function, producing partial dependence plots. Unforunately, it kept giving me this error:</p>
 
 <blockquote>
-<p><code>Error: could not find function &quot;windows&quot;</code></p>
+  <p><code class="highlighter-rouge">Error: could not find function "windows"</code></p>
 </blockquote>
 
-<p>This means that the function <code>windows()</code> is being called inside <code>gbm.plot()</code>. So I looked into what the heck <code>windows</code> is and it turns out it opens a graphics device, but is the command reserved for windows machines - I use a mac, and the equivalent command is <code>X11()</code>. I found this out thanks to <a href="http://doingbayesiandataanalysis.blogspot.com.au/2011/09/for-linux-macos-users-easy-fix-for.html">this website</a>.</p>
+<p>This means that the function <code class="highlighter-rouge">windows()</code> is being called inside <code class="highlighter-rouge">gbm.plot()</code>. So I looked into what the heck <code class="highlighter-rouge">windows</code> is and it turns out it opens a graphics device, but is the command reserved for windows machines - I use a mac, and the equivalent command is <code class="highlighter-rouge">X11()</code>. I found this out thanks to <a href="http://doingbayesiandataanalysis.blogspot.com.au/2011/09/for-linux-macos-users-easy-fix-for.html">this website</a>.</p>
 
-<p>So I simply found the source code for <code>gbm.plot</code>, and replaced <code>windows()</code> with <code>X11()</code></p>
+<p>So I simply found the source code for <code class="highlighter-rouge">gbm.plot</code>, and replaced <code class="highlighter-rouge">windows()</code> with <code class="highlighter-rouge">X11()</code></p>
 
 <p>Hopefully this will prove helpful to someone.</p>
 

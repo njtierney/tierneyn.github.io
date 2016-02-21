@@ -4,7 +4,7 @@
  <title>Nicholas Tierney</title>
  <link href="http://tierneyn.github.io/atom.xml" rel="self"/>
  <link href="http://tierneyn.github.io/"/>
- <updated>2015-12-01T18:44:04+10:00</updated>
+ <updated>2016-02-21T14:19:53+11:00</updated>
  <id>http://tierneyn.github.io</id>
  <author>
    <name>Nicholas Tierney</name>
@@ -15,70 +15,82 @@
  <entry>
    <title>ggplot your missing data</title>
    <link href="http://tierneyn.github.io/r/missing%20data/rbloggers/2015/12/01/ggplot-missing-data/"/>
-   <updated>2015-12-01T00:00:00+10:00</updated>
+   <updated>2015-12-01T00:00:00+11:00</updated>
    <id>http://tierneyn.github.io/r/missing%20data/rbloggers/2015/12/01/ggplot-missing-data</id>
-   <content type="html">&lt;p&gt;Visualising missing data is important when analysing a dataset. I wanted to make a plot of the presence/absence in a dataset. One package, &lt;a href=&quot;https://cran.r-project.org/web/packages/Amelia/index.html&quot;&gt;&lt;code&gt;Amelia&lt;/code&gt;&lt;/a&gt; provides a function to do this, but I don&amp;#39;t like the way it looks. So I made a ggplot version of what it did.&lt;/p&gt;
+   <content type="html">&lt;p&gt;Visualising missing data is important when analysing a dataset. I wanted to make a plot of the presence/absence in a dataset. One package, &lt;a href=&quot;https://cran.r-project.org/web/packages/Amelia/index.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Amelia&lt;/code&gt;&lt;/a&gt; provides a function to do this, but I don’t like the way it looks. So I made a ggplot version of what it did.&lt;/p&gt;
 
-&lt;p&gt;Let&amp;#39;s make a dataset using the awesome &lt;a href=&quot;https://github.com/trinker/wakefield&quot;&gt;wakefield package&lt;/a&gt;, and add random missingness.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;dplyr&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;wakefield&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-df &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; 
-  r_data_frame&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-  n &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  id&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  race&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  age&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  sex&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  hour&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  iq&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  height&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  died&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  Scoring &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; rnorm&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  Smoker &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; valid
-  &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;
-  r_na&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;prob&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Let’s make a dataset using the awesome &lt;a href=&quot;https://github.com/trinker/wakefield&quot;&gt;wakefield package&lt;/a&gt;, and add random missingness.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;r
+library(dplyr)
+library(wakefield)
+df &amp;lt;- 
+  r_data_frame(
+  n = 30,
+  id,
+  race,
+  age,
+  sex,
+  hour,
+  iq,
+  height,
+  died,
+  Scoring = rnorm,
+  Smoker = valid
+  ) %&amp;gt;%
+  r_na(prob=.4)
+&lt;/code&gt;&lt;/p&gt;
+
 &lt;p&gt;This is what the Amelia package produces by default:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Amelia&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-missmap&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;df&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-2-1.png&quot; alt=&quot;plot of chunk unnamed-chunk-2&quot;&gt; &lt;/p&gt;
+&lt;p&gt;```r
+library(Amelia)&lt;/p&gt;
 
-&lt;p&gt;And let&amp;#39;s explore the missing data using my own ggplot function:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# A function that plots missingness&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# requires `reshape2`&lt;/span&gt;
+&lt;p&gt;missmap(df)
+```&lt;/p&gt;
 
-&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;reshape2&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;ggplot2&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;p&gt;&lt;img src=&quot;/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-2-1.png&quot; alt=&quot;plot of chunk unnamed-chunk-2&quot; /&gt;&lt;/p&gt;
 
-ggplot_missing &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+&lt;p&gt;And let’s explore the missing data using my own ggplot function:&lt;/p&gt;
 
-  x &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt; 
-    is.na &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;
-    melt &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;
-    ggplot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;data &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-           aes&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Var2&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-               y &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Var1&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
-    geom_raster&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;aes&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;fill &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; value&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
-    scale_fill_grey&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;name &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                    labels &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Present&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Missing&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
-    theme_minimal&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; 
-    theme&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;axis.text.x  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; element_text&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;angle&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;45&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; vjust&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; 
-    labs&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Variables in Dataset&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-         y &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Rows / observations&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Let&amp;#39;s test it out &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;ggplot_missing&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;df&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-4-1.png&quot; alt=&quot;plot of chunk unnamed-chunk-4&quot;&gt; &lt;/p&gt;
+&lt;p&gt;```r
+# A function that plots missingness
+# requires &lt;code class=&quot;highlighter-rouge&quot;&gt;reshape2&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;It&amp;#39;s much cleaner, and easier to interpret.&lt;/p&gt;
+&lt;p&gt;library(reshape2)
+library(ggplot2)&lt;/p&gt;
+
+&lt;p&gt;ggplot_missing &amp;lt;- function(x){&lt;/p&gt;
+
+&lt;p&gt;x %&amp;gt;% 
+    is.na %&amp;gt;%
+    melt %&amp;gt;%
+    ggplot(data = .,
+           aes(x = Var2,
+               y = Var1)) +
+    geom_raster(aes(fill = value)) +
+    scale_fill_grey(name = “”,
+                    labels = c(“Present”,”Missing”)) +
+    theme_minimal() + 
+    theme(axis.text.x  = element_text(angle=45, vjust=0.5)) + 
+    labs(x = “Variables in Dataset”,
+         y = “Rows / observations”)
+}
+```&lt;/p&gt;
+
+&lt;p&gt;Let’s test it out&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;r
+ggplot_missing(df)
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-4-1.png&quot; alt=&quot;plot of chunk unnamed-chunk-4&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It’s much cleaner, and easier to interpret.&lt;/p&gt;
 
 &lt;p&gt;This function, and others, is available in the &lt;a href=&quot;https://github.com/tierneyn/neato&quot;&gt;neato package&lt;/a&gt;, where I store a bunch of functions I think are neat.&lt;/p&gt;
 
-&lt;p&gt;Quick note - there used to be a function, &lt;code&gt;missing.pattern.plot&lt;/code&gt; &lt;a href=&quot;http://www.inside-r.org/packages/cran/mi/docs/missing.pattern.plot&quot;&gt;that you can see here&lt;/a&gt; in the package &lt;code&gt;mi&lt;/code&gt;. However, it doesn&amp;#39;t appear to exist anymore. This is a shame, as it was a really nifty plot that clustered the groups of missingness. My friend and colleague, &lt;a href=&quot;http://samclifford.info/&quot;&gt;Sam Clifford&lt;/a&gt; heard me complaining about this and wrote some code that does just that - I shall share this soon, it will likely be added to the &lt;a href=&quot;https://github.com/tierneyn/neato&quot;&gt;&lt;code&gt;neato&lt;/code&gt; repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Quick note - there used to be a function, &lt;code class=&quot;highlighter-rouge&quot;&gt;missing.pattern.plot&lt;/code&gt; &lt;a href=&quot;http://www.inside-r.org/packages/cran/mi/docs/missing.pattern.plot&quot;&gt;that you can see here&lt;/a&gt; in the package &lt;code class=&quot;highlighter-rouge&quot;&gt;mi&lt;/code&gt;. However, it doesn’t appear to exist anymore. This is a shame, as it was a really nifty plot that clustered the groups of missingness. My friend and colleague, &lt;a href=&quot;http://samclifford.info/&quot;&gt;Sam Clifford&lt;/a&gt; heard me complaining about this and wrote some code that does just that - I shall share this soon, it will likely be added to the &lt;a href=&quot;https://github.com/tierneyn/neato&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;neato&lt;/code&gt; repository&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Thoughts? Write them below.&lt;/p&gt;
 </content>
@@ -87,37 +99,37 @@ ggplot_missing &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span c
  <entry>
    <title>How I built my website</title>
    <link href="http://tierneyn.github.io/jekyll/2015/11/11/how-i-built-my-site/"/>
-   <updated>2015-11-11T00:00:00+10:00</updated>
+   <updated>2015-11-11T00:00:00+11:00</updated>
    <id>http://tierneyn.github.io/jekyll/2015/11/11/how-i-built-my-site</id>
-   <content type="html">&lt;p&gt;I&amp;#39;ve recently changed my website from Wordpress to Jekyll. In this post I try and succinctly describe how it happened.&lt;/p&gt;
+   <content type="html">&lt;p&gt;I’ve recently changed my website from Wordpress to Jekyll. In this post I try and succinctly describe how it happened.&lt;/p&gt;
 
-&lt;h1&gt;Why change?&lt;/h1&gt;
+&lt;h1 id=&quot;why-change&quot;&gt;Why change?&lt;/h1&gt;
 
 &lt;p&gt;Basically, for the following reasons:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Wordpress doesn&amp;#39;t handle &lt;a href=&quot;http://rmarkdown.rstudio.com&quot;&gt;RMarkdown&lt;/a&gt; very well. &lt;/li&gt;
-&lt;li&gt;I wanted more control without having to result to (read: pay for) Wordpress&amp;#39;s plugin system. &lt;/li&gt;
-&lt;li&gt;I wanted to understand more about web development.&lt;/li&gt;
+  &lt;li&gt;Wordpress doesn’t handle &lt;a href=&quot;http://rmarkdown.rstudio.com&quot;&gt;RMarkdown&lt;/a&gt; very well.&lt;/li&gt;
+  &lt;li&gt;I wanted more control without having to result to (read: pay for) Wordpress’s plugin system.&lt;/li&gt;
+  &lt;li&gt;I wanted to understand more about web development.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;These reasons started coalesced together into something relevant and coherent when I was using &lt;a href=&quot;https://slack.com/&quot;&gt;Slack&lt;/a&gt;, a work-chat platform. I had started to share my &amp;quot;cheatsheets&amp;quot; of R code with colleagues, and I thought it would be cool to post them up as little RMarkdown chunks onto my website, which was hosted on wordpress. How hard could it be? I figured I could just post the HTML from the RMarkdown document into wordpress, and boom, should have it all sorted. But for some reason or another, or maybe for no reason, wordpress didn&amp;#39;t like that.&lt;/p&gt;
+&lt;p&gt;These reasons started coalesced together into something relevant and coherent when I was using &lt;a href=&quot;https://slack.com/&quot;&gt;Slack&lt;/a&gt;, a work-chat platform. I had started to share my “cheatsheets” of R code with colleagues, and I thought it would be cool to post them up as little RMarkdown chunks onto my website, which was hosted on wordpress. How hard could it be? I figured I could just post the HTML from the RMarkdown document into wordpress, and boom, should have it all sorted. But for some reason or another, or maybe for no reason, wordpress didn’t like that.&lt;/p&gt;
 
-&lt;p&gt;Of course, there&amp;#39;s an R package for the problem. Yihui (creator of knitr) even has a guide &lt;a href=&quot;http://yihui.name/knitr/demo/wordpress/&quot;&gt;here&lt;/a&gt; about using the package &lt;code&gt;RWordpress&lt;/code&gt; to publish blog posts from R to WordPress. So, I figured, hey, maybe this is the way. I was going to follow the instructions on the website...&lt;/p&gt;
+&lt;p&gt;Of course, there’s an R package for the problem. Yihui (creator of knitr) even has a guide &lt;a href=&quot;http://yihui.name/knitr/demo/wordpress/&quot;&gt;here&lt;/a&gt; about using the package &lt;code class=&quot;highlighter-rouge&quot;&gt;RWordpress&lt;/code&gt; to publish blog posts from R to WordPress. So, I figured, hey, maybe this is the way. I was going to follow the instructions on the website…&lt;/p&gt;
 
-&lt;p&gt;...But reading it, Yihui says:&lt;/p&gt;
+&lt;p&gt;…But reading it, Yihui says:&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;...Once it is published, it is not straightforward to modify it (although you can), and that is why you, as a cool hacker, &lt;strong&gt;should blog with Jekyll instead of WordPress&lt;/strong&gt;. It is always easy to deal with plain text files...&lt;/p&gt;
+  &lt;p&gt;…Once it is published, it is not straightforward to modify it (although you can), and that is why you, as a cool hacker, &lt;strong&gt;should blog with Jekyll instead of WordPress&lt;/strong&gt;. It is always easy to deal with plain text files…&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;And I thought...I&amp;#39;ve always wanted to be a &lt;em&gt;cool hacker&lt;/em&gt;... and I &lt;em&gt;had&lt;/em&gt; heard of Jekyll, but wasn&amp;#39;t really sure what it was. I &lt;em&gt;did&lt;/em&gt; know that &lt;a href=&quot;http://adv-r-had.co.nz&quot;&gt;Hadley Wickham&amp;#39;s books&lt;/a&gt; have been built using it. So chances are if Hadley and Yihui recommend it, I should probably look into it.&lt;/p&gt;
+&lt;p&gt;And I thought…I’ve always wanted to be a &lt;em&gt;cool hacker&lt;/em&gt;… and I &lt;em&gt;had&lt;/em&gt; heard of Jekyll, but wasn’t really sure what it was. I &lt;em&gt;did&lt;/em&gt; know that &lt;a href=&quot;http://adv-r-had.co.nz&quot;&gt;Hadley Wickham’s books&lt;/a&gt; have been built using it. So chances are if Hadley and Yihui recommend it, I should probably look into it.&lt;/p&gt;
 
-&lt;h2&gt;So what is Jekyll?&lt;/h2&gt;
+&lt;h2 id=&quot;so-what-is-jekyll&quot;&gt;So what is Jekyll?&lt;/h2&gt;
 
-&lt;p&gt;Basically, you write posts in a syntax called &lt;a href=&quot;https://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt;, and then jekyll does the heavy lifting to turn that into a website - automagically turning your text into HTML and CSS, and building the file structure needed for a website to run. This means you can just focus on writing material. Jekyll also allows you to preview the website on your computer before pushing it online. And what I love so much about it is that it is as customizable as you want - you can &lt;a href=&quot;github.com/poole/poole&quot;&gt;download a stock theme&lt;/a&gt;, and keep it simple, or you can customize all the code to create very different websites. For example, &lt;a href=&quot;http://joshualande.com/&quot;&gt;here&lt;/a&gt;, &lt;a href=&quot;https://developmentseed.org/blog/2011/09/09/jekyll-github-pages/&quot;&gt;here&lt;/a&gt; and &lt;a href=&quot;http://andreicek.eu/index.html&quot;&gt;here&lt;/a&gt;. All of those guys have made their website code publicly available on GitHub. This means if you like something from someone&amp;#39;s site, you can check out their &lt;a href=&quot;https://github.com/joshualande/joshualande.github.io&quot;&gt;GitHub repository&lt;/a&gt; and see how it works and steal/borrow their code.&lt;/p&gt;
+&lt;p&gt;Basically, you write posts in a syntax called &lt;a href=&quot;https://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt;, and then jekyll does the heavy lifting to turn that into a website - automagically turning your text into HTML and CSS, and building the file structure needed for a website to run. This means you can just focus on writing material. Jekyll also allows you to preview the website on your computer before pushing it online. And what I love so much about it is that it is as customizable as you want - you can &lt;a href=&quot;github.com/poole/poole&quot;&gt;download a stock theme&lt;/a&gt;, and keep it simple, or you can customize all the code to create very different websites. For example, &lt;a href=&quot;http://joshualande.com/&quot;&gt;here&lt;/a&gt;, &lt;a href=&quot;https://developmentseed.org/blog/2011/09/09/jekyll-github-pages/&quot;&gt;here&lt;/a&gt; and &lt;a href=&quot;http://andreicek.eu/index.html&quot;&gt;here&lt;/a&gt;. All of those guys have made their website code publicly available on GitHub. This means if you like something from someone’s site, you can check out their &lt;a href=&quot;https://github.com/joshualande/joshualande.github.io&quot;&gt;GitHub repository&lt;/a&gt; and see how it works and steal/borrow their code.&lt;/p&gt;
 
-&lt;h2&gt;So how do I build a site using jekyll?&lt;/h2&gt;
+&lt;h2 id=&quot;so-how-do-i-build-a-site-using-jekyll&quot;&gt;So how do I build a site using jekyll?&lt;/h2&gt;
 
 &lt;p&gt;It is really easy.&lt;/p&gt;
 
@@ -129,52 +141,64 @@ ggplot_missing &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span c
 
 &lt;p&gt;Step 4. Follow directions from &lt;a href=&quot;http://www.sitepoint.com/set-jekyll-blog-5-minutes-poole/&quot;&gt;this blog&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;And that&amp;#39;s about it.&lt;/p&gt;
+&lt;p&gt;And that’s about it.&lt;/p&gt;
 
-&lt;h2&gt;Migrating material from wordpress to jekyll&lt;/h2&gt;
+&lt;h2 id=&quot;migrating-material-from-wordpress-to-jekyll&quot;&gt;Migrating material from wordpress to jekyll&lt;/h2&gt;
 
-&lt;p&gt;There are &lt;a href=&quot;http://import.jekyllrb.com/docs/home/&quot;&gt;tools for migrating to jekyll&lt;/a&gt;, but I found them a little hard to follow, probably because I only really understand how to program in R. So, I ended up doing something that I hate doing...and copied and pasted (copypasta&amp;#39;d) each post individually. Then I tinkered with them. Then I put them into the &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io/tree/master/_posts&quot;&gt;_posts&lt;/a&gt; directory. I allowed myself to do this as I didn&amp;#39;t have that many posts on my original website, so I figured it wasn&amp;#39;t that bad. Aaand, I didn&amp;#39;t feel like diving into another rabbit hole of xml.&lt;/p&gt;
+&lt;p&gt;There are &lt;a href=&quot;http://import.jekyllrb.com/docs/home/&quot;&gt;tools for migrating to jekyll&lt;/a&gt;, but I found them a little hard to follow, probably because I only really understand how to program in R. So, I ended up doing something that I hate doing…and copied and pasted (copypasta’d) each post individually. Then I tinkered with them. Then I put them into the &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io/tree/master/_posts&quot;&gt;_posts&lt;/a&gt; directory. I allowed myself to do this as I didn’t have that many posts on my original website, so I figured it wasn’t that bad. Aaand, I didn’t feel like diving into another rabbit hole of xml.&lt;/p&gt;
 
-&lt;h2&gt;Customizations&lt;/h2&gt;
+&lt;h2 id=&quot;customizations&quot;&gt;Customizations&lt;/h2&gt;
 
 &lt;p&gt;I had a look around at a bunch of different blogs about how to build stuff, and added a few things.&lt;/p&gt;
 
-&lt;h3&gt;Enabling commenting using disqus.&lt;/h3&gt;
+&lt;h3 id=&quot;enabling-commenting-using-disqus&quot;&gt;Enabling commenting using disqus.&lt;/h3&gt;
 
-&lt;p&gt;To add commenting using disqus, I followed advice from &lt;a href=&quot;http://joshualande.com/jekyll-github-pages-poole/&quot;&gt;Joshua Lande&amp;#39;s blog&lt;/a&gt;. In this post, he points out:&lt;/p&gt;
+&lt;p&gt;To add commenting using disqus, I followed advice from &lt;a href=&quot;http://joshualande.com/jekyll-github-pages-poole/&quot;&gt;Joshua Lande’s blog&lt;/a&gt;. In this post, he points out:&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;&amp;quot;By setting up the code this way, I can enable commenting on a page-by-page basis. All I have to do is set &amp;quot;comments: True&amp;quot; in the YAML header of the post.&amp;quot;&lt;/p&gt;
+  &lt;p&gt;“By setting up the code this way, I can enable commenting on a page-by-page basis. All I have to do is set “comments: True” in the YAML header of the post.”&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;He gives a great guide of how to do it, so I would head there if I were you. But here is what I did:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Go to &lt;a href=&quot;https://disqus.com/&quot;&gt;disqus&lt;/a&gt;, create account (if you haven&amp;#39;t already)&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Go to settings (gear icon in the top right), and click &amp;quot;add disqus to site&amp;quot;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Go to &amp;quot;engage&amp;quot;, and fill in your site name, etc.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Choose your platform - choose &amp;quot;universal code&amp;quot;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Copy the code from disqus, being sure to &lt;a href=&quot;https://help.disqus.com/customer/en/portal/articles/2158629&quot;&gt;follow their instructions&lt;/a&gt;, to &amp;quot;Recommended: Edit the RECOMMENDED CONFIGURATION VARIABLES section using your CMS or platform&amp;#39;s dynamic values. See our documentation to learn why defining identifier and url is important for preventing duplicate threads.&amp;quot;&lt;/p&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Go to &lt;a href=&quot;https://disqus.com/&quot;&gt;disqus&lt;/a&gt;, create account (if you haven’t already)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Go to settings (gear icon in the top right), and click “add disqus to site”&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Go to “engage”, and fill in your site name, etc.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Choose your platform - choose “universal code”&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Copy the code from disqus, being sure to &lt;a href=&quot;https://help.disqus.com/customer/en/portal/articles/2158629&quot;&gt;follow their instructions&lt;/a&gt;, to “Recommended: Edit the RECOMMENDED CONFIGURATION VARIABLES section using your CMS or platform’s dynamic values. See our documentation to learn why defining identifier and url is important for preventing duplicate threads.”&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;I then decided that I couldn&amp;#39;t understand what disqus wanted me to do...so I copied Joshua Lande&amp;#39;s text from &lt;a href=&quot;&quot;&gt;his github repo&lt;/a&gt;, changed his name for mine, and continued on. Isn&amp;#39;t that cool? Isn&amp;#39;t that why GitHub is so awesome?&lt;/p&gt;
+&lt;p&gt;I then decided that I couldn’t understand what disqus wanted me to do…so I copied Joshua Lande’s text from &lt;a href=&quot;&quot;&gt;his github repo&lt;/a&gt;, changed his name for mine, and continued on. Isn’t that cool? Isn’t that why GitHub is so awesome?&lt;/p&gt;
 
-&lt;h3&gt;Adding google analytics&lt;/h3&gt;
+&lt;h3 id=&quot;adding-google-analytics&quot;&gt;Adding google analytics&lt;/h3&gt;
 
-&lt;p&gt;Again, following advice from &lt;a href=&quot;http://joshualande.com/jekyll-github-pages-poole/&quot;&gt;Joshua lande&amp;#39;s blog post&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Again, following advice from &lt;a href=&quot;http://joshualande.com/jekyll-github-pages-poole/&quot;&gt;Joshua lande’s blog post&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Using Google Analytics allows you to see who is visiting your site, from where, and all that stuff that WordPress has built into it. &lt;/p&gt;
+&lt;p&gt;Using Google Analytics allows you to see who is visiting your site, from where, and all that stuff that WordPress has built into it.&lt;/p&gt;
 
-&lt;p&gt;When I started, I didn&amp;#39;t really know what google analytics was, so I went to their &lt;a href=&quot;http://www.google.com/analytics/&quot;&gt;homepage&lt;/a&gt;...found the link &amp;quot;sign up for analytics&amp;quot;, and followed the prompts - left all the boxes ticked (Google has my soul anyway), and accepted the Ts and Cs. Google then gives me a tracking code, with a nice friendly helpful box, stating: &amp;quot;this is your tracking code&amp;quot;. I then inserted this into a new file, &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io/blob/master/_includes/google_analytics.html&quot;&gt;google_analytics.html&lt;/a&gt;, added the appropriate coce to my &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io/blob/master/_layouts/default.html&quot;&gt;default.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;When I started, I didn’t really know what google analytics was, so I went to their &lt;a href=&quot;http://www.google.com/analytics/&quot;&gt;homepage&lt;/a&gt;…found the link “sign up for analytics”, and followed the prompts - left all the boxes ticked (Google has my soul anyway), and accepted the Ts and Cs. Google then gives me a tracking code, with a nice friendly helpful box, stating: “this is your tracking code”. I then inserted this into a new file, &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io/blob/master/_includes/google_analytics.html&quot;&gt;google_analytics.html&lt;/a&gt;, added the appropriate coce to my &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io/blob/master/_layouts/default.html&quot;&gt;default.html&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2&gt;Other little customizations:&lt;/h2&gt;
+&lt;h2 id=&quot;other-little-customizations&quot;&gt;Other little customizations:&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;Markdown tables&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;You can allow simple tables by changing your &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io/blob/master/_config.yml&quot;&gt;_yaml&lt;/a&gt; code to select the extension you want. Credit to &lt;a href=&quot;https://github.com/nicolewhite/nicolewhite.github.io&quot;&gt;Nicole White&amp;#39;s blog&lt;/a&gt;, where I saw this first.&lt;/p&gt;
+&lt;p&gt;You can allow simple tables by changing your &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io/blob/master/_config.yml&quot;&gt;_yaml&lt;/a&gt; code to select the extension you want. Credit to &lt;a href=&quot;https://github.com/nicolewhite/nicolewhite.github.io&quot;&gt;Nicole White’s blog&lt;/a&gt;, where I saw this first.&lt;/p&gt;
 
-&lt;p&gt;This means that the output from the R command &lt;code&gt;knitr::kable(head(iris))&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;| Sepal.Length| Sepal.Width| Petal.Length| Petal.Width|Species |
+&lt;p&gt;This means that the output from the R command &lt;code class=&quot;highlighter-rouge&quot;&gt;knitr::kable(head(iris))&lt;/code&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+| Sepal.Length| Sepal.Width| Petal.Length| Petal.Width|Species |
 |------------:|-----------:|------------:|-----------:|:-------|
 |          5.1|         3.5|          1.4|         0.2|setosa  |
 |          4.9|         3.0|          1.4|         0.2|setosa  |
@@ -182,180 +206,209 @@ ggplot_missing &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span c
 |          4.6|         3.1|          1.5|         0.2|setosa  |
 |          5.0|         3.6|          1.4|         0.2|setosa  |
 |          5.4|         3.9|          1.7|         0.4|setosa  |
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/p&gt;
+
 &lt;p&gt;turns into&lt;/p&gt;
 
-&lt;table&gt;&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&quot;text-align: right&quot;&gt;Sepal.Length&lt;/th&gt;
-&lt;th style=&quot;text-align: right&quot;&gt;Sepal.Width&lt;/th&gt;
-&lt;th style=&quot;text-align: right&quot;&gt;Petal.Length&lt;/th&gt;
-&lt;th style=&quot;text-align: right&quot;&gt;Petal.Width&lt;/th&gt;
-&lt;th style=&quot;text-align: left&quot;&gt;Species&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;5.1&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;3.5&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;1.4&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;0.2&lt;/td&gt;
-&lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;4.9&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;3.0&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;1.4&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;0.2&lt;/td&gt;
-&lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;4.7&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;3.2&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;1.3&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;0.2&lt;/td&gt;
-&lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;4.6&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;3.1&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;1.5&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;0.2&lt;/td&gt;
-&lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;5.0&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;3.6&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;1.4&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;0.2&lt;/td&gt;
-&lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;5.4&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;3.9&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;1.7&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;0.4&lt;/td&gt;
-&lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Sepal.Length&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Sepal.Width&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Petal.Length&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Petal.Width&lt;/th&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Species&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;5.1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3.5&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.4&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.2&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;4.9&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3.0&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.4&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.2&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;4.7&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3.2&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.3&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.2&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;4.6&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3.1&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.5&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.2&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;5.0&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3.6&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.4&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.2&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;5.4&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;3.9&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;1.7&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;0.4&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;p&gt;There are also all heaps of other extensions you can add to redcarpet. You can read about them all &lt;a href=&quot;https://github.com/vmg/redcarpet#redcarpet-is-written-with-sugar-spice-and-everything-nice&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Changing font&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;I looked up some awesome &lt;a href=&quot;fontpair.co&quot;&gt;font pairings&lt;/a&gt;, and chose Hind for the header Open Sans for the text. I then inserted some code &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io/public/css/lanyon.css&quot;&gt;into the top lines of the css&lt;/a&gt; to import them, and then added them to the appropriate parts of the css. I also changed the monospace font that is used for code to &lt;code&gt;Monaco&lt;/code&gt;, in &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io/public/css/poole.css&quot;&gt;poole.css&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I looked up some awesome &lt;a href=&quot;fontpair.co&quot;&gt;font pairings&lt;/a&gt;, and chose Hind for the header Open Sans for the text. I then inserted some code &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io/public/css/lanyon.css&quot;&gt;into the top lines of the css&lt;/a&gt; to import them, and then added them to the appropriate parts of the css. I also changed the monospace font that is used for code to &lt;code class=&quot;highlighter-rouge&quot;&gt;Monaco&lt;/code&gt;, in &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io/public/css/poole.css&quot;&gt;poole.css&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Adding in excerpts&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;I wanted the main blog page to just have excerpts from the blog. This is really easy - you just change &lt;code&gt;to&lt;/code&gt; in &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io/_layouts/default.html&quot;&gt;default.html&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I wanted the main blog page to just have excerpts from the blog. This is really easy - you just change &lt;code class=&quot;highlighter-rouge&quot;&gt;to&lt;/code&gt; in &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io/_layouts/default.html&quot;&gt;default.html&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;There a few other little things that I did, if you want to see how it all works, just check out my &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io&quot;&gt;GitHub repo&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h1&gt;Getting jekyll to work with RMarkdown&lt;/h1&gt;
+&lt;h1 id=&quot;getting-jekyll-to-work-with-rmarkdown&quot;&gt;Getting jekyll to work with RMarkdown&lt;/h1&gt;
 
-&lt;p&gt;Alright, so this was the reason I wanted to use jekyll in the first place...but I actually ended up having a bit of an epic journey trying to do it. So, I figured it would be better as a separate post, which I will write soon.&lt;/p&gt;
+&lt;p&gt;Alright, so this was the reason I wanted to use jekyll in the first place…but I actually ended up having a bit of an epic journey trying to do it. So, I figured it would be better as a separate post, which I will write soon.&lt;/p&gt;
 
-&lt;h1&gt;Conclusion&lt;/h1&gt;
+&lt;h1 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h1&gt;
 
-&lt;p&gt;GitHub hosts the website for you, and you use Jekyll to build the website content. You can make the whole website public on GitHub, so people can see exactly how everything works, and the website file structure is stored locally on your computer. This means if you want, you can see exactly how everything works. Using Jekyll gives you control, but makes the load easier to bare. I really like the control you get -  if I don&amp;#39;t like some font - I can change it, if I want header text centered - I can do that. For me, it has been a nice compromise between learning how to code a website from absolute scratch, and using a content management system like wordpress.&lt;/p&gt;
+&lt;p&gt;GitHub hosts the website for you, and you use Jekyll to build the website content. You can make the whole website public on GitHub, so people can see exactly how everything works, and the website file structure is stored locally on your computer. This means if you want, you can see exactly how everything works. Using Jekyll gives you control, but makes the load easier to bare. I really like the control you get -  if I don’t like some font - I can change it, if I want header text centered - I can do that. For me, it has been a nice compromise between learning how to code a website from absolute scratch, and using a content management system like wordpress.&lt;/p&gt;
 
-&lt;h1&gt;Further Reading&lt;/h1&gt;
+&lt;h1 id=&quot;further-reading&quot;&gt;Further Reading&lt;/h1&gt;
 
 &lt;p&gt;Along the way through this journey I found some fantastic guides from other folk on the internet. These guys saved me a lot of time, so I would recommend reading their posts about this:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://brendanrocks.com/blogging-with-rmarkdown-knitr-jekyll/&quot;&gt;Brendan Rocks&lt;/a&gt; - this one is particularly awesome.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://joshualande.com/jekyll-github-pages-poole/&quot;&gt;Joshua Lande&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://nicolewhite.github.io/2015/02/07/r-blogging-with-rmarkdown-knitr-jekyll.html&quot;&gt;Nicole White&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.sitepoint.com/set-jekyll-blog-5-minutes-poole/&quot;&gt;Jekyll website in 5 minutes&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://brendanrocks.com/blogging-with-rmarkdown-knitr-jekyll/&quot;&gt;Brendan Rocks&lt;/a&gt; - this one is particularly awesome.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://joshualande.com/jekyll-github-pages-poole/&quot;&gt;Joshua Lande&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://nicolewhite.github.io/2015/02/07/r-blogging-with-rmarkdown-knitr-jekyll.html&quot;&gt;Nicole White&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.sitepoint.com/set-jekyll-blog-5-minutes-poole/&quot;&gt;Jekyll website in 5 minutes&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+
 </content>
  </entry>
  
  <entry>
    <title>Using `table` the dplyr way</title>
    <link href="http://tierneyn.github.io/r/2015/11/03/tally-the-dplyr-table/"/>
-   <updated>2015-11-03T00:00:00+10:00</updated>
+   <updated>2015-11-03T00:00:00+11:00</updated>
    <id>http://tierneyn.github.io/r/2015/11/03/tally-the-dplyr-table</id>
-   <content type="html">&lt;p&gt;In this post I describe how to use &lt;code&gt;tally&lt;/code&gt;, the &lt;code&gt;dplyr&lt;/code&gt; equivalent of &lt;code&gt;table&lt;/code&gt;.&lt;/p&gt;
+   <content type="html">&lt;p&gt;In this post I describe how to use &lt;code class=&quot;highlighter-rouge&quot;&gt;tally&lt;/code&gt;, the &lt;code class=&quot;highlighter-rouge&quot;&gt;dplyr&lt;/code&gt; equivalent of &lt;code class=&quot;highlighter-rouge&quot;&gt;table&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;table&lt;/code&gt; gives you the frequencies of something in a category. Let&amp;#39;s use the &lt;code&gt;iris&lt;/code&gt; dataset to illustrate. Let&amp;#39;s say we want to know how many are in each species in &lt;code&gt;iris&lt;/code&gt;.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kp&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;iris&lt;span class=&quot;o&quot;&gt;$&lt;/span&gt;Species&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## 
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;table&lt;/code&gt; gives you the frequencies of something in a category. Let’s use the &lt;code class=&quot;highlighter-rouge&quot;&gt;iris&lt;/code&gt; dataset to illustrate. Let’s say we want to know how many are in each species in &lt;code class=&quot;highlighter-rouge&quot;&gt;iris&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;r
+table(iris$Species)
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+## 
 ##     setosa versicolor  virginica 
 ##         50         50         50
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;So there happen to be 50 in each of the species. &lt;/p&gt;
+&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;But if you want to present this in a tidy dataframe, where each column is a variable, and each row is an observation, you&amp;#39;d have to do some annoying reformating. But need not dispair, &lt;code&gt;dplyr&lt;/code&gt; has us covered.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;dplyr&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## 
-## Attaching package: &amp;#39;dplyr&amp;#39;
+&lt;p&gt;So there happen to be 50 in each of the species.&lt;/p&gt;
+
+&lt;p&gt;But if you want to present this in a tidy dataframe, where each column is a variable, and each row is an observation, you’d have to do some annoying reformating. But need not dispair, &lt;code class=&quot;highlighter-rouge&quot;&gt;dplyr&lt;/code&gt; has us covered.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;r
+library(dplyr)
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
 ## 
-## The following objects are masked from &amp;#39;package:stats&amp;#39;:
+## Attaching package: &#39;dplyr&#39;
+## 
+## The following objects are masked from &#39;package:stats&#39;:
 ## 
 ##     filter, lag
 ## 
-## The following objects are masked from &amp;#39;package:base&amp;#39;:
+## The following objects are masked from &#39;package:base&#39;:
 ## 
 ##     intersect, setdiff, setequal, union
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;iris.tally &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; iris &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;
-  group_by&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Species&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt; 
-  tally
+&lt;/code&gt;&lt;/p&gt;
 
-iris.tally
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;## Source: local data frame [3 x 2]
+&lt;p&gt;```r
+iris.tally &amp;lt;- iris %&amp;gt;%
+  group_by(Species) %&amp;gt;% 
+  tally&lt;/p&gt;
+
+&lt;p&gt;iris.tally
+```&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;
+## Source: local data frame [3 x 2]
 ## 
 ##      Species     n
 ##       (fctr) (int)
 ## 1     setosa    50
 ## 2 versicolor    50
 ## 3  virginica    50
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/p&gt;
+
 &lt;p&gt;This gives us a neat dataframe, where we get Species as a column, and the number of observations in each Species.&lt;/p&gt;
 
-&lt;p&gt;One of the reasons I like this is because it means I can do something like create a table using &lt;code&gt;knitr::kable&lt;/code&gt; if I need to for a report.&lt;/p&gt;
+&lt;p&gt;One of the reasons I like this is because it means I can do something like create a table using &lt;code class=&quot;highlighter-rouge&quot;&gt;knitr::kable&lt;/code&gt; if I need to for a report.&lt;/p&gt;
 
 &lt;p&gt;So I could now do this:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;knitr&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-kable&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;iris.tally&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;table&gt;&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&quot;text-align: left&quot;&gt;Species&lt;/th&gt;
-&lt;th style=&quot;text-align: right&quot;&gt;n&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;50&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: left&quot;&gt;versicolor&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;50&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align: left&quot;&gt;virginica&lt;/td&gt;
-&lt;td style=&quot;text-align: right&quot;&gt;50&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;```r
+library(knitr)&lt;/p&gt;
 
-&lt;p&gt;Thanks to &lt;a href=&quot;http://stackoverflow.com/questions/24409376/dplyr-how-can-i-write-equivalent-to-table-base-function-and-preserve-column-n&quot;&gt;this SO post&lt;/a&gt; for providing me with knowledge of &lt;code&gt;tally&lt;/code&gt; and providing inspiration for this post.&lt;/p&gt;
+&lt;p&gt;kable(iris.tally)
+```&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: left&quot;&gt;Species&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;n&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;setosa&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;50&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;versicolor&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;50&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;virginica&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;50&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Thanks to &lt;a href=&quot;http://stackoverflow.com/questions/24409376/dplyr-how-can-i-write-equivalent-to-table-base-function-and-preserve-column-n&quot;&gt;this SO post&lt;/a&gt; for providing me with knowledge of &lt;code class=&quot;highlighter-rouge&quot;&gt;tally&lt;/code&gt; and providing inspiration for this post.&lt;/p&gt;
 </content>
  </entry>
  
  <entry>
    <title>R Package `neato`</title>
    <link href="http://tierneyn.github.io/r/2015/03/09/r-package-neato/"/>
-   <updated>2015-03-09T00:00:00+10:00</updated>
+   <updated>2015-03-09T00:00:00+11:00</updated>
    <id>http://tierneyn.github.io/r/2015/03/09/r-package-neato</id>
    <content type="html">&lt;p&gt;My workflow in R now is to make a function after I copy and paste some code more than once. Sometimes I find myself using these functions more than once, across different projects.&lt;/p&gt;
 
-&lt;p&gt;So I decided to make an R package with a few of these functions in it. I call it &amp;quot;neato&amp;quot;, in the vain hope that one day someone will find one of these functions and say: &amp;quot;neato!&amp;quot;, because hey, it&amp;#39;s pretty neat!&lt;/p&gt;
+&lt;p&gt;So I decided to make an R package with a few of these functions in it. I call it “neato”, in the vain hope that one day someone will find one of these functions and say: “neato!”, because hey, it’s pretty neat!&lt;/p&gt;
 
 &lt;p&gt;You can check neato out &lt;a href=&quot;https://github.com/tierneyn/neato&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;I hope that the more I write into this package, the better I&amp;#39;ll get at writing R packages and the more I can contribute to the R community. I&amp;#39;d also like to thank people like &lt;a href=&quot;http://r-pkgs.had.co.nz/&quot;&gt;Hadley Wickham&lt;/a&gt; and &lt;a href=&quot;http://hilaryparker.com/2014/04/29/writing-an-r-package-from-scratch/&quot;&gt;Hilary Parker&lt;/a&gt; for writing materials to inspire me to contribute to R.&lt;/p&gt;
+&lt;p&gt;I hope that the more I write into this package, the better I’ll get at writing R packages and the more I can contribute to the R community. I’d also like to thank people like &lt;a href=&quot;http://r-pkgs.had.co.nz/&quot;&gt;Hadley Wickham&lt;/a&gt; and &lt;a href=&quot;http://hilaryparker.com/2014/04/29/writing-an-r-package-from-scratch/&quot;&gt;Hilary Parker&lt;/a&gt; for writing materials to inspire me to contribute to R.&lt;/p&gt;
 
 &lt;p&gt;Let me know if you have any thoughts about it below with a comment, or even &lt;a href=&quot;https://github.com/tierneyn/neato&quot;&gt;on github&lt;/a&gt;&lt;/p&gt;
 </content>
@@ -364,30 +417,30 @@ kable&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;iris.tally&lt;span class=&quo
  <entry>
    <title>Working Smoothly(er) from RMarkdown to Word.</title>
    <link href="http://tierneyn.github.io/rmarkdown/r/2015/02/09/Working-Smoothlyer-from-RMarkdown-to-Word/"/>
-   <updated>2015-02-09T00:00:00+10:00</updated>
+   <updated>2015-02-09T00:00:00+11:00</updated>
    <id>http://tierneyn.github.io/rmarkdown/r/2015/02/09/Working-Smoothlyer-from-RMarkdown-to-Word</id>
-   <content type="html">&lt;p&gt;I&amp;#39;m a pretty huge fan of RMarkdown, as it is a great way for me to write my code and my text together. It seems really a rather a natural thing to do. You write about your analyses, and the code is there. You update some function or some data, and your figures and tables update with it.&lt;/p&gt;
+   <content type="html">&lt;p&gt;I’m a pretty huge fan of RMarkdown, as it is a great way for me to write my code and my text together. It seems really a rather a natural thing to do. You write about your analyses, and the code is there. You update some function or some data, and your figures and tables update with it.&lt;/p&gt;
 
 &lt;p&gt;In my head I feel as though I am working more efficiently. However there is some research to suggest that LaTeX users actually work slower than Word users. However, LaTeX users &lt;em&gt;feel better&lt;/em&gt; about using LaTeX. I would like to dub this the &lt;strong&gt;brown corduroy trousers effect&lt;/strong&gt;, quoting Robin Williams, who said something like:&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;Method Acting is like peeing whilst wearing brown corduroy trousers. Nobody knows the difference but it sure as hell feels nice.&lt;/p&gt;
+  &lt;p&gt;Method Acting is like peeing whilst wearing brown corduroy trousers. Nobody knows the difference but it sure as hell feels nice.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Anyway. I started to use knitr to process my work documents at the end of 2013, specifically using the LaTeX formatting. Which made me feel good.&lt;/p&gt;
 
-&lt;p&gt;Then I switched to Rmarkdown after a conversation with Hadley Wickham at a Young Statisticians Dinner at the Australian Statisticians Conference in Sydney, in 2014. Amongst other things &amp;quot;Have you seen &lt;a href=&quot;http://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html&quot;&gt;dplyr?&lt;/a&gt; and &lt;a href=&quot;http://www.amazon.com/Style-Clarity-Chicago-Writing-Publishing/dp/0226899152&quot;&gt;&amp;quot;read this book!&amp;quot;&lt;/a&gt;. Hadley told me that he uses RMarkdown almost exclusively now, not really going back to the .Rnw knitr LaTeX files. He also said that there&amp;#39;s a button that will convert it to LaTeX style and also ... get this... to microsoft word.&lt;/p&gt;
+&lt;p&gt;Then I switched to Rmarkdown after a conversation with Hadley Wickham at a Young Statisticians Dinner at the Australian Statisticians Conference in Sydney, in 2014. Amongst other things “Have you seen &lt;a href=&quot;http://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html&quot;&gt;dplyr?&lt;/a&gt; and &lt;a href=&quot;http://www.amazon.com/Style-Clarity-Chicago-Writing-Publishing/dp/0226899152&quot;&gt;“read this book!”&lt;/a&gt;. Hadley told me that he uses RMarkdown almost exclusively now, not really going back to the .Rnw knitr LaTeX files. He also said that there’s a button that will convert it to LaTeX style and also … get this… to microsoft word.&lt;/p&gt;
 
-&lt;p&gt;Converting to word documents is really awesome, because my supervisors often prefer to read and edit my papers in word. Knitr does a really good job of putting everything from RMarkdown into Word, but it doesn&amp;#39;t do everything that I&amp;#39;d like. I usually spend 1 or 2 minutes changing the font and line spacing and inserting page numbers. Then I spend anywhere from 2 to 15 minutes manually resizing images. Painful. But every time I did it, I would always think:&lt;/p&gt;
+&lt;p&gt;Converting to word documents is really awesome, because my supervisors often prefer to read and edit my papers in word. Knitr does a really good job of putting everything from RMarkdown into Word, but it doesn’t do everything that I’d like. I usually spend 1 or 2 minutes changing the font and line spacing and inserting page numbers. Then I spend anywhere from 2 to 15 minutes manually resizing images. Painful. But every time I did it, I would always think:&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;It&amp;#39;s just this once...&lt;/p&gt;
+  &lt;p&gt;It’s just this once…&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;And then I would think:&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;Maybe there&amp;#39;s  a way to get R to do all this for me?&lt;/p&gt;
+  &lt;p&gt;Maybe there’s  a way to get R to do all this for me?&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;But I assumed that would be more effort than it was worth.&lt;/p&gt;
@@ -396,13 +449,13 @@ kable&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;iris.tally&lt;span class=&quo
 
 &lt;p&gt;&lt;a href=&quot;http://stackoverflow.com/questions/18884778/poor-resolution-in-knitr-using-rmd&quot;&gt;I tried this solution.&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Both didn&amp;#39;t really work.&lt;/p&gt;
+&lt;p&gt;Both didn’t really work.&lt;/p&gt;
 
 &lt;p&gt;So then I then tried to solve this problem using a macro in word.&lt;/p&gt;
 
-&lt;p&gt;I&amp;#39;ve never &lt;em&gt;touched&lt;/em&gt; macros in Word. They always seemed weird and odd to me. Regardless, in I went to the macro editor. I hit the record button, and did all of the font changes, colour changes, and spacing changes I always do. Then I saved this macro.&lt;/p&gt;
+&lt;p&gt;I’ve never &lt;em&gt;touched&lt;/em&gt; macros in Word. They always seemed weird and odd to me. Regardless, in I went to the macro editor. I hit the record button, and did all of the font changes, colour changes, and spacing changes I always do. Then I saved this macro.&lt;/p&gt;
 
-&lt;p&gt;Then I went on to find a way to change the image sizes. I took a wrong turn into a &lt;a href=&quot;https://cybertext.wordpress.com/2014/02/07/word-resize-all-images-in-a-document-to-the-same-width/&quot;&gt;blog that had me developing a GUI&lt;/a&gt;...which didn&amp;#39;t end up working for me. There&amp;#39;s 30 minutes I won&amp;#39;t be getting back. But then I found this &lt;a href=&quot;http://yuriy-okhmat.blogspot.co.uk/2011/07/how-to-resize-all-images-in-word.html&quot;&gt;snippet of code&lt;/a&gt; snippet of code, which resizes everything to 16 cm, maintaining the aspect ratio.&lt;/p&gt;
+&lt;p&gt;Then I went on to find a way to change the image sizes. I took a wrong turn into a &lt;a href=&quot;https://cybertext.wordpress.com/2014/02/07/word-resize-all-images-in-a-document-to-the-same-width/&quot;&gt;blog that had me developing a GUI&lt;/a&gt;…which didn’t end up working for me. There’s 30 minutes I won’t be getting back. But then I found this &lt;a href=&quot;http://yuriy-okhmat.blogspot.co.uk/2011/07/how-to-resize-all-images-in-word.html&quot;&gt;snippet of code&lt;/a&gt; snippet of code, which resizes everything to 16 cm, maintaining the aspect ratio.&lt;/p&gt;
 
 &lt;p&gt;I created a new macro from scratch and pasted this code in. Boom! Another Macro is born. Then I finished this up by creating a macro that recorded me running those two macros. Not elegant, but effective.&lt;/p&gt;
 
@@ -417,17 +470,17 @@ kable&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;iris.tally&lt;span class=&quo
    <link href="http://tierneyn.github.io/r/2014/04/22/gbm-plot-fix/"/>
    <updated>2014-04-22T00:00:00+10:00</updated>
    <id>http://tierneyn.github.io/r/2014/04/22/gbm-plot-fix</id>
-   <content type="html">&lt;p&gt;I&amp;#39;m currently in the process of writing a report using boosted regression trees.  I&amp;#39;m currently using guidelines provided by Elith et al &lt;a href=&quot;http://avesbiodiv.mncn.csic.es/estadistica/bt1.pdf&quot;&gt;here&lt;/a&gt;, and &lt;a href=&quot;http://cran.r-project.org/web/packages/dismo/vignettes/brt.pdf&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+   <content type="html">&lt;p&gt;I’m currently in the process of writing a report using boosted regression trees.  I’m currently using guidelines provided by Elith et al &lt;a href=&quot;http://avesbiodiv.mncn.csic.es/estadistica/bt1.pdf&quot;&gt;here&lt;/a&gt;, and &lt;a href=&quot;http://cran.r-project.org/web/packages/dismo/vignettes/brt.pdf&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;They provide the function &lt;code&gt;gbm.step&lt;/code&gt;, which performs 10-fold cross validation on the boosted regression tree. It also has a nifty &lt;code&gt;gbm.plot&lt;/code&gt; function, producing partial dependence plots. Unforunately, it kept giving me this error:&lt;/p&gt;
+&lt;p&gt;They provide the function &lt;code class=&quot;highlighter-rouge&quot;&gt;gbm.step&lt;/code&gt;, which performs 10-fold cross validation on the boosted regression tree. It also has a nifty &lt;code class=&quot;highlighter-rouge&quot;&gt;gbm.plot&lt;/code&gt; function, producing partial dependence plots. Unforunately, it kept giving me this error:&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;Error: could not find function &amp;quot;windows&amp;quot;&lt;/code&gt;&lt;/p&gt;
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Error: could not find function &quot;windows&quot;&lt;/code&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;This means that the function &lt;code&gt;windows()&lt;/code&gt; is being called inside &lt;code&gt;gbm.plot()&lt;/code&gt;. So I looked into what the heck &lt;code&gt;windows&lt;/code&gt; is and it turns out it opens a graphics device, but is the command reserved for windows machines - I use a mac, and the equivalent command is &lt;code&gt;X11()&lt;/code&gt;. I found this out thanks to &lt;a href=&quot;http://doingbayesiandataanalysis.blogspot.com.au/2011/09/for-linux-macos-users-easy-fix-for.html&quot;&gt;this website&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;This means that the function &lt;code class=&quot;highlighter-rouge&quot;&gt;windows()&lt;/code&gt; is being called inside &lt;code class=&quot;highlighter-rouge&quot;&gt;gbm.plot()&lt;/code&gt;. So I looked into what the heck &lt;code class=&quot;highlighter-rouge&quot;&gt;windows&lt;/code&gt; is and it turns out it opens a graphics device, but is the command reserved for windows machines - I use a mac, and the equivalent command is &lt;code class=&quot;highlighter-rouge&quot;&gt;X11()&lt;/code&gt;. I found this out thanks to &lt;a href=&quot;http://doingbayesiandataanalysis.blogspot.com.au/2011/09/for-linux-macos-users-easy-fix-for.html&quot;&gt;this website&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;So I simply found the source code for &lt;code&gt;gbm.plot&lt;/code&gt;, and replaced &lt;code&gt;windows()&lt;/code&gt; with &lt;code&gt;X11()&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;So I simply found the source code for &lt;code class=&quot;highlighter-rouge&quot;&gt;gbm.plot&lt;/code&gt;, and replaced &lt;code class=&quot;highlighter-rouge&quot;&gt;windows()&lt;/code&gt; with &lt;code class=&quot;highlighter-rouge&quot;&gt;X11()&lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;Hopefully this will prove helpful to someone.&lt;/p&gt;
 </content>
@@ -436,24 +489,29 @@ kable&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;iris.tally&lt;span class=&quo
  <entry>
    <title>A Grammar of Models?</title>
    <link href="http://tierneyn.github.io/r/statistics/2013/11/10/grammar-of-models/"/>
-   <updated>2013-11-10T00:00:00+10:00</updated>
+   <updated>2013-11-10T00:00:00+11:00</updated>
    <id>http://tierneyn.github.io/r/statistics/2013/11/10/grammar-of-models</id>
-   <content type="html">&lt;p&gt;I came across &lt;a href=&quot;http://statr.me/2013/09/a-conversation-with-hadley-wickham/&quot;&gt;this interview&lt;/a&gt; with Hadley Wickham, the creator of one of the most widely used R packages, &lt;code&gt;ggplot 2&lt;/code&gt;. I thought that this quote was interesting:&lt;/p&gt;
+   <content type="html">&lt;p&gt;I came across &lt;a href=&quot;http://statr.me/2013/09/a-conversation-with-hadley-wickham/&quot;&gt;this interview&lt;/a&gt; with Hadley Wickham, the creator of one of the most widely used R packages, &lt;code class=&quot;highlighter-rouge&quot;&gt;ggplot 2&lt;/code&gt;. I thought that this quote was interesting:&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;I’m also really interested in statistical learning as a family of modeling techniques, a kind of fitting them together very well and forming a grammer of models. You can make a new model by joing things together, just like the grammer of graphics by which you can come up with a new graphic that is just a new arrangment of existing components. I think that’s something that makes it easier to learn modeling. For example, you can learn a linear model in this way, a random forest in that way, and you can learn them in a unified framework.&lt;/p&gt;
-
-&lt;p&gt;Another thing I’d like to think is the Lasso-type method. In one of my classes, I want to show that now you should always try stablized regression, you should always try to do Lasso and the similar. I think there are 13 packages that would do Lasso, and I tried them all. But every single one of them broke for a different reason. For example, it didn’t support missing values, it didn’t support categorical variables, it didn’t do predictions and standard errors, or it didn’t automatically find the lambda parameter. Maybe that’s because the authors are more interested in the theoretical papers, not in providing a tool that you can use in data analysis. So I want to integrate them together to form a tool that is fast and works well.&lt;/p&gt;
+  &lt;p&gt;I’m also really interested in statistical learning as a family of modeling techniques, a kind of fitting them together very well and forming a grammer of models. You can make a new model by joing things together, just like the grammer of graphics by which you can come up with a new graphic that is just a new arrangment of existing components. I think that’s something that makes it easier to learn modeling. For example, you can learn a linear model in this way, a random forest in that way, and you can learn them in a unified framework.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;And it got me thinking, would it be possible for statistical models to be written like ggplot, with a grammar of models?  It seems impossible, and maybe I&amp;#39;m totally not reading the interview correctly, but it got me thinking. What would it look like? Something like this?&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;ggmodel&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;data &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; my.data&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        fun &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Y &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt; V1 &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; V2 &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; V3&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;
-        model_nest&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;V1 &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt; Y1 &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; Y2 &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; e&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                   e &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;norm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;
-        m.impute&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;m &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;
-        time_period&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;type &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; unequal&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Another thing I’d like to think is the Lasso-type method. In one of my classes, I want to show that now you should always try stablized regression, you should always try to do Lasso and the similar. I think there are 13 packages that would do Lasso, and I tried them all. But every single one of them broke for a different reason. For example, it didn’t support missing values, it didn’t support categorical variables, it didn’t do predictions and standard errors, or it didn’t automatically find the lambda parameter. Maybe that’s because the authors are more interested in the theoretical papers, not in providing a tool that you can use in data analysis. So I want to integrate them together to form a tool that is fast and works well.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;And it got me thinking, would it be possible for statistical models to be written like ggplot, with a grammar of models?  It seems impossible, and maybe I’m totally not reading the interview correctly, but it got me thinking. What would it look like? Something like this?&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;r
+ggmodel(data = my.data,
+        fun = Y ~ V1 + V2 + V3) %&amp;gt;%
+        model_nest(V1 ~ Y1 + Y2 + e,
+                   e ~ norm(0,1)) %&amp;gt;%
+        m.impute(m = 4) %&amp;gt;%
+        time_period(type = unequal)
+&lt;/code&gt;&lt;/p&gt;
+
 &lt;p&gt;What do you think?&lt;/p&gt;
 </content>
  </entry>
@@ -461,31 +519,32 @@ kable&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;iris.tally&lt;span class=&quo
  <entry>
    <title>Statistics for Journalists</title>
    <link href="http://tierneyn.github.io/statistics/teaching/2013/11/01/statistics-for-journalists/"/>
-   <updated>2013-11-01T00:00:00+10:00</updated>
+   <updated>2013-11-01T00:00:00+11:00</updated>
    <id>http://tierneyn.github.io/statistics/teaching/2013/11/01/statistics-for-journalists</id>
    <content type="html">&lt;p&gt;In November 2013 I had the opportunity to work with the Australian Science Media Centre (AusSMC) and produce a talk explaining numbers and statistics.  The deal was that it was 11 concepts on numbers and stats in 20 minutes.  The concepts being:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;General Number Hygiene&lt;/li&gt;
-&lt;li&gt;Big and Little Numbers&lt;/li&gt;
-&lt;li&gt;Surveys&lt;/li&gt;
-&lt;li&gt;Averages&lt;/li&gt;
-&lt;li&gt;Understanding Uncertainty&lt;/li&gt;
-&lt;li&gt;P-Values&lt;/li&gt;
-&lt;li&gt;Trends&lt;/li&gt;
-&lt;li&gt;Correlation and Causation&lt;/li&gt;
-&lt;li&gt;Rare Events&lt;/li&gt;
-&lt;li&gt;Risk&lt;/li&gt;
-&lt;li&gt;Infographics&lt;/li&gt;
+  &lt;li&gt;General Number Hygiene&lt;/li&gt;
+  &lt;li&gt;Big and Little Numbers&lt;/li&gt;
+  &lt;li&gt;Surveys&lt;/li&gt;
+  &lt;li&gt;Averages&lt;/li&gt;
+  &lt;li&gt;Understanding Uncertainty&lt;/li&gt;
+  &lt;li&gt;P-Values&lt;/li&gt;
+  &lt;li&gt;Trends&lt;/li&gt;
+  &lt;li&gt;Correlation and Causation&lt;/li&gt;
+  &lt;li&gt;Rare Events&lt;/li&gt;
+  &lt;li&gt;Risk&lt;/li&gt;
+  &lt;li&gt;Infographics&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;This was my first time ever really seriously teaching anything to anyone.  And I&amp;#39;ll admit, cramming 11 concepts into 20 minutes was a touch more work than I anticipated.  It DID end up being a lot of fun, however.  And I managed to learn a lot.  So thanks, AusSMC!&lt;/p&gt;
+&lt;p&gt;This was my first time ever really seriously teaching anything to anyone.  And I’ll admit, cramming 11 concepts into 20 minutes was a touch more work than I anticipated.  It DID end up being a lot of fun, however.  And I managed to learn a lot.  So thanks, AusSMC!&lt;/p&gt;
 
-&lt;p&gt;This video is aimed at journalists to try and give them a bit more information on how to interpret the 11 topics mentioned earlier.   It should help you.  You should learn something.  But everyone is different, so maybe it won&amp;#39;t.  But I hope that it helps you on your journey through statistics.  Please let me know if you have any questions.  Seriously!&lt;/p&gt;
+&lt;p&gt;This video is aimed at journalists to try and give them a bit more information on how to interpret the 11 topics mentioned earlier.   It should help you.  You should learn something.  But everyone is different, so maybe it won’t.  But I hope that it helps you on your journey through statistics.  Please let me know if you have any questions.  Seriously!&lt;/p&gt;
 
 &lt;p&gt;You can watch the presentation below:&lt;/p&gt;
 
-&lt;p&gt;&lt;iframe src=&quot;https://player.vimeo.com/video/78231257?color=ffffff&amp;title=0&amp;byline=0&amp;portrait=0&quot; width=&quot;500&quot; height=&quot;375&quot; frameborder=&quot;0&quot; webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt; &lt;p&gt;&lt;a href=&quot;https://vimeo.com/78231257&quot;&gt;EVENT FOR JOURNALISTS: Getting your head around numbers and stats&lt;/a&gt; from &lt;a href=&quot;https://vimeo.com/user4609742&quot;&gt;AusSMC&lt;/a&gt; on &lt;a href=&quot;https://vimeo.com&quot;&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;
+&lt;iframe src=&quot;https://player.vimeo.com/video/78231257?color=ffffff&amp;amp;title=0&amp;amp;byline=0&amp;amp;portrait=0&quot; width=&quot;500&quot; height=&quot;375&quot; frameborder=&quot;0&quot; webkitallowfullscreen=&quot;&quot; mozallowfullscreen=&quot;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;p&gt;&lt;a href=&quot;https://vimeo.com/78231257&quot;&gt;EVENT FOR JOURNALISTS: Getting your head around numbers and stats&lt;/a&gt; from &lt;a href=&quot;https://vimeo.com/user4609742&quot;&gt;AusSMC&lt;/a&gt; on &lt;a href=&quot;https://vimeo.com&quot;&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Again - let me know if you have any questions!&lt;/p&gt;
 
@@ -500,13 +559,13 @@ kable&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;iris.tally&lt;span class=&quo
    <link href="http://tierneyn.github.io/statistics/blag/2013/09/01/stats-can-do-anything/"/>
    <updated>2013-09-01T00:00:00+10:00</updated>
    <id>http://tierneyn.github.io/statistics/blag/2013/09/01/stats-can-do-anything</id>
-   <content type="html">&lt;p&gt;Sometimes people are fond of saying:
-&lt;blockquote&gt;&amp;quot;Well, &lt;em&gt;you know&lt;/em&gt;, the thing with statistics is that you can get the statistics to say whatever you want.&amp;quot;&lt;/blockquote&gt;
-I think that this is the equivalent of saying:
-&lt;blockquote&gt;&amp;quot;...What I am saying is true because of my argument.&amp;quot;&lt;/blockquote&gt;
-You can &lt;em&gt;say&lt;/em&gt; that anything is true, but what really matters is the &lt;strong&gt;strength of your argument.&lt;/strong&gt;&lt;/p&gt;
+   <content type="html">&lt;p&gt;Sometimes people are fond of saying:&lt;/p&gt;
+&lt;blockquote&gt;&quot;Well, &lt;em&gt;you know&lt;/em&gt;, the thing with statistics is that you can get the statistics to say whatever you want.&quot;&lt;/blockquote&gt;
+&lt;p&gt;I think that this is the equivalent of saying:&lt;/p&gt;
+&lt;blockquote&gt;&quot;...What I am saying is true because of my argument.&quot;&lt;/blockquote&gt;
+&lt;p&gt;You can &lt;em&gt;say&lt;/em&gt; that anything is true, but what really matters is the &lt;strong&gt;strength of your argument.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;And statistics...&lt;/p&gt;
+&lt;p&gt;And statistics…&lt;/p&gt;
 
 &lt;p&gt;The same goes for statistics, you could perform a variety of tests to support a particular point.&lt;/p&gt;
 
@@ -516,26 +575,30 @@ You can &lt;em&gt;say&lt;/em&gt; that anything is true, but what really matters
 
 &lt;p&gt;The reader also has a responsibility to evaluate their use of tools to construct and support their argument.&lt;/p&gt;
 
-&lt;p&gt;So yes, statistics could be used to support the argument
+&lt;p&gt;So yes, statistics could be used to support the argument&lt;/p&gt;
 &lt;blockquote&gt;Johnny steals tim tams from Nick, as he has done this a statistically significant number of times.&lt;/blockquote&gt;
-Upon reading this, one should be very keen to investigate the ways in which the statistics were used, and ask questions like:&lt;/p&gt;
+&lt;p&gt;Upon reading this, one should be very keen to investigate the ways in which the statistics were used, and ask questions like:&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;What data was it? Observation? &lt;em&gt;Who&lt;/em&gt; observed it? &lt;em&gt;How&lt;/em&gt; did they observe it?&lt;/p&gt;
-
-&lt;p&gt;What sort of anaysis was used? Why?&lt;/p&gt;
-
-&lt;p&gt;Were any data transformations used? Why?&lt;/p&gt;
+  &lt;p&gt;What data was it? Observation? &lt;em&gt;Who&lt;/em&gt; observed it? &lt;em&gt;How&lt;/em&gt; did they observe it?&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;And so on. &lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;What sort of anaysis was used? Why?&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;So when someone says that statistics can be used to prove anything, I like to replace this with:
-&lt;blockquote&gt;&amp;quot;You can argue any point, and sometimes the people who don&amp;#39;t know any better will nod their head quietly and whisper &lt;em&gt;&amp;quot;&lt;/em&gt;&lt;em&gt;statistics said it was so&amp;quot; &amp;quot;&lt;/em&gt;&lt;/blockquote&gt;
-Others will nod their heads too.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Were any data transformations used? Why?&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;But it is your job as a good researcher / reader to ask the all important:
-&lt;blockquote&gt;Why?&lt;/blockquote&gt;&lt;/p&gt;
+&lt;p&gt;And so on.&lt;/p&gt;
+
+&lt;p&gt;So when someone says that statistics can be used to prove anything, I like to replace this with:&lt;/p&gt;
+&lt;blockquote&gt;&quot;You can argue any point, and sometimes the people who don&#39;t know any better will nod their head quietly and whisper &lt;em&gt;&quot;&lt;/em&gt;&lt;em&gt;statistics said it was so&quot; &quot;&lt;/em&gt;&lt;/blockquote&gt;
+&lt;p&gt;Others will nod their heads too.&lt;/p&gt;
+
+&lt;p&gt;But it is your job as a good researcher / reader to ask the all important:&lt;/p&gt;
+&lt;blockquote&gt;Why?&lt;/blockquote&gt;
 </content>
  </entry>
  
@@ -554,59 +617,59 @@ Others will nod their heads too.&lt;/p&gt;
 
 &lt;p&gt;Being a mathematician, he also wanted to work this out analytically.&lt;/p&gt;
 
-&lt;p&gt;What does analytical mean?  It&amp;#39;s a fair question, as it&amp;#39;s &lt;a href=&quot;http://en.wikipedia.org/wiki/Analytic&quot;&gt;wikipedia page shows that there are many definitions&lt;/a&gt;
+&lt;p&gt;What does analytical mean?  It’s a fair question, as it’s &lt;a href=&quot;http://en.wikipedia.org/wiki/Analytic&quot;&gt;wikipedia page shows that there are many definitions&lt;/a&gt;&lt;/p&gt;
 &lt;p style=&quot;text-align: center;&quot;&gt;&lt;strong&gt;Wikipedia definition:&lt;/strong&gt;&lt;/p&gt;
-&lt;p style=&quot;text-align: center;&quot;&gt;&lt;em&gt;&amp;quot;Analytic Solution&amp;quot; &lt;/em&gt;&lt;/p&gt;
-&lt;p style=&quot;text-align: center;&quot;&gt;&lt;em&gt;- A solution to a problem that can be written in &amp;quot;closed form&amp;quot; in terms of known functions, constants, etc.&lt;/em&gt;&lt;/p&gt;
-&lt;p style=&quot;text-align: left;&quot;&gt;I find that such a definition relies on the reader knowing what the words &amp;#39;closed form&amp;#39;, &amp;#39;known functions&amp;#39; and &amp;#39;constants&amp;#39; are.&lt;/p&gt;
-&lt;p style=&quot;text-align: center;&quot;&gt;So here&amp;#39;s &lt;strong&gt;my definition:&lt;/strong&gt;&lt;/p&gt;
-&lt;p style=&quot;text-align: center;&quot;&gt;&lt;em&gt;&amp;quot;Analytic Solution&amp;quot;&lt;/em&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;em&gt;&quot;Analytic Solution&quot; &lt;/em&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;em&gt;- A solution to a problem that can be written in &quot;closed form&quot; in terms of known functions, constants, etc.&lt;/em&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: left;&quot;&gt;I find that such a definition relies on the reader knowing what the words &#39;closed form&#39;, &#39;known functions&#39; and &#39;constants&#39; are.&lt;/p&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;So here&#39;s &lt;strong&gt;my definition:&lt;/strong&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;&lt;em&gt;&quot;Analytic Solution&quot;&lt;/em&gt;&lt;/p&gt;
 &lt;p style=&quot;text-align: center;&quot;&gt;&lt;em&gt;A solution where everything needed to solve a particular question is presented clearly and logically, with all assumptions defined.
 &lt;/em&gt;&lt;/p&gt;
-So, getting back on track...&lt;/p&gt;
+&lt;p&gt;So, getting back on track…&lt;/p&gt;
 
-&lt;p&gt;When Stan Ulam said that he wanted to find the probability of getting a perfect solitaire hand, he was going to do some really complex probability equations using:
+&lt;p&gt;When Stan Ulam said that he wanted to find the probability of getting a perfect solitaire hand, he was going to do some really complex probability equations using:&lt;/p&gt;
 &lt;ul&gt;
-    &lt;li&gt;The information about a deck of cards
+	&lt;li&gt;The information about a deck of cards
 &lt;ul&gt;
-    &lt;li&gt;52 cards&lt;/li&gt;
-    &lt;li&gt;Number of red cards&lt;/li&gt;
-    &lt;li&gt;Number of black cards&lt;/li&gt;
-    &lt;li&gt;Number of different numbers...etc.&lt;/li&gt;
+	&lt;li&gt;52 cards&lt;/li&gt;
+	&lt;li&gt;Number of red cards&lt;/li&gt;
+	&lt;li&gt;Number of black cards&lt;/li&gt;
+	&lt;li&gt;Number of different numbers...etc.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-    &lt;li&gt;And a pen and paper&lt;/li&gt;
-    &lt;li&gt;(and maybe a calculator, but this was the 1940s so it is less likely.  But then, he &lt;em&gt;was&lt;/em&gt; a famous mathematician - it is more likely he would have had access to a computer)  to arrive at a &amp;#39;perfect solution&amp;#39;.&lt;/li&gt;
+	&lt;li&gt;And a pen and paper&lt;/li&gt;
+	&lt;li&gt;(and maybe a calculator, but this was the 1940s so it is less likely.  But then, he &lt;em&gt;was&lt;/em&gt; a famous mathematician - it is more likely he would have had access to a computer)  to arrive at a &#39;perfect solution&#39;.&lt;/li&gt;
 &lt;/ul&gt;
-The analytic solution ends up looking really complicated, and is&lt;em&gt; quite&lt;/em&gt; complex.&lt;/p&gt;
+&lt;p&gt;The analytic solution ends up looking really complicated, and is&lt;em&gt; quite&lt;/em&gt; complex.&lt;/p&gt;
 
 &lt;p&gt;So instead of finding an analytical solution, he wanted to &lt;em&gt;approximate &lt;/em&gt;a solution.&lt;/p&gt;
 
-&lt;p&gt;Basically you follow these steps,
+&lt;p&gt;Basically you follow these steps,&lt;/p&gt;
 &lt;ol&gt;
-    &lt;li&gt;Shuffle and deal a hand of solitaire&lt;/li&gt;
-    &lt;li&gt;Is it a perfect hand?&lt;/li&gt;
-    &lt;li&gt;If no, add one to the total number of hands dealt, go back to step 1.&lt;/li&gt;
-    &lt;li&gt;If yes, add one to the number of successful hands AND total number of hands dealt, go back step 1&lt;/li&gt;
-    &lt;li&gt;Repeat steps 1-4 1000s of times.&lt;/li&gt;
-    &lt;li&gt;Divide the # successful hands / total # hands.&lt;/li&gt;
-    &lt;li&gt;You have now arrived at an approximate probability of getting a perfect hand in solitaire.&lt;/li&gt;
+	&lt;li&gt;Shuffle and deal a hand of solitaire&lt;/li&gt;
+	&lt;li&gt;Is it a perfect hand?&lt;/li&gt;
+	&lt;li&gt;If no, add one to the total number of hands dealt, go back to step 1.&lt;/li&gt;
+	&lt;li&gt;If yes, add one to the number of successful hands AND total number of hands dealt, go back step 1&lt;/li&gt;
+	&lt;li&gt;Repeat steps 1-4 1000s of times.&lt;/li&gt;
+	&lt;li&gt;Divide the # successful hands / total # hands.&lt;/li&gt;
+	&lt;li&gt;You have now arrived at an approximate probability of getting a perfect hand in solitaire.&lt;/li&gt;
 &lt;/ol&gt;
-Crazy as it sounds, this probability gets closer to the &amp;#39;true&amp;#39; probability you would have found, had you worked it out analytically.&lt;/p&gt;
+&lt;p&gt;Crazy as it sounds, this probability gets closer to the ‘true’ probability you would have found, had you worked it out analytically.&lt;/p&gt;
 
 &lt;p&gt;The more trial simulations (iterations) you run, the better the answer.&lt;/p&gt;
 
-&lt;p&gt;Now imagine that instead of wanting to know the probability of getting a perfect hand, but
+&lt;p&gt;Now imagine that instead of wanting to know the probability of getting a perfect hand, but&lt;/p&gt;
 &lt;ul&gt;
-    &lt;li&gt;Getting a red card first draw&lt;/li&gt;
-    &lt;li&gt;The ace of spades first draw&lt;/li&gt;
-    &lt;li&gt;TWO black cards...&lt;/li&gt;
+	&lt;li&gt;Getting a red card first draw&lt;/li&gt;
+	&lt;li&gt;The ace of spades first draw&lt;/li&gt;
+	&lt;li&gt;TWO black cards...&lt;/li&gt;
 &lt;/ul&gt;
-Monte Carlo provides a simpler solution than the analytic method.I shall write another post extending on this one soon.&lt;/p&gt;
+&lt;p&gt;Monte Carlo provides a simpler solution than the analytic method.I shall write another post extending on this one soon.&lt;/p&gt;
 
 &lt;p&gt;Let me know if what I wrote makes sense for you!&lt;/p&gt;
 
-&lt;p&gt;Reference: - &lt;a href=&quot;http://www.youtube.com/watch?v=7TybpwBlcMk&quot;&gt;MathematicalMonk&amp;#39;s Youtube Channel&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Reference: - &lt;a href=&quot;http://www.youtube.com/watch?v=7TybpwBlcMk&quot;&gt;MathematicalMonk’s Youtube Channel&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -615,29 +678,34 @@ Monte Carlo provides a simpler solution than the analytic method.I shall write a
    <link href="http://tierneyn.github.io/statistics/2013/06/20/analytically/"/>
    <updated>2013-06-20T00:00:00+10:00</updated>
    <id>http://tierneyn.github.io/statistics/2013/06/20/analytically</id>
-   <content type="html">&lt;p&gt;What does the word &lt;em&gt;analytical&lt;/em&gt;, mean?  &lt;/p&gt;
+   <content type="html">&lt;p&gt;What does the word &lt;em&gt;analytical&lt;/em&gt;, mean?&lt;/p&gt;
 
 &lt;p&gt;Wikipedia says:&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;&amp;quot;Analytic Solution&amp;quot;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;A solution to a problem that can be written in &amp;quot;closed form&amp;quot; in terms of known functions, constants, etc.&lt;/li&gt;
-&lt;/ul&gt;
+  &lt;p&gt;“Analytic Solution”&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;I find that such a definition relies on the reader knowing what the words &amp;#39;closed form&amp;#39;, &amp;#39;known functions&amp;#39; and &amp;#39;constants&amp;#39; are.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;ul&gt;
+    &lt;li&gt;A solution to a problem that can be written in “closed form” in terms of known functions, constants, etc.&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;So here&amp;#39;s my definition:&lt;/p&gt;
+&lt;p&gt;I find that such a definition relies on the reader knowing what the words ‘closed form’, ‘known functions’ and ‘constants’ are.&lt;/p&gt;
+
+&lt;p&gt;So here’s my definition:&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;&amp;quot;Analytic Solution&amp;quot;&lt;/p&gt;
+  &lt;p&gt;“Analytic Solution”&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&lt;p&gt;A solution where everything needed to solve a particular question is presented clearly and logically, with all assumptions defined.  &lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;A solution where everything needed to solve a particular question is presented clearly and logically, with all assumptions defined.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Waddaya reckon?&lt;/p&gt;
+
 </content>
  </entry>
  
@@ -646,44 +714,44 @@ Monte Carlo provides a simpler solution than the analytic method.I shall write a
    <link href="http://tierneyn.github.io/blag/2013/06/12/humanity/"/>
    <updated>2013-06-12T00:00:00+10:00</updated>
    <id>http://tierneyn.github.io/blag/2013/06/12/humanity</id>
-   <content type="html">&lt;p&gt;A friend of mine posted an interesting article on facebook today - &lt;a href=&quot;http://theconversation.com/honing-the-mind-and-nurturing-the-soul-why-the-humanities-are-underrated-15027&quot;&gt;&amp;quot;Honing the mind and nurturing the soul: why the humanities are underrated&amp;quot;&lt;/a&gt;.  The piece is written by Professor Steven Schwartz, a distinguished academic currently residing at Oxford University after holding Vice Chancellor positions in Australia and the UK.&lt;/p&gt;
+   <content type="html">&lt;p&gt;A friend of mine posted an interesting article on facebook today - &lt;a href=&quot;http://theconversation.com/honing-the-mind-and-nurturing-the-soul-why-the-humanities-are-underrated-15027&quot;&gt;“Honing the mind and nurturing the soul: why the humanities are underrated”&lt;/a&gt;.  The piece is written by Professor Steven Schwartz, a distinguished academic currently residing at Oxford University after holding Vice Chancellor positions in Australia and the UK.&lt;/p&gt;
 
-&lt;p&gt;The article tells of Schwartz seeing the return of mature age students to university, not to study a doctorate in accounting or business, but the arts and humanities.  As he put it, these students were returning to &amp;quot;fulfil a life-long desire to immerse themselves in the arts or humanities&amp;quot; after years in another profession.  Schwartz makes the point that you do not need to make money to then spend it later in life - doing the &amp;#39;degree they have always wanted to do&amp;#39; -  you can study the humanities &lt;em&gt;and&lt;/em&gt; make money.&lt;/p&gt;
+&lt;p&gt;The article tells of Schwartz seeing the return of mature age students to university, not to study a doctorate in accounting or business, but the arts and humanities.  As he put it, these students were returning to “fulfil a life-long desire to immerse themselves in the arts or humanities” after years in another profession.  Schwartz makes the point that you do not need to make money to then spend it later in life - doing the ‘degree they have always wanted to do’ -  you can study the humanities &lt;em&gt;and&lt;/em&gt; make money.&lt;/p&gt;
 
-&lt;p&gt;It seems a strange thought at first.  How do the humanities help you make money?  You know, getting you a job.  We&amp;#39;ve all got that annoying uncle or in-law or friend who plays devil&amp;#39;s advocate (or douchebag) when you reveal that you are studying French and Philosophy.  They lean back and these words like this slide out of their mouth:&lt;/p&gt;
+&lt;p&gt;It seems a strange thought at first.  How do the humanities help you make money?  You know, getting you a job.  We’ve all got that annoying uncle or in-law or friend who plays devil’s advocate (or douchebag) when you reveal that you are studying French and Philosophy.  They lean back and these words like this slide out of their mouth:&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;&amp;quot;Ah, what are the prospects for you after you finish your degree?  I mean, latin is a dead language, what&amp;#39;s the point in studying that?  Why study how to speak a language if you don&amp;#39;t want to be a translator?  And Philosophy?  What are you going to do, Philosophise?  Is that even a word?  Har har har har&amp;quot;.&lt;/p&gt;
+  &lt;p&gt;“Ah, what are the prospects for you after you finish your degree?  I mean, latin is a dead language, what’s the point in studying that?  Why study how to speak a language if you don’t want to be a translator?  And Philosophy?  What are you going to do, Philosophise?  Is that even a word?  Har har har har”.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Schwartz demonstrates the benefits of having a degree in humanities by listing a executives of companies like Yahoo and Google.  Clearly they are doing well, and guess what? They have degrees or PhDs in Arts or Humanities.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;&amp;quot;You go into the humanities to pursue your intellectual passion; and it just so happens, as a by-product, that you emerge as a desired commodity for industry. Such is the halo of human flourishing&amp;quot; &lt;/p&gt;
+  &lt;p&gt;“You go into the humanities to pursue your intellectual passion; and it just so happens, as a by-product, that you emerge as a desired commodity for industry. Such is the halo of human flourishing” &lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;says Damon Horowitz, a Google Executive with a humanities PhD.&lt;/p&gt;
 
-&lt;p&gt;We start to see that maybe these degrees teach you something other than how to conjugate &amp;#39;dead&amp;#39; verbs back to life.  They teach you how to write, how to communicate, how to argue.  They teach you how to empathize, how to make ethical decisions, how to consider the needs of others.  They teach you about decisions that have been made in the past and how they still affect the present.&lt;/p&gt;
+&lt;p&gt;We start to see that maybe these degrees teach you something other than how to conjugate ‘dead’ verbs back to life.  They teach you how to write, how to communicate, how to argue.  They teach you how to empathize, how to make ethical decisions, how to consider the needs of others.  They teach you about decisions that have been made in the past and how they still affect the present.&lt;/p&gt;
 
 &lt;p&gt;Sure, you might not be able to directly apply all of that content that you have learnt, but what degree allows for that?&lt;/p&gt;
 
 &lt;p&gt;These skills allow you to retort to your uncle:&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;&amp;quot;I&amp;#39;d love to come up with something suitable witty and hilarious to shame you appropriately, but I&amp;#39;m fresh out right now.  In answer to your question - is anyone ever  FULLY certain about their prospects after their degree? Just because I&amp;#39;m not certain, this does not mean that it makes me less useful or employable...&amp;quot;&lt;/p&gt;
+  &lt;p&gt;“I’d love to come up with something suitable witty and hilarious to shame you appropriately, but I’m fresh out right now.  In answer to your question - is anyone ever  FULLY certain about their prospects after their degree? Just because I’m not certain, this does not mean that it makes me less useful or employable…”&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;and then if you really want to you can cap it off with a Victor E. Frankl Quote:&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;&amp;quot;...Everything can be taken from a man but one thing: the last of the human freedoms—to choose one’s attitude in any given set of circumstances, to choose one’s own way...&amp;quot;&lt;/p&gt;
+  &lt;p&gt;“…Everything can be taken from a man but one thing: the last of the human freedoms—to choose one’s attitude in any given set of circumstances, to choose one’s own way…”&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Which might have appeared inappropriate now that you think about it, but it has probably confused your antagonist into introspection.
-It isn&amp;#39;t about the &lt;strong&gt;content&lt;/strong&gt; that you learn, but the &lt;strong&gt;process;&lt;/strong&gt; it&amp;#39;s the skills you obtain from a degree that make you an asset.&lt;/p&gt;
+It isn’t about the &lt;strong&gt;content&lt;/strong&gt; that you learn, but the &lt;strong&gt;process;&lt;/strong&gt; it’s the skills you obtain from a degree that make you an asset.&lt;/p&gt;
 
-&lt;p&gt;I guess this article just really resonated with me - I have an honours degree in Psychology, and I&amp;#39;m pursuing a PhD in Statistics.  I have a general understanding of lots of statistics, but not the fine mathematical knowledge that elegantly underpins all of it.  People are sometimes confused when I tell them that I&amp;#39;m doing a PhD in stats but don&amp;#39;t have the strong math background.  But the reason I can do a PhD in an unfamiliar topic is because of the skills I obtained from my Psychology degree - establishing rapport and interpersonal communication, critical reasoning, and experimental design. My degree has taught me to teach myself, to solve problems, to stay organised, handle stress, and write well.&lt;/p&gt;
+&lt;p&gt;I guess this article just really resonated with me - I have an honours degree in Psychology, and I’m pursuing a PhD in Statistics.  I have a general understanding of lots of statistics, but not the fine mathematical knowledge that elegantly underpins all of it.  People are sometimes confused when I tell them that I’m doing a PhD in stats but don’t have the strong math background.  But the reason I can do a PhD in an unfamiliar topic is because of the skills I obtained from my Psychology degree - establishing rapport and interpersonal communication, critical reasoning, and experimental design. My degree has taught me to teach myself, to solve problems, to stay organised, handle stress, and write well.&lt;/p&gt;
 
 &lt;p&gt;So this is for all of the kids out there who are studying and then having the mandatory &lt;a href=&quot;http://www.phdcomics.com/comics.php?f=1488&quot;&gt;existential crisis&lt;/a&gt; (totally normal, by the way). Stimulate your mind and study what you love - passion breeds success.&lt;em&gt;
 &lt;/em&gt;&lt;/p&gt;
@@ -693,7 +761,6 @@ It isn&amp;#39;t about the &lt;strong&gt;content&lt;/strong&gt; that you learn, 
 &lt;img src=&quot;/assets/humanity_post.jpg&quot; alt=&quot;test&quot; style=&quot;width: 100%;max-height: 100%&quot; /&gt;
 &lt;/div&gt;
 &lt;/p&gt;
-
 &lt;!-- above code nabbed from http://stackoverflow.com/questions/7177881/how-can-i-put-css-and-html-code-in-the-same-file --&gt;
 </content>
  </entry>

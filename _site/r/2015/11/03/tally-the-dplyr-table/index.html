@@ -58,7 +58,7 @@
 <!-- Toggleable sidebar -->
 <div class="sidebar" id="sidebar">
   <div class="sidebar-item">
-    <p>Statistics, Coffee, Photography, and Me</p>
+    <p>Statistics and R Enthusiast</p>
   </div>
 
   <nav class="sidebar-nav">
@@ -105,6 +105,12 @@
       
     
       
+        
+          <a class="sidebar-nav-item" href="/cv/">CV</a>
+        
+      
+    
+      
     
       
         
@@ -116,7 +122,7 @@
 
   <div class="sidebar-item">
     <p>
-      &copy; Nicholas Tierney, 2015. All rights reserved.
+      &copy; Nicholas Tierney, 2016. All rights reserved.
     </p>
   </div>
 </div>
@@ -143,73 +149,97 @@
   <span class="post-date">
   <!-- add in images -->
    <img class="img-icon" src="/assets/iconmonstr-calendar-8-icon.svg"></img>03 Nov 2015
-    <img class="img-icon" src="/assets/iconmonstr-tags-4-icon.svg"></img> r  </span>
+    <img class="img-icon" src="/assets/iconmonstr-tags-4-icon.svg"></img> R  </span>
 
-  <p>In this post I describe how to use <code>tally</code>, the <code>dplyr</code> equivalent of <code>table</code>.</p>
+  <p>In this post I describe how to use <code class="highlighter-rouge">tally</code>, the <code class="highlighter-rouge">dplyr</code> equivalent of <code class="highlighter-rouge">table</code>.</p>
 
-<p><code>table</code> gives you the frequencies of something in a category. Let&#39;s use the <code>iris</code> dataset to illustrate. Let&#39;s say we want to know how many are in each species in <code>iris</code>.</p>
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kp">table</span><span class="p">(</span>iris<span class="o">$</span>Species<span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">## 
+<p><code class="highlighter-rouge">table</code> gives you the frequencies of something in a category. Let’s use the <code class="highlighter-rouge">iris</code> dataset to illustrate. Let’s say we want to know how many are in each species in <code class="highlighter-rouge">iris</code>.</p>
+
+<p><code class="highlighter-rouge">r
+table(iris$Species)
+</code></p>
+
+<p><code class="highlighter-rouge">
+## 
 ##     setosa versicolor  virginica 
 ##         50         50         50
-</code></pre></div>
-<p>So there happen to be 50 in each of the species. </p>
+</code></p>
 
-<p>But if you want to present this in a tidy dataframe, where each column is a variable, and each row is an observation, you&#39;d have to do some annoying reformating. But need not dispair, <code>dplyr</code> has us covered.</p>
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>dplyr<span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">## 
-## Attaching package: &#39;dplyr&#39;
+<p>So there happen to be 50 in each of the species.</p>
+
+<p>But if you want to present this in a tidy dataframe, where each column is a variable, and each row is an observation, you’d have to do some annoying reformating. But need not dispair, <code class="highlighter-rouge">dplyr</code> has us covered.</p>
+
+<p><code class="highlighter-rouge">r
+library(dplyr)
+</code></p>
+
+<p><code class="highlighter-rouge">
 ## 
-## The following objects are masked from &#39;package:stats&#39;:
+## Attaching package: 'dplyr'
+## 
+## The following objects are masked from 'package:stats':
 ## 
 ##     filter, lag
 ## 
-## The following objects are masked from &#39;package:base&#39;:
+## The following objects are masked from 'package:base':
 ## 
 ##     intersect, setdiff, setequal, union
-</code></pre></div><div class="highlight"><pre><code class="language-r" data-lang="r">iris.tally <span class="o">&lt;-</span> iris <span class="o">%&gt;%</span>
-  group_by<span class="p">(</span>Species<span class="p">)</span> <span class="o">%&gt;%</span> 
-  tally
+</code></p>
 
-iris.tally
-</code></pre></div><div class="highlight"><pre><code class="language-text" data-lang="text">## Source: local data frame [3 x 2]
+<p>```r
+iris.tally &lt;- iris %&gt;%
+  group_by(Species) %&gt;% 
+  tally</p>
+
+<p>iris.tally
+```</p>
+
+<p><code class="highlighter-rouge">
+## Source: local data frame [3 x 2]
 ## 
 ##      Species     n
 ##       (fctr) (int)
 ## 1     setosa    50
 ## 2 versicolor    50
 ## 3  virginica    50
-</code></pre></div>
+</code></p>
+
 <p>This gives us a neat dataframe, where we get Species as a column, and the number of observations in each Species.</p>
 
-<p>One of the reasons I like this is because it means I can do something like create a table using <code>knitr::kable</code> if I need to for a report.</p>
+<p>One of the reasons I like this is because it means I can do something like create a table using <code class="highlighter-rouge">knitr::kable</code> if I need to for a report.</p>
 
 <p>So I could now do this:</p>
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>knitr<span class="p">)</span>
 
-kable<span class="p">(</span>iris.tally<span class="p">)</span>
-</code></pre></div>
-<table><thead>
-<tr>
-<th style="text-align: left">Species</th>
-<th style="text-align: right">n</th>
-</tr>
-</thead><tbody>
-<tr>
-<td style="text-align: left">setosa</td>
-<td style="text-align: right">50</td>
-</tr>
-<tr>
-<td style="text-align: left">versicolor</td>
-<td style="text-align: right">50</td>
-</tr>
-<tr>
-<td style="text-align: left">virginica</td>
-<td style="text-align: right">50</td>
-</tr>
-</tbody></table>
+<p>```r
+library(knitr)</p>
 
-<p>Thanks to <a href="http://stackoverflow.com/questions/24409376/dplyr-how-can-i-write-equivalent-to-table-base-function-and-preserve-column-n">this SO post</a> for providing me with knowledge of <code>tally</code> and providing inspiration for this post.</p>
+<p>kable(iris.tally)
+```</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Species</th>
+      <th style="text-align: right">n</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">setosa</td>
+      <td style="text-align: right">50</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">versicolor</td>
+      <td style="text-align: right">50</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">virginica</td>
+      <td style="text-align: right">50</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Thanks to <a href="http://stackoverflow.com/questions/24409376/dplyr-how-can-i-write-equivalent-to-table-base-function-and-preserve-column-n">this SO post</a> for providing me with knowledge of <code class="highlighter-rouge">tally</code> and providing inspiration for this post.</p>
 
         <!-- using liquid formatting to define a variable page.comments -->
 

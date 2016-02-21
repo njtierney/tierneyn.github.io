@@ -1,9 +1,7 @@
 ---
 layout: Page
-title: Research Interests
+title: Current Research Interests
 ---
-
-This is a page where I describe my current research interests.
 
 # Mixture Models
 

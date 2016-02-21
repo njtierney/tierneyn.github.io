@@ -58,7 +58,7 @@
 <!-- Toggleable sidebar -->
 <div class="sidebar" id="sidebar">
   <div class="sidebar-item">
-    <p>Statistics, Coffee, Photography, and Me</p>
+    <p>Statistics and R Enthusiast</p>
   </div>
 
   <nav class="sidebar-nav">
@@ -105,6 +105,12 @@
       
     
       
+        
+          <a class="sidebar-nav-item" href="/cv/">CV</a>
+        
+      
+    
+      
     
       
         
@@ -116,7 +122,7 @@
 
   <div class="sidebar-item">
     <p>
-      &copy; Nicholas Tierney, 2015. All rights reserved.
+      &copy; Nicholas Tierney, 2016. All rights reserved.
     </p>
   </div>
 </div>
@@ -143,70 +149,82 @@
   <span class="post-date">
   <!-- add in images -->
    <img class="img-icon" src="/assets/iconmonstr-calendar-8-icon.svg"></img>01 Dec 2015
-    <img class="img-icon" src="/assets/iconmonstr-tags-4-icon.svg"></img> r    missing data    rbloggers  </span>
+    <img class="img-icon" src="/assets/iconmonstr-tags-4-icon.svg"></img> R   Missing Data   rbloggers  </span>
 
-  <p>Visualising missing data is important when analysing a dataset. I wanted to make a plot of the presence/absence in a dataset. One package, <a href="https://cran.r-project.org/web/packages/Amelia/index.html"><code>Amelia</code></a> provides a function to do this, but I don&#39;t like the way it looks. So I made a ggplot version of what it did.</p>
+  <p>Visualising missing data is important when analysing a dataset. I wanted to make a plot of the presence/absence in a dataset. One package, <a href="https://cran.r-project.org/web/packages/Amelia/index.html"><code class="highlighter-rouge">Amelia</code></a> provides a function to do this, but I don’t like the way it looks. So I made a ggplot version of what it did.</p>
 
-<p>Let&#39;s make a dataset using the awesome <a href="https://github.com/trinker/wakefield">wakefield package</a>, and add random missingness.</p>
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>dplyr<span class="p">)</span>
-<span class="kn">library</span><span class="p">(</span>wakefield<span class="p">)</span>
-df <span class="o">&lt;-</span> 
-  r_data_frame<span class="p">(</span>
-  n <span class="o">=</span> <span class="m">30</span><span class="p">,</span>
-  id<span class="p">,</span>
-  race<span class="p">,</span>
-  age<span class="p">,</span>
-  sex<span class="p">,</span>
-  hour<span class="p">,</span>
-  iq<span class="p">,</span>
-  height<span class="p">,</span>
-  died<span class="p">,</span>
-  Scoring <span class="o">=</span> rnorm<span class="p">,</span>
-  Smoker <span class="o">=</span> valid
-  <span class="p">)</span> <span class="o">%&gt;%</span>
-  r_na<span class="p">(</span>prob<span class="o">=</span><span class="m">.4</span><span class="p">)</span>
-</code></pre></div>
+<p>Let’s make a dataset using the awesome <a href="https://github.com/trinker/wakefield">wakefield package</a>, and add random missingness.</p>
+
+<p><code class="highlighter-rouge">r
+library(dplyr)
+library(wakefield)
+df &lt;- 
+  r_data_frame(
+  n = 30,
+  id,
+  race,
+  age,
+  sex,
+  hour,
+  iq,
+  height,
+  died,
+  Scoring = rnorm,
+  Smoker = valid
+  ) %&gt;%
+  r_na(prob=.4)
+</code></p>
+
 <p>This is what the Amelia package produces by default:</p>
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="kn">library</span><span class="p">(</span>Amelia<span class="p">)</span>
 
-missmap<span class="p">(</span>df<span class="p">)</span>
-</code></pre></div>
-<p><img src="/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2"> </p>
+<p>```r
+library(Amelia)</p>
 
-<p>And let&#39;s explore the missing data using my own ggplot function:</p>
-<div class="highlight"><pre><code class="language-r" data-lang="r"><span class="c1"># A function that plots missingness</span>
-<span class="c1"># requires `reshape2`</span>
+<p>missmap(df)
+```</p>
 
-<span class="kn">library</span><span class="p">(</span>reshape2<span class="p">)</span>
-<span class="kn">library</span><span class="p">(</span>ggplot2<span class="p">)</span>
+<p><img src="/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-2-1.png" alt="plot of chunk unnamed-chunk-2" /></p>
 
-ggplot_missing <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">){</span>
+<p>And let’s explore the missing data using my own ggplot function:</p>
 
-  x <span class="o">%&gt;%</span> 
-    is.na <span class="o">%&gt;%</span>
-    melt <span class="o">%&gt;%</span>
-    ggplot<span class="p">(</span>data <span class="o">=</span> <span class="m">.</span><span class="p">,</span>
-           aes<span class="p">(</span>x <span class="o">=</span> Var2<span class="p">,</span>
-               y <span class="o">=</span> Var1<span class="p">))</span> <span class="o">+</span>
-    geom_raster<span class="p">(</span>aes<span class="p">(</span>fill <span class="o">=</span> value<span class="p">))</span> <span class="o">+</span>
-    scale_fill_grey<span class="p">(</span>name <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
-                    labels <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Present&quot;</span><span class="p">,</span><span class="s">&quot;Missing&quot;</span><span class="p">))</span> <span class="o">+</span>
-    theme_minimal<span class="p">()</span> <span class="o">+</span> 
-    theme<span class="p">(</span>axis.text.x  <span class="o">=</span> element_text<span class="p">(</span>angle<span class="o">=</span><span class="m">45</span><span class="p">,</span> vjust<span class="o">=</span><span class="m">0.5</span><span class="p">))</span> <span class="o">+</span> 
-    labs<span class="p">(</span>x <span class="o">=</span> <span class="s">&quot;Variables in Dataset&quot;</span><span class="p">,</span>
-         y <span class="o">=</span> <span class="s">&quot;Rows / observations&quot;</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div>
-<p>Let&#39;s test it out </p>
-<div class="highlight"><pre><code class="language-r" data-lang="r">ggplot_missing<span class="p">(</span>df<span class="p">)</span>
-</code></pre></div>
-<p><img src="/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-4-1.png" alt="plot of chunk unnamed-chunk-4"> </p>
+<p>```r
+# A function that plots missingness
+# requires <code class="highlighter-rouge">reshape2</code></p>
 
-<p>It&#39;s much cleaner, and easier to interpret.</p>
+<p>library(reshape2)
+library(ggplot2)</p>
+
+<p>ggplot_missing &lt;- function(x){</p>
+
+<p>x %&gt;% 
+    is.na %&gt;%
+    melt %&gt;%
+    ggplot(data = .,
+           aes(x = Var2,
+               y = Var1)) +
+    geom_raster(aes(fill = value)) +
+    scale_fill_grey(name = “”,
+                    labels = c(“Present”,”Missing”)) +
+    theme_minimal() + 
+    theme(axis.text.x  = element_text(angle=45, vjust=0.5)) + 
+    labs(x = “Variables in Dataset”,
+         y = “Rows / observations”)
+}
+```</p>
+
+<p>Let’s test it out</p>
+
+<p><code class="highlighter-rouge">r
+ggplot_missing(df)
+</code></p>
+
+<p><img src="/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-4-1.png" alt="plot of chunk unnamed-chunk-4" /></p>
+
+<p>It’s much cleaner, and easier to interpret.</p>
 
 <p>This function, and others, is available in the <a href="https://github.com/tierneyn/neato">neato package</a>, where I store a bunch of functions I think are neat.</p>
 
-<p>Quick note - there used to be a function, <code>missing.pattern.plot</code> <a href="http://www.inside-r.org/packages/cran/mi/docs/missing.pattern.plot">that you can see here</a> in the package <code>mi</code>. However, it doesn&#39;t appear to exist anymore. This is a shame, as it was a really nifty plot that clustered the groups of missingness. My friend and colleague, <a href="http://samclifford.info/">Sam Clifford</a> heard me complaining about this and wrote some code that does just that - I shall share this soon, it will likely be added to the <a href="https://github.com/tierneyn/neato"><code>neato</code> repository</a>.</p>
+<p>Quick note - there used to be a function, <code class="highlighter-rouge">missing.pattern.plot</code> <a href="http://www.inside-r.org/packages/cran/mi/docs/missing.pattern.plot">that you can see here</a> in the package <code class="highlighter-rouge">mi</code>. However, it doesn’t appear to exist anymore. This is a shame, as it was a really nifty plot that clustered the groups of missingness. My friend and colleague, <a href="http://samclifford.info/">Sam Clifford</a> heard me complaining about this and wrote some code that does just that - I shall share this soon, it will likely be added to the <a href="https://github.com/tierneyn/neato"><code class="highlighter-rouge">neato</code> repository</a>.</p>
 
 <p>Thoughts? Write them below.</p>
 

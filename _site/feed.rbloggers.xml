@@ -8,72 +8,84 @@
 		
 			<item>
 				<title>ggplot your missing data</title>
-					<description>&lt;p&gt;Visualising missing data is important when analysing a dataset. I wanted to make a plot of the presence/absence in a dataset. One package, &lt;a href=&quot;https://cran.r-project.org/web/packages/Amelia/index.html&quot;&gt;&lt;code&gt;Amelia&lt;/code&gt;&lt;/a&gt; provides a function to do this, but I don&amp;#39;t like the way it looks. So I made a ggplot version of what it did.&lt;/p&gt;
+					<description>&lt;p&gt;Visualising missing data is important when analysing a dataset. I wanted to make a plot of the presence/absence in a dataset. One package, &lt;a href=&quot;https://cran.r-project.org/web/packages/Amelia/index.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Amelia&lt;/code&gt;&lt;/a&gt; provides a function to do this, but I don’t like the way it looks. So I made a ggplot version of what it did.&lt;/p&gt;
 
-&lt;p&gt;Let&amp;#39;s make a dataset using the awesome &lt;a href=&quot;https://github.com/trinker/wakefield&quot;&gt;wakefield package&lt;/a&gt;, and add random missingness.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;dplyr&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;wakefield&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-df &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; 
-  r_data_frame&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-  n &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;30&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  id&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  race&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  age&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  sex&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  hour&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  iq&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  height&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  died&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  Scoring &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; rnorm&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  Smoker &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; valid
-  &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;
-  r_na&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;prob&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Let’s make a dataset using the awesome &lt;a href=&quot;https://github.com/trinker/wakefield&quot;&gt;wakefield package&lt;/a&gt;, and add random missingness.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;r
+library(dplyr)
+library(wakefield)
+df &amp;lt;- 
+  r_data_frame(
+  n = 30,
+  id,
+  race,
+  age,
+  sex,
+  hour,
+  iq,
+  height,
+  died,
+  Scoring = rnorm,
+  Smoker = valid
+  ) %&amp;gt;%
+  r_na(prob=.4)
+&lt;/code&gt;&lt;/p&gt;
+
 &lt;p&gt;This is what the Amelia package produces by default:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;Amelia&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-missmap&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;df&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-2-1.png&quot; alt=&quot;plot of chunk unnamed-chunk-2&quot;&gt; &lt;/p&gt;
+&lt;p&gt;```r
+library(Amelia)&lt;/p&gt;
 
-&lt;p&gt;And let&amp;#39;s explore the missing data using my own ggplot function:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# A function that plots missingness&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# requires `reshape2`&lt;/span&gt;
+&lt;p&gt;missmap(df)
+```&lt;/p&gt;
 
-&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;reshape2&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;kn&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;ggplot2&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;p&gt;&lt;img src=&quot;/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-2-1.png&quot; alt=&quot;plot of chunk unnamed-chunk-2&quot; /&gt;&lt;/p&gt;
 
-ggplot_missing &lt;span class=&quot;o&quot;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;kr&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+&lt;p&gt;And let’s explore the missing data using my own ggplot function:&lt;/p&gt;
 
-  x &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt; 
-    is.na &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;
-    melt &lt;span class=&quot;o&quot;&gt;%&amp;gt;%&lt;/span&gt;
-    ggplot&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;data &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-           aes&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Var2&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-               y &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; Var1&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
-    geom_raster&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;aes&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;fill &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; value&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
-    scale_fill_grey&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;name &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-                    labels &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Present&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;Missing&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;
-    theme_minimal&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; 
-    theme&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;axis.text.x  &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; element_text&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;angle&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;45&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; vjust&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; 
-    labs&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;x &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Variables in Dataset&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-         y &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;Rows / observations&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Let&amp;#39;s test it out &lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-r&quot; data-lang=&quot;r&quot;&gt;ggplot_missing&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;df&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-4-1.png&quot; alt=&quot;plot of chunk unnamed-chunk-4&quot;&gt; &lt;/p&gt;
+&lt;p&gt;```r
+# A function that plots missingness
+# requires &lt;code class=&quot;highlighter-rouge&quot;&gt;reshape2&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;It&amp;#39;s much cleaner, and easier to interpret.&lt;/p&gt;
+&lt;p&gt;library(reshape2)
+library(ggplot2)&lt;/p&gt;
+
+&lt;p&gt;ggplot_missing &amp;lt;- function(x){&lt;/p&gt;
+
+&lt;p&gt;x %&amp;gt;% 
+    is.na %&amp;gt;%
+    melt %&amp;gt;%
+    ggplot(data = .,
+           aes(x = Var2,
+               y = Var1)) +
+    geom_raster(aes(fill = value)) +
+    scale_fill_grey(name = “”,
+                    labels = c(“Present”,”Missing”)) +
+    theme_minimal() + 
+    theme(axis.text.x  = element_text(angle=45, vjust=0.5)) + 
+    labs(x = “Variables in Dataset”,
+         y = “Rows / observations”)
+}
+```&lt;/p&gt;
+
+&lt;p&gt;Let’s test it out&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;r
+ggplot_missing(df)
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/figure/source/2015-11-12-ggplot-missing-data/unnamed-chunk-4-1.png&quot; alt=&quot;plot of chunk unnamed-chunk-4&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;It’s much cleaner, and easier to interpret.&lt;/p&gt;
 
 &lt;p&gt;This function, and others, is available in the &lt;a href=&quot;https://github.com/tierneyn/neato&quot;&gt;neato package&lt;/a&gt;, where I store a bunch of functions I think are neat.&lt;/p&gt;
 
-&lt;p&gt;Quick note - there used to be a function, &lt;code&gt;missing.pattern.plot&lt;/code&gt; &lt;a href=&quot;http://www.inside-r.org/packages/cran/mi/docs/missing.pattern.plot&quot;&gt;that you can see here&lt;/a&gt; in the package &lt;code&gt;mi&lt;/code&gt;. However, it doesn&amp;#39;t appear to exist anymore. This is a shame, as it was a really nifty plot that clustered the groups of missingness. My friend and colleague, &lt;a href=&quot;http://samclifford.info/&quot;&gt;Sam Clifford&lt;/a&gt; heard me complaining about this and wrote some code that does just that - I shall share this soon, it will likely be added to the &lt;a href=&quot;https://github.com/tierneyn/neato&quot;&gt;&lt;code&gt;neato&lt;/code&gt; repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Quick note - there used to be a function, &lt;code class=&quot;highlighter-rouge&quot;&gt;missing.pattern.plot&lt;/code&gt; &lt;a href=&quot;http://www.inside-r.org/packages/cran/mi/docs/missing.pattern.plot&quot;&gt;that you can see here&lt;/a&gt; in the package &lt;code class=&quot;highlighter-rouge&quot;&gt;mi&lt;/code&gt;. However, it doesn’t appear to exist anymore. This is a shame, as it was a really nifty plot that clustered the groups of missingness. My friend and colleague, &lt;a href=&quot;http://samclifford.info/&quot;&gt;Sam Clifford&lt;/a&gt; heard me complaining about this and wrote some code that does just that - I shall share this soon, it will likely be added to the &lt;a href=&quot;https://github.com/tierneyn/neato&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;neato&lt;/code&gt; repository&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Thoughts? Write them below.&lt;/p&gt;
 </description>
-				<pubDate>Tue, 01 Dec 2015 00:00:00 +1000</pubDate>
+				<pubDate>Tue, 01 Dec 2015 00:00:00 +1100</pubDate>
 				<link>http://tierneyn.github.io/r/missing%20data/rbloggers/2015/12/01/ggplot-missing-data/</link>
 				<guid isPermaLink="true">http://tierneyn.github.io/r/missing%20data/rbloggers/2015/12/01/ggplot-missing-data/</guid>
 			</item>

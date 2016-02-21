@@ -1,7 +1,11 @@
 # Dependencies
 markdown:         kramdown
-
 highlighter:      rouge
+extensions: ["tables"]
+gems:
+  - jekyll-paginate
+  - jekyll-gist
+  - jekyll-sitemap
 
 # Permalinks
 permalink:        pretty
@@ -10,7 +14,7 @@ permalink:        pretty
 name:             njtierney
 title:            Nicholas Tierney
 tagline:          'Original witty remark'
-description:      'Statistics, Coffee, Photography, and Me'
+description:      'Statistics and R Enthusiast'
 url:              http://tierneyn.github.io
 baseurl:          
 
