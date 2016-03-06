@@ -24,7 +24,7 @@ PhD Candidate in Statistics at QUT
 
 ### Currently
 
-I'm a PhD candidate in my 3rd year of a 4 year program through the Industry Doctoral Training Centre (IDTC) at the Quensland University of Technology (QUT) and am due to finish in May 2017. My PhD project involves the statistical analysis of Occupational Health Surveillance data. Currently, there  Bayesian statistical methods to Occupational Health Surveillance data
+I'm a PhD candidate in my 3rd year of a 4 year program through the Industry Doctoral Training Centre (IDTC) at the Quensland University of Technology (QUT) and am due to finish in May 2017. My PhD project involves the statistical analysis of Occupational Health Surveillance data.
 
 
 
