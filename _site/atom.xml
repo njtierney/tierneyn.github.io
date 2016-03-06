@@ -4,7 +4,7 @@
  <title>Nicholas Tierney</title>
  <link href="http://tierneyn.github.io/atom.xml" rel="self"/>
  <link href="http://tierneyn.github.io/"/>
- <updated>2016-02-21T14:19:53+11:00</updated>
+ <updated>2016-03-07T09:39:21+10:00</updated>
  <id>http://tierneyn.github.io</id>
  <author>
    <name>Nicholas Tierney</name>
@@ -13,9 +13,42 @@
 
  
  <entry>
+   <title>WOMBAT 2016 Wrap Up</title>
+   <link href="http://tierneyn.github.io/blag/rbloggers/2016/02/22/wombat-2016-wrap-up/"/>
+   <updated>2016-02-22T00:00:00+10:00</updated>
+   <id>http://tierneyn.github.io/blag/rbloggers/2016/02/22/wombat-2016-wrap-up</id>
+   <content type="html">&lt;p&gt;A few weeks ago I spoke at the &lt;a href=&quot;http://wombat2016.org/&quot;&gt;Workshop Organized by Monash Business Analytics Team (WOMBAT)&lt;/a&gt;, held in the Melbourne Zoo (!) on Thursday and Friday the 18th and 19th February.&lt;/p&gt;
+
+&lt;p&gt;It was my first time at the Melbourne Zoo, and my first time having a conference in a Zoo. It was a pretty surreal experience briskly walking to the conference room while trying to navigate a zoo, passing monkeys, macaws, and tigers. And during the lunch breaks you could sit down and chat with other conference attendees…or go and see the Orangutan show, watch the elephants get a clean, or see some Gorilla’s.&lt;/p&gt;
+
+&lt;p&gt;Two other colleagues from QUT also attended, Amy Cook (as a contributed speaker), and Dr. Zoé van Havre (as an invited Speaker). Amy is currently completing a Masters by research in statistics, and Zoé has just finished her PhD in Statistics and is about to complete a Post-Doc at CSIRO.&lt;/p&gt;
+
+&lt;p&gt;The conference was organised by &lt;a href=&quot;dicook.github.io&quot;&gt;Di Cook&lt;/a&gt; and &lt;a href=&quot;http://robjhyndman.com/&quot;&gt;Rob Hyndman&lt;/a&gt;, of the Monash Business School. Di Cook is well known for her work in visualisation and software. Di  also supervised both Hadley Wickham and Yihui Xie. Hadley has improved the R experience drastically with packages ggplot2, dplyr, tidyr, and devtools. Yihui wrote the package &lt;code class=&quot;highlighter-rouge&quot;&gt;knitr&lt;/code&gt;, making reproducible reporting easy and fun to do in R.&lt;/p&gt;
+
+&lt;p&gt;Hadley Wickham was they Keynote speaker for the conference. Hadley’s talk discussed one way to go about summarizing large datasets by fitting many models using &lt;a href=&quot;https://github.com/hadley/purrr&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;purrr&lt;/code&gt;&lt;/a&gt;. &lt;code class=&quot;highlighter-rouge&quot;&gt;purrr&lt;/code&gt; takes a functional programming approach so you emphasises the verbs in your data anyalsis. This approach means that you can avoid writing loops so that you emphasize actions rather than book keeping. I had always been told that you should avoid writing loops in R because they are slow. However, Hadley said the following about that when asked about performance differences between apply, purrr, and for loops:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A lot of people tell you to not use for-loops because they are slow - &lt;strong&gt;that is complete and utter garbage&lt;/strong&gt;. You should not use for loops because they are not very expressive. The speed is almost the same for any trivial operation. The overhead of a for-loop is not significant. The reason to avoid for loops is because they make your code harder to read and harder to write.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So why do we hear that loops are slow in R? Apparently it is an Historical Hangover from the S language, and the early days of R. Credit to &lt;a href=&quot;http://www.statschat.org.nz/&quot;&gt;Thomas Lumley&lt;/a&gt; for pointing this out.&lt;/p&gt;
+
+&lt;p&gt;You can watch the video &lt;a href=&quot;http://wombat2016.org/slides/hadley.pdf&quot;&gt;here&lt;/a&gt; and see Hadley’s slides &lt;a href=&quot;https://www.youtube.com/watch?v=hRNUgwAFZtQ&quot;&gt;here&lt;/a&gt;. Highly recommended!&lt;/p&gt;
+
+&lt;p&gt;Zoé delivered an awesome talk that was really appropriate for the audience and did a great job of condensing 4 years of her PhD on Bayesian Mixture Models into something that everyone could understand. It was also very satisfying to see Zoé answer the question at the end “How did you choose your prior?” in excellent style, clearly demonstrating the depth of her knowledge on Bayesian stats. It was clear that Zoe could communicate “bleeding edge” statistics in a technical and non-technical sense. Awesome job. You can see her slides &lt;a href=&quot;https://zoevanhavre.github.io/talks/Feb2016_WOMBAT/ZvH_WombatSlides.html#1&quot;&gt;here&lt;/a&gt; and read her paper on Mixture Models &lt;a href=&quot;http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0131739&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Amy spoke excellently about how to extract and use data from timesheets. The first question out of people’s mouths at the end of the talk was “how much money have you made from this idea?” - she then had a lot of people describe to her how her idea is commercially viable. Very cool. You can see slides &lt;a href=&quot;http://wombat2016.org/slides/amy.pdf&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I delivered a talk on two packages I have developed alongside Miles McBain and Di Cook: &lt;a href=&quot;https://github.com/tierneyn/visdat&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;visdat&lt;/code&gt;&lt;/a&gt; and &lt;a href=&quot;https://github.com/tierneyn/ggmissing&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ggmissing&lt;/code&gt;&lt;/a&gt;. The idea of &lt;code class=&quot;highlighter-rouge&quot;&gt;visdat&lt;/code&gt; is to allow you do visualise an entire dataframe at once, and &lt;code class=&quot;highlighter-rouge&quot;&gt;ggmissing&lt;/code&gt; extends ggplot to incorporate missingness, similar to ggobi.  I had some good questions at the end, with some cool suggestions like including natural language processing to highlight specific characters/patterns, and that &lt;code class=&quot;highlighter-rouge&quot;&gt;vis_miss&lt;/code&gt; could run some missingness diagnostics and provide a warning message to the user along the lines of “you might have variables MAR, investigate further”. I shall talk more about this in a future blog post.&lt;/p&gt;
+
+&lt;p&gt;It looks like WOMBAT might be an annual occurence, I would highly encourage attending the next one if you have the opportunity. Thank you once more to the conference Organisers for putting together such an awesome conference. Looking forward to the next one!&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>ggplot your missing data</title>
    <link href="http://tierneyn.github.io/r/missing%20data/rbloggers/2015/12/01/ggplot-missing-data/"/>
-   <updated>2015-12-01T00:00:00+11:00</updated>
+   <updated>2015-12-01T00:00:00+10:00</updated>
    <id>http://tierneyn.github.io/r/missing%20data/rbloggers/2015/12/01/ggplot-missing-data</id>
    <content type="html">&lt;p&gt;Visualising missing data is important when analysing a dataset. I wanted to make a plot of the presence/absence in a dataset. One package, &lt;a href=&quot;https://cran.r-project.org/web/packages/Amelia/index.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Amelia&lt;/code&gt;&lt;/a&gt; provides a function to do this, but I don’t like the way it looks. So I made a ggplot version of what it did.&lt;/p&gt;
 
@@ -99,7 +132,7 @@ ggplot_missing(df)
  <entry>
    <title>How I built my website</title>
    <link href="http://tierneyn.github.io/jekyll/2015/11/11/how-i-built-my-site/"/>
-   <updated>2015-11-11T00:00:00+11:00</updated>
+   <updated>2015-11-11T00:00:00+10:00</updated>
    <id>http://tierneyn.github.io/jekyll/2015/11/11/how-i-built-my-site</id>
    <content type="html">&lt;p&gt;I’ve recently changed my website from Wordpress to Jekyll. In this post I try and succinctly describe how it happened.&lt;/p&gt;
 
@@ -303,7 +336,7 @@ ggplot_missing(df)
  <entry>
    <title>Using `table` the dplyr way</title>
    <link href="http://tierneyn.github.io/r/2015/11/03/tally-the-dplyr-table/"/>
-   <updated>2015-11-03T00:00:00+11:00</updated>
+   <updated>2015-11-03T00:00:00+10:00</updated>
    <id>http://tierneyn.github.io/r/2015/11/03/tally-the-dplyr-table</id>
    <content type="html">&lt;p&gt;In this post I describe how to use &lt;code class=&quot;highlighter-rouge&quot;&gt;tally&lt;/code&gt;, the &lt;code class=&quot;highlighter-rouge&quot;&gt;dplyr&lt;/code&gt; equivalent of &lt;code class=&quot;highlighter-rouge&quot;&gt;table&lt;/code&gt;.&lt;/p&gt;
 
@@ -400,7 +433,7 @@ library(knitr)&lt;/p&gt;
  <entry>
    <title>R Package `neato`</title>
    <link href="http://tierneyn.github.io/r/2015/03/09/r-package-neato/"/>
-   <updated>2015-03-09T00:00:00+11:00</updated>
+   <updated>2015-03-09T00:00:00+10:00</updated>
    <id>http://tierneyn.github.io/r/2015/03/09/r-package-neato</id>
    <content type="html">&lt;p&gt;My workflow in R now is to make a function after I copy and paste some code more than once. Sometimes I find myself using these functions more than once, across different projects.&lt;/p&gt;
 
@@ -417,7 +450,7 @@ library(knitr)&lt;/p&gt;
  <entry>
    <title>Working Smoothly(er) from RMarkdown to Word.</title>
    <link href="http://tierneyn.github.io/rmarkdown/r/2015/02/09/Working-Smoothlyer-from-RMarkdown-to-Word/"/>
-   <updated>2015-02-09T00:00:00+11:00</updated>
+   <updated>2015-02-09T00:00:00+10:00</updated>
    <id>http://tierneyn.github.io/rmarkdown/r/2015/02/09/Working-Smoothlyer-from-RMarkdown-to-Word</id>
    <content type="html">&lt;p&gt;I’m a pretty huge fan of RMarkdown, as it is a great way for me to write my code and my text together. It seems really a rather a natural thing to do. You write about your analyses, and the code is there. You update some function or some data, and your figures and tables update with it.&lt;/p&gt;
 
@@ -489,7 +522,7 @@ library(knitr)&lt;/p&gt;
  <entry>
    <title>A Grammar of Models?</title>
    <link href="http://tierneyn.github.io/r/statistics/2013/11/10/grammar-of-models/"/>
-   <updated>2013-11-10T00:00:00+11:00</updated>
+   <updated>2013-11-10T00:00:00+10:00</updated>
    <id>http://tierneyn.github.io/r/statistics/2013/11/10/grammar-of-models</id>
    <content type="html">&lt;p&gt;I came across &lt;a href=&quot;http://statr.me/2013/09/a-conversation-with-hadley-wickham/&quot;&gt;this interview&lt;/a&gt; with Hadley Wickham, the creator of one of the most widely used R packages, &lt;code class=&quot;highlighter-rouge&quot;&gt;ggplot 2&lt;/code&gt;. I thought that this quote was interesting:&lt;/p&gt;
 
@@ -519,7 +552,7 @@ ggmodel(data = my.data,
  <entry>
    <title>Statistics for Journalists</title>
    <link href="http://tierneyn.github.io/statistics/teaching/2013/11/01/statistics-for-journalists/"/>
-   <updated>2013-11-01T00:00:00+11:00</updated>
+   <updated>2013-11-01T00:00:00+10:00</updated>
    <id>http://tierneyn.github.io/statistics/teaching/2013/11/01/statistics-for-journalists</id>
    <content type="html">&lt;p&gt;In November 2013 I had the opportunity to work with the Australian Science Media Centre (AusSMC) and produce a talk explaining numbers and statistics.  The deal was that it was 11 concepts on numbers and stats in 20 minutes.  The concepts being:&lt;/p&gt;
 

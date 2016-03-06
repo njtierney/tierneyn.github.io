@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://tierneyn.github.io/blag/rbloggers/2016/02/22/wombat-2016-wrap-up/</loc>
+<lastmod>2016-02-22T00:00:00+10:00</lastmod>
+</url>
+<url>
 <loc>http://tierneyn.github.io/r/missing%2520data/rbloggers/2015/12/01/ggplot-missing-data/</loc>
-<lastmod>2015-12-01T00:00:00+11:00</lastmod>
+<lastmod>2015-12-01T00:00:00+10:00</lastmod>
 </url>
 <url>
 <loc>http://tierneyn.github.io/jekyll/2015/11/11/how-i-built-my-site/</loc>
-<lastmod>2015-11-11T00:00:00+11:00</lastmod>
+<lastmod>2015-11-11T00:00:00+10:00</lastmod>
 </url>
 <url>
 <loc>http://tierneyn.github.io/r/2015/11/03/tally-the-dplyr-table/</loc>
-<lastmod>2015-11-03T00:00:00+11:00</lastmod>
+<lastmod>2015-11-03T00:00:00+10:00</lastmod>
 </url>
 <url>
 <loc>http://tierneyn.github.io/r/2015/03/09/r-package-neato/</loc>
-<lastmod>2015-03-09T00:00:00+11:00</lastmod>
+<lastmod>2015-03-09T00:00:00+10:00</lastmod>
 </url>
 <url>
 <loc>http://tierneyn.github.io/rmarkdown/r/2015/02/09/Working-Smoothlyer-from-RMarkdown-to-Word/</loc>
-<lastmod>2015-02-09T00:00:00+11:00</lastmod>
+<lastmod>2015-02-09T00:00:00+10:00</lastmod>
 </url>
 <url>
 <loc>http://tierneyn.github.io/r/2014/04/22/gbm-plot-fix/</loc>
@@ -26,11 +30,11 @@
 </url>
 <url>
 <loc>http://tierneyn.github.io/r/statistics/2013/11/10/grammar-of-models/</loc>
-<lastmod>2013-11-10T00:00:00+11:00</lastmod>
+<lastmod>2013-11-10T00:00:00+10:00</lastmod>
 </url>
 <url>
 <loc>http://tierneyn.github.io/statistics/teaching/2013/11/01/statistics-for-journalists/</loc>
-<lastmod>2013-11-01T00:00:00+11:00</lastmod>
+<lastmod>2013-11-01T00:00:00+10:00</lastmod>
 </url>
 <url>
 <loc>http://tierneyn.github.io/statistics/blag/2013/09/01/stats-can-do-anything/</loc>
