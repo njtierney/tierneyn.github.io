@@ -4,7 +4,6 @@ layout: post
 comments: true
 categories:
 - Blag
-- rbloggers
 ---
 
 # The Australian rOpenSci Unconference

@@ -4,7 +4,7 @@
  <title>Nicholas Tierney</title>
  <link href="http://tierneyn.github.io/atom.xml" rel="self"/>
  <link href="http://tierneyn.github.io/"/>
- <updated>2016-03-11T11:48:54+10:00</updated>
+ <updated>2016-03-11T13:36:16+10:00</updated>
  <id>http://tierneyn.github.io</id>
  <author>
    <name>Nicholas Tierney</name>
@@ -14,9 +14,9 @@
  
  <entry>
    <title>Australian rOpenSci Unconference</title>
-   <link href="http://tierneyn.github.io/blag/rbloggers/2016/03/09/au-unconf-down-under/"/>
+   <link href="http://tierneyn.github.io/blag/2016/03/09/au-unconf-down-under/"/>
    <updated>2016-03-09T00:00:00+10:00</updated>
-   <id>http://tierneyn.github.io/blag/rbloggers/2016/03/09/au-unconf-down-under</id>
+   <id>http://tierneyn.github.io/blag/2016/03/09/au-unconf-down-under</id>
    <content type="html">&lt;h1 id=&quot;the-australian-ropensci-unconference&quot;&gt;The Australian rOpenSci Unconference&lt;/h1&gt;
 
 &lt;blockquote&gt;
