@@ -7,6 +7,45 @@
 		<atom:link href="http://tierneyn.github.io/feed.rbloggers.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
+				<title>Australian rOpenSci Unconference</title>
+					<description>&lt;h1 id=&quot;the-australian-ropensci-unconference&quot;&gt;The Australian rOpenSci Unconference&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;This post has been reposted from the &lt;a href=&quot;https://ropensci.org/blog/2016/03/09/au-unconf-down-under&quot;&gt;rOpenSci blog&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The rOpenSci Unconferene is coming to Australia and we are excited!!&lt;/p&gt;
+
+&lt;p&gt;The event will take place in sunny Brisbane, on April 21-22 2016 hosted at the &lt;a href=&quot;https://www.microsoftinnovationcenters.com/&quot;&gt;Microsoft Innovation Centre&lt;/a&gt;. You can find more information about the event and how to register at &lt;a href=&quot;http://www.auunconf.ropensci.org.&quot;&gt;http://www.auunconf.ropensci.org.&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I was completely and unceremoniously thrown into the deep end when I first started learning R. Contrary to what I initially thought possible, I am now irreversibly converted to the ideology of open source. Create tools to make other people’s lives easier? Make methods easily reproducible? Get your hands on state-of-the-art methodology, hot off the presses? Yes please! Can I have some more?&lt;/p&gt;
+
+&lt;p&gt;The idea of attending the rOpenSci Unconference, watching on as people throw around ideas in their raw form, not the nicely arranged thoughts that we see on a blog, vignette, or a journal article. The idea of taking part in that process, those successes, failures, &lt;strong&gt;experiments&lt;/strong&gt;, and the ongoing development that helps make open source awesome. That &lt;em&gt;idea&lt;/em&gt; made me want to be there, to be a part of it as it happened.&lt;/p&gt;
+
+&lt;p&gt;Unfortunately, there was nothing like it on my side of the world.&lt;/p&gt;
+
+&lt;p&gt;I contemplated jumping on a plane to attend a US event, but the limited budget of a PhD student doesn’t exactly facilitate jet-setting. Participating remotely would be great, but I couldn’t help but think of what an unconference would be like with my Australian colleagues. Where I’m from - Brisbane - I know there are a loads of people who use R, but there’s no cohesive community pulling us together, helping us help each other and solving the problems of the universe.&lt;/p&gt;
+
+&lt;p&gt;I started to think: what if we could do something here? Something to bring R programmers hiding in the woodworks out and into a place where they could share their ideas on ready ears and we could shout “that’s a great idea, let’s do it!”. No more waiting for the right moment, or for that one weekend where you just happen to have time to flesh out that idea you had. We’d just do it.&lt;/p&gt;
+
+&lt;p&gt;Much to my delight, when we reached out to Karthik and the rOpenSci team asking about an Australian Unconference, they said “yes”.&lt;/p&gt;
+
+&lt;p&gt;And now it’s happening. This will be the first R and Open Science focused event of it’s kind in Australia, and just pulling it together now has created such momentum that I doubt it will be the last.&lt;/p&gt;
+
+&lt;p&gt;What is our goal? To us, the goal of the unconference is to foster collaborations and discussions about how to extend and improve R so that we can make data, methods, and science more open and accessible. Beginning this is exciting, and we can’t wait to see what happens afterwards.&lt;/p&gt;
+
+&lt;p&gt;So for all of those R programmers hiding in the woodworks in Brisbane and around Australia, please get in touch or apply through the website. This is our first trial run so we will keep numbers to 40, but we will keep all of those who apply informed about future events…this is just the beginning!&lt;/p&gt;
+
+&lt;p&gt;It’s been a pleasure to partner with rOpenSci, thanks to the team for their support. Special thanks also to Miles McBain and Jessie Roberts, my Australian co-pilots without whom I’d be lost over the Atlantic.&lt;/p&gt;
+
+&lt;p&gt;See you at the Unconference.&lt;/p&gt;
+</description>
+				<pubDate>Wed, 09 Mar 2016 00:00:00 +1000</pubDate>
+				<link>http://tierneyn.github.io/blag/rbloggers/2016/03/09/au-unconf-down-under/</link>
+				<guid isPermaLink="true">http://tierneyn.github.io/blag/rbloggers/2016/03/09/au-unconf-down-under/</guid>
+			</item>
+		
+			<item>
 				<title>WOMBAT 2016 Wrap Up</title>
 					<description>&lt;p&gt;A few weeks ago I spoke at the &lt;a href=&quot;http://wombat2016.org/&quot;&gt;Workshop Organized by Monash Business Analytics Team (WOMBAT)&lt;/a&gt;, held in the Melbourne Zoo (!) on Thursday and Friday the 18th and 19th February.&lt;/p&gt;
 
@@ -14,7 +53,7 @@
 
 &lt;p&gt;Two other colleagues from QUT also attended, Amy Cook (as a contributed speaker), and Dr. Zoé van Havre (as an invited Speaker). Amy is currently completing a Masters by research in statistics, and Zoé has just finished her PhD in Statistics and is about to complete a Post-Doc at CSIRO.&lt;/p&gt;
 
-&lt;p&gt;The conference was organised by &lt;a href=&quot;dicook.github.io&quot;&gt;Di Cook&lt;/a&gt; and &lt;a href=&quot;http://robjhyndman.com/&quot;&gt;Rob Hyndman&lt;/a&gt;, of the Monash Business School. Di Cook is well known for her work in visualisation and software. Di  also supervised both Hadley Wickham and Yihui Xie. Hadley has improved the R experience drastically with packages ggplot2, dplyr, tidyr, and devtools. Yihui wrote the package &lt;code class=&quot;highlighter-rouge&quot;&gt;knitr&lt;/code&gt;, making reproducible reporting easy and fun to do in R.&lt;/p&gt;
+&lt;p&gt;The conference was organised by &lt;a href=&quot;dicook.github.io&quot;&gt;Di Cook&lt;/a&gt; and &lt;a href=&quot;http://robjhyndman.com/&quot;&gt;Rob Hyndman&lt;/a&gt;, of the Monash Business School. Di Cook is well known for her work in &lt;a href=&quot;https://dicook.github.io/research.html&quot;&gt;visualisation and software&lt;/a&gt;. Di  also supervised both Hadley Wickham and Yihui Xie. Hadley has improved the R experience drastically with packages ggplot2, dplyr, tidyr, and devtools. Yihui wrote the package &lt;code class=&quot;highlighter-rouge&quot;&gt;knitr&lt;/code&gt;, making reproducible reporting easy and fun to do in R. Rob Hyndman is the creator and maintainer of the &lt;a href=&quot;https://cran.r-project.org/web/packages/forecast/index.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;forecast&lt;/code&gt;&lt;/a&gt; package, and has written a &lt;a href=&quot;https://www.otexts.org/fpp&quot;&gt;free online textbook on forecasting&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Hadley Wickham was they Keynote speaker for the conference. Hadley’s talk discussed one way to go about summarizing large datasets by fitting many models using &lt;a href=&quot;https://github.com/hadley/purrr&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;purrr&lt;/code&gt;&lt;/a&gt;. &lt;code class=&quot;highlighter-rouge&quot;&gt;purrr&lt;/code&gt; takes a functional programming approach so you emphasises the verbs in your data anyalsis. This approach means that you can avoid writing loops so that you emphasize actions rather than book keeping. I had always been told that you should avoid writing loops in R because they are slow. However, Hadley said the following about that when asked about performance differences between apply, purrr, and for loops:&lt;/p&gt;
 
@@ -24,7 +63,7 @@
 
 &lt;p&gt;So why do we hear that loops are slow in R? Apparently it is an Historical Hangover from the S language, and the early days of R. Credit to &lt;a href=&quot;http://www.statschat.org.nz/&quot;&gt;Thomas Lumley&lt;/a&gt; for pointing this out.&lt;/p&gt;
 
-&lt;p&gt;You can watch the video &lt;a href=&quot;http://wombat2016.org/slides/hadley.pdf&quot;&gt;here&lt;/a&gt; and see Hadley’s slides &lt;a href=&quot;https://www.youtube.com/watch?v=hRNUgwAFZtQ&quot;&gt;here&lt;/a&gt;. Highly recommended!&lt;/p&gt;
+&lt;p&gt;You can watch the video &lt;a href=&quot;https://www.youtube.com/watch?v=hRNUgwAFZtQ&quot;&gt;here&lt;/a&gt; and see Hadley’s slides &lt;a href=&quot;http://wombat2016.org/slides/hadley.pdf&quot;&gt;here&lt;/a&gt;. Highly recommended!&lt;/p&gt;
 
 &lt;p&gt;Zoé delivered an awesome talk that was really appropriate for the audience and did a great job of condensing 4 years of her PhD on Bayesian Mixture Models into something that everyone could understand. It was also very satisfying to see Zoé answer the question at the end “How did you choose your prior?” in excellent style, clearly demonstrating the depth of her knowledge on Bayesian stats. It was clear that Zoe could communicate “bleeding edge” statistics in a technical and non-technical sense. Awesome job. You can see her slides &lt;a href=&quot;https://zoevanhavre.github.io/talks/Feb2016_WOMBAT/ZvH_WombatSlides.html#1&quot;&gt;here&lt;/a&gt; and read her paper on Mixture Models &lt;a href=&quot;http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0131739&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
