@@ -6,10 +6,6 @@ categories:
 - Blag
 ---
 
-# The Australian rOpenSci Unconference
-
->_This post has been reposted from the [rOpenSci blog](https://ropensci.org/blog/2016/03/09/au-unconf-down-under)._
-
 The rOpenSci Unconferene is coming to Australia and we are excited!! 
 
 The event will take place in sunny Brisbane, on April 21-22 2016 hosted at the [Microsoft Innovation Centre](https://www.microsoftinnovationcenters.com/). You can find more information about the event and how to register at <http://www.auunconf.ropensci.org.>
@@ -35,3 +31,6 @@ So for all of those R programmers hiding in the woodworks in Brisbane and around
 It's been a pleasure to partner with rOpenSci, thanks to the team for their support. Special thanks also to Miles McBain and Jessie Roberts, my Australian co-pilots without whom I'd be lost over the Atlantic.
 
 See you at the Unconference.  
+
+>_This post has been reposted from the [rOpenSci blog](https://ropensci.org/blog/2016/03/09/au-unconf-down-under)._
+

@@ -3,14 +3,14 @@
 	<channel>
 		<title>njtierney - rbloggers</title>
 		<description>Posts categorized as 'rbloggers'</description>
-		<link>http://tierneyn.github.io</link>
-		<atom:link href="http://tierneyn.github.io/feed.rbloggers.xml" rel="self" type="application/rss+xml" />
+		<link>http://njtierney.github.io</link>
+		<atom:link href="http://njtierney.github.io/feed.rbloggers.xml" rel="self" type="application/rss+xml" />
 		
 			<item>
 				<title>WOMBAT 2016 Wrap Up</title>
 					<description>&lt;p&gt;A few weeks ago I spoke at the &lt;a href=&quot;http://wombat2016.org/&quot;&gt;Workshop Organized by Monash Business Analytics Team (WOMBAT)&lt;/a&gt;, held in the Melbourne Zoo (!) on Thursday and Friday the 18th and 19th February.&lt;/p&gt;
 
-&lt;p&gt;It was my first time at the Melbourne Zoo, and my first time having a conference in a Zoo. It was a pretty surreal experience briskly walking to the conference room while trying to navigate a zoo, passing monkeys, macaws, and tigers. And during the lunch breaks you could sit down and chat with other conference attendees…or go and see the Orangutan show, watch the elephants get a clean, or see some Gorilla’s.&lt;/p&gt;
+&lt;p&gt;It was my first time at the Melbourne Zoo, and my first time having a conference in a Zoo. It was a pretty surreal experience briskly walking to the conference room while trying to navigate a zoo, passing monkeys, macaws, and tigers. And during the lunch breaks you could sit down and chat with other conference attendees…or go and see the Orangutan show, watch the elephants get a clean, or see some Gorillas.&lt;/p&gt;
 
 &lt;p&gt;Two other colleagues from QUT also attended, Amy Cook (as a contributed speaker), and Dr. Zoé van Havre (as an invited Speaker). Amy is currently completing a Masters by research in statistics, and Zoé has just finished her PhD in Statistics and is about to complete a Post-Doc at CSIRO.&lt;/p&gt;
 
@@ -24,19 +24,19 @@
 
 &lt;p&gt;So why do we hear that loops are slow in R? Apparently it is an Historical Hangover from the S language, and the early days of R. Credit to &lt;a href=&quot;http://www.statschat.org.nz/&quot;&gt;Thomas Lumley&lt;/a&gt; for pointing this out.&lt;/p&gt;
 
-&lt;p&gt;You can watch the video &lt;a href=&quot;https://www.youtube.com/watch?v=hRNUgwAFZtQ&quot;&gt;here&lt;/a&gt; and see Hadley’s slides &lt;a href=&quot;http://wombat2016.org/slides/hadley.pdf&quot;&gt;here&lt;/a&gt;. Highly recommended!&lt;/p&gt;
+&lt;p&gt;The conference organisers filmed the keynote talk from Hadley, and you can watch the video &lt;a href=&quot;https://www.youtube.com/watch?v=hRNUgwAFZtQ&quot;&gt;here&lt;/a&gt; and see Hadley’s slides &lt;a href=&quot;http://wombat2016.org/slides/hadley.pdf&quot;&gt;here&lt;/a&gt;. I Highly recommend watching the talk.&lt;/p&gt;
 
 &lt;p&gt;Zoé delivered an awesome talk that was really appropriate for the audience and did a great job of condensing 4 years of her PhD on Bayesian Mixture Models into something that everyone could understand. It was also very satisfying to see Zoé answer the question at the end “How did you choose your prior?” in excellent style, clearly demonstrating the depth of her knowledge on Bayesian stats. It was clear that Zoe could communicate “bleeding edge” statistics in a technical and non-technical sense. Awesome job. You can see her slides &lt;a href=&quot;https://zoevanhavre.github.io/talks/Feb2016_WOMBAT/ZvH_WombatSlides.html#1&quot;&gt;here&lt;/a&gt; and read her paper on Mixture Models &lt;a href=&quot;http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0131739&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Amy spoke excellently about how to extract and use data from timesheets. The first question out of people’s mouths at the end of the talk was “how much money have you made from this idea?” - she then had a lot of people describe to her how her idea is commercially viable. Very cool. You can see slides &lt;a href=&quot;http://wombat2016.org/slides/amy.pdf&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;I delivered a talk on two packages I have developed alongside Miles McBain and Di Cook: &lt;a href=&quot;https://github.com/tierneyn/visdat&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;visdat&lt;/code&gt;&lt;/a&gt; and &lt;a href=&quot;https://github.com/tierneyn/ggmissing&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ggmissing&lt;/code&gt;&lt;/a&gt;. The idea of &lt;code class=&quot;highlighter-rouge&quot;&gt;visdat&lt;/code&gt; is to allow you do visualise an entire dataframe at once, and &lt;code class=&quot;highlighter-rouge&quot;&gt;ggmissing&lt;/code&gt; extends ggplot to incorporate missingness, similar to ggobi.  I had some good questions at the end, with some cool suggestions like including natural language processing to highlight specific characters/patterns, and that &lt;code class=&quot;highlighter-rouge&quot;&gt;vis_miss&lt;/code&gt; could run some missingness diagnostics and provide a warning message to the user along the lines of “you might have variables MAR, investigate further”. I shall talk more about this in a future blog post.&lt;/p&gt;
+&lt;p&gt;I delivered a talk on two packages I have developed alongside Miles McBain and Di Cook: &lt;a href=&quot;https://github.com/njtierney/visdat&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;visdat&lt;/code&gt;&lt;/a&gt; and &lt;a href=&quot;https://github.com/njtierney/ggmissing&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ggmissing&lt;/code&gt;&lt;/a&gt;. The idea of &lt;code class=&quot;highlighter-rouge&quot;&gt;visdat&lt;/code&gt; is to allow you do visualise an entire dataframe at once, and &lt;code class=&quot;highlighter-rouge&quot;&gt;ggmissing&lt;/code&gt; extends ggplot to incorporate missingness, similar to ggobi.  I had some good questions at the end, with some cool suggestions like including natural language processing to highlight specific characters/patterns, and that &lt;code class=&quot;highlighter-rouge&quot;&gt;vis_miss&lt;/code&gt; could run some missingness diagnostics and provide a warning message to the user along the lines of “you might have variables MAR, investigate further”. I shall talk more about this in a future blog post.&lt;/p&gt;
 
 &lt;p&gt;It looks like WOMBAT might be an annual occurence, I would highly encourage attending the next one if you have the opportunity. Thank you once more to the conference Organisers for putting together such an awesome conference. Looking forward to the next one!&lt;/p&gt;
 </description>
-				<pubDate>Sun, 06 Mar 2016 00:00:00 +1000</pubDate>
-				<link>http://tierneyn.github.io/blag/rbloggers/2016/03/06/wombat-2016-wrap-up/</link>
-				<guid isPermaLink="true">http://tierneyn.github.io/blag/rbloggers/2016/03/06/wombat-2016-wrap-up/</guid>
+				<pubDate>Sun, 06 Mar 2016 00:00:00 +0100</pubDate>
+				<link>http://njtierney.github.io/blag/rbloggers/2016/03/06/wombat-2016-wrap-up/</link>
+				<guid isPermaLink="true">http://njtierney.github.io/blag/rbloggers/2016/03/06/wombat-2016-wrap-up/</guid>
 			</item>
 		
 			<item>
@@ -112,15 +112,15 @@ ggplot_missing(df)
 
 &lt;p&gt;It’s much cleaner, and easier to interpret.&lt;/p&gt;
 
-&lt;p&gt;This function, and others, is available in the &lt;a href=&quot;https://github.com/tierneyn/neato&quot;&gt;neato package&lt;/a&gt;, where I store a bunch of functions I think are neat.&lt;/p&gt;
+&lt;p&gt;This function, and others, is available in the &lt;a href=&quot;https://github.com/njtierney/neato&quot;&gt;neato package&lt;/a&gt;, where I store a bunch of functions I think are neat.&lt;/p&gt;
 
-&lt;p&gt;Quick note - there used to be a function, &lt;code class=&quot;highlighter-rouge&quot;&gt;missing.pattern.plot&lt;/code&gt; &lt;a href=&quot;http://www.inside-r.org/packages/cran/mi/docs/missing.pattern.plot&quot;&gt;that you can see here&lt;/a&gt; in the package &lt;code class=&quot;highlighter-rouge&quot;&gt;mi&lt;/code&gt;. However, it doesn’t appear to exist anymore. This is a shame, as it was a really nifty plot that clustered the groups of missingness. My friend and colleague, &lt;a href=&quot;http://samclifford.info/&quot;&gt;Sam Clifford&lt;/a&gt; heard me complaining about this and wrote some code that does just that - I shall share this soon, it will likely be added to the &lt;a href=&quot;https://github.com/tierneyn/neato&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;neato&lt;/code&gt; repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Quick note - there used to be a function, &lt;code class=&quot;highlighter-rouge&quot;&gt;missing.pattern.plot&lt;/code&gt; &lt;a href=&quot;http://www.inside-r.org/packages/cran/mi/docs/missing.pattern.plot&quot;&gt;that you can see here&lt;/a&gt; in the package &lt;code class=&quot;highlighter-rouge&quot;&gt;mi&lt;/code&gt;. However, it doesn’t appear to exist anymore. This is a shame, as it was a really nifty plot that clustered the groups of missingness. My friend and colleague, &lt;a href=&quot;http://samclifford.info/&quot;&gt;Sam Clifford&lt;/a&gt; heard me complaining about this and wrote some code that does just that - I shall share this soon, it will likely be added to the &lt;a href=&quot;https://github.com/njtierney/neato&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;neato&lt;/code&gt; repository&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Thoughts? Write them below.&lt;/p&gt;
 </description>
-				<pubDate>Tue, 01 Dec 2015 00:00:00 +1000</pubDate>
-				<link>http://tierneyn.github.io/r/missing%20data/rbloggers/2015/12/01/ggplot-missing-data/</link>
-				<guid isPermaLink="true">http://tierneyn.github.io/r/missing%20data/rbloggers/2015/12/01/ggplot-missing-data/</guid>
+				<pubDate>Tue, 01 Dec 2015 00:00:00 +0100</pubDate>
+				<link>http://njtierney.github.io/r/missing%20data/rbloggers/2015/12/01/ggplot-missing-data/</link>
+				<guid isPermaLink="true">http://njtierney.github.io/r/missing%20data/rbloggers/2015/12/01/ggplot-missing-data/</guid>
 			</item>
 		
 	</channel>

@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Nicholas Tierney</title>
- <link href="http://tierneyn.github.io/atom.xml" rel="self"/>
- <link href="http://tierneyn.github.io/"/>
- <updated>2016-03-11T13:36:16+10:00</updated>
- <id>http://tierneyn.github.io</id>
+ <link href="http://njtierney.github.io/atom.xml" rel="self"/>
+ <link href="http://njtierney.github.io/"/>
+ <updated>2016-06-30T19:32:26+02:00</updated>
+ <id>http://njtierney.github.io</id>
  <author>
    <name>Nicholas Tierney</name>
    <email></email>
@@ -14,16 +14,10 @@
  
  <entry>
    <title>Australian rOpenSci Unconference</title>
-   <link href="http://tierneyn.github.io/blag/2016/03/09/au-unconf-down-under/"/>
-   <updated>2016-03-09T00:00:00+10:00</updated>
-   <id>http://tierneyn.github.io/blag/2016/03/09/au-unconf-down-under</id>
-   <content type="html">&lt;h1 id=&quot;the-australian-ropensci-unconference&quot;&gt;The Australian rOpenSci Unconference&lt;/h1&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;em&gt;This post has been reposted from the &lt;a href=&quot;https://ropensci.org/blog/2016/03/09/au-unconf-down-under&quot;&gt;rOpenSci blog&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;The rOpenSci Unconferene is coming to Australia and we are excited!!&lt;/p&gt;
+   <link href="http://njtierney.github.io/blag/2016/03/09/au-unconf-down-under/"/>
+   <updated>2016-03-09T00:00:00+01:00</updated>
+   <id>http://njtierney.github.io/blag/2016/03/09/au-unconf-down-under</id>
+   <content type="html">&lt;p&gt;The rOpenSci Unconferene is coming to Australia and we are excited!!&lt;/p&gt;
 
 &lt;p&gt;The event will take place in sunny Brisbane, on April 21-22 2016 hosted at the &lt;a href=&quot;https://www.microsoftinnovationcenters.com/&quot;&gt;Microsoft Innovation Centre&lt;/a&gt;. You can find more information about the event and how to register at &lt;a href=&quot;http://www.auunconf.ropensci.org.&quot;&gt;http://www.auunconf.ropensci.org.&lt;/a&gt;&lt;/p&gt;
 
@@ -48,17 +42,22 @@
 &lt;p&gt;It’s been a pleasure to partner with rOpenSci, thanks to the team for their support. Special thanks also to Miles McBain and Jessie Roberts, my Australian co-pilots without whom I’d be lost over the Atlantic.&lt;/p&gt;
 
 &lt;p&gt;See you at the Unconference.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;This post has been reposted from the &lt;a href=&quot;https://ropensci.org/blog/2016/03/09/au-unconf-down-under&quot;&gt;rOpenSci blog&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
 </content>
  </entry>
  
  <entry>
    <title>WOMBAT 2016 Wrap Up</title>
-   <link href="http://tierneyn.github.io/blag/rbloggers/2016/03/06/wombat-2016-wrap-up/"/>
-   <updated>2016-03-06T00:00:00+10:00</updated>
-   <id>http://tierneyn.github.io/blag/rbloggers/2016/03/06/wombat-2016-wrap-up</id>
+   <link href="http://njtierney.github.io/blag/rbloggers/2016/03/06/wombat-2016-wrap-up/"/>
+   <updated>2016-03-06T00:00:00+01:00</updated>
+   <id>http://njtierney.github.io/blag/rbloggers/2016/03/06/wombat-2016-wrap-up</id>
    <content type="html">&lt;p&gt;A few weeks ago I spoke at the &lt;a href=&quot;http://wombat2016.org/&quot;&gt;Workshop Organized by Monash Business Analytics Team (WOMBAT)&lt;/a&gt;, held in the Melbourne Zoo (!) on Thursday and Friday the 18th and 19th February.&lt;/p&gt;
 
-&lt;p&gt;It was my first time at the Melbourne Zoo, and my first time having a conference in a Zoo. It was a pretty surreal experience briskly walking to the conference room while trying to navigate a zoo, passing monkeys, macaws, and tigers. And during the lunch breaks you could sit down and chat with other conference attendees…or go and see the Orangutan show, watch the elephants get a clean, or see some Gorilla’s.&lt;/p&gt;
+&lt;p&gt;It was my first time at the Melbourne Zoo, and my first time having a conference in a Zoo. It was a pretty surreal experience briskly walking to the conference room while trying to navigate a zoo, passing monkeys, macaws, and tigers. And during the lunch breaks you could sit down and chat with other conference attendees…or go and see the Orangutan show, watch the elephants get a clean, or see some Gorillas.&lt;/p&gt;
 
 &lt;p&gt;Two other colleagues from QUT also attended, Amy Cook (as a contributed speaker), and Dr. Zoé van Havre (as an invited Speaker). Amy is currently completing a Masters by research in statistics, and Zoé has just finished her PhD in Statistics and is about to complete a Post-Doc at CSIRO.&lt;/p&gt;
 
@@ -72,13 +71,13 @@
 
 &lt;p&gt;So why do we hear that loops are slow in R? Apparently it is an Historical Hangover from the S language, and the early days of R. Credit to &lt;a href=&quot;http://www.statschat.org.nz/&quot;&gt;Thomas Lumley&lt;/a&gt; for pointing this out.&lt;/p&gt;
 
-&lt;p&gt;You can watch the video &lt;a href=&quot;https://www.youtube.com/watch?v=hRNUgwAFZtQ&quot;&gt;here&lt;/a&gt; and see Hadley’s slides &lt;a href=&quot;http://wombat2016.org/slides/hadley.pdf&quot;&gt;here&lt;/a&gt;. Highly recommended!&lt;/p&gt;
+&lt;p&gt;The conference organisers filmed the keynote talk from Hadley, and you can watch the video &lt;a href=&quot;https://www.youtube.com/watch?v=hRNUgwAFZtQ&quot;&gt;here&lt;/a&gt; and see Hadley’s slides &lt;a href=&quot;http://wombat2016.org/slides/hadley.pdf&quot;&gt;here&lt;/a&gt;. I Highly recommend watching the talk.&lt;/p&gt;
 
 &lt;p&gt;Zoé delivered an awesome talk that was really appropriate for the audience and did a great job of condensing 4 years of her PhD on Bayesian Mixture Models into something that everyone could understand. It was also very satisfying to see Zoé answer the question at the end “How did you choose your prior?” in excellent style, clearly demonstrating the depth of her knowledge on Bayesian stats. It was clear that Zoe could communicate “bleeding edge” statistics in a technical and non-technical sense. Awesome job. You can see her slides &lt;a href=&quot;https://zoevanhavre.github.io/talks/Feb2016_WOMBAT/ZvH_WombatSlides.html#1&quot;&gt;here&lt;/a&gt; and read her paper on Mixture Models &lt;a href=&quot;http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0131739&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Amy spoke excellently about how to extract and use data from timesheets. The first question out of people’s mouths at the end of the talk was “how much money have you made from this idea?” - she then had a lot of people describe to her how her idea is commercially viable. Very cool. You can see slides &lt;a href=&quot;http://wombat2016.org/slides/amy.pdf&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;I delivered a talk on two packages I have developed alongside Miles McBain and Di Cook: &lt;a href=&quot;https://github.com/tierneyn/visdat&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;visdat&lt;/code&gt;&lt;/a&gt; and &lt;a href=&quot;https://github.com/tierneyn/ggmissing&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ggmissing&lt;/code&gt;&lt;/a&gt;. The idea of &lt;code class=&quot;highlighter-rouge&quot;&gt;visdat&lt;/code&gt; is to allow you do visualise an entire dataframe at once, and &lt;code class=&quot;highlighter-rouge&quot;&gt;ggmissing&lt;/code&gt; extends ggplot to incorporate missingness, similar to ggobi.  I had some good questions at the end, with some cool suggestions like including natural language processing to highlight specific characters/patterns, and that &lt;code class=&quot;highlighter-rouge&quot;&gt;vis_miss&lt;/code&gt; could run some missingness diagnostics and provide a warning message to the user along the lines of “you might have variables MAR, investigate further”. I shall talk more about this in a future blog post.&lt;/p&gt;
+&lt;p&gt;I delivered a talk on two packages I have developed alongside Miles McBain and Di Cook: &lt;a href=&quot;https://github.com/njtierney/visdat&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;visdat&lt;/code&gt;&lt;/a&gt; and &lt;a href=&quot;https://github.com/njtierney/ggmissing&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ggmissing&lt;/code&gt;&lt;/a&gt;. The idea of &lt;code class=&quot;highlighter-rouge&quot;&gt;visdat&lt;/code&gt; is to allow you do visualise an entire dataframe at once, and &lt;code class=&quot;highlighter-rouge&quot;&gt;ggmissing&lt;/code&gt; extends ggplot to incorporate missingness, similar to ggobi.  I had some good questions at the end, with some cool suggestions like including natural language processing to highlight specific characters/patterns, and that &lt;code class=&quot;highlighter-rouge&quot;&gt;vis_miss&lt;/code&gt; could run some missingness diagnostics and provide a warning message to the user along the lines of “you might have variables MAR, investigate further”. I shall talk more about this in a future blog post.&lt;/p&gt;
 
 &lt;p&gt;It looks like WOMBAT might be an annual occurence, I would highly encourage attending the next one if you have the opportunity. Thank you once more to the conference Organisers for putting together such an awesome conference. Looking forward to the next one!&lt;/p&gt;
 </content>
@@ -86,9 +85,9 @@
  
  <entry>
    <title>ggplot your missing data</title>
-   <link href="http://tierneyn.github.io/r/missing%20data/rbloggers/2015/12/01/ggplot-missing-data/"/>
-   <updated>2015-12-01T00:00:00+10:00</updated>
-   <id>http://tierneyn.github.io/r/missing%20data/rbloggers/2015/12/01/ggplot-missing-data</id>
+   <link href="http://njtierney.github.io/r/missing%20data/rbloggers/2015/12/01/ggplot-missing-data/"/>
+   <updated>2015-12-01T00:00:00+01:00</updated>
+   <id>http://njtierney.github.io/r/missing%20data/rbloggers/2015/12/01/ggplot-missing-data</id>
    <content type="html">&lt;p&gt;Visualising missing data is important when analysing a dataset. I wanted to make a plot of the presence/absence in a dataset. One package, &lt;a href=&quot;https://cran.r-project.org/web/packages/Amelia/index.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Amelia&lt;/code&gt;&lt;/a&gt; provides a function to do this, but I don’t like the way it looks. So I made a ggplot version of what it did.&lt;/p&gt;
 
 &lt;p&gt;Let’s make a dataset using the awesome &lt;a href=&quot;https://github.com/trinker/wakefield&quot;&gt;wakefield package&lt;/a&gt;, and add random missingness.&lt;/p&gt;
@@ -160,9 +159,9 @@ ggplot_missing(df)
 
 &lt;p&gt;It’s much cleaner, and easier to interpret.&lt;/p&gt;
 
-&lt;p&gt;This function, and others, is available in the &lt;a href=&quot;https://github.com/tierneyn/neato&quot;&gt;neato package&lt;/a&gt;, where I store a bunch of functions I think are neat.&lt;/p&gt;
+&lt;p&gt;This function, and others, is available in the &lt;a href=&quot;https://github.com/njtierney/neato&quot;&gt;neato package&lt;/a&gt;, where I store a bunch of functions I think are neat.&lt;/p&gt;
 
-&lt;p&gt;Quick note - there used to be a function, &lt;code class=&quot;highlighter-rouge&quot;&gt;missing.pattern.plot&lt;/code&gt; &lt;a href=&quot;http://www.inside-r.org/packages/cran/mi/docs/missing.pattern.plot&quot;&gt;that you can see here&lt;/a&gt; in the package &lt;code class=&quot;highlighter-rouge&quot;&gt;mi&lt;/code&gt;. However, it doesn’t appear to exist anymore. This is a shame, as it was a really nifty plot that clustered the groups of missingness. My friend and colleague, &lt;a href=&quot;http://samclifford.info/&quot;&gt;Sam Clifford&lt;/a&gt; heard me complaining about this and wrote some code that does just that - I shall share this soon, it will likely be added to the &lt;a href=&quot;https://github.com/tierneyn/neato&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;neato&lt;/code&gt; repository&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Quick note - there used to be a function, &lt;code class=&quot;highlighter-rouge&quot;&gt;missing.pattern.plot&lt;/code&gt; &lt;a href=&quot;http://www.inside-r.org/packages/cran/mi/docs/missing.pattern.plot&quot;&gt;that you can see here&lt;/a&gt; in the package &lt;code class=&quot;highlighter-rouge&quot;&gt;mi&lt;/code&gt;. However, it doesn’t appear to exist anymore. This is a shame, as it was a really nifty plot that clustered the groups of missingness. My friend and colleague, &lt;a href=&quot;http://samclifford.info/&quot;&gt;Sam Clifford&lt;/a&gt; heard me complaining about this and wrote some code that does just that - I shall share this soon, it will likely be added to the &lt;a href=&quot;https://github.com/njtierney/neato&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;neato&lt;/code&gt; repository&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Thoughts? Write them below.&lt;/p&gt;
 </content>
@@ -170,9 +169,9 @@ ggplot_missing(df)
  
  <entry>
    <title>How I built my website</title>
-   <link href="http://tierneyn.github.io/jekyll/2015/11/11/how-i-built-my-site/"/>
-   <updated>2015-11-11T00:00:00+10:00</updated>
-   <id>http://tierneyn.github.io/jekyll/2015/11/11/how-i-built-my-site</id>
+   <link href="http://njtierney.github.io/jekyll/2015/11/11/how-i-built-my-site/"/>
+   <updated>2015-11-11T00:00:00+01:00</updated>
+   <id>http://njtierney.github.io/jekyll/2015/11/11/how-i-built-my-site</id>
    <content type="html">&lt;p&gt;I’ve recently changed my website from Wordpress to Jekyll. In this post I try and succinctly describe how it happened.&lt;/p&gt;
 
 &lt;h1 id=&quot;why-change&quot;&gt;Why change?&lt;/h1&gt;
@@ -217,7 +216,7 @@ ggplot_missing(df)
 
 &lt;h2 id=&quot;migrating-material-from-wordpress-to-jekyll&quot;&gt;Migrating material from wordpress to jekyll&lt;/h2&gt;
 
-&lt;p&gt;There are &lt;a href=&quot;http://import.jekyllrb.com/docs/home/&quot;&gt;tools for migrating to jekyll&lt;/a&gt;, but I found them a little hard to follow, probably because I only really understand how to program in R. So, I ended up doing something that I hate doing…and copied and pasted (copypasta’d) each post individually. Then I tinkered with them. Then I put them into the &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io/tree/master/_posts&quot;&gt;_posts&lt;/a&gt; directory. I allowed myself to do this as I didn’t have that many posts on my original website, so I figured it wasn’t that bad. Aaand, I didn’t feel like diving into another rabbit hole of xml.&lt;/p&gt;
+&lt;p&gt;There are &lt;a href=&quot;http://import.jekyllrb.com/docs/home/&quot;&gt;tools for migrating to jekyll&lt;/a&gt;, but I found them a little hard to follow, probably because I only really understand how to program in R. So, I ended up doing something that I hate doing…and copied and pasted (copypasta’d) each post individually. Then I tinkered with them. Then I put them into the &lt;a href=&quot;https://github.com/njtierney/tierneyn.github.io/tree/master/_posts&quot;&gt;_posts&lt;/a&gt; directory. I allowed myself to do this as I didn’t have that many posts on my original website, so I figured it wasn’t that bad. Aaand, I didn’t feel like diving into another rabbit hole of xml.&lt;/p&gt;
 
 &lt;h2 id=&quot;customizations&quot;&gt;Customizations&lt;/h2&gt;
 
@@ -259,13 +258,13 @@ ggplot_missing(df)
 
 &lt;p&gt;Using Google Analytics allows you to see who is visiting your site, from where, and all that stuff that WordPress has built into it.&lt;/p&gt;
 
-&lt;p&gt;When I started, I didn’t really know what google analytics was, so I went to their &lt;a href=&quot;http://www.google.com/analytics/&quot;&gt;homepage&lt;/a&gt;…found the link “sign up for analytics”, and followed the prompts - left all the boxes ticked (Google has my soul anyway), and accepted the Ts and Cs. Google then gives me a tracking code, with a nice friendly helpful box, stating: “this is your tracking code”. I then inserted this into a new file, &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io/blob/master/_includes/google_analytics.html&quot;&gt;google_analytics.html&lt;/a&gt;, added the appropriate coce to my &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io/blob/master/_layouts/default.html&quot;&gt;default.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;When I started, I didn’t really know what google analytics was, so I went to their &lt;a href=&quot;http://www.google.com/analytics/&quot;&gt;homepage&lt;/a&gt;…found the link “sign up for analytics”, and followed the prompts - left all the boxes ticked (Google has my soul anyway), and accepted the Ts and Cs. Google then gives me a tracking code, with a nice friendly helpful box, stating: “this is your tracking code”. I then inserted this into a new file, &lt;a href=&quot;https://github.com/njtierney/tierneyn.github.io/blob/master/_includes/google_analytics.html&quot;&gt;google_analytics.html&lt;/a&gt;, added the appropriate coce to my &lt;a href=&quot;https://github.com/njtierney/tierneyn.github.io/blob/master/_layouts/default.html&quot;&gt;default.html&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;other-little-customizations&quot;&gt;Other little customizations:&lt;/h2&gt;
 
 &lt;p&gt;&lt;strong&gt;Markdown tables&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;You can allow simple tables by changing your &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io/blob/master/_config.yml&quot;&gt;_yaml&lt;/a&gt; code to select the extension you want. Credit to &lt;a href=&quot;https://github.com/nicolewhite/nicolewhite.github.io&quot;&gt;Nicole White’s blog&lt;/a&gt;, where I saw this first.&lt;/p&gt;
+&lt;p&gt;You can allow simple tables by changing your &lt;a href=&quot;https://github.com/njtierney/tierneyn.github.io/blob/master/_config.yml&quot;&gt;_yaml&lt;/a&gt; code to select the extension you want. Credit to &lt;a href=&quot;https://github.com/nicolewhite/nicolewhite.github.io&quot;&gt;Nicole White’s blog&lt;/a&gt;, where I saw this first.&lt;/p&gt;
 
 &lt;p&gt;This means that the output from the R command &lt;code class=&quot;highlighter-rouge&quot;&gt;knitr::kable(head(iris))&lt;/code&gt;:&lt;/p&gt;
 
@@ -342,13 +341,13 @@ ggplot_missing(df)
 
 &lt;p&gt;&lt;strong&gt;Changing font&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;I looked up some awesome &lt;a href=&quot;fontpair.co&quot;&gt;font pairings&lt;/a&gt;, and chose Hind for the header Open Sans for the text. I then inserted some code &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io/public/css/lanyon.css&quot;&gt;into the top lines of the css&lt;/a&gt; to import them, and then added them to the appropriate parts of the css. I also changed the monospace font that is used for code to &lt;code class=&quot;highlighter-rouge&quot;&gt;Monaco&lt;/code&gt;, in &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io/public/css/poole.css&quot;&gt;poole.css&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I looked up some awesome &lt;a href=&quot;fontpair.co&quot;&gt;font pairings&lt;/a&gt;, and chose Hind for the header Open Sans for the text. I then inserted some code &lt;a href=&quot;https://github.com/njtierney/tierneyn.github.io/public/css/lanyon.css&quot;&gt;into the top lines of the css&lt;/a&gt; to import them, and then added them to the appropriate parts of the css. I also changed the monospace font that is used for code to &lt;code class=&quot;highlighter-rouge&quot;&gt;Monaco&lt;/code&gt;, in &lt;a href=&quot;https://github.com/njtierney/tierneyn.github.io/public/css/poole.css&quot;&gt;poole.css&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Adding in excerpts&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;I wanted the main blog page to just have excerpts from the blog. This is really easy - you just change &lt;code class=&quot;highlighter-rouge&quot;&gt;to&lt;/code&gt; in &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io/_layouts/default.html&quot;&gt;default.html&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I wanted the main blog page to just have excerpts from the blog. This is really easy - you just change &lt;code class=&quot;highlighter-rouge&quot;&gt;to&lt;/code&gt; in &lt;a href=&quot;https://github.com/njtierney/tierneyn.github.io/_layouts/default.html&quot;&gt;default.html&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;There a few other little things that I did, if you want to see how it all works, just check out my &lt;a href=&quot;https://github.com/tierneyn/tierneyn.github.io&quot;&gt;GitHub repo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;There a few other little things that I did, if you want to see how it all works, just check out my &lt;a href=&quot;https://github.com/njtierney/tierneyn.github.io&quot;&gt;GitHub repo&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h1 id=&quot;getting-jekyll-to-work-with-rmarkdown&quot;&gt;Getting jekyll to work with RMarkdown&lt;/h1&gt;
 
@@ -374,9 +373,9 @@ ggplot_missing(df)
  
  <entry>
    <title>Using `table` the dplyr way</title>
-   <link href="http://tierneyn.github.io/r/2015/11/03/tally-the-dplyr-table/"/>
-   <updated>2015-11-03T00:00:00+10:00</updated>
-   <id>http://tierneyn.github.io/r/2015/11/03/tally-the-dplyr-table</id>
+   <link href="http://njtierney.github.io/r/2015/11/03/tally-the-dplyr-table/"/>
+   <updated>2015-11-03T00:00:00+01:00</updated>
+   <id>http://njtierney.github.io/r/2015/11/03/tally-the-dplyr-table</id>
    <content type="html">&lt;p&gt;In this post I describe how to use &lt;code class=&quot;highlighter-rouge&quot;&gt;tally&lt;/code&gt;, the &lt;code class=&quot;highlighter-rouge&quot;&gt;dplyr&lt;/code&gt; equivalent of &lt;code class=&quot;highlighter-rouge&quot;&gt;table&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;table&lt;/code&gt; gives you the frequencies of something in a category. Let’s use the &lt;code class=&quot;highlighter-rouge&quot;&gt;iris&lt;/code&gt; dataset to illustrate. Let’s say we want to know how many are in each species in &lt;code class=&quot;highlighter-rouge&quot;&gt;iris&lt;/code&gt;.&lt;/p&gt;
@@ -471,26 +470,26 @@ library(knitr)&lt;/p&gt;
  
  <entry>
    <title>R Package `neato`</title>
-   <link href="http://tierneyn.github.io/r/2015/03/09/r-package-neato/"/>
-   <updated>2015-03-09T00:00:00+10:00</updated>
-   <id>http://tierneyn.github.io/r/2015/03/09/r-package-neato</id>
+   <link href="http://njtierney.github.io/r/2015/03/09/r-package-neato/"/>
+   <updated>2015-03-09T00:00:00+01:00</updated>
+   <id>http://njtierney.github.io/r/2015/03/09/r-package-neato</id>
    <content type="html">&lt;p&gt;My workflow in R now is to make a function after I copy and paste some code more than once. Sometimes I find myself using these functions more than once, across different projects.&lt;/p&gt;
 
 &lt;p&gt;So I decided to make an R package with a few of these functions in it. I call it “neato”, in the vain hope that one day someone will find one of these functions and say: “neato!”, because hey, it’s pretty neat!&lt;/p&gt;
 
-&lt;p&gt;You can check neato out &lt;a href=&quot;https://github.com/tierneyn/neato&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can check neato out &lt;a href=&quot;https://github.com/njtierney/neato&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;I hope that the more I write into this package, the better I’ll get at writing R packages and the more I can contribute to the R community. I’d also like to thank people like &lt;a href=&quot;http://r-pkgs.had.co.nz/&quot;&gt;Hadley Wickham&lt;/a&gt; and &lt;a href=&quot;http://hilaryparker.com/2014/04/29/writing-an-r-package-from-scratch/&quot;&gt;Hilary Parker&lt;/a&gt; for writing materials to inspire me to contribute to R.&lt;/p&gt;
 
-&lt;p&gt;Let me know if you have any thoughts about it below with a comment, or even &lt;a href=&quot;https://github.com/tierneyn/neato&quot;&gt;on github&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Let me know if you have any thoughts about it below with a comment, or even &lt;a href=&quot;https://github.com/njtierney/neato&quot;&gt;on github&lt;/a&gt;&lt;/p&gt;
 </content>
  </entry>
  
  <entry>
    <title>Working Smoothly(er) from RMarkdown to Word.</title>
-   <link href="http://tierneyn.github.io/rmarkdown/r/2015/02/09/Working-Smoothlyer-from-RMarkdown-to-Word/"/>
-   <updated>2015-02-09T00:00:00+10:00</updated>
-   <id>http://tierneyn.github.io/rmarkdown/r/2015/02/09/Working-Smoothlyer-from-RMarkdown-to-Word</id>
+   <link href="http://njtierney.github.io/rmarkdown/r/2015/02/09/Working-Smoothlyer-from-RMarkdown-to-Word/"/>
+   <updated>2015-02-09T00:00:00+01:00</updated>
+   <id>http://njtierney.github.io/rmarkdown/r/2015/02/09/Working-Smoothlyer-from-RMarkdown-to-Word</id>
    <content type="html">&lt;p&gt;I’m a pretty huge fan of RMarkdown, as it is a great way for me to write my code and my text together. It seems really a rather a natural thing to do. You write about your analyses, and the code is there. You update some function or some data, and your figures and tables update with it.&lt;/p&gt;
 
 &lt;p&gt;In my head I feel as though I am working more efficiently. However there is some research to suggest that LaTeX users actually work slower than Word users. However, LaTeX users &lt;em&gt;feel better&lt;/em&gt; about using LaTeX. I would like to dub this the &lt;strong&gt;brown corduroy trousers effect&lt;/strong&gt;, quoting Robin Williams, who said something like:&lt;/p&gt;
@@ -539,9 +538,9 @@ library(knitr)&lt;/p&gt;
  
  <entry>
    <title>Fix for `gbm.plot`</title>
-   <link href="http://tierneyn.github.io/r/2014/04/22/gbm-plot-fix/"/>
-   <updated>2014-04-22T00:00:00+10:00</updated>
-   <id>http://tierneyn.github.io/r/2014/04/22/gbm-plot-fix</id>
+   <link href="http://njtierney.github.io/r/2014/04/22/gbm-plot-fix/"/>
+   <updated>2014-04-22T00:00:00+02:00</updated>
+   <id>http://njtierney.github.io/r/2014/04/22/gbm-plot-fix</id>
    <content type="html">&lt;p&gt;I’m currently in the process of writing a report using boosted regression trees.  I’m currently using guidelines provided by Elith et al &lt;a href=&quot;http://avesbiodiv.mncn.csic.es/estadistica/bt1.pdf&quot;&gt;here&lt;/a&gt;, and &lt;a href=&quot;http://cran.r-project.org/web/packages/dismo/vignettes/brt.pdf&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;They provide the function &lt;code class=&quot;highlighter-rouge&quot;&gt;gbm.step&lt;/code&gt;, which performs 10-fold cross validation on the boosted regression tree. It also has a nifty &lt;code class=&quot;highlighter-rouge&quot;&gt;gbm.plot&lt;/code&gt; function, producing partial dependence plots. Unforunately, it kept giving me this error:&lt;/p&gt;
@@ -560,9 +559,9 @@ library(knitr)&lt;/p&gt;
  
  <entry>
    <title>A Grammar of Models?</title>
-   <link href="http://tierneyn.github.io/r/statistics/2013/11/10/grammar-of-models/"/>
-   <updated>2013-11-10T00:00:00+10:00</updated>
-   <id>http://tierneyn.github.io/r/statistics/2013/11/10/grammar-of-models</id>
+   <link href="http://njtierney.github.io/r/statistics/2013/11/10/grammar-of-models/"/>
+   <updated>2013-11-10T00:00:00+01:00</updated>
+   <id>http://njtierney.github.io/r/statistics/2013/11/10/grammar-of-models</id>
    <content type="html">&lt;p&gt;I came across &lt;a href=&quot;http://statr.me/2013/09/a-conversation-with-hadley-wickham/&quot;&gt;this interview&lt;/a&gt; with Hadley Wickham, the creator of one of the most widely used R packages, &lt;code class=&quot;highlighter-rouge&quot;&gt;ggplot 2&lt;/code&gt;. I thought that this quote was interesting:&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -590,9 +589,9 @@ ggmodel(data = my.data,
  
  <entry>
    <title>Statistics for Journalists</title>
-   <link href="http://tierneyn.github.io/statistics/teaching/2013/11/01/statistics-for-journalists/"/>
-   <updated>2013-11-01T00:00:00+10:00</updated>
-   <id>http://tierneyn.github.io/statistics/teaching/2013/11/01/statistics-for-journalists</id>
+   <link href="http://njtierney.github.io/statistics/teaching/2013/11/01/statistics-for-journalists/"/>
+   <updated>2013-11-01T00:00:00+01:00</updated>
+   <id>http://njtierney.github.io/statistics/teaching/2013/11/01/statistics-for-journalists</id>
    <content type="html">&lt;p&gt;In November 2013 I had the opportunity to work with the Australian Science Media Centre (AusSMC) and produce a talk explaining numbers and statistics.  The deal was that it was 11 concepts on numbers and stats in 20 minutes.  The concepts being:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -628,9 +627,9 @@ ggmodel(data = my.data,
  
  <entry>
    <title>Statistics Can Do Anything?</title>
-   <link href="http://tierneyn.github.io/statistics/blag/2013/09/01/stats-can-do-anything/"/>
-   <updated>2013-09-01T00:00:00+10:00</updated>
-   <id>http://tierneyn.github.io/statistics/blag/2013/09/01/stats-can-do-anything</id>
+   <link href="http://njtierney.github.io/statistics/blag/2013/09/01/stats-can-do-anything/"/>
+   <updated>2013-09-01T00:00:00+02:00</updated>
+   <id>http://njtierney.github.io/statistics/blag/2013/09/01/stats-can-do-anything</id>
    <content type="html">&lt;p&gt;Sometimes people are fond of saying:&lt;/p&gt;
 &lt;blockquote&gt;&quot;Well, &lt;em&gt;you know&lt;/em&gt;, the thing with statistics is that you can get the statistics to say whatever you want.&quot;&lt;/blockquote&gt;
 &lt;p&gt;I think that this is the equivalent of saying:&lt;/p&gt;
@@ -676,9 +675,9 @@ ggmodel(data = my.data,
  
  <entry>
    <title>Monte Carlo Approximiation</title>
-   <link href="http://tierneyn.github.io/statistics/2013/06/26/monte-carlo-approx/"/>
-   <updated>2013-06-26T00:00:00+10:00</updated>
-   <id>http://tierneyn.github.io/statistics/2013/06/26/monte-carlo-approx</id>
+   <link href="http://njtierney.github.io/statistics/2013/06/26/monte-carlo-approx/"/>
+   <updated>2013-06-26T00:00:00+02:00</updated>
+   <id>http://njtierney.github.io/statistics/2013/06/26/monte-carlo-approx</id>
    <content type="html">&lt;p&gt;There are a lot of explanations of Monte Carlo approximation out there.&lt;/p&gt;
 
 &lt;p&gt;Here is one that worked for me.&lt;/p&gt;
@@ -747,9 +746,9 @@ ggmodel(data = my.data,
  
  <entry>
    <title>Define: Analytically</title>
-   <link href="http://tierneyn.github.io/statistics/2013/06/20/analytically/"/>
-   <updated>2013-06-20T00:00:00+10:00</updated>
-   <id>http://tierneyn.github.io/statistics/2013/06/20/analytically</id>
+   <link href="http://njtierney.github.io/statistics/2013/06/20/analytically/"/>
+   <updated>2013-06-20T00:00:00+02:00</updated>
+   <id>http://njtierney.github.io/statistics/2013/06/20/analytically</id>
    <content type="html">&lt;p&gt;What does the word &lt;em&gt;analytical&lt;/em&gt;, mean?&lt;/p&gt;
 
 &lt;p&gt;Wikipedia says:&lt;/p&gt;
@@ -783,9 +782,9 @@ ggmodel(data = my.data,
  
  <entry>
    <title>Humanity</title>
-   <link href="http://tierneyn.github.io/blag/2013/06/12/humanity/"/>
-   <updated>2013-06-12T00:00:00+10:00</updated>
-   <id>http://tierneyn.github.io/blag/2013/06/12/humanity</id>
+   <link href="http://njtierney.github.io/blag/2013/06/12/humanity/"/>
+   <updated>2013-06-12T00:00:00+02:00</updated>
+   <id>http://njtierney.github.io/blag/2013/06/12/humanity</id>
    <content type="html">&lt;p&gt;A friend of mine posted an interesting article on facebook today - &lt;a href=&quot;http://theconversation.com/honing-the-mind-and-nurturing-the-soul-why-the-humanities-are-underrated-15027&quot;&gt;“Honing the mind and nurturing the soul: why the humanities are underrated”&lt;/a&gt;.  The piece is written by Professor Steven Schwartz, a distinguished academic currently residing at Oxford University after holding Vice Chancellor positions in Australia and the UK.&lt;/p&gt;
 
 &lt;p&gt;The article tells of Schwartz seeing the return of mature age students to university, not to study a doctorate in accounting or business, but the arts and humanities.  As he put it, these students were returning to “fulfil a life-long desire to immerse themselves in the arts or humanities” after years in another profession.  Schwartz makes the point that you do not need to make money to then spend it later in life - doing the ‘degree they have always wanted to do’ -  you can study the humanities &lt;em&gt;and&lt;/em&gt; make money.&lt;/p&gt;

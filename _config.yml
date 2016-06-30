@@ -15,12 +15,12 @@ name:             njtierney
 title:            Nicholas Tierney
 tagline:          'Original witty remark'
 description:      'Statistics and R Enthusiast'
-url:              http://tierneyn.github.io
+url:              http://njtierney.github.io
 baseurl:          
 
 author:
   name:           'Nicholas Tierney'
-  url:            tierneyn.github.io
+  url:            njtierney.github.io
 
 paginate:         100
 paginate_path:    "blog/page:num/"

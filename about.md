@@ -18,9 +18,9 @@ title: About
 
 <p>This website exists so I can write about what I do and engage in dialogue with statisticians programmers, and whoever else is interested. When I write R related posts, they are syndicated on <a href="http://www.r-bloggers.com/">R-bloggers</a>.</p>	
 
-<p>Outside my PhD, I enjoy rock climbing, playing guitar, <a href="https://www.flickr.com/photos/134851297@N04/">taking photos</a>, and coffee.</p>
+<p>Outside my PhD, I enjoy rock climbing, playing guitar, <a href="https://www.flickr.com/photos/134851297@N04/">taking photos</a>, and making and drinking coffee.</p>
 
-<p>At the moment I'm transitioning <a href="http://njtierney.com">my website</a> from wordpress to <a href="http://jekyllrb.com/">Jekyll</a>. This new website is backed by <a href ="http://www.github.com" >GitHub</a>, using the <a href = "https://github.com/poole/lanyon" >lanyon</a> theme.
+<p>I've recently moved my website from wordpress to <a href="http://jekyllrb.com/">Jekyll</a>. This new website is hosted by <a href ="http://www.github.com" >GitHub</a>, using the <a href = "https://github.com/poole/lanyon" >lanyon</a> theme.
 
 <p>Feel free to send me an email at <a href="mailto:nicholas.tierney@gmail.com">nicholas.tierney@gmail.com</a></p>
 

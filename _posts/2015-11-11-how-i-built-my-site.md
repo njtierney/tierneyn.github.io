@@ -46,7 +46,7 @@ And that's about it.
 
 ## Migrating material from wordpress to jekyll
 
-There are [tools for migrating to jekyll](http://import.jekyllrb.com/docs/home/), but I found them a little hard to follow, probably because I only really understand how to program in R. So, I ended up doing something that I hate doing...and copied and pasted (copypasta'd) each post individually. Then I tinkered with them. Then I put them into the [_posts](https://github.com/tierneyn/tierneyn.github.io/tree/master/_posts) directory. I allowed myself to do this as I didn't have that many posts on my original website, so I figured it wasn't that bad. Aaand, I didn't feel like diving into another rabbit hole of xml.
+There are [tools for migrating to jekyll](http://import.jekyllrb.com/docs/home/), but I found them a little hard to follow, probably because I only really understand how to program in R. So, I ended up doing something that I hate doing...and copied and pasted (copypasta'd) each post individually. Then I tinkered with them. Then I put them into the [_posts](https://github.com/njtierney/tierneyn.github.io/tree/master/_posts) directory. I allowed myself to do this as I didn't have that many posts on my original website, so I figured it wasn't that bad. Aaand, I didn't feel like diving into another rabbit hole of xml.
 
 ## Customizations
 
@@ -78,13 +78,13 @@ Again, following advice from [Joshua lande's blog post](http://joshualande.com/j
 
 Using Google Analytics allows you to see who is visiting your site, from where, and all that stuff that WordPress has built into it. 
 
-When I started, I didn't really know what google analytics was, so I went to their [homepage](http://www.google.com/analytics/)...found the link "sign up for analytics", and followed the prompts - left all the boxes ticked (Google has my soul anyway), and accepted the Ts and Cs. Google then gives me a tracking code, with a nice friendly helpful box, stating: "this is your tracking code". I then inserted this into a new file, [google_analytics.html](https://github.com/tierneyn/tierneyn.github.io/blob/master/_includes/google_analytics.html), added the appropriate coce to my [default.html](https://github.com/tierneyn/tierneyn.github.io/blob/master/_layouts/default.html)
+When I started, I didn't really know what google analytics was, so I went to their [homepage](http://www.google.com/analytics/)...found the link "sign up for analytics", and followed the prompts - left all the boxes ticked (Google has my soul anyway), and accepted the Ts and Cs. Google then gives me a tracking code, with a nice friendly helpful box, stating: "this is your tracking code". I then inserted this into a new file, [google_analytics.html](https://github.com/njtierney/tierneyn.github.io/blob/master/_includes/google_analytics.html), added the appropriate coce to my [default.html](https://github.com/njtierney/tierneyn.github.io/blob/master/_layouts/default.html)
 
 ## Other little customizations:
 
 **Markdown tables**
 
-You can allow simple tables by changing your [_yaml](https://github.com/tierneyn/tierneyn.github.io/blob/master/_config.yml) code to select the extension you want. Credit to [Nicole White's blog](https://github.com/nicolewhite/nicolewhite.github.io), where I saw this first.
+You can allow simple tables by changing your [_yaml](https://github.com/njtierney/tierneyn.github.io/blob/master/_config.yml) code to select the extension you want. Credit to [Nicole White's blog](https://github.com/nicolewhite/nicolewhite.github.io), where I saw this first.
 
 This means that the output from the R command `knitr::kable(head(iris))`:
 
@@ -115,13 +115,13 @@ There are also all heaps of other extensions you can add to redcarpet. You can r
 
 **Changing font**
 
-I looked up some awesome [font pairings](fontpair.co), and chose Hind for the header Open Sans for the text. I then inserted some code [into the top lines of the css](https://github.com/tierneyn/tierneyn.github.io/public/css/lanyon.css) to import them, and then added them to the appropriate parts of the css. I also changed the monospace font that is used for code to `Monaco`, in [poole.css](https://github.com/tierneyn/tierneyn.github.io/public/css/poole.css).
+I looked up some awesome [font pairings](fontpair.co), and chose Hind for the header Open Sans for the text. I then inserted some code [into the top lines of the css](https://github.com/njtierney/tierneyn.github.io/public/css/lanyon.css) to import them, and then added them to the appropriate parts of the css. I also changed the monospace font that is used for code to `Monaco`, in [poole.css](https://github.com/njtierney/tierneyn.github.io/public/css/poole.css).
 
 **Adding in excerpts**
 
-I wanted the main blog page to just have excerpts from the blog. This is really easy - you just change `{{ post.content }}` to `{{ post.excerpt }}` in [default.html](https://github.com/tierneyn/tierneyn.github.io/_layouts/default.html).
+I wanted the main blog page to just have excerpts from the blog. This is really easy - you just change `{{ post.content }}` to `{{ post.excerpt }}` in [default.html](https://github.com/njtierney/tierneyn.github.io/_layouts/default.html).
 
-There a few other little things that I did, if you want to see how it all works, just check out my [GitHub repo](https://github.com/tierneyn/tierneyn.github.io).
+There a few other little things that I did, if you want to see how it all works, just check out my [GitHub repo](https://github.com/njtierney/tierneyn.github.io).
 
 # Getting jekyll to work with RMarkdown
 

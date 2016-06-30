@@ -24,7 +24,7 @@ PhD Candidate in Statistics at QUT
 
 ### Currently
 
-I'm a PhD candidate in my 3rd year of a 4 year program through the Industry Doctoral Training Centre (IDTC) at the Quensland University of Technology (QUT) and am due to finish in May 2017. My PhD project involves the statistical analysis of Occupational Health Surveillance data.
+I'm a PhD candidate in my final year of a 4 year program through the Industry Doctoral Training Centre (IDTC) at the Quensland University of Technology (QUT) and am due to finish in May 2017. My PhD project involves the statistical analysis of Occupational Health Surveillance data.
 
 
 
@@ -49,7 +49,6 @@ I'm a PhD candidate in my 3rd year of a 4 year program through the Industry Doct
 `2016` **Tierney, NJ.** et al. "Case Study Questions and Answers: Approaches using Accessible Methodology." _PlosOne_. __In Preparation__
 
 `2015` [**Tierney, NJ.** et al. “Using Decision Trees to Understand Structure in Missing Data.” _BMJ Open_ 5 (6).  doi:10.1136/bmjopen-2014-007450](http://bmjopen.bmj.com/content/5/6/e007450.full)
-
 
 ### Posters
 
@@ -84,6 +83,8 @@ I'm a PhD candidate in my 3rd year of a 4 year program through the Industry Doct
 
 `2013-17` APA ($24,500 Annually for 4 years) ; IDTC Top Up ($10,000 Annually for 4 years)
 
+`2016` ISBA Travel Support Grant (£460) provided by the United States Office of Naval Research.
+
 `2016` [SSAI](http://www.statsoc.org.au/) Fully sponsored position at ["Science Meets Parliament"](http://scienceandtechnologyaustralia.org.au/focus-on/science-meets-parliament-2016/), Canberra, Australia
 
 `2015` Sessional Teaching and Reflection Showcase (STARS) __Overall University Winner__
@@ -101,11 +102,13 @@ I'm a PhD candidate in my 3rd year of a 4 year program through the Industry Doct
 
 `2013-` [SSAI](http://www.statsoc.org.au/) Assistant Chair of Biostatistics
 
-`2013-` [SSAI](http://www.statsoc.org.au/) Young Statisticians Representative for Queensland
+`2013-16` [SSAI](http://www.statsoc.org.au/) Young Statisticians Representative for Queensland
 
 `2014` Meeting Chair for [Bayesian Research and Applications Group (BRAG), QUT](https://bragqut.wordpress.com/)
 
 ### Extra-Curricular
+
+`2016` Lead Organier for Australia's first [rOpenSci Unconference](http://auunconf.ropensci.org/) 
 
 `2015-` Archivist and Magazine Editor of [UQMC](http://uqmc.org)
 
